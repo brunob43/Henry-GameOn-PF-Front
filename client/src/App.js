@@ -1,10 +1,10 @@
 import './App.css';
-import { Route, useLocation } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { Home, About, Contact, CreateGame, Docs, Donation, Games, Register, ShareInfo} from "./views";
-import NavBar from "./component/NavBar"
+import NavBar from "./component/NavBar/NavBar"
 
 function App() {
-    const location = useLocation();
+    // const location = useLocation();
 
     return(
         <div>
