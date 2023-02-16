@@ -14,11 +14,7 @@ const Paginated = ()=>{
 
   const [gamesPerPage] = useState(2);
 
-  useEffect(()=>{
-    if(!allGames.length){
-      dispatch(getGames())
-    }
-  },[dispatch,allGames])
+  
 
   const handleClick = (event) => {     
     dispatch(setCurrentPage(Number(event.target.id)));
