@@ -5,9 +5,11 @@ const CardContainerGame = (game) => {
     return(
         <div>
             {game.map((g) => {
-                return <CardGame 
+                return <CardGame
+                    image = {g.image} 
                     name = {g.name}
-                    image = {g.image}
+                    topic = {g.topic}
+                    dificulty = {g.dificulty}
                     key = {g.id}
                     id = {g.id}
                 />

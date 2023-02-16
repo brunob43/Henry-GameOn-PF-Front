@@ -3,12 +3,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 700px;
+    width: 600px;
 }
 
 [id="cards"]{
     display: flex;
     flex-wrap: wrap;
     margin: 5px;
-    width: 150px;
+    width: 120px;
 }
