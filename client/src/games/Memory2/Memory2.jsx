@@ -1,82 +1,82 @@
 import white from './images/white.png'
 import blank from './images/blank.png'
-import js from "./images/js.png"
-import css from './images/css3.png'
-import html from './images/html5.png'
-import git from './images/git.png'
-import github from './images/github.png'
-import node from './images/node.png'
-import vsc from './images/vsc.png'
-import npm from './images/npm.png'
-import styles from './Memory.module.css'
+import postgresql from "./images/postgresql.png"
+import express from './images/express.png'
+import sequelize from './images/sequelize.png'
+import react from './images/react.png'
+import sql from './images/sql.png'
+import redux from './images/redux.png'
+import v8 from './images/v8.png'
+import ts from './images/ts.png'
+import styles from './Memory2.module.css'
 
-const Memory = () =>{
+const Memory2 = () =>{
   document.addEventListener('DOMContentLoaded', () => {
     //card options
     const cardArray = [
       {
-        name: 'javascript',
-        img: js
+        name: 'postgresql',
+        img: postgresql
       },
       {
-        name: 'css',
-        img: css
+        name: 'express',
+        img: express
       },
       {
-        name: 'html',
-        img: html
+        name: 'sequelize',
+        img: sequelize
       },
       {
-        name: 'git',
-        img: git
+        name: 'react',
+        img: react
       },
       {
-        name: 'github',
-        img: github
+        name: 'sql',
+        img: sql
       },
       {
-        name: 'nodejs',
-        img: node
+        name: 'redux',
+        img: redux
       },
       {
-        name: 'vsc',
-        img: vsc
+        name: 'v8',
+        img: v8
       },
       {
-        name: 'npm',
-        img: npm
+        name: 'typescript',
+        img: ts
       },
       {
-        name: 'javascript',
-        img: js
+        name: 'postgresql',
+        img: postgresql
       },
       {
-        name: 'css',
-        img: css
+        name: 'express',
+        img: express
       },
       {
-        name: 'html',
-        img: html
+        name: 'sequelize',
+        img: sequelize
       },
       {
-        name: 'git',
-        img: git
+        name: 'react',
+        img: react
       },
       {
-        name: 'github',
-        img: github
+        name: 'sql',
+        img: sql
       },
       {
-        name: 'nodejs',
-        img: node
+        name: 'redux',
+        img: redux
       },
       {
-        name: 'vsc',
-        img: vsc
+        name: 'v8',
+        img: v8
       },
       {
-        name: 'npm',
-        img: npm
+        name: 'typescript',
+        img: ts
       },
     ]
       
@@ -170,7 +170,7 @@ const Memory = () =>{
         <button onClick={restart}>Start New Game</button>
         <button onClick={restart}>restart</button>
       </div>
-      
+
       <div>
         <h3>Score: <span id="result"></span></h3>
         <h3>Try: <span id="try"></span></h3>
@@ -184,4 +184,4 @@ const Memory = () =>{
 
 }
 
-export default Memory
+export default Memory2
