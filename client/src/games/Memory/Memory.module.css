@@ -1,0 +1,14 @@
+
+[id="grid"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 700px;
+}
+
+[id="cards"]{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    width: 150px;
+}

@@ -1,6 +1,6 @@
 import './App.css';
 import { Route } from 'react-router-dom';
-import { Home, About, Contact, CreateGame, Docs, Donation, Games, Register, ShareInfo} from "./views";
+import { Home, About, Contact, CreateGame, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
 import NavBar from "./component/NavBar/NavBar"
 
 function App() {
@@ -20,6 +20,10 @@ function App() {
 
             <Route exact path="/games/create">
                 <CreateGame />
+            </Route>
+
+            <Route exact path='/games/:id'>
+                <GameDetail />
             </Route>
 
             <Route exact path="/about">
