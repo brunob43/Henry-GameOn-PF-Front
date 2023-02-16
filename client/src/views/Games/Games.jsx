@@ -21,7 +21,6 @@ const Games= () =>{
           dispatch(getGames())
         }
       },[dispatch,allGames])
-      console.log(allGames)
 //------------------------------------------HANDLERS-------------------------------------------
 
     let disabledSelect = !(!filterSelect.topic.length) || !(!filterSelect.dificulty.length);
@@ -100,12 +99,12 @@ const Games= () =>{
             <div>
     
                 <div>
-                    <select onChange={handleFilterOrder} defaultValue="asc">
-                        <option value="def">Default</option>
+                    <select onChange={handleFilterOrder} defaultValue="default">
+                        <option value="default">Default</option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
-                        <option value="strongest">Popular</option>
-                        <option value="weakest">Unpopular</option>
+                        <option value="popular">Popular</option>
+                        <option value="unpopular">Unpopular</option>
                     </select>                        
                 </div>
 
