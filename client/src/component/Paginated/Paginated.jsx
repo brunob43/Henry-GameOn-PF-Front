@@ -8,7 +8,7 @@ const Paginated = ()=>{
 
   const dispatch = useDispatch();
 
-  const allGames = useSelector((state) => state.allGames);
+  const allGames = useSelector((state) => state.games);
 
   const currentPage = useSelector((state) => state.currentPage);
 

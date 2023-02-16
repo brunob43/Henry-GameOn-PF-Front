@@ -17,7 +17,7 @@ const NavBar = () =>{
 
             <NavLink to="/donation"><button>DONATION</button></NavLink>
 
-            <NavLink to="https://www.soyhenry.com">{logo}</NavLink>
+            <a href="https://www.soyhenry.com"><img src={logo} alt="Henry-Logo" height="15px"></img></a>
 
             <button>dark mode</button>            
         </nav>
