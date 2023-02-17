@@ -1,0 +1,71 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    width: 100%;
+    padding: 3% 0;
+}
+
+.pages{
+    background-color: rgba(36, 36, 36, 0.548);
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    color: rgb(255, 255, 0);
+    align-items: center;
+    width: 1000px;
+    padding-right: 3%;
+    border-radius: 30px;
+}
+
+.button{
+    background-color: rgb(255, 255, 0);
+    border-radius: 30px;
+    padding-right: 50%;
+    transition: 400ms;
+}
+
+.button:hover{
+    cursor: pointer;
+    transition: 400ms;
+    transform: scale(130%);
+}
+
+[id="next"]{
+    padding-right: 20%;
+    padding-left: 50%;
+}
+
+.arrow{
+    width: 25px;
+}
+
+.number{
+    padding: 1%;
+    font-size: 30px;
+    background-color: rgba(31, 31, 31, 0.589);
+    transition: 200ms;
+}
+
+.number:hover{
+    transition: 200ms;
+    cursor: pointer;
+    transform: scale(120%);
+    border-radius: 20px;
+}
+
+.active{
+    padding: 1%;
+    transform: scale(120%);
+    font-size: 30px;
+    background-color: rgba(255, 255, 0, 0.205);
+    border-radius: 20px;
+}
+
+.active:hover{
+    cursor: pointer;
+}

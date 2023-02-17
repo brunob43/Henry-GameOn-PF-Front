@@ -2,7 +2,7 @@ import Paginated from "component/Paginated/Paginated";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByDificulty, filterByName, filterByTopic, filterByViews, getGames, setCurrentPage } from "redux/actions";
-
+import style from "./Games.module.css"
 
 const Games= () =>{
     const dispatch = useDispatch();
@@ -91,14 +91,14 @@ const Games= () =>{
     }
 
     return(
-        <div>
-            <div>
+        <div className={style.main}>
+            <div className={style.title}>
              <h2>GAMES</h2>   
             </div>
             
-            <div>
+            <div className={style.filters}>
     
-                <div>
+                <div className={style.orderFilter}>
                     <select onChange={handleFilterOrder} defaultValue="default">
                         <option value="default">Default</option>
                         <option value="asc">A-Z</option>
@@ -108,8 +108,8 @@ const Games= () =>{
                     </select>                        
                 </div>
 
-                <div> 
-                    <div>
+                <div className={style.filtersContainer}> 
+                    <div className={style.selectButtons}>
                         <select disabled={disabledSelect} onChange={handleFilterTopic} defaultValue="all">
                             <option value="all">All Topics</option>
                             {topics.map(topic => {
@@ -127,7 +127,7 @@ const Games= () =>{
                             )
                         })}                            
                     </div>
-                    <div>
+                    <div className={style.selectButtons} id="difFilter">
                         <select disabled={disabledSelect} onChange={handleFilterDificulty} defaultValue="all">
                             <option value="all">All Dificulties</option>
                             {dificulties.map(dificulty => {
@@ -139,7 +139,7 @@ const Games= () =>{
                             return (
                                 <div>
                                     <div key={index}>
-                                        <button name={dificulty} key={dificulty} onClick={handleDeleteFilter}>{dificulty}</button>
+                                        <button name={dificulty} key={dificulty} onClick={handleDeleteFilter}>{dificulty.toUpperCase()}</button>
                                     </div>
                                 </div>
                             )

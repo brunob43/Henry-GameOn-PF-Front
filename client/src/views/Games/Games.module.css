@@ -1,0 +1,69 @@
+.main{
+background-image: url(../../styles/images/background.jpg);
+display: flex;
+flex-direction: column;
+align-items: center;
+color: rgb(255, 255, 0);
+}
+
+.title{
+    font-size: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 10px;
+}
+
+.title:hover{
+    cursor: default;
+}
+
+.filters{
+    display: flex;
+    justify-content: space-around;
+    width: 74%;
+    align-items: center;
+}
+
+.filters select{
+    background-color: rgb(255, 255, 0);
+    border-radius: 20px;
+    padding: 1%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.filters select:hover{
+    cursor: pointer;
+}
+
+.filters button{
+    background-color: rgb(255, 255, 0);
+    border-radius: 30px;
+    padding: 3%;
+    width: 110%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.filters button:hover{
+    cursor: pointer;
+    background-color: rgb(151, 151, 0);;
+}
+
+.filtersContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 65%;
+    padding-left: 30%;
+}
+
+.selectButtons{
+    display:flex;
+    justify-content: space-between;
+    width: 46%;
+}
+
+[id="difFilter"]{
+    width: 32%;
+}
