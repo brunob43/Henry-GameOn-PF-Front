@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByDificulty, filterByName, filterByTopic, filterByViews, getGames, setCurrentPage } from "redux/actions";
 import style from "./Games.module.css"
+import SearchBarGame from "component/SearchBar/SearchBarGame";
 
 const Games= () =>{
     const dispatch = useDispatch();
@@ -95,7 +96,11 @@ const Games= () =>{
             <div className={style.title}>
              <h2>GAMES</h2>   
             </div>
-            
+
+            <div className={style.searchBar}>
+             <SearchBarGame/>   
+            </div>
+
             <div className={style.filters}>
     
                 <div className={style.orderFilter}>
@@ -146,10 +151,13 @@ const Games= () =>{
                         })}                               
                     </div>
                 </div>
-            </div>
 
+            
+
+            </div>
             <Paginated />
         </div>
+
     )
 }
 

@@ -1,6 +1,7 @@
 import CardGame from "../CardGame/CardGame";
 import style from "./CardContainerGame.module.css"
 
+
 const CardContainerGame = (game) => {
 
     return(

@@ -1,9 +1,15 @@
+import React from "react";
+import style from "./Contact.module.css"
+
+
+
 const Contact = () =>{
     return(
-        <div>
-            <p>Hola</p>
-        </div>
+
+        <h1>hola</h1>
     )
+
 }
+
 
 export default Contact;
