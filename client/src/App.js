@@ -46,7 +46,9 @@ function App() {
 
             <Route exact path="/donation">
                 <Donation />
-            </Route>       
+            </Route>
+
+            {/* <Footer />        */}
         </div>
 
     )

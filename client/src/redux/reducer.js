@@ -157,7 +157,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_TOPIC:
       const gamesFT = [...state.games]
       let gamesByTopic = []
-      gamesFT.forEach(game => game.topic === action.payload ? gamesByTopic.push(game.topic) : false)
+      gamesFT.forEach(game => game.topic === action.payload ? gamesByTopic.push(game) : false)
       return {
           ...state,
           games: gamesByTopic,
@@ -167,7 +167,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_DIFICULTY:
       const gamesFD = [...state.allGames]
       let gamesByDificulty = []
-      gamesFD.forEach(game => game.dificulty === action.payload ? gamesByDificulty.push(game.dificulty) : false)
+      gamesFD.forEach(game => game.dificulty === action.payload ? gamesByDificulty.push(game) : false)
       return {
         ...state,
         games: gamesByDificulty,

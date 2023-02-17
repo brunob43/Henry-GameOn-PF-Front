@@ -8,7 +8,7 @@ import sql from './images/sql.png'
 import redux from './images/redux.png'
 import v8 from './images/v8.png'
 import ts from './images/ts.png'
-import styles from './Memory2.module.css'
+import style from './Memory2.module.css'
 
 const Memory2 = () =>{
   document.addEventListener('DOMContentLoaded', () => {
@@ -165,15 +165,15 @@ const Memory2 = () =>{
   };
       
   return(
-    <div>
-      <div>
-        <button onClick={restart}>Start New Game</button>
-        <button onClick={restart}>restart</button>
+    <div className={style.main}>
+      <div className={style.buttons}>
+        <button className={style.button} onClick={restart}>Start New Game</button>
+        <button className={style.button} onClick={restart}>restart</button>
       </div>
 
-      <div>
+      <div className={style.points}>
         <h3>Score: <span id="result"></span></h3>
-        <h3>Try: <span id="try"></span></h3>
+        <h3>Try: <span id="try"></span></h3>  
       </div>
       
       <div id="grid">

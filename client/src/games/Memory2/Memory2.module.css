@@ -1,0 +1,17 @@
+.buttons{
+    margin: 3% 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+}
+
+.button{
+    font-size: 20px;
+}
+
+.points{
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 0;
+}

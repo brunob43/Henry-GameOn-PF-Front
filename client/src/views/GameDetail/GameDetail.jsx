@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetailFromState } from "../../redux/actions";
 import gamesArray from "games/gamesIndex";
+import style from "./GameDetail.module.css"
 
 const GameDetail = () =>{
     const { id } = useParams();
@@ -17,8 +18,8 @@ const GameDetail = () =>{
     const game = gamesArray.filter((game) => game.id.toString() === id)
 
     return(
-        <div>
-            <div>
+        <div className={style.main}>
+            <div className={style.title}>
                 {gameDetail[0].name}
             </div>
 

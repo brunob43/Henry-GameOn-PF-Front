@@ -1,10 +1,11 @@
 import CardGame from "../CardGame/CardGame";
+import style from "./CardContainerGame.module.css"
 
 
 const CardContainerGame = (game) => {
 
     return(
-        <div>
+        <div className={style.container}>
             {game.map((g) => {
                 return <CardGame
                     image = {g.image} 
