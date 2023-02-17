@@ -1,25 +1,24 @@
 import './App.css';
 import { Route } from 'react-router-dom';
-import { Home, About, Contact, CreateGame, Docs, Donation, Games, Register, ShareInfo} from "./views";
+import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo} from "./views";
 import NavBar from "./component/NavBar/NavBar"
+import axios from 'axios';
+import Footer from 'component/Footer/Footer';
+axios.defaults.baseURL= 'http://localhost:3001/';
 
 function App() {
-    // const location = useLocation();
+    
+    //const location = useLocation();
+    
 
     return(
         <div>
             <NavBar />
 
-            <Route exact path='/'>
-                <Home />
-            </Route>
+            <Route exact path='/' render ={() => <Home />} />
 
             <Route exact path='/games'>
                 <Games />
-            </Route>
-
-            <Route exact path="/games/create">
-                <CreateGame />
             </Route>
 
             <Route exact path="/about">
@@ -44,7 +43,7 @@ function App() {
 
             <Route exact path="/donation">
                 <Donation />
-            </Route>            
+            </Route>       
         </div>
 
     )
