@@ -5,6 +5,8 @@ export const FILTER_BY_NAME = "FILTER_BY_NAME";
 export const FILTER_BY_VIEWS = "FILTER_BY_VIEWS";
 export const FILTER_BY_TOPIC = "FILTER_BY_TOPIC";
 export const FILTER_BY_DIFICULTY = "FILTER_BY_DIFICULTY";
+export const FILTER_BY_TOPIC_SELECT = "FILTER_BY_TOPIC_SELECT";
+export const FILTER_BY_DIFICULTY_SELECT = "FILTER_BY_DIFICULTY_SELECT";
 
 export function getGames() {
   return async function (dispatch) {
@@ -71,7 +73,7 @@ export const filterByViews = (payload) => {
 };
 
 export const filterByTopic = (payload) => {
-  return async function (dispatch) {
+  return function (dispatch) {
     dispatch({
       type: FILTER_BY_TOPIC,
       payload,
@@ -83,6 +85,24 @@ export const filterByDificulty = (payload) => {
   return function (dispatch) {
     dispatch({
       type: FILTER_BY_DIFICULTY,
+      payload,
+    });  
+  };
+};
+
+export const filterByTopicSelect = (payload) => {
+  return function (dispatch) {
+    dispatch({
+      type: FILTER_BY_TOPIC_SELECT,
+      payload,
+    });  
+  };
+};
+
+export const filterByDificultySelect = (payload) => {
+  return function (dispatch) {
+    dispatch({
+      type: FILTER_BY_DIFICULTY_SELECT,
       payload,
     });  
   };

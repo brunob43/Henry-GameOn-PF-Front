@@ -57,6 +57,8 @@ const initialState = {
   dificulty: "medium",
   views: 18,
 }],
+  gamesTopic: [],
+  gamesDif: [],
   topics: ["Languages", "String Methods", "Code"],
   dificulties: ["easy", "medium", "hard"],
   currentPage: 1,
@@ -165,7 +167,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case FILTER_BY_DIFICULTY:
-      const gamesFD = [...state.allGames]
+      const gamesFD = [...state.games]
       let gamesByDificulty = []
       gamesFD.forEach(game => game.dificulty === action.payload ? gamesByDificulty.push(game) : false)
       return {
@@ -173,6 +175,26 @@ const rootReducer = (state = initialState, action) => {
         games: gamesByDificulty,
         error: gamesByDificulty.length > 0 ? false : `There are no games with ${action.payload} dificulty`
       }
+
+    case FILTER_BY_TOPIC:
+      const gamesFTS = [...state.allGames]
+      let gamesByTopicS = []
+      gamesFTS.forEach(game => game.topic === action.payload ? gamesByTopicS.push(game) : false)
+      return {
+          ...state,
+          games: gamesByTopicS,
+          error: gamesByTopicS.length > 0 ? false : `There are no games with the "${action.payload}" topic`
+        }
+  
+      case FILTER_BY_DIFICULTY:
+        const gamesFDS = [...state.allGames]
+        let gamesByDificultyS = []
+        gamesFDS.forEach(game => game.dificulty === action.payload ? gamesByDificultyS.push(game) : false)
+        return {
+          ...state,
+          games: gamesByDificultyS,
+          error: gamesByDificultyS.length > 0 ? false : `There are no games with ${action.payload} dificulty`
+        }
 
     default: return {...state}
   }

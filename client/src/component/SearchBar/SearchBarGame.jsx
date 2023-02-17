@@ -16,14 +16,14 @@ export default function SearchBarGame() {
 
     function handleSubmit(e) {
         e.preventDefault()
-       // dispatch(getGamebyName(name))
+       // dispatch(getGamebyName(name))  
     }
 
     return (
         <div style={{ marginRight: '20px' }}>
             <input
                 type="text"
-                placeholder="Buscar..."
+                placeholder="Search game..."
                 onChange={(e) => handlerInputChange(e)}
                 style={{
                     marginLeft: '20px',
@@ -47,7 +47,8 @@ export default function SearchBarGame() {
                     color: 'black',
                     textDecoration: 'none',
                 }}
-            >Buscar</button>
+                disabled={name===""}
+            >Search</button>
         </div>
     )
 }

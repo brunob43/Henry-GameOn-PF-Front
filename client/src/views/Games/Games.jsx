@@ -1,7 +1,7 @@
 import Paginated from "component/Paginated/Paginated";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByDificulty, filterByName, filterByTopic, filterByViews, getGames, setCurrentPage } from "redux/actions";
+import { filterByDificulty, filterByDificultySelect, filterByName, filterByTopic, filterByTopicSelect, filterByViews, getGames, setCurrentPage } from "redux/actions";
 import style from "./Games.module.css"
 import SearchBarGame from "component/SearchBar/SearchBarGame";
 
@@ -11,6 +11,8 @@ const Games= () =>{
     const allGames = useSelector(state => state.games);
     const topics = useSelector(state => state.topics);
     const dificulties = useSelector(state => state.dificulties);
+    // const gamesTopic = useSelector(state => state.gamesTopic)
+    // const gamesDif = useSelector(state => state.gamesDif)
 
     const [filterSelect, setFilterSelect] = useState({
         topic: [], 
@@ -24,10 +26,10 @@ const Games= () =>{
       },[dispatch,allGames])
 //------------------------------------------HANDLERS-------------------------------------------
 
-    let disabledSelect = !(!filterSelect.topic.length) || !(!filterSelect.dificulty.length);
+    let disabledSelectTopic = !(!filterSelect.topic.length);
+    let disabledSelectDif = !(!filterSelect.dificulty.length);
 
     const handleFilterTopic = (event) => {
-        event.preventDefault();
         const value = event.target.value;
 
         dispatch(filterByTopic(value));
@@ -50,14 +52,33 @@ const Games= () =>{
     };
 
     const handleDeleteFilter = (event) => {
+        // const valueDif = filterSelect.dificulty;
+        // console.log(valueDif);
+        // const valueTopic = filterSelect.topic;
+        // console.log(valueTopic);
+        // const valueBtn = event.target.value;
+        // console.log(valueBtn);
 
-        setFilterSelect({
-            topic: [],
-            dificulty: [],
-        })
-
-        window.location.reload();
-        dispatch(getGames())
+        // if(valueDif.length > 0 && valueTopic.length > 0 && valueBtn == valueDif){
+        //     setFilterSelect({
+        //         ...filterSelect,
+        //         dificulty: [],
+        //     });
+        //     dispatch(filterByTopicSelect(valueTopic));
+        // }else if(valueDif.length >0 && valueTopic.length >0 && valueBtn == valueTopic){
+        //     setFilterSelect({
+        //         ...filterSelect,
+        //         topic: [],
+        //     });
+        //     dispatch(filterByDificultySelect(valueDif));
+        // }else{
+            setFilterSelect({
+                topic: [],
+                dificulty: [],
+            });
+            window.location.reload();        
+            dispatch(getGames());
+        // } 
     }
 
     const handleFilterOrder = (event) => {
@@ -115,7 +136,7 @@ const Games= () =>{
 
                 <div className={style.filtersContainer}> 
                     <div className={style.selectButtons}>
-                        <select disabled={disabledSelect} onChange={handleFilterTopic} defaultValue="all">
+                        <select disabled={disabledSelectTopic} onChange={handleFilterTopic} defaultValue="all">
                             <option value="all">All Topics</option>
                             {topics.map(topic => {
                             return <option value={topic} key={topic}>{topic}</option>
@@ -126,14 +147,14 @@ const Games= () =>{
                             return (
                                 <div>
                                     <div key={index}>
-                                        <button name={topic} key={topic} onClick={handleDeleteFilter}>{topic}</button>
+                                        <button value={topic} name={topic} key={topic} onClick={handleDeleteFilter}>{topic}</button>
                                     </div>
                                 </div>
                             )
                         })}                            
                     </div>
                     <div className={style.selectButtons} id="difFilter">
-                        <select disabled={disabledSelect} onChange={handleFilterDificulty} defaultValue="all">
+                        <select disabled={disabledSelectDif} onChange={handleFilterDificulty} defaultValue="all">
                             <option value="all">All Dificulties</option>
                             {dificulties.map(dificulty => {
                                 return <option value={dificulty} key={dificulty}>{dificulty.toUpperCase()}</option>
@@ -144,7 +165,7 @@ const Games= () =>{
                             return (
                                 <div>
                                     <div key={index}>
-                                        <button name={dificulty} key={dificulty} onClick={handleDeleteFilter}>{dificulty.toUpperCase()}</button>
+                                        <button  value={dificulty} name={dificulty} key={dificulty} onClick={handleDeleteFilter}>{dificulty.toUpperCase()}</button>
                                     </div>
                                 </div>
                             )

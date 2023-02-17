@@ -61,7 +61,7 @@
 .filtersContainer{
     display: flex;
     justify-content: space-between;
-    width: 65%;
+    width: 85%;
     padding-left: 30%;
 }
 
@@ -72,5 +72,5 @@
 }
 
 [id="difFilter"]{
-    width: 32%;
+    width: 34%;
 }
