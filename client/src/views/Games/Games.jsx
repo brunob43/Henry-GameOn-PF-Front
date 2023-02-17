@@ -2,7 +2,7 @@ import Paginated from "component/Paginated/Paginated";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByDificulty, filterByName, filterByTopic, filterByViews, getGames, setCurrentPage } from "redux/actions";
-
+import SearchBarGame from "component/SearchBar/SearchBarGame";
 
 const Games= () =>{
     const dispatch = useDispatch();
@@ -146,10 +146,14 @@ const Games= () =>{
                         })}                               
                     </div>
                 </div>
-            </div>
 
+            
+
+            </div>
             <Paginated />
+           <SearchBarGame/>
         </div>
+
     )
 }
 
