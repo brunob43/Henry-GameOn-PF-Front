@@ -34,6 +34,8 @@ const Paginated = ()=>{
     indexOfLastGame
   );
 
+  console.log(currentGames)
+
   const pageNumbers = pages.map((number) => {
     if(currentPage === number){
       return (

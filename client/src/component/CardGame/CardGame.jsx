@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardGame.module.css"
 
-const CardGame = ({ name, image, id, topic, dificulty })=> {
+const CardGame = ({ name, image, id, topic, difficulty })=> {
+  console.log(name)
+  console.log(difficulty)
   return (
     <div className={style.container}>
       <Link to={`/games/${id}`} className={style.link}>
@@ -13,7 +15,7 @@ const CardGame = ({ name, image, id, topic, dificulty })=> {
             {topic}
           </div>
           <div className={style.dificulty}>
-            {dificulty.toUpperCase()}
+            {difficulty.toUpperCase()}
           </div>
         </div>        
       </Link>

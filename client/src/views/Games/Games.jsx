@@ -1,7 +1,7 @@
 import Paginated from "component/Paginated/Paginated";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByDificulty, filterByDificultySelect, filterByName, filterByTopic, filterByTopicSelect, filterByViews, getGames, setCurrentPage } from "redux/actions";
+import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPage } from "redux/actions";
 import style from "./Games.module.css"
 import SearchBarGame from "component/SearchBar/SearchBarGame";
 
@@ -32,7 +32,7 @@ const Games= () =>{
     const handleFilterTopic = (event) => {
         const value = event.target.value;
 
-        dispatch(filterByTopic(value));
+        dispatch(filterByTopicGames(value));
 
         setFilterSelect({
             ...filterSelect,
@@ -43,7 +43,7 @@ const Games= () =>{
     const handleFilterDificulty = (event) => {
         const value = event.target.value
 
-        dispatch(filterByDificulty(value));
+        dispatch(filterByDifficultyGames(value));
 
         setFilterSelect({
             ...filterSelect,
@@ -86,12 +86,12 @@ const Games= () =>{
 
         if (value === "asc" || value === "des") {
 
-            dispatch(filterByName(value));
+            dispatch(filterByNameGames(value));
             setCurrentPage(1);
         }
         if (value === "popular" || value === "unpopular") {
 
-            dispatch(filterByViews(value));
+            dispatch(filterByViewsGames(value));
             setCurrentPage(1);
         }
 
