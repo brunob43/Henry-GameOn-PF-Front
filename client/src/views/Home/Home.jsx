@@ -6,16 +6,14 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-
-
-
-export const Home = () =>{
+const Home = () =>{
     /*const dispatch = useDispatch()
     
 
     useEffect(()=>{
         dispatch(())
     }. [])*/
+    
     return(
      <>
 
