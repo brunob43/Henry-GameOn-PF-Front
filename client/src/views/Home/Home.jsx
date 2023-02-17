@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 
-export const Home = () =>{
+const Home = () =>{
     /*const dispatch = useDispatch()
     
 
