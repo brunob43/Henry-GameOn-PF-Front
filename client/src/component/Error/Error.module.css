@@ -1,0 +1,39 @@
+.errorBackground{
+    background: url("../views/assets/imagen/CrashedRocket.png");
+
+    padding: 70px;
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+.imgError{
+
+border-radius: 40px;
+}
+.titleError{
+    padding:10px ;
+    color: #fff;
+    margin-top: 27%;
+    ;
+}
+.textError{
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 0%;
+}
+.buttonError{
+    background: #111111;
+    color: #fff;
+    display: inline-block;
+    padding: 9px 15px;
+    text-decoration: none;
+    align-items: right;
+    margin: 10px;
+    border-radius: 20px;
+    border: none;
+  }
+  .buttonError:hover{
+    background-color:rgb(255, 255, 0);
+    cursor: pointer;
+  }
