@@ -1,9 +1,9 @@
-import Paginated from "component/Paginated/Paginated";
+import Paginated from "../../component/Paginated/Paginated";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPage } from "redux/actions";
+import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPage } from "../../redux/actions";
 import style from "./Games.module.css"
-import SearchBarGame from "component/SearchBar/SearchBarGame";
+import SearchBarGame from "../../component/SearchBar/SearchBarGame"
 
 const Games= () =>{
     const dispatch = useDispatch();

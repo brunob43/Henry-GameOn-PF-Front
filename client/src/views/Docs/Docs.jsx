@@ -1,4 +1,4 @@
-import SearchBarDoc from "component/SearchBar/SearchBarDoc";
+import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 
 const Docs = () =>{
     return(

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetailFromState } from "../../redux/actions";
-import gamesArray from "games/gamesIndex";
+import gamesArray from "../../games/gamesIndex";
 import style from "./GameDetail.module.css"
 
 const GameDetail = () =>{
