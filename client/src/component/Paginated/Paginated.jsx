@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerGames from "../CardContainerGame/CardContainerGame";
 import { getGames, setCurrentPage } from "../../redux/actions";
 import style from "./Paginated.module.css";
+import prev from "../../styles/images/left-arrow.png"
+import next from "../../styles/images/right-arrow.png"
 
 const Paginated = ()=>{
 
@@ -31,6 +33,8 @@ const Paginated = ()=>{
     indexOfFirstGame,
     indexOfLastGame
   );
+
+  console.log(currentGames)
 
   const pageNumbers = pages.map((number) => {
     if(currentPage === number){
@@ -77,42 +81,33 @@ const Paginated = ()=>{
   return (
     <div className={style.mainContainer}>
       <nav className={style.nav}>
-        <ul className={style.paginado} name="top">
+        <ul className={style.pages} name="top">
           <li>
-            <button className={style.button} id="prev" onClick={handlePrev}>PREV</button>
+            <button className={style.button} id="prev" onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow} /></button>
           </li>
     
           {pageNumbers}
     
           <li>
-            <button className={style.button} id="next" onClick={handleNext}>NEXT</button>
+            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
           </li>
         </ul>
       </nav>
       
       <div className={style.container}>
-        {
-          currentPage
-          ? CardContainerGames(currentGames)
-          : <img 
-            src="https://www.ytgraphics.com/wp-content/uploads/2014/12/pokmeon.jpg" 
-            alt="pokemon banner"
-            id= "1"
-            onClick={handleClick} 
-          />
-        }
+        {CardContainerGames(currentGames)}
       </div>
     
       <nav className={style.nav}>
-        <ul className={style.paginado} name="bottom">
+        <ul className={style.pages} name="bottom">
           <li>
-            <button className={style.button} onClick={handlePrev}>PREV</button>
+            <button className={style.button} onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow}/></button>
           </li>
     
           {pageNumbers}
     
           <li>
-            <button className={style.button} id="next" onClick={handleNext}>NEXT</button>
+            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
           </li>
         </ul>
       </nav>

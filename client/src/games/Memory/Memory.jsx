@@ -8,7 +8,7 @@ import github from './images/github.png'
 import node from './images/node.png'
 import vsc from './images/vsc.png'
 import npm from './images/npm.png'
-import styles from './Memory.module.css'
+import style from './Memory.module.css'
 
 const Memory = () =>{
   document.addEventListener('DOMContentLoaded', () => {
@@ -165,13 +165,13 @@ const Memory = () =>{
   };
       
   return(
-    <div>
-      <div>
-        <button onClick={restart}>Start New Game</button>
-        <button onClick={restart}>restart</button>
+    <div className={style.main}>
+      <div className={style.buttons}>
+        <button className={style.button} onClick={restart}>Start New Game</button>
+        <button className={style.button} onClick={restart}>restart</button>
       </div>
       
-      <div>
+      <div className={style.points}>
         <h3>Score: <span id="result"></span></h3>
         <h3>Try: <span id="try"></span></h3>
       </div>

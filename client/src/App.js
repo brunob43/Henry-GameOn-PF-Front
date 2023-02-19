@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
 import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
-import Footer from 'component/Footer/Footer';
+import Footer from './component/Footer/Footer';
 axios.defaults.baseURL= 'http://localhost:3001/';
 
 function App() {
@@ -46,7 +46,9 @@ function App() {
 
             <Route exact path="/donation">
                 <Donation />
-            </Route>       
+            </Route>
+
+            {/* <Footer />        */}
         </div>
 
     )

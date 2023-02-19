@@ -1,0 +1,71 @@
+.main{display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    margin: 2% 0
+}
+
+.cont{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+    color: yellow;
+background-color: rgb(0, 0, 0);
+width: 400px;
+height: 700px;
+border:2px solid yellow;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.coins{
+    width: 100%;
+    
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+}
+
+.coin{
+    background-color: black;
+    text-align: center;
+    border-radius: 10px;
+    border:2px solid yellow;
+}
+.coin:hover{
+    transition:0.3s ease;
+    background-color: rgb(51, 48, 0);
+}
+
+.buttons{
+    padding: 5px;
+    width: 100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-around;
+}
+
+.button{
+    color: yellow;
+    border: 2px solid yellow;
+    background-color: black;
+    border-radius: 10px;
+height: 50px;
+width: 120px;
+}
+.button:hover{
+    transition:0.3s ease;
+    background-color: rgb(51, 48, 0);
+}
+
+.textArea{
+    text-align: center;
+}

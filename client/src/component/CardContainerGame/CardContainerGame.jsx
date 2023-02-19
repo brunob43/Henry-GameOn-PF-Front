@@ -1,18 +1,20 @@
 import CardGame from "../CardGame/CardGame";
+import style from "./CardContainerGame.module.css"
 
 
 const CardContainerGame = (game) => {
+    console.log(game)
 
     return(
-        <div>
+        <div className={style.container}>
             {game.map((g) => {
                 return <CardGame
-                    image = {g.image} 
-                    name = {g.name}
-                    topic = {g.topic}
-                    dificulty = {g.dificulty}
-                    key = {g.id}
-                    id = {g.id}
+                    image = {g.game_image} 
+                    name = {g.game_name}
+                    topic = {g.game_topic}
+                    difficulty = {g.game_difficulty}
+                    key = {g.game_id}
+                    id = {g.game_id}
                 />
             })}
         </div>

@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -15,14 +16,14 @@ export default function SearchBarGame() {
 
     function handleSubmit(e) {
         e.preventDefault()
-       // dispatch(getGamebyName(name))
+       // dispatch(getGamebyName(name))  
     }
 
     return (
         <div style={{ marginRight: '20px' }}>
             <input
                 type="text"
-                placeholder="Buscar..."
+                placeholder="Search game..."
                 onChange={(e) => handlerInputChange(e)}
                 style={{
                     marginLeft: '20px',
@@ -41,12 +42,13 @@ export default function SearchBarGame() {
                 style={{
                     marginLeft: '20px',
                     padding: '10px 15px 10px 15px',
-                    backgroundColor: 'grey',
+                    backgroundColor: 'rgb(255, 255, 0)',
                     borderRadius: '50px',
-                    color: 'white',
-                    textDecoration: 'none'
+                    color: 'black',
+                    textDecoration: 'none',
                 }}
-            >Buscar</button>
+                disabled={name===""}
+            >Search</button>
         </div>
     )
 }

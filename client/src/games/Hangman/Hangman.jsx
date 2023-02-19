@@ -40,12 +40,12 @@ const Hangman= () =>{
     const palabras = [
         'length',     /* 0 */
         'concat',     /* 1 */
-        'typeof',    /* 2 */
+        'typeOf',    /* 2 */
         'slice',       /* 3 */
-        'tolowercase',     /* 4 */
-        'touppercase',       /* 5 */
-        'indexof',   /* 6 */
-        'charat'     /* 7 */
+        'toLowerCase',     /* 4 */
+        'toUpperCase',       /* 5 */
+        'indexOf',   /* 6 */
+        'charAt'     /* 7 */
     ];
     const btnStart = id('jugar');
     const imagen = id('imagen');
@@ -55,11 +55,11 @@ const Hangman= () =>{
     const HangmanArray = [Hangman0, Hangman1,Hangman2,Hangman3,Hangman4,Hangman5,Hangman6,Hangman7]
 
     function slowAlertWin() {
-        alert("GANASTE!! WIIIIII");
+        alert("YOU WIN!! WIIIII");
     }
 
     function slowAlertLoose() {
-        alert("Perdiste, la palabra era " + palabrita);
+        alert("You loose... The word was " + palabrita);
     }
 
     /* click en iniciar juego */
@@ -107,7 +107,7 @@ const Hangman= () =>{
         button.disabled = true;
 
         const letra = button.innerHTML;
-        const palabra = palabrita; // .toUpperCase( )
+        const palabra = palabrita.toLowerCase(); // .toUpperCase( )
         
 
         let acerto = false;
