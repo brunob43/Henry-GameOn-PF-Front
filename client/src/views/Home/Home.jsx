@@ -28,7 +28,7 @@ const Home = () =>{
                     <Link to="/games">
                         <button className={style.button}>Games</button>
                     </Link>
-                    <Link to="/henrydocs">
+                    <Link to="/docs">
                     <button className={style.button}>HenryDocs</button>
                     </Link>
         

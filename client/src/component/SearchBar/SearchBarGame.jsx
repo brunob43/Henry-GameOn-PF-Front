@@ -2,6 +2,7 @@ import { hover } from "@testing-library/user-event/dist/hover";
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getNameGames } from "../../redux/actions"
 
 
 export default function SearchBarGame() {
@@ -16,7 +17,7 @@ export default function SearchBarGame() {
 
     function handleSubmit(e) {
         e.preventDefault()
-       // dispatch(getGamebyName(name))  
+       dispatch(getNameGames(name))  
     }
 
     return (

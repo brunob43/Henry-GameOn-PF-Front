@@ -20,6 +20,7 @@ export function getGames() {
   return async function (dispatch) {
   const apiGames = await axios.get("/game");
   const games = apiGames.data;
+  
 
     dispatch({
       type: GET_GAMES,
@@ -88,9 +89,9 @@ export const filterByDifficultyGames = (payload) => {
 
 export function getDocs() {
   return async function (dispatch) {
-  const apiDocs = await axios.get("/docs");
+  const apiDocs = await axios.get("/doc");
   const Docs = apiDocs.data;
-
+  console.log(Docs)
     dispatch({
       type: GET_DOCS,
       payload: Docs,
@@ -100,7 +101,7 @@ export function getDocs() {
 
 export function getNameDocs(docs_name) {
   return async function (dispatch) {
-  const apiDocs = await axios.get(`/docs?name=${docs_name}`);
+  const apiDocs = await axios.get(`/doc?name=${docs_name}`);
   const Docs = apiDocs.data;
 
     dispatch({

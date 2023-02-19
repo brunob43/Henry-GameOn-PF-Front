@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { getNameDocs } from "../../redux/actions";
 
 
 export default function SearchBarDoc() {
@@ -15,7 +16,7 @@ export default function SearchBarDoc() {
 
     function handleSubmit(e) {
         e.preventDefault()
-       // dispatch(getGamebyName(name))
+       dispatch(getNameDocs(name))
     }
 
     return (
