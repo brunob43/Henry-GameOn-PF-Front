@@ -24,20 +24,14 @@ export function getGames() {
   const apiGames = await axios.get("/game");
   const games = apiGames.data;
   
-
     dispatch({
 
       type: GET_GAMES,
       payload: games,
     });
-  }catch (error){
-    return dispatch({
-      type: ERROR,
-      payload: "Games could not be loaded",
-    });
-  };
+  } 
 };
-}
+
 
 export function setError(payload) {
   return {
@@ -56,14 +50,9 @@ export function getNameGames(game_name) {
       type: GET_NAME_GAMES,
       payload: games,
     });
-  } catch (error) {
-    return dispatch ({
-      type: ERROR,
-      payload:"There are no games with that name",
-    });
-  }
+  } 
 };
-}
+
 
 export function setCurrentPage(payload) {
   return {
@@ -122,14 +111,9 @@ export function getDocs() {
       type: GET_DOCS,
       payload: Docs,
     });
-  } catch (error) {
-    return dispatch({
-      type: ERROR,
-      payload:"Docs were not loaded",
-    });
-  }
+  } 
 };
-}
+
 
 export function getNameDocs(docs_name) {
 
@@ -141,14 +125,9 @@ export function getNameDocs(docs_name) {
       type: GET_NAME_DOCS,
       payload: Docs,
     });
-  } catch (error){
-    return dispatch({
-      type:ERROR,
-      payload: "There is no docs with that name"
-    })
-  }
+  } 
 };
-}
+
 
 export const filterByTopicDocs = (payload) => {
   return async function (dispatch) {
@@ -176,14 +155,9 @@ export function getUsers() {
       type: GET_USERS,
       payload: Users,
     });
-  }catch (error) {
-    return dispatch({
-      type: ERROR,
-      payload: "Users were not loaded"
-    })
   }
 };
-}
+
 
 export function getNameUsers(user_name) {
   return async function (dispatch) {
@@ -195,14 +169,9 @@ export function getNameUsers(user_name) {
       type: GET_NAME_USERS,
       payload: Users,
     });
-  }catch (error){
-    return dispatch({
-      type:ERROR,
-      payload:"There is no user with that name"
-    });
   }
 };
-}
+
 
 export function postUser() {
   return async function (dispatch) {

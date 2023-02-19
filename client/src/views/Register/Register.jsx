@@ -5,14 +5,12 @@ import { postUser } from "../../redux/actions";
 import {useDispatch, useSelector} from "react-redux";
 
 
-
-
 // function validate(input){
 //   let errors={};
 //   if (!input.name){
 //     errors.name = 'Se requiere un Nombre';
 //   } else if (!input.email) {
-//     errors.email= 'Email debe ser compeltado'
+//     errors.email= 'Email debe ser completado'
 //   }
 //}
 export default function Register(){
