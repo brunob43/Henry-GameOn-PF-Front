@@ -21,3 +21,4 @@ const CardDocs = ({ name, image, id, topic, author })=> {
     );
   }
   export default CardDocs;
+

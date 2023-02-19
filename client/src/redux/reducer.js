@@ -13,7 +13,8 @@ import {
   FILTER_BY_NAME_DOCS,
   GET_USERS,
   GET_NAME_USERS,
-  FILTER_BY_NAME_USERS
+  FILTER_BY_NAME_USERS,
+  POST_USER,
 } from "./actions";
 
 const initialState = {
@@ -252,6 +253,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: "Can't get users" 
       };
+    }
+
+    case POST_USER:
+    return{
+      ...state,
     }
 
     case FILTER_BY_NAME_USERS: 

@@ -47,6 +47,10 @@ const NavBar = (props) => {
           <button className={style.bthm}>DONATION</button>
         </NavLink>
 
+        <NavLink to="/LogIn">
+          <button className={style.bthm}>LOGIN</button>
+        </NavLink>
+
         <button type="button" className={style.dark} onClick={darkmode}>Dark / Light</button>
       </div>
     </nav>
