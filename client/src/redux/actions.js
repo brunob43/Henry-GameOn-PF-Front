@@ -18,7 +18,7 @@ export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS"
 
 export function getGames() {
   return async function (dispatch) {
-  const apiGames = await axios.get("http://localhost:3001/game");
+  const apiGames = await axios.get("/game");
   const games = apiGames.data;
 
     dispatch({
@@ -30,7 +30,7 @@ export function getGames() {
 
 export function getNameGames(game_name) {
   return async function (dispatch) {
-  const apiGames = await axios.get(`http://localhost:3001/game?name=${game_name}`);
+  const apiGames = await axios.get(`/game?name=${game_name}`);
   const games = apiGames.data;
 
     dispatch({
@@ -88,7 +88,7 @@ export const filterByDifficultyGames = (payload) => {
 
 export function getDocs() {
   return async function (dispatch) {
-  const apiDocs = await axios.get("http://localhost:3001/docs");
+  const apiDocs = await axios.get("/docs");
   const Docs = apiDocs.data;
 
     dispatch({
@@ -100,7 +100,7 @@ export function getDocs() {
 
 export function getNameDocs(docs_name) {
   return async function (dispatch) {
-  const apiDocs = await axios.get(`http://localhost:3001/docs?name=${docs_name}`);
+  const apiDocs = await axios.get(`/docs?name=${docs_name}`);
   const Docs = apiDocs.data;
 
     dispatch({
@@ -128,7 +128,7 @@ export const filterByNameDocs = (payload) => {
 
 export function getUsers() {
   return async function (dispatch) {
-  const apiUsers = await axios.get("http://localhost:3001/users");
+  const apiUsers = await axios.get("/users");
   const Users = apiUsers.data;
 
     dispatch({
@@ -140,7 +140,7 @@ export function getUsers() {
 
 export function getNameUsers(user_name) {
   return async function (dispatch) {
-  const apiUsers = await axios.get(`http://localhost:3001/users?name=${user_name}`);
+  const apiUsers = await axios.get(`/users?name=${user_name}`);
   const Users = apiUsers.data;
 
     dispatch({
