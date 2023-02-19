@@ -12,7 +12,7 @@ const Error=()=>{
         <h4>{error}</h4>
         <br />
         <p className={style.textError}>Go back to home, please</p>
-        <button className={style.buttonError} onClick={reload}>Go Game</button>
+        <button className={style.buttonError} onClick={reload}>Go Home</button>
         </div>
         
     )
