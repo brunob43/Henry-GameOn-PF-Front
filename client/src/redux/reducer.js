@@ -85,19 +85,19 @@ const rootReducer = (state = initialState, action) => {
 
       const nameFilter = action.payload === "asc" 
       ? gamesName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.game_name > b.game_name) {
           return 1;
         }
-        if (b.name > a.name) {
+        if (b.game_name > a.game_name) {
           return -1;
         }
         return 0;
       }) 
       : gamesName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.game_name > b.game_name) {
          return -1;
         }
-        if (b.name > a.name) {
+        if (b.game_name > a.game_name) {
           return 1;
         }
         return 0;
@@ -113,19 +113,19 @@ const rootReducer = (state = initialState, action) => {
   
       const viewsFilter = action.payload === "popular" 
       ? gamesViews.sort((a, b) => {
-        if (a.views > b.views) {
+        if (a.game_views > b.game_views) {
           return 1;
         }
-        if (b.views > a.views) {
+        if (b.game_views > a.game_views) {
           return -1;
         }
         return 0;
       }) 
       : gamesViews.sort((a, b) => {
-        if (a.views > b.views) {
+        if (a.game_views > b.game_views) {
          return -1;
         }
-        if (b.views > a.views) {
+        if (b.game_views > a.game_views) {
           return 1;
         }
         return 0;
@@ -139,7 +139,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_TOPIC_GAMES:
       const gamesFT = [...state.games]
       let gamesByTopic = []
-      gamesFT.forEach(game => game.topic === action.payload ? gamesByTopic.push(game) : false)
+      gamesFT.forEach(game => game.game_topic === action.payload ? gamesByTopic.push(game) : false)
       return {
           ...state,
           games: gamesByTopic,
@@ -149,7 +149,7 @@ const rootReducer = (state = initialState, action) => {
     case FILTER_BY_DIFFICULTY_GAMES:
       const gamesFD = [...state.games]
       let gamesByDifficulty = []
-      gamesFD.forEach(game => game.difficulty === action.payload ? gamesByDifficulty.push(game) : false)
+      gamesFD.forEach(game => game.game_difficulty === action.payload ? gamesByDifficulty.push(game) : false)
       return {
         ...state,
         games: gamesByDifficulty,
