@@ -1,0 +1,269 @@
+  .bodyAbout{
+    background-color: black;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  }
+  .title {
+    color:yellow;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    font-size: 80px;
+    margin-top: 1.5cm;
+    text-align:center;
+  }
+  .parrafo{
+    color: yellow;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin-top: 1cm;
+    margin-left: 1cm;
+    text-align: center;
+    
+  }
+  .containicon {
+    float: left;
+    width:16cm;
+    height: 4.6cm;
+    background-color: rgb(213, 141, 246);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+  
+  .containicon1 {
+    width:16cm;
+    float: right;
+    height: 4.6cm;
+    background-color: rgb(126, 126, 240);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+
+  .containicon2 {
+    width:16cm;
+    float: right;
+    height: 4.6cm;
+    background-color: rgb(236, 137, 103);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+
+  .containicon3 {
+    width:16cm;
+    float: left;
+    height: 4.6cm;
+    background-color: rgb(241, 106, 212);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+  .containicon4 {
+    width:16cm;
+    float: left;
+    height: 4.6cm;
+    background-color: rgb(117, 243, 241);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+  .containicon5 {
+    width:16cm;
+    float: right;
+    height: 4.6cm;
+    background-color: rgb(243, 182, 117);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+
+  .containicon6 {
+    width:16cm;
+    float: right;
+    height: 4.6cm;
+    background-color: rgb(226, 218, 120);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+
+  .containicon7 {
+    width:16cm;
+    float: left;
+    height: 4.6cm;
+    background-color: rgb(171, 211, 123);
+    margin-top: 1cm;
+    margin: 1cm;
+    border-radius: 0.8cm;
+  }
+  
+  
+  .icon {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+  .bruno {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+  .pablo {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+  .manu {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+ 
+  .franco {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+  .nicole{
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+  
+
+  .abel{
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+
+  .larry {
+    width: 7%;
+    margin: 14%;
+    margin-right: -5cm;
+    margin-left: 6cm;
+    margin-bottom: 0%;
+    margin-top: 2%;
+  }
+
+.nameBelen{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameBruno{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameAbel{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameFranco{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameManu{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameNicole{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.nameLarry{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+
+.namePablo{
+    font-size: 180%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 8%;
+}
+.button {
+  margin-left: 18cm;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  background-image: linear-gradient(to top, #fbe839 0%, #fbe839 80%, #fbe839 100%);
+  border-radius: 30px;
+  border: 1px solid #353637;
+  transition: all 0.2s ease;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a0a0a;
+  text-shadow: 0 1px #fff;
+}
+
+button:hover {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+}
+
+button:active {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+.button:focus {
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
+}
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

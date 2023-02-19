@@ -1,0 +1,32 @@
+[id="grid"] {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 600px;
+    justify-content: center;
+}
+
+[id="cards"]{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    width: 120px;
+}
+
+.buttons{
+    margin: 3% 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 1%;
+}
+
+.button{
+    font-size: 20px;
+}
+
+.points{
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    margin: 3% 0;
+}
