@@ -31,7 +31,7 @@ const NavBar = (props) => {
           <button className={style.bthm}>GAMES</button>
         </NavLink>
 
-        <NavLink to="/henrydocs">
+        <NavLink to="/docs">
           <button className={style.bthm}>HENRYDOCS</button>
         </NavLink>
 

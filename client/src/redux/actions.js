@@ -20,10 +20,13 @@ export const POST_USER = "POST_USER"
 
 export function getGames() {
   return async function (dispatch) {
-    try {
-  const apiGames = await axios.get("http://localhost:3001/game");
+
+  const apiGames = await axios.get("/game");
   const games = apiGames.data;
-  return dispatch({
+  
+
+    dispatch({
+
       type: GET_GAMES,
       payload: games,
     });
@@ -45,8 +48,9 @@ export function setError(payload) {
 
 export function getNameGames(game_name) {
   return async function (dispatch) {
-    try{
-  const apiGames = await axios.get(`http://localhost:3001/game?name=${game_name}`);
+
+  const apiGames = await axios.get(`/game?name=${game_name}`);
+
   const games = apiGames.data;
   return dispatch({
       type: GET_NAME_GAMES,
@@ -109,10 +113,12 @@ export const filterByDifficultyGames = (payload) => {
 
 export function getDocs() {
   return async function (dispatch) {
-    try{
-  const apiDocs = await axios.get("http://localhost:3001/docs");
+
+  const apiDocs = await axios.get("/doc");
   const Docs = apiDocs.data;
-  return dispatch({
+  console.log(Docs)
+    dispatch({
+
       type: GET_DOCS,
       payload: Docs,
     });
@@ -126,9 +132,10 @@ export function getDocs() {
 }
 
 export function getNameDocs(docs_name) {
-  return async (dispatch) => {
-    try {
-  const apiDocs = await axios.get(`http://localhost:3001/docs?name=${docs_name}`);
+
+  return async function (dispatch) {
+  const apiDocs = await axios.get(`/doc?name=${docs_name}`);
+
   const Docs = apiDocs.data;
   return dispatch({
       type: GET_NAME_DOCS,
@@ -161,8 +168,9 @@ export const filterByNameDocs = (payload) => {
 
 export function getUsers() {
   return async function (dispatch) {
-    try {
-  const apiUsers = await axios.get("http://localhost:3001/users");
+
+  const apiUsers = await axios.get("/users");
+
   const Users = apiUsers.data;
   return dispatch({
       type: GET_USERS,
@@ -179,8 +187,9 @@ export function getUsers() {
 
 export function getNameUsers(user_name) {
   return async function (dispatch) {
-    try {
-  const apiUsers = await axios.get(`http://localhost:3001/users?name=${user_name}`);
+
+  const apiUsers = await axios.get(`/users?name=${user_name}`);
+
   const Users = apiUsers.data;
   return dispatch({
       type: GET_NAME_USERS,

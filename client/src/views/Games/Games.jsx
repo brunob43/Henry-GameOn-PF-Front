@@ -1,4 +1,4 @@
-import Paginated from "../../component/Paginated/Paginated";
+import PaginatedGame from "../../component/Paginated/PaginatedGame";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPage } from "../../redux/actions";
@@ -176,7 +176,7 @@ const Games= () =>{
             
 
             </div>
-            <Paginated />
+            <PaginatedGame />
         </div>
 
     )
