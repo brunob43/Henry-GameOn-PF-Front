@@ -44,7 +44,7 @@ export default function SearchBarDoc() {
                     padding: '10px 15px 10px 15px',
                     backgroundColor: 'rgb(255,255,0)',
                     borderRadius: '50px',
-                    color: 'white',
+                    color: 'black',
                     textDecoration: 'none'
                 }}
             >Search</button>
