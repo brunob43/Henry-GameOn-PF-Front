@@ -15,20 +15,27 @@ export const GET_USERS = "GET_USERS"
 export const GET_NAME_USERS = "GET_NAME_USERS"
 export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS"
 export const ERROR = "ERROR";
-//export const postUser = "POST_USER";
+export const POST_USERS = "POST_USER";
 
 
 export function getGames() {
   return async function (dispatch) {
+    try{
   const apiGames = await axios.get("/game");
   const games = apiGames.data;
-  
-    dispatch({
+
+    return dispatch({
       type: GET_GAMES,
       payload: games,
     });
-  } 
+  } catch (error) {
+    return dispatch({
+      type: ERROR,
+      payload: "games have not loaded",
+    })
+  }
 };
+}
 
 
 export function setError(payload) {
@@ -40,15 +47,22 @@ export function setError(payload) {
 
 export function getNameGames(game_name) {
   return async function (dispatch) {
+    try{
   const apiGames = await axios.get(`/game?name=${game_name}`);
   const games = apiGames.data;
 
-    dispatch({
+    return dispatch({
       type: GET_NAME_GAMES,
       payload: games,
     });
-  };
+  }catch (error) {
+    return dispatch({
+      type: ERROR,
+      payload:"couldn't find games with that name",
+    });
+  }
 };
+}
 
 export function setCurrentPage(payload) {
   return {
@@ -83,7 +97,7 @@ export const filterByTopicGames = (payload) => {
     dispatch({
       type: FILTER_BY_TOPIC_GAMES,
       payload,
-    });  
+    });
   };
 };
 
@@ -92,41 +106,55 @@ export const filterByDifficultyGames = (payload) => {
     dispatch({
       type: FILTER_BY_DIFFICULTY_GAMES,
       payload,
-    });  
+    });
   };
 };
 
 export function getDocs() {
   return async function (dispatch) {
+    try{
   const apiDocs = await axios.get("/doc");
   const Docs = apiDocs.data;
   console.log(Docs)
-    dispatch({
+    return dispatch({
       type: GET_DOCS,
       payload: Docs,
     });
-  };
+  } catch (error){
+    return dispatch({
+    type: ERROR,
+    paylod: "docs have not loaded"
+  });
+}
+};
 };
 
 
 export function getNameDocs(docs_name) {
   return async function (dispatch) {
+    try {
   const apiDocs = await axios.get(`/doc?name=${docs_name}`);
   const Docs = apiDocs.data;
 
-    dispatch({
+    return dispatch({
       type: GET_NAME_DOCS,
       payload: Docs,
     });
-  };
+  } catch(error) {
+    return dispatch({
+      type: ERROR,
+      payload: "couldn't find docs with that name",
+    });
+  }
 };
+}
 
 export const filterByTopicDocs = (payload) => {
   return async function (dispatch) {
     dispatch({
       type: FILTER_BY_TOPIC_DOCS,
       payload,
-    });  
+    });
   };
 };
 
@@ -139,26 +167,40 @@ export const filterByNameDocs = (payload) => {
 
 export function getUsers() {
   return async function (dispatch) {
+    try{
   const apiUsers = await axios.get("/users");
   const Users = apiUsers.data;
 
-    dispatch({
+    return dispatch({
       type: GET_USERS,
       payload: Users,
     });
-  };
+  } catch (error) {
+    return dispatch({
+      type: ERROR,
+      paylod: "user not found"
+    });
+  }
+};
 };
 
 export function getNameUsers(user_name) {
   return async function (dispatch) {
+    try{
   const apiUsers = await axios.get(`/users?name=${user_name}`);
   const Users = apiUsers.data;
 
-    dispatch({
+    return dispatch({
       type: GET_NAME_USERS,
       payload: Users,
     });
+  } catch (error) {
+    return dispatch({
+      type: ERROR,
+      payload: "this user doesn't exist"
+    })
   }
+};
 };
 
 export const filterByNameUsers = (payload) => {
@@ -168,11 +210,12 @@ export const filterByNameUsers = (payload) => {
   };
 };
 
-export function postUser() {
+export function postUser(payload) {
   return async function (dispatch) {
-  const response = await axios.post(`/user`);
-  console.log(response)
+  const response = await axios.post('/user',payload);
   return response;
-  };
 };
+};
+
+
 

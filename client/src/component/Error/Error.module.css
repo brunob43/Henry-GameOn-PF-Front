@@ -1,0 +1,29 @@
+.errorBackground{
+    background: url("../../views/assets/imagen/CrashedRocket.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    padding: 70px;
+    width: 100%;
+    height: 620px;
+
+}
+.titleError{
+    padding:10px ;
+    color: #fff;
+    text-align: center;
+    ;
+}
+.textError{
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.error{
+    color:white;
+    text-align: center;
+    font-size: 20px;
+}
+
+
