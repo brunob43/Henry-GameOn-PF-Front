@@ -23,7 +23,7 @@ export default function SearchBarDoc() {
         <div style={{ marginRight: '20px' }}>
             <input
                 type="text"
-                placeholder="Buscar..."
+                placeholder="Search..."
                 onChange={(e) => handlerInputChange(e)}
                 style={{
                     marginLeft: '20px',
@@ -42,12 +42,12 @@ export default function SearchBarDoc() {
                 style={{
                     marginLeft: '20px',
                     padding: '10px 15px 10px 15px',
-                    backgroundColor: 'grey',
+                    backgroundColor: 'rgb(255,255,0)',
                     borderRadius: '50px',
                     color: 'white',
                     textDecoration: 'none'
                 }}
-            >Buscar</button>
+            >Search</button>
         </div>
     )
 }
