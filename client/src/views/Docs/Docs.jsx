@@ -1,10 +1,11 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPage } from "../../redux/actions";
+import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPage, filterByViewsDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/Error";
+
 
 const Docs = () =>{
     const dispatch = useDispatch();
@@ -53,7 +54,7 @@ const Docs = () =>{
         }
          if (value === "popular" || value === "unpopular") {
 
-             dispatch(filterByViewsGames(value));
+             dispatch(filterByViewsDocs(value));
              setCurrentPage(1);
          }
 

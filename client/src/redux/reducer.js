@@ -15,7 +15,8 @@ import {
   GET_NAME_USERS,
   FILTER_BY_NAME_USERS,
   ERROR,
-  POST_USERS
+  POST_USERS,
+  FILTER_BY_VIEWS_DOCS, 
 } from "./actions";
 
 const initialState = {
@@ -295,8 +296,42 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       }
 
+
+      case FILTER_BY_VIEWS_DOCS:
+        const docsViews = [...state.docs];
+    
+        const docsFilter = action.payload === "popular" 
+        ? docsViews.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+            return 1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return -1;
+          }
+          return 0;
+        }) 
+        : docsViews.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+           return -1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return 1;
+          }
+          return 0;
+        });
+  
+        return {
+          ...state,
+          docs: docsFilter,
+        };
+
+
     default: return {...state}
+
+
+
   }
+
 }
 
 export default rootReducer;
