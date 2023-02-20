@@ -6,26 +6,22 @@ export const FILTER_BY_NAME_GAMES = "FILTER_BY_NAME_GAMES";
 export const FILTER_BY_VIEWS_GAMES = "FILTER_BY_VIEWS_GAMES";
 export const FILTER_BY_TOPIC_GAMES = "FILTER_BY_TOPIC_GAMES";
 export const FILTER_BY_DIFFICULTY_GAMES = "FILTER_BY_DIFFICULTY";
-export const GET_NAME_GAMES = "GET_NAME_GAMES";
-export const GET_DOCS = "GET_DOCS";
-export const GET_NAME_DOCS = "GET_NAME_DOCS";
-export const FILTER_BY_TOPIC_DOCS = "FILTER_BY_TOPIC_DOCS";
-export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS";
-export const GET_USERS = "GET_USERS";
-export const GET_NAME_USERS = "GET_NAME_USERS";
-export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS";
-export const ERROR = "ERROR";
-export const POST_USER = "POST_USER"
+export const GET_NAME_GAMES = "GET_NAME_GAMES"
+export const GET_DOCS = "GET_DOCS"
+export const GET_NAME_DOCS = "GET_NAME_DOCS"
+export const FILTER_BY_TOPIC_DOCS = "FILTER_BY_TOPIC_DOCS"
+export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS"
+export const GET_USERS = "GET_USERS"
+export const GET_NAME_USERS = "GET_NAME_USERS"
+export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS"
 
 
 export function getGames() {
   return async function (dispatch) {
-
   const apiGames = await axios.get("/game");
   const games = apiGames.data;
   
     dispatch({
-
       type: GET_GAMES,
       payload: games,
     });
@@ -42,17 +38,15 @@ export function setError(payload) {
 
 export function getNameGames(game_name) {
   return async function (dispatch) {
-
   const apiGames = await axios.get(`/game?name=${game_name}`);
-
   const games = apiGames.data;
-  return dispatch({
+
+    dispatch({
       type: GET_NAME_GAMES,
       payload: games,
     });
-  } 
+  };
 };
-
 
 export function setCurrentPage(payload) {
   return {
@@ -102,32 +96,28 @@ export const filterByDifficultyGames = (payload) => {
 
 export function getDocs() {
   return async function (dispatch) {
-
   const apiDocs = await axios.get("/doc");
   const Docs = apiDocs.data;
   console.log(Docs)
     dispatch({
-
       type: GET_DOCS,
       payload: Docs,
     });
-  } 
+  };
 };
 
 
 export function getNameDocs(docs_name) {
-
   return async function (dispatch) {
   const apiDocs = await axios.get(`/doc?name=${docs_name}`);
-
   const Docs = apiDocs.data;
-  return dispatch({
+
+    dispatch({
       type: GET_NAME_DOCS,
       payload: Docs,
     });
-  } 
+  };
 };
-
 
 export const filterByTopicDocs = (payload) => {
   return async function (dispatch) {
@@ -147,25 +137,22 @@ export const filterByNameDocs = (payload) => {
 
 export function getUsers() {
   return async function (dispatch) {
-
   const apiUsers = await axios.get("/users");
-
   const Users = apiUsers.data;
-  return dispatch({
+
+    dispatch({
       type: GET_USERS,
       payload: Users,
     });
-  }
+  };
 };
-
 
 export function getNameUsers(user_name) {
   return async function (dispatch) {
-
   const apiUsers = await axios.get(`/users?name=${user_name}`);
-
   const Users = apiUsers.data;
-  return dispatch({
+
+    dispatch({
       type: GET_NAME_USERS,
       payload: Users,
     });
@@ -179,9 +166,7 @@ export function postUser() {
   console.log(response)
   return response;
 };
-}
-
-
+};
 
 export const filterByNameUsers = (payload) => {
   return {
@@ -189,3 +174,12 @@ export const filterByNameUsers = (payload) => {
     payload,
   };
 };
+
+export function postUser() {
+  return async function (dispatch) {
+  const response = await axios.post(`/user`);
+  console.log(response)
+  return response;
+  };
+};
+

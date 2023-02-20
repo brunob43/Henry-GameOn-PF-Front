@@ -1,9 +1,9 @@
 import CardDocs from "../CardDocs/CardDocs";
 import style from "./CardContainerDocs.module.css"
-
 const CardContainerDocs = (doc) => {
     console.log(doc)
-    
+    console.log(1)
+
     return(
         <div className={style.container}>
             {doc.map((d) => {
@@ -14,7 +14,6 @@ const CardContainerDocs = (doc) => {
                     author={d.doc_author}
                     key = {d.doc_id}
                     id = {d.doc_id}
-
                 />
             })}
         </div>
