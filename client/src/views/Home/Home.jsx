@@ -3,6 +3,9 @@ import React from "react";
 import style from "./Home.module.css";
 // import { useState, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
+//import { NavLink } from "react-router-dom";
+//import { useState, useEffect } from "react";
+//import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Home = () =>{

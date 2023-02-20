@@ -47,8 +47,8 @@ const Hangman= () =>{
         'indexOf',   /* 6 */
         'charAt'     /* 7 */
     ];
-    const btnStart = id('jugar');
-    const imagen = id('imagen');
+    //const btnStart = id('jugar');
+    //const imagen = id('imagen');
     const btn_letras = document.querySelectorAll( "#letra" );
     console.log(btn_letras);
     var resultado
@@ -112,7 +112,7 @@ const Hangman= () =>{
 
         let acerto = false;
         for( let i = 0; i < palabra.length;  i++ ){
-            if( letra == palabra[i] ){
+            if( letra === palabra[i] ){
                 //la variable i es la posición de la letra en la palabra.
                 //que coincide con el span al que tenemos que mostarle esta letra...
                 spans[i].innerHTML = letra;
@@ -121,7 +121,7 @@ const Hangman= () =>{
             }
         }
 
-        if( acerto == false ){
+        if( acerto === false ){
             const imagen = id('imagen');
             cant_errores++;
             const source = HangmanArray[cant_errores] ;

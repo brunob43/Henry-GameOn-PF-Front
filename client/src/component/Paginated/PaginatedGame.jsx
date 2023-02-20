@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardContainerGames from "../CardContainerGame/CardContainerGame";
-import { getGames, setCurrentPage } from "../../redux/actions";
+import { setCurrentPage } from "../../redux/actions";
 import style from "./Paginated.module.css";
 import prev from "../../styles/images/left-arrow.png"
 import next from "../../styles/images/right-arrow.png"

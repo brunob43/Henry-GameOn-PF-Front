@@ -74,3 +74,32 @@
 [id="difFilter"]{
     width: 34%;
 }
+
+.button {
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 200ms;
+    padding: 3%;
+    display: flex;
+    margin-top: 7%;
+    width: 110%;
+    align-items: center;
+} 
+
+ .button:hover{
+    background-color: rgb(255, 255, 0);
+    color:black;
+    transition: 200ms;
+    cursor: pointer;
+} 
+
+.errorcontainer{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-top: -2.%;
+}
