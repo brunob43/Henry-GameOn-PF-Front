@@ -165,34 +165,34 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_DOCS: 
-    if (!action.payload.length === 0) {    
+   // if (!action.payload.length === 0) {    
       return {
        ...state, 
        docs: action.payload,
        allDocs: action.payload,
        currentPage: 1,
       };
-    } else {
-      return { 
-        ...state,
-        error: "Can't get docs" 
-      };
-    }
+    // } else {
+    //   return { 
+    //     ...state,
+    //     error: "Can't get docs" 
+    //   };
+    // }
 
     case GET_NAME_DOCS:
-      if (!action.payload.length === 0) {    
+      //if (!action.payload.length === 0) {    
         return {
          ...state, 
          docs: action.payload,
          allDocs: action.payload,
          currentPage: 1,
         };
-      } else {
-        return { 
-          ...state,
-          error: "Can't get docs" 
-        };
-      }
+      // } else {
+      //   return { 
+      //     ...state,
+      //     error: "Can't get docs" 
+      //   };
+      // }
 
     case FILTER_BY_TOPIC_DOCS:
       const docsFT = [...state.docs]
