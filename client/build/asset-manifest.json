@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cd01f4a6.css",
+    "main.js": "/static/js/main.49baf92f.js",
+    "static/media/fondo.png": "/static/media/fondo.f4549fd96317d48c2367.png",
+    "static/media/img7.png": "/static/media/img7.1e6d0a77b972239f755d.png",
+    "static/media/img6.png": "/static/media/img6.96bac9023625ced6d59c.png",
+    "static/media/img5.png": "/static/media/img5.23cd576b353fe4c5b325.png",
+    "static/media/img4.png": "/static/media/img4.926b114c37fd62bf73de.png",
+    "static/media/img3.png": "/static/media/img3.55ad6ed2611a57447174.png",
+    "static/media/img2.png": "/static/media/img2.ee19387c7d7eb443de0b.png",
+    "static/media/img1.png": "/static/media/img1.6f12389ef9ed9c3ce156.png",
+    "static/media/img0.png": "/static/media/img0.880d1c246af19c9c00dc.png",
+    "static/media/background.jpg": "/static/media/background.d1f087d2fec3bb60050e.jpg",
+    "static/media/CrashedRocket.png": "/static/media/CrashedRocket.88231a6e6de51da0191f.png",
+    "static/media/right-arrow.png": "/static/media/right-arrow.d4f6cdfde20bb54a6398.png",
+    "static/media/left-arrow.png": "/static/media/left-arrow.97a70dcb2d2e421575c3.png",
+    "static/media/github.png": "/static/media/github.ba9cb8d57d53e7189c48.png",
+    "static/media/coin.png": "/static/media/coin.730aa638373741107f7f.png",
+    "static/media/linkedin.png": "/static/media/linkedin.6892b3ae328c7a1e055f.png",
+    "index.html": "/index.html",
+    "main.cd01f4a6.css.map": "/static/css/main.cd01f4a6.css.map",
+    "main.49baf92f.js.map": "/static/js/main.49baf92f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd01f4a6.css",
+    "static/js/main.49baf92f.js"
+  ]
+}
