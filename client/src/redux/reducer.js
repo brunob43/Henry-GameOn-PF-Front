@@ -13,7 +13,9 @@ import {
   FILTER_BY_NAME_DOCS,
   GET_USERS,
   GET_NAME_USERS,
-  FILTER_BY_NAME_USERS
+  FILTER_BY_NAME_USERS,
+  ERROR,
+  POST_USERS
 } from "./actions";
 
 const initialState = {
@@ -47,6 +49,12 @@ const rootReducer = (state = initialState, action) => {
           error: "Can't get games" 
         };
       }
+
+    case ERROR: 
+      return { 
+        ...state, 
+        error: action.payload,
+      }  
 
     case GET_NAME_GAMES:
       if (!action.payload.length == 0) {    
@@ -201,19 +209,19 @@ const rootReducer = (state = initialState, action) => {
 
       const nameDocsFilter = action.payload === "asc" 
       ? docsName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.doc_name > b.doc_name) {
           return 1;
         }
-        if (b.name > a.name) {
+        if (b.doc_name > a.doc_name) {
           return -1;
         }
         return 0;
       }) 
       : docsName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.doc_name > b.doc_name) {
          return -1;
         }
-        if (b.name > a.name) {
+        if (b.doc_name > a.doc_name) {
           return 1;
         }
         return 0;
@@ -259,19 +267,19 @@ const rootReducer = (state = initialState, action) => {
 
       const nameUsersFilter = action.payload === "asc" 
       ? userName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.user_name > b.user_name) {
           return 1;
         }
-        if (b.name > a.name) {
+        if (b.user_name > a.user_name) {
           return -1;
         }
         return 0;
       }) 
       : userName.sort((a, b) => {
-        if (a.name > b.name) {
+        if (a.user_name > b.user_name) {
          return -1;
         }
-        if (b.name > a.name) {
+        if (b.user_name > a.user_name) {
           return 1;
         }
         return 0;
@@ -282,10 +290,10 @@ const rootReducer = (state = initialState, action) => {
         users: nameUsersFilter,
       };
 
-
-    
-
-      
+     case POST_USERS: 
+      return {
+        ...state,
+      }
 
     default: return {...state}
   }
