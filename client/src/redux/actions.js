@@ -14,6 +14,8 @@ export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS"
 export const GET_USERS = "GET_USERS"
 export const GET_NAME_USERS = "GET_NAME_USERS"
 export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS"
+export const ERROR = "ERROR";
+//export const postUser = "POST_USER";
 
 
 export function getGames() {
@@ -157,15 +159,6 @@ export function getNameUsers(user_name) {
       payload: Users,
     });
   }
-};
-
-
-export function postUser() {
-  return async function (dispatch) {
-  const response = await axios.post(`/user`);
-  console.log(response)
-  return response;
-};
 };
 
 export const filterByNameUsers = (payload) => {
