@@ -101,7 +101,7 @@ const About = () =>{
     <div className={style.containicon4}>
     <h1 className={style.nameManu}>Manuel Albarracín</h1>
     <a
-         href=""
+         href="https://github.com/Roxcon1"
          target="_blank"
          rel="noreferrer"
        >
@@ -137,7 +137,7 @@ const About = () =>{
     <div className={style.containicon6}>
     <h1 className={style.namePablo}>Pablo Boria</h1>
     <a
-        href=""
+        href="https://github.com/pabloboria"
         target="_blank"
         rel="noreferrer"
       >

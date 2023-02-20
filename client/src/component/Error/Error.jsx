@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import style from "./Error.module.css"
 const Error=()=>{
-    const reload=()=>{
-        window.location.reload()
-    }
+    //const reload=()=>{
+        //window.location.reload()
+   // }
     const error=useSelector(state=>state.error)
     return(
         <div className={style.errorBackground}>

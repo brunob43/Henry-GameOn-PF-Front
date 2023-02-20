@@ -36,19 +36,19 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch(action.type){
     case GET_GAMES:
-      if (!action.payload.length == 0) {    
+      //if (!action.payload.length === 0 || !action.payload.length === null ) {    
         return {
          ...state, 
          games: action.payload,
          allGames: action.payload,
          currentPage: 1,
         };
-      } else {
-        return { 
-          ...state,
-          error: "Can't get games" 
-        };
-      }
+      //} else {
+        //return { 
+         // ...state,
+          //error: "Can't get games" 
+        //};
+      //}
 
     case ERROR: 
       return { 
@@ -57,19 +57,19 @@ const rootReducer = (state = initialState, action) => {
       }  
 
     case GET_NAME_GAMES:
-      if (!action.payload.length == 0) {    
+     // if (!action.payload.length === 0) {    
         return {
          ...state, 
          games: action.payload,
          allGames: action.payload,
          currentPage: 1,
         };
-      } else {
-        return { 
-          ...state,
-          error: "Can't get games" 
-        };
-      }
+      // } else {
+      //   return { 
+      //     ...state,
+      //     error: "Can't get games" 
+      //   };
+      // }
 
     case SET_CURRENT_PAGE:
       return {
@@ -165,7 +165,7 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_DOCS: 
-    if (!action.payload.length == 0) {    
+    if (!action.payload.length === 0) {    
       return {
        ...state, 
        docs: action.payload,
@@ -180,7 +180,7 @@ const rootReducer = (state = initialState, action) => {
     }
 
     case GET_NAME_DOCS:
-      if (!action.payload.length == 0) {    
+      if (!action.payload.length === 0) {    
         return {
          ...state, 
          docs: action.payload,
@@ -233,7 +233,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_USERS: 
-    if (!action.payload.length == 0) {    
+    if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
@@ -248,7 +248,7 @@ const rootReducer = (state = initialState, action) => {
     }
 
     case GET_NAME_USERS: 
-    if (!action.payload.length == 0) {    
+    if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
