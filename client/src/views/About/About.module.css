@@ -102,8 +102,8 @@
   .icon {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -111,8 +111,8 @@
   .bruno {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -120,8 +120,8 @@
   .pablo {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -129,8 +129,8 @@
   .manu {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -138,8 +138,8 @@
   .franco {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -147,8 +147,8 @@
   .nicole{
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -157,8 +157,8 @@
   .abel{
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -167,8 +167,8 @@
   .larry {
     width: 7%;
     margin: 14%;
-    margin-right: -5cm;
-    margin-left: 6cm;
+    margin-right: -6cm;
+    margin-left: 7cm;
     margin-bottom: 0%;
     margin-top: 2%;
   }
@@ -177,56 +177,64 @@
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameBruno{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameAbel{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameFranco{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameManu{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameNicole{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .nameLarry{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 
 .namePablo{
     font-size: 180%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    margin-top: 8%;
+    margin-top: -20%;
+    margin-left: 15%;
 }
 .button {
   margin-left: 18cm;
@@ -254,4 +262,28 @@
     to {
       opacity: 1;
     }
+  }
+
+  .contenedorimagen {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 14px;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 400ms;
+    margin-left: 3%;
+  }
+  
+  .contenedorimagen > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+  }
+
+  .contenedorimagen:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
   }

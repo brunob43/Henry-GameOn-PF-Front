@@ -1,9 +1,8 @@
 import React from "react";
 //import { SearchBar } from "../SearchBar/SearchBar";
 import style from "./Home.module.css";
-import { NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useState, useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Home = () =>{
