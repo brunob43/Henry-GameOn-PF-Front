@@ -1,6 +1,7 @@
 import { 
   GET_GAMES,
-  SET_CURRENT_PAGE, 
+  SET_CURRENT_PAGE_GAMES,
+  SET_CURRENT_PAGE_DOCS,  
   GET_DETAIL_FROM_STATE, 
   FILTER_BY_NAME_GAMES,
   FILTER_BY_VIEWS_GAMES, 
@@ -11,6 +12,7 @@ import {
   GET_NAME_DOCS,
   FILTER_BY_TOPIC_DOCS,
   FILTER_BY_NAME_DOCS,
+  FILTER_BY_VIEWS_DOCS, 
   GET_USERS,
   GET_NAME_USERS,
   FILTER_BY_NAME_USERS
@@ -21,11 +23,13 @@ const initialState = {
   allDocs : [],
   allUsers : [],
   topics: ["Languages", "String Methods", "Code"],
-  docTopics: [],
+  docTopics: ["JS", "css", "html"],
   dificulties: ["Easy", "Medium", "Hard"],
-  currentPage: 1,
+  currentPageGames: 1,
+  currentPageDocs: 1,
   gameDetail: [],
-  error: "",
+  errorGames: "",
+  errorDocs: "",
   games : [],
   docs : [],
   users : []
@@ -44,7 +48,7 @@ const rootReducer = (state = initialState, action) => {
       } else {
         return { 
           ...state,
-          error: "Can't get games" 
+          errorGames: "Can't get games" 
         };
       }
 
@@ -54,7 +58,7 @@ const rootReducer = (state = initialState, action) => {
          ...state, 
          games: action.payload,
          allGames: action.payload,
-         currentPage: 1,
+         currentPageGames: 1,
         };
       } else {
         return { 
@@ -63,10 +67,10 @@ const rootReducer = (state = initialState, action) => {
         };
       }
 
-    case SET_CURRENT_PAGE:
+    case SET_CURRENT_PAGE_GAMES:
       return {
         ...state,
-        currentPage: action.payload,
+        currentPageGames: action.payload,
       };
 
     case GET_DETAIL_FROM_STATE:
@@ -143,7 +147,7 @@ const rootReducer = (state = initialState, action) => {
       return {
           ...state,
           games: gamesByTopic,
-          error: gamesByTopic.length > 0 ? false : `There are no games with the "${action.payload}" topic`
+          errorGames: gamesByTopic.length > 0 ? false : `There are no games with the "${action.payload}" topic`
       }
 
     case FILTER_BY_DIFFICULTY_GAMES:
@@ -153,7 +157,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         games: gamesByDifficulty,
-        error: gamesByDifficulty.length > 0 ? false : `There are no games with ${action.payload} difficulty`
+        errorGames: gamesByDifficulty.length > 0 ? false : `There are no games with ${action.payload} difficulty`
       }
 
     case GET_DOCS: 
@@ -162,14 +166,20 @@ const rootReducer = (state = initialState, action) => {
        ...state, 
        docs: action.payload,
        allDocs: action.payload,
-       currentPage: 1,
+       currentPageDocs: 1,
       };
     } else {
       return { 
         ...state,
-        error: "Can't get docs" 
+        errorDocs: "Can't get docs" 
       };
     }
+
+    case SET_CURRENT_PAGE_DOCS:
+      return {
+        ...state,
+        currentPageDocs: action.payload,
+      };
 
     case GET_NAME_DOCS:
       if (!action.payload.length == 0) {    
@@ -177,23 +187,23 @@ const rootReducer = (state = initialState, action) => {
          ...state, 
          docs: action.payload,
          allDocs: action.payload,
-         currentPage: 1,
+         currentPageDocs: 1,
         };
       } else {
         return { 
           ...state,
-          error: "Can't get docs" 
+          errorDocs: "Can't get docs" 
         };
       }
 
     case FILTER_BY_TOPIC_DOCS:
       const docsFT = [...state.docs]
       let docsByTopic = []
-      docsFT.forEach(doc => doc.topic === action.payload ? docsByTopic.push(doc) : false)
+      docsFT.forEach(doc => doc.doc_topic === action.payload ? docsByTopic.push(doc) : false)
       return {
           ...state,
           docs: docsByTopic,
-          error: docsByTopic.length > 0 ? false : `There are no docs with the "${action.payload}" topic`
+          errorDocs: docsByTopic.length > 0 ? false : `There are no docs with the "${action.payload}" topic`
       }
       
     case FILTER_BY_NAME_DOCS:
@@ -224,18 +234,46 @@ const rootReducer = (state = initialState, action) => {
         docs: nameDocsFilter,
       };
 
+      case FILTER_BY_VIEWS_DOCS:
+      const docsViews = [...state.docs];
+  
+      const docsFilter = action.payload === "popular" 
+      ? docsViews.sort((a, b) => {
+        if (a.doc_views > b.doc_views) {
+          return 1;
+        }
+        if (b.doc_views > a.doc_views) {
+          return -1;
+        }
+        return 0;
+      }) 
+      : docsViews.sort((a, b) => {
+        if (a.doc_views > b.doc_views) {
+         return -1;
+        }
+        if (b.doc_views > a.doc_views) {
+          return 1;
+        }
+        return 0;
+      });
+
+      return {
+        ...state,
+        docs: docsFilter,
+      };
+
     case GET_USERS: 
     if (!action.payload.length == 0) {    
       return {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
-       currentPage: 1,
+       currentPageUsers: 1,
       };
     } else {
       return { 
         ...state,
-        error: "Can't get users" 
+        errorUsers: "Can't get users" 
       };
     }
 
@@ -245,12 +283,12 @@ const rootReducer = (state = initialState, action) => {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
-       currentPage: 1,
+       currentPageUsers: 1,
       };
     } else {
       return { 
         ...state,
-        error: "Can't get users" 
+        errorUsers: "Can't get users" 
       };
     }
 

@@ -1,7 +1,7 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPage } from "../../redux/actions";
+import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 
@@ -48,18 +48,18 @@ const Docs = () =>{
         if (value === "asc" || value === "des") {
 
             dispatch(filterByNameDocs(value));
-            setCurrentPage(1);
+            setCurrentPageDocs(1);
         }
-        // if (value === "popular" || value === "unpopular") {
+        if (value === "popular" || value === "unpopular") {
 
-        //     dispatch(filterByViewsGames(value));
-        //     setCurrentPage(1);
-        // }
+            dispatch(filterByViewsDocs(value));
+            setCurrentPageDocs(1);
+        }
 
         if (value === "default") {
 
             dispatch(getDocs())
-            setCurrentPage(1);
+            setCurrentPageDocs(1);
         }
     }
 ///-----VIEW--------
@@ -88,8 +88,8 @@ const Docs = () =>{
                     <option value="default">Default</option>
                     <option value="asc">A-Z</option>
                     <option value="des">Z-A</option>
-                    {/* <option value="popular">Popular</option>
-                    <option value="unpopular">Unpopular</option> */}
+                    <option value="popular">Popular</option>
+                    <option value="unpopular">Unpopular</option>
                 </select>                        
             </div>
 
@@ -112,24 +112,6 @@ const Docs = () =>{
                         )
                     })}                            
                 </div>
-                {/* <div className={style.selectButtons} id="difFilter">
-                    <select disabled={disabledSelectDif} onChange={handleFilterDificulty} defaultValue="all">
-                        <option value="all">All Dificulties</option>
-                        {dificulties.map(dificulty => {
-                            return <option value={dificulty} key={dificulty}>{dificulty.toUpperCase()}</option>
-                        })}
-                    </select>
-
-                    {filterSelect.dificulty?.map((dificulty, index) => {
-                        return (
-                            <div>
-                                <div key={index}>
-                                    <button  value={dificulty} name={dificulty} key={dificulty} onClick={handleDeleteFilter}>{dificulty.toUpperCase()}</button>
-                                </div>
-                            </div>
-                        )
-                    })}                               
-                </div> */}
             </div>
 
         

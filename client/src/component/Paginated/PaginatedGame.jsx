@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardContainerGames from "../CardContainerGame/CardContainerGame";
-import { getGames, setCurrentPage } from "../../redux/actions";
+import { setCurrentPageGames } from "../../redux/actions";
 import style from "./Paginated.module.css";
 import prev from "../../styles/images/left-arrow.png"
 import next from "../../styles/images/right-arrow.png"
@@ -12,14 +12,14 @@ const PaginatedGame = ()=>{
 
   const allGames = useSelector((state) => state.games);
 
-  const currentPage = useSelector((state) => state.currentPage);
+  const currentPage = useSelector((state) => state.currentPageGames);
 
   const [gamesPerPage] = useState(2);
 
   
 
   const handleClick = (event) => {     
-    dispatch(setCurrentPage(Number(event.target.id)));
+    dispatch(setCurrentPageGames(Number(event.target.id)));
   };
 
   const pages = [];
@@ -64,7 +64,7 @@ const PaginatedGame = ()=>{
     
   const handleNext = () => {
     if (currentPage + 1 <= pages.length) {
-      dispatch(setCurrentPage(currentPage + 1));
+      dispatch(setCurrentPageGames(currentPage + 1));
     } else {
       return null;
     }
@@ -72,7 +72,7 @@ const PaginatedGame = ()=>{
 
   const handlePrev = () => {
     if (currentPage - 1 >= 1) {
-      dispatch(setCurrentPage(currentPage - 1));
+      dispatch(setCurrentPageGames(currentPage - 1));
     } else {
       return null;
     }
