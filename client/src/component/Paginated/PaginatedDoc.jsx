@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CardContainerDocs from "../CardContainerDocs/CardContainerDocs";
-import { setCurrentPage } from "../../redux/actions";
+import { setCurrentPageDocs } from "../../redux/actions";
 import style from "./Paginated.module.css";
 import prev from "../../styles/images/left-arrow.png"
 import next from "../../styles/images/right-arrow.png"
@@ -12,12 +12,12 @@ const PaginatedDoc = ()=>{
   
     const allDocs = useSelector((state) => state.docs);
   
-    const currentPage = useSelector((state) => state.currentPage);
+    const currentPage = useSelector((state) => state.currentPageDocs);
   
     const [docsPerPage] = useState(2);
 
     const handleClick = (event) => {     
-        dispatch(setCurrentPage(Number(event.target.id)));
+        dispatch(setCurrentPageDocs(Number(event.target.id)));
       };
     
       const pages = [];
@@ -59,14 +59,14 @@ const PaginatedDoc = ()=>{
 
   const handleNext = () => {
     if (currentPage + 1 <= pages.length) {
-      dispatch(setCurrentPage(currentPage + 1));
+      dispatch(setCurrentPageDocs(currentPage + 1));
     } else {
       return null;
     }
   };
   const handlePrev = () => {
     if (currentPage - 1 >= 1) {
-      dispatch(setCurrentPage(currentPage - 1));
+      dispatch(setCurrentPageDocs(currentPage - 1));
     } else {
       return null;
     }

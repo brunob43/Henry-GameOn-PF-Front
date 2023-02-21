@@ -1,14 +1,14 @@
 import PaginatedGame from "../../component/Paginated/PaginatedGame";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPage } from "../../redux/actions";
+import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPageGames } from "../../redux/actions";
 import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
-import Error from "../../component/Error/Error";
+import Error from "../../component/Error/ErrorGames";
 
 const Games= () =>{
     const dispatch = useDispatch();
-    const error = useSelector(state => state.error);
+    const error = useSelector(state => state.errorGames);
     const allGames = useSelector(state => state.games);
     const topics = useSelector(state => state.topics);
     const dificulties = useSelector(state => state.dificulties);
@@ -88,18 +88,18 @@ const Games= () =>{
         if (value === "asc" || value === "des") {
 
             dispatch(filterByNameGames(value));
-            setCurrentPage(1);
+            setCurrentPageGames(1);
         }
         if (value === "popular" || value === "unpopular") {
 
             dispatch(filterByViewsGames(value));
-            setCurrentPage(1);
+            setCurrentPageGames(1);
         }
 
         if (value === "default") {
 
             dispatch(getGames())
-            setCurrentPage(1);
+            setCurrentPageGames(1);
         }
     }
 

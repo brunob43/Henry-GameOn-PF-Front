@@ -1,6 +1,7 @@
 import axios from "axios";
 export const GET_GAMES = "GET_GAMES";
-export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+export const SET_CURRENT_PAGE_GAMES = "SET_CURRENT_PAGE_GAMES";
+export const SET_CURRENT_PAGE_DOCS = "SET_CURRENT_PAGE_DOCS";
 export const GET_DETAIL_FROM_STATE = "GET_DETAIL_FROM_STATE";
 export const FILTER_BY_NAME_GAMES = "FILTER_BY_NAME_GAMES";
 export const FILTER_BY_VIEWS_GAMES = "FILTER_BY_VIEWS_GAMES";
@@ -11,12 +12,14 @@ export const GET_DOCS = "GET_DOCS"
 export const GET_NAME_DOCS = "GET_NAME_DOCS"
 export const FILTER_BY_TOPIC_DOCS = "FILTER_BY_TOPIC_DOCS"
 export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS"
+export const FILTER_BY_VIEWS_DOCS = "FILTER_BY_VIEWS_DOCS";
 export const GET_USERS = "GET_USERS"
 export const GET_NAME_USERS = "GET_NAME_USERS"
 export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS"
-export const ERROR = "ERROR";
+export const ERROR_GAMES = "ERROR_GAMES";
+export const ERROR_DOCS = "ERROR_DOCS";
+export const ERROR_USERS = "ERROR_USERS";
 export const POST_USERS = "POST_USER";
-export const FILTER_BY_VIEWS_DOCS = "FILTER_BY_VIEWS_DOCS";
 
 export function getGames() {
   return async function (dispatch) {
@@ -30,7 +33,7 @@ export function getGames() {
     });
   } catch (error) {
     return dispatch({
-      type: ERROR,
+      type: ERROR_GAMES,
       payload: "games have not loaded",
     })
   }
@@ -38,12 +41,12 @@ export function getGames() {
 }
 
 
-export function setError(payload) {
-  return {
-    type: ERROR,
-    payload,
-  };
-};
+// export function setError(payload) {
+//   return {
+//     type: ERROR,
+//     payload,
+//   };
+// };
 
 export function getNameGames(game_name) {
   return async function (dispatch) {
@@ -57,16 +60,23 @@ export function getNameGames(game_name) {
     });
   }catch (error) {
     return dispatch({
-      type: ERROR,
+      type: ERROR_GAMES,
       payload:"couldn't find games with that name",
     });
   }
 };
 }
 
-export function setCurrentPage(payload) {
+export function setCurrentPageGames(payload) {
   return {
-    type: SET_CURRENT_PAGE,
+    type: SET_CURRENT_PAGE_GAMES,
+    payload,
+  };
+};
+
+export function setCurrentPageDocs(payload) {
+  return {
+    type: SET_CURRENT_PAGE_DOCS,
     payload,
   };
 };
@@ -122,7 +132,7 @@ export function getDocs() {
     });
   } catch (error){
     return dispatch({
-    type: ERROR,
+    type: ERROR_DOCS,
     paylod: "docs have not loaded"
   });
 }
@@ -142,7 +152,7 @@ export function getNameDocs(docs_name) {
     });
   } catch(error) {
     return dispatch({
-      type: ERROR,
+      type: ERROR_DOCS,
       payload: "couldn't find docs with that name",
     });
   }
@@ -165,6 +175,13 @@ export const filterByNameDocs = (payload) => {
   };
 };
 
+export const filterByViewsDocs = (payload) => {
+  return {
+    type: FILTER_BY_VIEWS_DOCS,
+    payload,
+  };
+};
+
 export function getUsers() {
   return async function (dispatch) {
     try{
@@ -177,7 +194,7 @@ export function getUsers() {
     });
   } catch (error) {
     return dispatch({
-      type: ERROR,
+      type: ERROR_USERS,
       paylod: "user not found"
     });
   }
@@ -196,7 +213,7 @@ export function getNameUsers(user_name) {
     });
   } catch (error) {
     return dispatch({
-      type: ERROR,
+      type: ERROR_USERS,
       payload: "this user doesn't exist"
     })
   }
@@ -216,7 +233,6 @@ export function postUser(payload) {
   return response;
 };
 };
-
 
 export const filterByViewsDocs = (payload) => {
   return {
