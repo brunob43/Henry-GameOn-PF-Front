@@ -2,6 +2,15 @@ import style from "./About.module.css"
 import linkedin from "../assets/imagen/linkedin.png"
 import github from "../assets/imagen/github.png"
 import { NavLink } from "react-router-dom";
+import belen from "../assets/imagen/belen.jpg"
+import bruno from "../assets/imagen/bruno.png"
+import nicole from "../assets/imagen/nicole.png"
+import pablo from "../assets/imagen/pablo.jpg"
+import abel from "../assets/imagen/abel.jpg"
+import larry from "../assets/imagen/larry.jpeg"
+import manu from "../assets/imagen/manu.jpg"
+import franco from "../assets/imagen/franco.jpg"
+
 
 const About = () =>{
     return (
@@ -19,11 +28,15 @@ const About = () =>{
     
      <div className={style.containicon}>
         <div>
+        <div className={style.contenedorimagen}>
+        <img src={belen} alt="user"/>
+      </div>
             <h1 className={style.nameBelen}>María Belén Echazú Higa</h1>
       <a
         href="https://www.linkedin.com/in/mar%C3%ADabel%C3%A9nechaz%C3%BAhiga/"
         target="_blank"
         rel="noreferrer"
+
       >
         <img className={style.icon} src={linkedin} alt="linkedin" />
       </a>
@@ -40,6 +53,9 @@ const About = () =>{
     </div>
 
     <div className={style.containicon1}>
+    <div className={style.contenedorimagen}>
+        <img src={bruno} alt="user"/>
+      </div>
     <h1 className={style.nameBruno}>Bruno Buglioni</h1>
     <div>
       <a
@@ -62,6 +78,9 @@ const About = () =>{
     </div>
 
     <div className={style.containicon2}>
+    <div className={style.contenedorimagen}>
+        <img src={nicole} alt="user"/>
+      </div>
     <h1 className={style.nameNicole}>Florencia Braida</h1>
 
     <a
@@ -81,6 +100,9 @@ const About = () =>{
     </div>
 
     <div className={style.containicon3}>
+    <div className={style.contenedorimagen}>
+        <img src={abel} alt="user"/>
+      </div>
     <h1 className={style.nameAbel}>Abel Yamil Moreno</h1>
     <a
          href="https://www.linkedin.com/in/abelmoreno97/"
@@ -99,9 +121,12 @@ const About = () =>{
     </div>
 
     <div className={style.containicon4}>
+    <div className={style.contenedorimagen}>
+        <img src={manu} alt="user"/>
+      </div>
     <h1 className={style.nameManu}>Manuel Albarracín</h1>
     <a
-         href=""
+         href="https://github.com/Roxcon1"
          target="_blank"
          rel="noreferrer"
        >
@@ -117,6 +142,9 @@ const About = () =>{
     </div>
 
     <div className={style.containicon5}>
+    <div className={style.contenedorimagen}>
+        <img src={franco} alt="user"/>
+      </div>
     <h1 className={style.nameFranco}>Franco Frias</h1>
     <a
          href="https://www.linkedin.com/in/franco-n-fr%C3%ADas-8a2631216/"
@@ -135,9 +163,12 @@ const About = () =>{
     </div>
 
     <div className={style.containicon6}>
+    <div className={style.contenedorimagen}>
+        <img src={pablo} alt="user"/>
+      </div>
     <h1 className={style.namePablo}>Pablo Boria</h1>
     <a
-        href=""
+        href="https://github.com/pabloboria"
         target="_blank"
         rel="noreferrer"
       >
@@ -153,6 +184,9 @@ const About = () =>{
     </div>
 
     <div className={style.containicon7}>
+    <div className={style.contenedorimagen}>
+        <img src={larry} alt="user"/>
+      </div>
     <h1 className={style.nameLarry}>Larry Jose Guarenas Arraez</h1>
     <a
         href="https://www.linkedin.com/in/larry-jos%C3%A9-guarenas-arraez-100a5a256/"

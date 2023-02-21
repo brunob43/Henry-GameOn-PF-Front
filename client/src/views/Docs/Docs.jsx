@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
+import Error from "../../component/Error/Error";
 
 const Docs = () =>{
     const dispatch = useDispatch();
@@ -65,12 +66,15 @@ const Docs = () =>{
 ///-----VIEW--------
     if(error){
         return(
+            <div className={style.errorcontainer}>
+            <Error/>
             <div>
-            <h2>Oops, {error}</h2>
-            <button onClick={handleDeleteFilter}>Return to Docs</button>
+            <button className={style.button} onClick={handleDeleteFilter}>Return to Docs</button>
+            </div>
             </div>
         )
     }
+
     return(
         <div className={style.main}>
         <div className={style.title}>
@@ -113,9 +117,6 @@ const Docs = () =>{
                     })}                            
                 </div>
             </div>
-
-        
-
         </div>
         <PaginatedDoc />
     </div>

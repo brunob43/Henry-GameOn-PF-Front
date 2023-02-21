@@ -3,7 +3,8 @@ import { Route } from 'react-router-dom';
 import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
 import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
-import Footer from './component/Footer/Footer';
+import Login from './views/Login/Login';
+
 axios.defaults.baseURL= 'https://back-henrygame.up.railway.app';
 
 function App() {
@@ -46,6 +47,10 @@ function App() {
 
             <Route exact path="/donation">
                 <Donation />
+            </Route>
+
+            <Route exact path="/login">
+                <Login />
             </Route>
 
             {/* <Footer />        */}

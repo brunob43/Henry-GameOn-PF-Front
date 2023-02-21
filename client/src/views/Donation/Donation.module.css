@@ -14,14 +14,44 @@
     padding: 15px;
     color: yellow;
 background-color: rgb(0, 0, 0);
-width: 400px;
-height: 700px;
-border:2px solid yellow;
+width: 800px;
+height: 850px;
+border:8px double yellow;
 border-radius: 10px;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: space-around;
+}
+
+.ttl{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+
+.msg {
+  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+.textArea{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.textAreaS{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .coins{
@@ -33,17 +63,32 @@ align-items: center;
 justify-content: space-around;
 }
 
+.imgcoin{
+    width: 150px;
+    height: auto;
+}
+
 .coin{
+    width: 200px;
+    height: 250px;
+    padding: 10px;
     background-color: black;
     text-align: center;
     border-radius: 10px;
-    border:2px solid yellow;
+    border:8px outset rgba(255, 255, 0, 0.856);
 }
 .coin:hover{
-    transition:0.3s ease;
-    background-color: rgb(51, 48, 0);
+    color:rgba(27, 27, 0, 0.781);
+    cursor: pointer;
+    transition:0.2s ease;
+    background-color: rgb(180, 168, 0);
 }
 
+.mp{
+    width: 125px;
+    height: auto;
+}
+/* 
 .buttons{
     padding: 5px;
     width: 100%;
@@ -51,9 +96,9 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: space-around;
-}
+} */
 
-.button{
+/* .button{
     color: yellow;
     border: 2px solid yellow;
     background-color: black;
@@ -64,8 +109,4 @@ width: 120px;
 .button:hover{
     transition:0.3s ease;
     background-color: rgb(51, 48, 0);
-}
-
-.textArea{
-    text-align: center;
-}
+} */

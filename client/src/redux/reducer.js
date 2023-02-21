@@ -17,7 +17,8 @@ import {
   GET_NAME_USERS,
   FILTER_BY_NAME_USERS,
   ERROR,
-  POST_USERS
+  POST_USERS,
+  FILTER_BY_VIEWS_DOCS, 
 } from "./actions";
 
 const initialState = {
@@ -40,19 +41,19 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch(action.type){
     case GET_GAMES:
-      if (!action.payload.length == 0) {    
+      //if (!action.payload.length === 0) {    
         return {
          ...state, 
          games: action.payload,
          allGames: action.payload,
-         currentPage: 1,
+         currentPageGames: 1,
         };
-      } else {
-        return { 
-          ...state,
-          errorGames: "Can't get games" 
-        };
-      }
+      //} else {
+        //return { 
+         // ...state,
+          //errorGames: "Can't get games" 
+        //};
+      //}
 
     case ERROR: 
       return { 
@@ -61,19 +62,19 @@ const rootReducer = (state = initialState, action) => {
       }  
 
     case GET_NAME_GAMES:
-      if (!action.payload.length == 0) {    
+     // if (!action.payload.length === 0) {    
         return {
          ...state, 
          games: action.payload,
          allGames: action.payload,
          currentPageGames: 1,
         };
-      } else {
-        return { 
-          ...state,
-          error: "Can't get games" 
-        };
-      }
+      // } else {
+      //   return { 
+      //     ...state,
+      //     error: "Can't get games" 
+      //   };
+      // }
 
     case SET_CURRENT_PAGE_GAMES:
       return {
@@ -169,19 +170,19 @@ const rootReducer = (state = initialState, action) => {
       }
 
     case GET_DOCS: 
-    if (!action.payload.length == 0) {    
+   // if (!action.payload.length === 0) {    
       return {
        ...state, 
        docs: action.payload,
        allDocs: action.payload,
        currentPageDocs: 1,
       };
-    } else {
-      return { 
-        ...state,
-        errorDocs: "Can't get docs" 
-      };
-    }
+    // } else {
+    //   return { 
+    //     ...state,
+    //     errorDocs: "Can't get docs" 
+    //   };
+    // }
 
     case SET_CURRENT_PAGE_DOCS:
       return {
@@ -190,19 +191,19 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_NAME_DOCS:
-      if (!action.payload.length == 0) {    
+      //if (!action.payload.length === 0) {    
         return {
          ...state, 
          docs: action.payload,
          allDocs: action.payload,
          currentPageDocs: 1,
         };
-      } else {
-        return { 
-          ...state,
-          errorDocs: "Can't get docs" 
-        };
-      }
+      // } else {
+      //   return { 
+      //     ...state,
+      //     errorDocs: "Can't get docs" 
+      //   };
+      // }
 
     case FILTER_BY_TOPIC_DOCS:
       const docsFT = [...state.docs]
@@ -271,7 +272,7 @@ const rootReducer = (state = initialState, action) => {
       };
 
     case GET_USERS: 
-    if (!action.payload.length == 0) {    
+    if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
@@ -286,7 +287,7 @@ const rootReducer = (state = initialState, action) => {
     }
 
     case GET_NAME_USERS: 
-    if (!action.payload.length == 0) {    
+    if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
@@ -333,8 +334,38 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       }
 
+
+      case FILTER_BY_VIEWS_DOCS:
+        const docsViews = [...state.docs];
+    
+        const docsFilter = action.payload === "popular" 
+        ? docsViews.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+            return 1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return -1;
+          }
+          return 0;
+        }) 
+        : docsViews.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+           return -1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return 1;
+          }
+          return 0;
+        });
+  
+        return {
+          ...state,
+          docs: docsFilter,
+        };
+
     default: return {...state}
   }
+
 }
 
 export default rootReducer;
