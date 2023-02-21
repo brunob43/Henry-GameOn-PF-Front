@@ -1,13 +1,18 @@
-/* .form {
+ .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding-left: 2em;
     padding-right: 2em;
     padding-bottom: 0.4em;
-    background-color: #171717;
+    background-color: #282727;
     border-radius: 25px;
     transition: .4s ease-in-out;
+    width: 25%;
+    margin-top: 10%;
+    align-items: center;
+    margin-left: 40%;
+    
   }
   
   .form:hover {
@@ -48,6 +53,8 @@
     outline: none;
     width: 100%;
     color: #d3d3d3;
+   
+    margin-bottom: -1%;
   }
   
   .form .btn {
@@ -104,6 +111,11 @@
   }
   
   .button3:hover {
-    background-color: red;
+    background-color: rgb(225, 225, 0);
     color: white;
-  } */
+  } 
+  .title{
+    margin-top: 6%;
+    font-size: 25px;
+    color: #a2a1a1;
+  }
