@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPageGames } from "../../redux/actions";
 import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
-import Error from "../../component/Error/Error";
+import Error from "../../component/Error/ErrorGames";
 
 const Games= () =>{
     const dispatch = useDispatch();
-    const error = useSelector(state => state.error);
+    const error = useSelector(state => state.errorGames);
     const allGames = useSelector(state => state.games);
     const topics = useSelector(state => state.topics);
     const dificulties = useSelector(state => state.dificulties);
