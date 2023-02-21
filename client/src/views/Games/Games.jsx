@@ -2,8 +2,9 @@ import PaginatedGame from "../../component/Paginated/PaginatedGame";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterByViewsGames, getGames, setCurrentPageGames } from "../../redux/actions";
-import style from "./Games.module.css"
-import SearchBarGame from "../../component/SearchBar/SearchBarGame"
+import style from "./Games.module.css";
+import SearchBarGame from "../../component/SearchBar/SearchBarGame";
+import Error from "../../component/Error/Error";
 
 const Games= () =>{
     const dispatch = useDispatch();
@@ -105,9 +106,11 @@ const Games= () =>{
 //------------------------------------------VIEW-----------------------------------------------
     if(error){
         return(
+            <div className={style.errorcontainer}>
+            <Error/>
             <div>
-            <h2>Oops, {error}</h2>
-            <button onClick={handleDeleteFilter}>Return to Games</button>
+            <button className={style.button} onClick={handleDeleteFilter}>Return to Games</button>
+            </div>
             </div>
         )
     }

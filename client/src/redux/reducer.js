@@ -15,7 +15,9 @@ import {
   FILTER_BY_VIEWS_DOCS, 
   GET_USERS,
   GET_NAME_USERS,
-  FILTER_BY_NAME_USERS
+  FILTER_BY_NAME_USERS,
+  ERROR,
+  POST_USERS
 } from "./actions";
 
 const initialState = {
@@ -51,6 +53,12 @@ const rootReducer = (state = initialState, action) => {
           errorGames: "Can't get games" 
         };
       }
+
+    case ERROR: 
+      return { 
+        ...state, 
+        error: action.payload,
+      }  
 
     case GET_NAME_GAMES:
       if (!action.payload.length == 0) {    
@@ -320,10 +328,10 @@ const rootReducer = (state = initialState, action) => {
         users: nameUsersFilter,
       };
 
-
-    
-
-      
+     case POST_USERS: 
+      return {
+        ...state,
+      }
 
     default: return {...state}
   }
