@@ -98,7 +98,6 @@ const Docs = () =>{
             </div>
 
             <div className={style.filtersContainer}> 
-                <div className={style.selectButtons}>
                     <select disabled={disabledSelectTopic} onChange={handleFilterTopic} defaultValue="all">
                         <option value="all">All Topics</option>
                         {topics.map(topic => {
@@ -115,7 +114,6 @@ const Docs = () =>{
                             </div>
                         )
                     })}                            
-                </div>
             </div>
         </div>
         <PaginatedDoc />

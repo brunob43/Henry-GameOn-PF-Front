@@ -1,0 +1,37 @@
+.container{
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input{
+    margin:0px 10px;
+    padding: 10px 15px 10px 15px;
+    background-color: #00000094;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.172);    
+    font-weight: bold;
+}
+
+.button{
+    padding: 20px 30px;
+    background-color: rgb(255,255,0);
+    border-radius: 50px;
+    border:1px solid rgba(255, 255, 255, 0.172) ;
+    background-image: url(../../styles/images/search.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: rgb(181, 181, 0);
+}
+.image{
+    width: 10%;
+}

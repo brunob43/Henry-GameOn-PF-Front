@@ -232,13 +232,7 @@ export function postUser(payload) {
   const response = await axios.post('/user',payload);
   return response;
 };
-};
 
-export const filterByViewsDocs = (payload) => {
-  return {
-    type: FILTER_BY_VIEWS_DOCS,
-    payload,
-  };
 };
 
 export function payment20 (){
@@ -267,3 +261,4 @@ export function payment100 (){
     window.location.href=link
   } 
 }
+
