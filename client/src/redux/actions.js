@@ -233,5 +233,3 @@ export function postUser(payload) {
   return response;
 };
 };
-
-
