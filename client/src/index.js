@@ -16,7 +16,7 @@ ReactDOM.render(
     <Auth0Provider 
       domain="henrygame.us.auth0.com" 
       clientId="6wqCoCuj7szKMnkjzJUqjbhG40kZ9cwL" 
-      redirectUri="window.location.origin" >
+      redirectUri="https://henrygame.up.railway.app/" >
      <BrowserRouter>
         <App />
      </BrowserRouter>
