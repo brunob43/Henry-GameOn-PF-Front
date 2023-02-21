@@ -5,6 +5,7 @@ import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
 import Login from './views/Login/Login';
 
+
 axios.defaults.baseURL= 'https://back-henrygame.up.railway.app';
 
 function App() {

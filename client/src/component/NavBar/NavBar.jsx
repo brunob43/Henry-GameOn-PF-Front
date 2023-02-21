@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../styles/images/HenryLogo.png";
 import style from "./NavBar.module.css";
+import { useAuth0 } from '@auth0/auth0-react';
+import React from "react";
 
 const NavBar = (props) => {
+  const {loginWithRedirect} = useAuth0();
+
   const darkmode = (event) => {
     if (event.target.className === style.dark) {
       event.target.className = style.light;
@@ -39,15 +43,13 @@ const NavBar = (props) => {
           <button className={style.bthm}>ABOUT US</button>
         </NavLink>
 
-        <NavLink to="/register">
-          <button className={style.bthm}>REGISTER</button>
-          </NavLink>
-
         <NavLink to="/donation">
           <button className={style.bthm}>DONATION</button>
         </NavLink>
         <NavLink to="/login">
-          <button className={style.bthm}>LOGIN</button>
+  
+                  <button onClick={() => loginWithRedirect()} className={style.bthm} src=" " alt=" ">LOGIN</button>
+
         </NavLink>
 
         <button type="button" className={style.dark} onClick={darkmode}>Dark / Light</button>

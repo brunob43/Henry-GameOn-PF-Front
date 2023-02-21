@@ -1,4 +1,38 @@
- .form {
+/* .bthm{
+  box-shadow: 0px 10px 14px -7px black;
+background:linear-gradient(to bottom, yellow , yellow 100%);
+background-color:yellow;
+border-radius:4px;
+border:1px solid black;
+display:inline-block;
+cursor:pointer;
+color:#24241f;
+font-family:Arial;
+font-size:13px;
+font-weight:bold;
+padding:6px 12px;
+text-decoration:none;
+text-shadow:0px 1px 0px #e4eb0e;
+  margin-top: cm;
+}
+.bthm:hover {
+  background:linear-gradient(to bottom, yellow 5%, yellow 100%);
+  background-color: yellow;
+  box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
+}
+
+.bthm:active {
+position:relative;
+top:1px;
+} */
+
+
+
+
+
+
+
+/* .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -118,4 +152,4 @@
     margin-top: 6%;
     font-size: 25px;
     color: #a2a1a1;
-  }
+  } */
