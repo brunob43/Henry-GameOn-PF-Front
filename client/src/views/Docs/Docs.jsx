@@ -1,15 +1,14 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPage, filterByViewsDocs } from "../../redux/actions";
+import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
-import Error from "../../component/Error/Error";
-
+import Error from "../../component/Error/ErrorGames";
 
 const Docs = () =>{
     const dispatch = useDispatch();
-    const error = useSelector(state => state.error);
+    const error = useSelector(state => state.errorDocs);
     const allDocs = useSelector(state => state.docs);
     const topics = useSelector(state => state.docTopics);
 
@@ -50,18 +49,18 @@ const Docs = () =>{
         if (value === "asc" || value === "des") {
 
             dispatch(filterByNameDocs(value));
-            setCurrentPage(1);
+            setCurrentPageDocs(1);
         }
-         if (value === "popular" || value === "unpopular") {
+        if (value === "popular" || value === "unpopular") {
 
-             dispatch(filterByViewsDocs(value));
-             setCurrentPage(1);
-         }
+            dispatch(filterByViewsDocs(value));
+            setCurrentPageDocs(1);
+        }
 
         if (value === "default") {
 
             dispatch(getDocs())
-            setCurrentPage(1);
+            setCurrentPageDocs(1);
         }
     }
 ///-----VIEW--------
@@ -93,8 +92,8 @@ const Docs = () =>{
                     <option value="default">Default</option>
                     <option value="asc">A-Z</option>
                     <option value="des">Z-A</option>
-                     <option value="popular">Popular</option>
-                    <option value="unpopular">Unpopular</option> 
+                    <option value="popular">Popular</option>
+                    <option value="unpopular">Unpopular</option>
                 </select>                        
             </div>
 
@@ -117,11 +116,7 @@ const Docs = () =>{
                         )
                     })}                            
                 </div>
-                
             </div>
-
-        
-
         </div>
         <PaginatedDoc />
     </div>

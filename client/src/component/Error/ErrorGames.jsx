@@ -5,7 +5,7 @@ const Error=()=>{
     //const reload=()=>{
         //window.location.reload()
    // }
-    const error=useSelector(state=>state.error)
+    const error=useSelector(state=>state.errorGames)
     return(
         <div className={style.errorBackground}>
         <h1 className={style.titleError}>Oops! sorry, an error occurred</h1>
