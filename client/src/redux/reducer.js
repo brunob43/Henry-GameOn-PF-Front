@@ -16,7 +16,8 @@ import {
   GET_USERS,
   GET_NAME_USERS,
   FILTER_BY_NAME_USERS,
-  ERROR,
+  ERROR_GAMES,
+  ERROR_DOCS,
   POST_USERS,
 } from "./actions";
 
@@ -54,10 +55,16 @@ const rootReducer = (state = initialState, action) => {
         //};
       //}
 
-    case ERROR: 
+    case ERROR_GAMES: 
       return { 
         ...state, 
-        error: action.payload,
+        errorGames: action.payload,
+      }  
+
+    case ERROR_DOCS: 
+      return { 
+        ...state, 
+        errorDocs: action.payload,
       }  
 
     case GET_NAME_GAMES:

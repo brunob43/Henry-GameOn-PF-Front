@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
-import Error from "../../component/Error/ErrorGames";
+import Error from "../../component/Error/ErrorDocs";
 
 const Docs = () =>{
     const dispatch = useDispatch();
