@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getNameGames } from "../../redux/actions"
-
+import style from "./SearchBar.module.css";
 
 export default function SearchBarGame() {
     const dispatch = useDispatch()
@@ -21,35 +21,16 @@ export default function SearchBarGame() {
     }
 
     return (
-        <div style={{ marginRight: '20px' }}>
-            <input
+        <div className={style.container}>
+            <input className={style.input}
                 type="text"
                 placeholder="Search game..."
                 onChange={(e) => handlerInputChange(e)}
-                style={{
-                    marginLeft: '20px',
-                    padding: '10px 15px 10px 15px',
-                    backgroundColor: '#00000094',
-                    color: 'white',
-                    borderRadius: '50px',
-                    textDecoration: 'none',
-                    outline: 'none',
-                    border: '1px solid rgba(255, 255, 255, 0.172)'
-                }}
-            />
-            <button
+            ></input>
+            <button className={style.button}
                 type="submit"
                 onClick={(e) => handleSubmit(e)}
-                style={{
-                    marginLeft: '20px',
-                    padding: '10px 15px 10px 15px',
-                    backgroundColor: 'rgb(255, 255, 0)',
-                    borderRadius: '50px',
-                    color: 'black',
-                    textDecoration: 'none',
-                }}
-                disabled={name===""}
-            >Search</button>
+            ></button>
         </div>
     )
 }
