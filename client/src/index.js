@@ -14,9 +14,9 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
     <Auth0Provider 
-      domain="henrygame.us.auth0.com" 
-      clientId="6wqCoCuj7szKMnkjzJUqjbhG40kZ9cwL" 
-      redirectUri="https://henrygame.up.railway.app/" >
+      domain="pruebaaaaaaaaaaaaaaaaa.us.auth0.com" 
+      clientId="izKUlcrZioQtLW7I06jGyhdy07UGpy2A" 
+      redirectUri="https://www.youtube.com" >
      <BrowserRouter>
         <App />
      </BrowserRouter>
