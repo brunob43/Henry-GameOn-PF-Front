@@ -117,8 +117,8 @@ const Games= () =>{
 
     return(
         <div className={style.main}>
-            <div className={style.title}>
-             <h2>GAMES</h2>   
+            <div >
+             <h2 className={style.title}>GAMES</h2>   
             </div>
 
             <div className={style.searchBar}>

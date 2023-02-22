@@ -1,50 +1,107 @@
 import React from "react";
 import style from "./Contact.module.css";
-//import{Link,useHistory} from 'react-router-dom';
-// import { postUser } from "../../redux/actions";
- //import {useDispatch} from "react-redux";
- //import { useState } from "react";
+import { postMessage } from "../../redux/actions";
+import { useState } from "react";
 
-export default function Register(){
- 
+export default function ContactUs(){
+  const [input, setInput]= useState({
+    message_issue: "",
+    message_content: "",
+    message_email: ""
+  })
+  const [error,setError]= useState({});
+
+  const validate=(input)=>{
+    let error={};
+    if (!input.message_issue){
+      error.issue = '*Obligatory field';
+    } 
+    if (!input.message_email) {
+      error.email= '*Obligatory field';
+    } 
+    if(!(/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/).test(input.message_email)){
+      error.email= "Invalid email"
+    }
+    if (!input.message_content) {
+     error.content= '*Obligatory field';
+    }
+ return error;
+  }
+
+  const handlerInputChange =(e)=>{
+    setInput({
+      ...input,
+      [e.target.name]:e.target.value
+     });
+     setError(validate({
+      ...input,
+       [e.target.name]: e.target.value
+     }));
+  }
+
+  const handleSubmit=(e)=>{
+    console.log("submit")
+    console.log(input)
+    e.preventDefault();
+    if(Object.keys(error).length===0&&input.email!=="")
+    postMessage(input);
+    alert("Su mensaje fue recibido con éxito");
+    setInput({
+      message_issue: "",
+      message_content: "",
+      message_email: ""
+    });
+    window.location.href="https://henrygame.up.railway.app/"
+  }
   return(
     <div className={style.body}>
     <div className={style.container}>
       <div className={style.title}>
         <h1>Contact Us</h1>
       </div>
-      <form className={style.form}>
-        <label>Name:</label>
+      <form className={style.form} onSubmit={handleSubmit}>
+        <label>Issue:</label>
         <input
+        onChange={handlerInputChange}
         autoComplete="off"
         type= "text"
-        name="name"
+        name="message_issue"
         placeholder="Escribe tu nombre"
         required
         />
+        {error.issue?(<div><p>{error.issue}</p>
+                            </div>):(<br></br>)}
+              <br></br>
 
         <label>Email:</label>
         <input
+        onChange={handlerInputChange}
         autoComplete="off"
         type= "text"
-        name="email"
+        name="message_email"
         placeholder="Escribe tu email"
         required
         />
+         {error.email?(<div><p>{error.email}</p>
+                            </div>):(<br></br>)}
+              <br></br>
 
-        <label>Phone:</label>
+        {/* <label>Phone:</label>
         <input
         autoComplete="off"
         type= "tel"
         name="phone"
         placeholder="Phone"
         required
-        />
+        /> */}
 
          <label>Message:</label>
-        <textarea className={style.textarea} id="message" name="message" required=""></textarea>
+        <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="message_content" required=""></textarea>
+        {error.content?(<div><p>{error.content}</p>
+                            </div>):(<br></br>)}
+              <br></br>
         <div>
-        <button className={style.button} type= 'submit'>SEND</button>
+        <button disabled={!Object.keys(error).length&&input.message_email!==""?false:true} className={style.button} type= 'submit'>SEND</button>
         </div>
 
       </form>

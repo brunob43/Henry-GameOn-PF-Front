@@ -4,12 +4,18 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
+
+
+
+
 .footer{
     color: rgb(13, 13, 13);
     font-size: 10px;
     width: 100%;
     background-color: rgb(255, 255, 0);
-   position: absolute;
+
+  
    
+
    text-align: center;
 }

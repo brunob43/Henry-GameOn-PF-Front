@@ -8,10 +8,14 @@
 }
 
 .title{
+
     margin: 2%;
+    margin-left: 9%;    
     font-size: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 10px;
+    display: flex;
+    align-items: flex-end;
 }
 
 .title:hover{
@@ -61,7 +65,7 @@
 .filtersContainer{
     display: flex;
     justify-content: space-between;
-    width: 85%;
+    width: 45%;
     padding-left: 30%;
 }
 
@@ -102,4 +106,23 @@
     justify-items: center;
     align-items: center;
     margin-top: -2.%;
+}
+
+.createContainer{
+    margin-bottom: 2%;
+}
+
+.create{
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 1%;
+    width: 115px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.create:hover{
+    cursor: pointer;
+    border-bottom: 2px solid rgb(255, 255, 0);
 }

@@ -8,6 +8,7 @@ import style from "./Home.module.css";
 //import { useState, useEffect } from "react";
 //import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Footer from "../../component/Footer/Footer";
 
 const Home = () =>{
     /*const dispatch = useDispatch()
@@ -20,12 +21,11 @@ const Home = () =>{
     return(
      <>
 
-       
         <div className={style.bodyHome}>
             
             
             <h1 className={style.title1}>Bienvenido a</h1>
-            <h2 className={style.title2}>Henry GameOn</h2>
+            <h2 className={style.title2}>HENRY GAME ON</h2>
             <h3 className={style.title3}>un espacio donde podras codear jugando</h3>
         
                     <Link to="/games">
@@ -39,7 +39,7 @@ const Home = () =>{
                 
             <h4 className={style.title4}>Nuestro principal objetivo es 
             trabajar continuamente para 
-            transformar el aprendisaje en una
+            transformar el aprendizaje en una
              experiencia inolvidable. Donde se puedan 
              desarrollar habilidades 
              a traves de la diversion y 
@@ -52,13 +52,14 @@ const Home = () =>{
             practica de forma amena y mas 
             divertida.</h5>
                         
-          
-
-            
-            
-           
         </div>
+<<<<<<< HEAD
         <Footer />
+=======
+        
+        <Footer />     
+   
+>>>>>>> 96f33ce39c820cabc13bd4e01aacbbfdceb6bdc5
     </>
     )
 }

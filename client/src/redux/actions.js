@@ -232,6 +232,39 @@ export function postUser(payload) {
   const response = await axios.post('/user',payload);
   return response;
 };
+
 };
 
+export function payment20 (){
+  return async function (dispatch) {
+    const response = await axios.get("/payment/20")
+    const link = response.data.init_point
+    console.log(link)
+    window.location.href=link
+  } 
+}
+
+export function payment50 (){
+  return async function (dispatch) {
+    const response = await axios.get("/payment/50")
+    const link = response.data.init_point
+    console.log(link)
+    window.location.href=link
+  } 
+}
+
+export function payment100 (){
+  return async function (dispatch) {
+    const response = await axios.get("/payment/100")
+    const link = response.data.init_point
+    console.log(link)
+    window.location.href=link
+  } 
+}
+
+export async function postMessage (input){
+   console.log(input)
+    const response = await axios.post('/message',input);
+   return response;
+  }
 
