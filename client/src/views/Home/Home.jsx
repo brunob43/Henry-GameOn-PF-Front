@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../component/Footer/Footer";
 //import { SearchBar } from "../SearchBar/SearchBar";
 import style from "./Home.module.css";
 // import { useState, useEffect } from "react";
@@ -57,6 +58,7 @@ const Home = () =>{
             
            
         </div>
+        <Footer />
     </>
     )
 }
