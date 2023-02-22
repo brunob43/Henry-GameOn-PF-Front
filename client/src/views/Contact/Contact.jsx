@@ -2,12 +2,12 @@ import React from "react";
 import style from "./Contact.module.css";
 import{useHistory} from 'react-router-dom';
 import { postMessage } from "../../redux/actions";
- import {useDispatch} from "react-redux";
+ //import {useDispatch} from "react-redux";
  import { useState } from "react";
 
 export default function ContactUs(){
   const history = useHistory();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const [input, setInput]= useState({
     issue: "",
     content: "",
@@ -45,9 +45,10 @@ export default function ContactUs(){
 
   const handleSubmit=(e)=>{
     console.log("submit")
+    console.log(input)
     e.preventDefault();
     if(Object.keys(error).length===0&&input.email!=="")
-    dispatch(postMessage(input));
+    postMessage(input);
     setInput({
       issue: "",
       content: "",
@@ -99,7 +100,7 @@ export default function ContactUs(){
 
          <label>Message:</label>
         <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="content" required=""></textarea>
-        {error.content?(<div><p>{error.constent}</p>
+        {error.content?(<div><p>{error.content}</p>
                             </div>):(<br></br>)}
               <br></br>
         <div>

@@ -263,7 +263,7 @@ export function payment100 (){
 }
 
 export function postMessage (input){
-  return async function (){
+  return async function (input){
     const response = await axios.post('/message',input);
    return response;
   }
