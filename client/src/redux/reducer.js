@@ -133,19 +133,19 @@ const rootReducer = (state = initialState, action) => {
       const viewsFilter = action.payload === "popular" 
       ? gamesViews.sort((a, b) => {
         if (a.game_views > b.game_views) {
-          return 1;
+          return -1;
         }
         if (b.game_views > a.game_views) {
-          return -1;
+          return 1;
         }
         return 0;
       }) 
       : gamesViews.sort((a, b) => {
         if (a.game_views > b.game_views) {
-         return -1;
+         return 1;
         }
         if (b.game_views > a.game_views) {
-          return 1;
+          return -1;
         }
         return 0;
       });
@@ -255,19 +255,19 @@ const rootReducer = (state = initialState, action) => {
       const docsFilter = action.payload === "popular" 
       ? docsViews.sort((a, b) => {
         if (a.doc_views > b.doc_views) {
-          return 1;
+          return -1;
         }
         if (b.doc_views > a.doc_views) {
-          return -1;
+          return 1;
         }
         return 0;
       }) 
       : docsViews.sort((a, b) => {
         if (a.doc_views > b.doc_views) {
-         return -1;
+         return 1;
         }
         if (b.doc_views > a.doc_views) {
-          return 1;
+          return -1;
         }
         return 0;
       });
