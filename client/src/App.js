@@ -3,16 +3,10 @@ import { Route } from 'react-router-dom';
 import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
 import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
- 
-
 import { PageNotFound } from './component/PageNotFound/PageNotFound';
-
 import Login from "../src/views/Auth/Login/Login";
 import Logout from "../src/views/Auth/Logout/Logout";
 import Profile from "../src/views/Auth/Profile/Profile"
-
-
-
 
 axios.defaults.baseURL= 'https://back-henrygame.up.railway.app';
 
@@ -69,15 +63,11 @@ function App() {
             <Route exact path="/login">
                 <Profile />
             </Route>
-        
-
           
-
             <Route path='/*'>
                 <PageNotFound />
             </Route>
 
-            {/* <Footer />        */}
         </div>
         
     )

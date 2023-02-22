@@ -8,7 +8,6 @@ import style from "./Home.module.css";
 //import { useState, useEffect } from "react";
 //import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Footer from "../../component/Footer/Footer";
 
 const Home = () =>{
     /*const dispatch = useDispatch()
@@ -53,13 +52,9 @@ const Home = () =>{
             divertida.</h5>
                         
         </div>
-<<<<<<< HEAD
-        <Footer />
-=======
-        
+
         <Footer />     
-   
->>>>>>> 96f33ce39c820cabc13bd4e01aacbbfdceb6bdc5
+
     </>
     )
 }
