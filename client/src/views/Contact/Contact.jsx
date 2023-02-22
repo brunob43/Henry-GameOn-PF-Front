@@ -5,7 +5,7 @@ import style from "./Contact.module.css";
  //import {useDispatch} from "react-redux";
  //import { useState } from "react";
 
-export default function Register(){
+export default function Contact(){
  
   return(
     <div className={style.body}>
