@@ -1,12 +1,12 @@
 import React from "react";
 import style from "./Contact.module.css";
-import{useHistory} from 'react-router-dom';
+// import{useHistory} from 'react-router-dom';
 import { postMessage } from "../../redux/actions";
  //import {useDispatch} from "react-redux";
  import { useState } from "react";
 
 export default function ContactUs(){
-  const history = useHistory();
+  // const history = useHistory();
   //const dispatch = useDispatch();
   const [input, setInput]= useState({
     issue: "",
@@ -54,7 +54,7 @@ export default function ContactUs(){
       content: "",
       email: ""
     });
-    history.push("/home")
+    // history.push("/home")
   }
   return(
     <div className={style.body}>
