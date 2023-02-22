@@ -9,24 +9,24 @@ export default function ContactUs(){
   // const history = useHistory();
   //const dispatch = useDispatch();
   const [input, setInput]= useState({
-    issue: "",
-    content: "",
-    email: ""
+    message_issue: "",
+    message_content: "",
+    message_email: ""
   })
   const [error,setError]= useState({});
 
   const validate=(input)=>{
     let error={};
-    if (!input.issue){
+    if (!input.message_issue){
       error.issue = '*Obligatory field';
     } 
-    if (!input.email) {
+    if (!input.message_email) {
       error.email= '*Obligatory field';
     } 
-    if(!(/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/).test(input.email)){
+    if(!(/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/).test(input.message_email)){
       error.email= "Invalid email"
     }
-    if (!input.content) {
+    if (!input.message_content) {
      error.content= '*Obligatory field';
     }
  return error;
@@ -50,9 +50,9 @@ export default function ContactUs(){
     if(Object.keys(error).length===0&&input.email!=="")
     postMessage(input);
     setInput({
-      issue: "",
-      content: "",
-      email: ""
+      message_issue: "",
+      message_content: "",
+      message_email: ""
     });
     // history.push("/home")
   }
@@ -68,7 +68,7 @@ export default function ContactUs(){
         onChange={handlerInputChange}
         autoComplete="off"
         type= "text"
-        name="issue"
+        name="message_issue"
         placeholder="Escribe tu nombre"
         required
         />
@@ -81,7 +81,7 @@ export default function ContactUs(){
         onChange={handlerInputChange}
         autoComplete="off"
         type= "text"
-        name="email"
+        name="message_email"
         placeholder="Escribe tu email"
         required
         />
@@ -99,12 +99,12 @@ export default function ContactUs(){
         /> */}
 
          <label>Message:</label>
-        <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="content" required=""></textarea>
+        <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="message_content" required=""></textarea>
         {error.content?(<div><p>{error.content}</p>
                             </div>):(<br></br>)}
               <br></br>
         <div>
-        <button disabled={!Object.keys(error).length&&input.email!==""?false:true} className={style.button} type= 'submit'>SEND</button>
+        <button disabled={!Object.keys(error).length&&input.message_email!==""?false:true} className={style.button} type= 'submit'>SEND</button>
         </div>
 
       </form>
