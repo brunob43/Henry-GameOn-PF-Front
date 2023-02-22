@@ -19,8 +19,9 @@
 
   .title2{
     font-size: 80px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-    ;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    ; */
+    font-family: 'I-pixel-u';
     text-align: center;
     color: white;
   }
