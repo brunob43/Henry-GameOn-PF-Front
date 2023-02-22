@@ -38,7 +38,7 @@ const Home = () =>{
                 
             <h4 className={style.title4}>Nuestro principal objetivo es 
             trabajar continuamente para 
-            transformar el aprendisaje en una
+            transformar el aprendizaje en una
              experiencia inolvidable. Donde se puedan 
              desarrollar habilidades 
              a traves de la diversion y 

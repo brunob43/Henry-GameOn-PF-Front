@@ -1,9 +1,23 @@
 import style from "./Donation.module.css"
 import coin from "../../styles/images/coin.png"
 import mp from "../../styles/images/Mercado-Pago.jpg"
+import {payment20, payment50, payment100} from "../../redux/actions"
 
 
 const Donation = () =>{
+
+    const pay20= (e) => {
+        payment20()()   
+    }
+
+    const pay50= (e) => {
+        payment50()()
+    }
+
+    const pay100= (e) => {
+        payment100()()
+    }
+
     return(
         <div className={style.main}>
         <div className={style.cont}>
@@ -11,19 +25,19 @@ const Donation = () =>{
             <p className={style.msg}>Para aportar economicamente al desarrollo del sitio y juntos hacer mas contenido y mejoras al espacio HenryGameON</p>
             <p className={style.ttl}>↓↓fichas↓↓</p>
             <div className={style.coins}>
-                <div className={style.coin}>
+               <div onClick={pay20} className={style.coin}>
                     <img className={style.imgcoin} src={coin} alt="coin 20"></img>
-                    <h2>ayudita</h2>
+                    <h2>Ayudita</h2>
                     <h1>$20</h1>
                 </div>
-                <div className={style.coin}>
+                <div onClick={pay50} className={style.coin}>
                 <img className={style.imgcoin} src={coin} alt="coin 50"></img>
-                    <h2>manon</h2>
+                    <h2>Manón</h2>
                     <h1>$50</h1>
                 </div>
-                <div className={style.coin}>
+                <div onClick={pay100} className={style.coin}>
                 <img className={style.imgcoin} src={coin} alt="coin 100"></img>
-                    <h2>euforia</h2>
+                    <h2>Euforia</h2>
                     <h1>$100</h1>
                 </div>
             </div>
