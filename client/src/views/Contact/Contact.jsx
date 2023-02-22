@@ -1,13 +1,9 @@
 import React from "react";
 import style from "./Contact.module.css";
-// import{useHistory} from 'react-router-dom';
 import { postMessage } from "../../redux/actions";
- //import {useDispatch} from "react-redux";
- import { useState } from "react";
+import { useState } from "react";
 
 export default function ContactUs(){
-  // const history = useHistory();
-  //const dispatch = useDispatch();
   const [input, setInput]= useState({
     message_issue: "",
     message_content: "",
@@ -49,12 +45,13 @@ export default function ContactUs(){
     e.preventDefault();
     if(Object.keys(error).length===0&&input.email!=="")
     postMessage(input);
+    alert("Su mensaje fue recibido con éxito");
     setInput({
       message_issue: "",
       message_content: "",
       message_email: ""
     });
-    // history.push("/home")
+    window.location.href="https://henrygame.up.railway.app/"
   }
   return(
     <div className={style.body}>
