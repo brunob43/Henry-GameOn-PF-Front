@@ -44,8 +44,9 @@ export default function ContactUs(){
   }
 
   const handleSubmit=(e)=>{
+    console.log("submit")
     e.preventDefault();
-    if(Object.keys(error).length===0)
+    if(Object.keys(error).length===0&&input.email!=="")
     dispatch(postMessage(input));
     setInput({
       issue: "",
@@ -70,6 +71,9 @@ export default function ContactUs(){
         placeholder="Escribe tu nombre"
         required
         />
+        {error.issue?(<div><p>{error.issue}</p>
+                            </div>):(<br></br>)}
+              <br></br>
 
         <label>Email:</label>
         <input
@@ -80,6 +84,9 @@ export default function ContactUs(){
         placeholder="Escribe tu email"
         required
         />
+         {error.email?(<div><p>{error.email}</p>
+                            </div>):(<br></br>)}
+              <br></br>
 
         {/* <label>Phone:</label>
         <input
@@ -92,8 +99,11 @@ export default function ContactUs(){
 
          <label>Message:</label>
         <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="message" required=""></textarea>
+        {error.content?(<div><p>{error.constent}</p>
+                            </div>):(<br></br>)}
+              <br></br>
         <div>
-        <button disabled={!Object.keys(error).length?false:true} className={style.button} type= 'submit'>SEND</button>
+        <button disabled={!Object.keys(error).length&&input.email!==""?false:true} className={style.button} type= 'submit'>SEND</button>
         </div>
 
       </form>
