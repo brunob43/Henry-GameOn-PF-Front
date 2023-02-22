@@ -67,7 +67,7 @@ export default function ContactUs(){
         onChange={handlerInputChange}
         autoComplete="off"
         type= "text"
-        name="name"
+        name="issue"
         placeholder="Escribe tu nombre"
         required
         />
@@ -98,7 +98,7 @@ export default function ContactUs(){
         /> */}
 
          <label>Message:</label>
-        <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="message" required=""></textarea>
+        <textarea onChange={handlerInputChange} className={style.textarea} id="message" name="content" required=""></textarea>
         {error.content?(<div><p>{error.constent}</p>
                             </div>):(<br></br>)}
               <br></br>
