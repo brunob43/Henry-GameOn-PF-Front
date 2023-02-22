@@ -266,5 +266,10 @@ export async function postMessage (input){
    console.log(input)
     const response = await axios.post('/message',input);
    return response;
-  }
+}
 
+export async function countViewsGames (id){
+  console.log(id);
+  const response = await axios.put(`/game/view/${id}`);
+  return response;
+}
