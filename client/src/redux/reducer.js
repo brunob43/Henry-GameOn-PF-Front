@@ -19,6 +19,7 @@ import {
   ERROR_GAMES,
   ERROR_DOCS,
   POST_USERS,
+  GET_TOPIC_DOCS,
 } from "./actions";
 
 const initialState = {
@@ -210,6 +211,12 @@ const rootReducer = (state = initialState, action) => {
       //     errorDocs: "Can't get docs" 
       //   };
       // }
+
+    case GET_TOPIC_DOCS:
+      return {
+        ...state,
+        docTopics: action.payload,
+    };
 
     case FILTER_BY_TOPIC_DOCS:
       const docsFT = [...state.docs]

@@ -20,6 +20,7 @@ export const ERROR_GAMES = "ERROR_GAMES";
 export const ERROR_DOCS = "ERROR_DOCS";
 export const ERROR_USERS = "ERROR_USERS";
 export const POST_USERS = "POST_USER";
+export const GET_TOPIC_DOCS = "GET_TOPIC_DOCS";
 
 export function getGames() {
   return async function (dispatch) {
@@ -125,7 +126,6 @@ export function getDocs() {
     try{
   const apiDocs = await axios.get("/doc");
   const Docs = apiDocs.data;
-  console.log(Docs)
     return dispatch({
       type: GET_DOCS,
       payload: Docs,
@@ -239,7 +239,6 @@ export function payment20 (){
   return async function (dispatch) {
     const response = await axios.get("/payment/20")
     const link = response.data.init_point
-    console.log(link)
     window.location.href=link
   } 
 }
@@ -248,7 +247,6 @@ export function payment50 (){
   return async function (dispatch) {
     const response = await axios.get("/payment/50")
     const link = response.data.init_point
-    console.log(link)
     window.location.href=link
   } 
 }
@@ -257,19 +255,27 @@ export function payment100 (){
   return async function (dispatch) {
     const response = await axios.get("/payment/100")
     const link = response.data.init_point
-    console.log(link)
     window.location.href=link
   } 
 }
 
 export async function postMessage (input){
-   console.log(input)
     const response = await axios.post('/message',input);
    return response;
 }
 
 export async function countViewsGames (id){
-  console.log(id);
   const response = await axios.put(`/game/view/${id}`);
   return response;
 }
+
+export function getTopicDocs() {
+  return async function (dispatch) {
+    const response = await axios.get("/doc");
+    const topics = response.data.map(doc => doc.doc_topic)
+    return dispatch({
+      type: GET_TOPIC_DOCS,
+      payload: topics,
+    });
+  };
+};
