@@ -12,16 +12,17 @@ import {Auth0Provider} from "@auth0/auth0-react";
 
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-    <Auth0Provider 
-      domain="henrygame.us.auth0.com" 
-      clientId="6wqCoCuj7szKMnkjzJUqjbhG40kZ9cwL" 
-      redirectUri="window.location.origin" >
+    <Auth0Provider
+    domain="henrygameon.eu.auth0.com"
+    clientId="I8Pua9FRXYxAahGm0gH1UJonTh1Xspjc"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+  >
      <BrowserRouter>
         <App />
      </BrowserRouter>
     </Auth0Provider>
-    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
