@@ -1,11 +1,9 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../styles/images/HenryLogo.png";
 import style from "./NavBar.module.css";
-import { useAuth0 } from '@auth0/auth0-react';
 import React from "react";
 
 const NavBar = (props) => {
-  const {loginWithRedirect} = useAuth0();
 
   const darkmode = (event) => {
     if (event.target.className === style.dark) {
@@ -48,7 +46,7 @@ const NavBar = (props) => {
         </NavLink>
         <NavLink to="/login">
   
-                  <button onClick={() => loginWithRedirect()} className={style.bthm} src=" " alt=" ">LOGIN</button>
+                  <button className={style.bthm} src=" " alt=" ">LOGIN</button>
 
         </NavLink>
 

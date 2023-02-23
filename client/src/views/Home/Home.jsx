@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../component/Footer/Footer";
 //import { SearchBar } from "../SearchBar/SearchBar";
 import style from "./Home.module.css";
 // import { useState, useEffect } from "react";
@@ -19,12 +20,11 @@ const Home = () =>{
     return(
      <>
 
-       
         <div className={style.bodyHome}>
             
             
             <h1 className={style.title1}>Bienvenido a</h1>
-            <h2 className={style.title2}>Henry GameOn</h2>
+            <h2 className={style.title2}>HENRY GAME ON</h2>
             <h3 className={style.title3}>un espacio donde podras codear jugando</h3>
         
                     <Link to="/games">
@@ -51,12 +51,10 @@ const Home = () =>{
             practica de forma amena y mas 
             divertida.</h5>
                         
-          
-
-            
-            
-           
         </div>
+
+        <Footer />     
+
     </>
     )
 }

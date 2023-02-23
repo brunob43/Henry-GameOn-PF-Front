@@ -1,10 +1,11 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs } from "../../redux/actions";
+import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs, getTopicDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
+import { NavLink } from "react-router-dom";
 
 const Docs = () =>{
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Docs = () =>{
     useEffect(()=>{
         if(!allDocs.length){
           dispatch(getDocs())
+          dispatch(getTopicDocs())
         }
       },[dispatch,allDocs])
 
@@ -78,11 +80,16 @@ const Docs = () =>{
     return(
         <div className={style.main}>
         <div className={style.title}>
-         <h2>DOCS</h2>   
+            <h2>DOCS</h2>
+            <div className={style.createContainer}>
+                <NavLink to="/docs/share"><button className={style.create}>CREATE DOC</button></NavLink>   
+            </div>    
         </div>
 
+
+
         <div className={style.searchBar}>
-         <SearchBarDoc/>   
+            <SearchBarDoc/>   
         </div>
 
         <div className={style.filters}>
