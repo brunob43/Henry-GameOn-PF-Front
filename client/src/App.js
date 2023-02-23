@@ -1,7 +1,7 @@
 // import './App.css';
 import { Route, Switch} from 'react-router-dom';
 import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
-import { DocDetail } from "./views/DocDetail/DocDetail.jsx"
+//import { DocDetail } from "./views/DocDetail/DocDetail.jsx"
 import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
 import { PageNotFound } from './component/PageNotFound/PageNotFound';
@@ -45,9 +45,9 @@ function App() {
                 <Docs />
             </Route>
 
-            <Route exact path='/doc/:id'>
+            {/* <Route exact path='/doc/:id'>
                 <DocDetail />
-            </Route>
+            </Route> */}
 
             <Route exact path="/docs/share">
                 <ShareInfo />
