@@ -85,7 +85,7 @@ export function setCurrentPageDocs(payload) {
 
 export function getDetailFromState(payload) {
   return {
-    type: GET_DETAIL_FROM_STATE,
+    type: GET_GAME_DETAIL_FROM_STATE,
     payload,
   };
 };
