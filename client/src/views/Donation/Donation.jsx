@@ -50,10 +50,6 @@ const Donation = () => {
           Son aceptadas tarjetas de debito y credito ya sean Visa, MasterCard o
           American Express. Tambien pago en Rapipago/Pagofacil y mas...
         </p>
-        {/* <div className={style.buttons}>
-                <button className={style.button}>CANCELAR</button>
-                <button className={style.button}>SIGUIENTE →</button>
-            </div> */}
       </div>
     </div>
   );
