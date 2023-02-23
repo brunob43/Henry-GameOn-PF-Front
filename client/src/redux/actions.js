@@ -21,6 +21,7 @@ export const ERROR_DOCS = "ERROR_DOCS";
 export const ERROR_USERS = "ERROR_USERS";
 export const POST_USERS = "POST_USER";
 export const GET_TOPIC_DOCS = "GET_TOPIC_DOCS";
+export const GET_DOC_DETAIL_FROM_STATE = "GET_DOC_DETAIL_FROM_STATE";
 
 export function getGames() {
   return async function (dispatch) {
@@ -277,5 +278,12 @@ export function getTopicDocs() {
       type: GET_TOPIC_DOCS,
       payload: topics,
     });
+  };
+};
+
+export function getDocDetailFromState(payload) {
+  return {
+    type: GET_DOC_DETAIL_FROM_STATE,
+    payload,
   };
 };
