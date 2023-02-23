@@ -26,14 +26,14 @@ const ShareInfo = () =>{
 
     const submitHandler = async (event) =>{
         event.preventDefault();
-        await axios.post("/doc", form)
+        axios.post("/doc", form)
         .then(res=> {
             alert("Info shared succesfully");
             history.push("/docs");
             dispatch(getDocs());
         })
         .catch(err=> {
-            alert("There was an error, try again");
+        alert("There was an error, try again");
         })
     }
 
