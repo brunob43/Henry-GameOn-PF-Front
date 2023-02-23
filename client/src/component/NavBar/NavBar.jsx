@@ -1,59 +1,54 @@
 import { NavLink } from "react-router-dom";
-import logo from "../../styles/images/HenryLogo.png";
-import style from "./NavBar.module.css";
+import logonegro from "../../styles/images/HenryLogo.png";
+import logoblanco from "../../styles/images/HenryLogoClaro.webp"
 import React from "react";
+import {useColorMode, Button, HStack, Image} from '@chakra-ui/react'
+import {ColorModeSwitcher} from '../ColorModeSwitcher/ColorModeSwitcher'
 
 const NavBar = (props) => {
-
-  const darkmode = (event) => {
-    if (event.target.className === style.dark) {
-      event.target.className = style.light;
-    } else {
-      event.target.className = style.dark;
-    }
-  };
-  
+  const { colorMode } = useColorMode();
   return (
-<div data-bs-theme="light">
-    <nav className={style.btncontain}>
-      <div className={style.navbar}>
-        <a href="https://www.soyhenry.com"
-         target="_blank"
-         rel="noreferrer">
-      <img src={logo} alt="Henry-Logo" width="" height=""></img>
-    </a>
-      </div>
+    <div data-bs-theme="light">
+      <HStack flexDirection={["column","column", "row"]} justify='space-around' p='10px' bg={colorMode === "dark" ? "black" : "yellow"}>
+        
+          <a href="https://www.soyhenry.com" target="_blank" rel="noreferrer">
+            <Image p="5px" src={colorMode === "dark" ? logoblanco : logonegro } alt="Henry-Logo" width="240px" height="auto"></Image>
+          </a>
+        
 
-      <div className={style.btnhome}>
-        <NavLink to="/">
-          <button className={style.bthm}>HOME</button>
-        </NavLink>
+        <HStack flexDirection={["column","column","column","row","row"]}>
 
-        <NavLink to="/games">
-          <button className={style.bthm}>GAMES</button>
-        </NavLink>
+          <HStack 
+          flexDirection={["column","row","row","row","row"]}>
+          <NavLink to="/">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}>HOME</Button>
+          </NavLink>
 
-        <NavLink to="/docs">
-          <button className={style.bthm}>HENRYDOCS</button>
-        </NavLink>
+          <NavLink to="/games">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}>GAMES</Button>
+          </NavLink>
 
-        <NavLink to="/about">
-          <button className={style.bthm}>ABOUT US</button>
-        </NavLink>
-
-        <NavLink to="/donation">
-          <button className={style.bthm}>DONATION</button>
-        </NavLink>
-        <NavLink to="/login">
-  
-                  <button className={style.bthm} src=" " alt=" ">LOGIN</button>
-
-        </NavLink>
-
-        <button type="button" className={style.dark} onClick={darkmode}>Dark / Light</button>
-      </div>
-    </nav>
-</div>
+          <NavLink to="/docs">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}>HENRYDOCS</Button>
+          </NavLink>
+          </HStack>
+          <HStack flexDirection={["column","row","row","row","row"]}>
+          <NavLink to="/about">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}>ABOUT US</Button>
+          </NavLink>
+          <NavLink to="/donation">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}>DONATION</Button>
+          </NavLink>
+          <NavLink to="/login">
+            <Button variant='ghost' _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }} src=" " alt=" ">
+              LOGIN
+            </Button>
+          </NavLink>
+          </HStack>
+          <ColorModeSwitcher />
+        </HStack>
+      </HStack>
+    </div>
   );
 };
 
