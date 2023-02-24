@@ -16,17 +16,15 @@ const GameDetail = () =>{
     }, [dispatch, id])
 
     const gameDetail = useSelector((state) => state.gameDetail);
-
-    const {game_id} = gameDetail;
-    
+   
     const game = gamesArray.filter((game) => game.id.toString() === id)
 
 
     return(
         
         <div className={style.main}>
-            { (id == game_id) ?
-             <div>   
+           
+             
             <div className={style.title}>
                 {game[0].name} 
             </div>
@@ -37,11 +35,8 @@ const GameDetail = () =>{
                 : console.log(id)
                 }
             </div>
-            </div> :
-             <div>
-             <h1 className={style.title}>Loading...</h1>
-          </div>
-            }
+        
+        
         </div>
 
     )
