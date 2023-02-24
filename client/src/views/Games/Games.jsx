@@ -38,20 +38,14 @@ const Games = () => {
       dispatch(getGames());
     }
   }, [dispatch, allGames]);
-  //------------------------------------------HANDLERS-------------------------------------------
+
+//------------------------------------------HANDLERS-------------------------------------------
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
 
-    useEffect(()=>{
-        if(!allGames.length){
-          dispatch(getGames())
-        }
-      },[dispatch,allGames])
-
     const handleFilterTopic = (event) => {
         const value = event.target.value;
-
         if (value === "all"){
             dispatch(getGames())
         }else{
@@ -62,8 +56,6 @@ const Games = () => {
             topic: [value],
         });            
         }
-
-
     };
 
     const handleFilterDificulty = (event) => {
@@ -92,12 +84,6 @@ const Games = () => {
             dispatch (resetErrorGames())
         // } 
     }
-
-    setFilterSelect({
-      ...filterSelect,
-      topic: [value],
-    });
-  };
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;
