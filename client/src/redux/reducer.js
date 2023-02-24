@@ -110,7 +110,7 @@ const rootReducer = (state = initialState, action) => {
   
         return {
           ...state,
-          docDetail: docsDetail,
+          docDetail: docsDetail[0],
         }; 
 
     case FILTER_BY_NAME_GAMES:
