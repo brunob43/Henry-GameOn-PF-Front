@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDocDetailFromState, countViewsDocs } from "../../redux/actions"
 import style from "./DocDetail.module.css";
 import { useParams } from "react-router-dom";
 
+import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
 
     const DocDetail = () =>{
         const { id } = useParams();
@@ -39,6 +39,5 @@ import { useParams } from "react-router-dom";
          </div>
      )
      }
-
 
 export default DocDetail;
