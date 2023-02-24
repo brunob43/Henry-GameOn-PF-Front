@@ -8,7 +8,7 @@ import './index.css';
 import {Auth0Provider} from "@auth0/auth0-react";
 import { PersistGate } from 'redux-persist/integration/react'
 // import { persistStore } from 'redux-persist';
-import {ChakraProvider} from "@chakra-ui/react"
+import {ChakraProvider, ColorModeScript} from "@chakra-ui/react"
 // import { Spinner } from '@chakra-ui/react'
 
 // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
