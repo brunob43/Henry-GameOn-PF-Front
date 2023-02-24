@@ -23,6 +23,7 @@ export default function SearchBarGame() {
   return (
     <HStack mb="10px">
       <Input
+      focusBorderColor="purple.600"
       color={colorMode === "dark" ? "yellow" : "black"}
         _hover={
             colorMode === "dark"

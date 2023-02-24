@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerGames from "../CardContainerGame/CardContainerGame";
 import { setCurrentPageGames } from "../../redux/actions";
 import style from "./Paginated.module.css";
-import prev from "../../styles/images/left-arrow.png"
-import next from "../../styles/images/right-arrow.png"
+import prev from "../../styles/images/left-arrow.png";
+import next from "../../styles/images/right-arrow.png";
+import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
 
-const PaginatedGame = ()=>{
+const PaginatedGame = () => {
+  const { colorMode } = useColorMode();
 
   const dispatch = useDispatch();
 
@@ -16,9 +18,7 @@ const PaginatedGame = ()=>{
 
   const [gamesPerPage] = useState(2);
 
-  
-
-  const handleClick = (event) => {     
+  const handleClick = (event) => {
     dispatch(setCurrentPageGames(Number(event.target.id)));
   };
 
@@ -29,39 +29,34 @@ const PaginatedGame = ()=>{
 
   const indexOfLastGame = currentPage * gamesPerPage;
   const indexOfFirstGame = indexOfLastGame - gamesPerPage;
-  const currentGames = allGames.slice(
-    indexOfFirstGame,
-    indexOfLastGame
-  );
-
-  console.log(currentGames)
+  const currentGames = allGames.slice(indexOfFirstGame, indexOfLastGame);
 
   const pageNumbers = pages.map((number) => {
-    if(currentPage === number){
+    if (currentPage === number) {
       return (
         <li
-        className={style.active}
-        key={number}
-        id={number}
-        onClick={handleClick}
+          className={style.active}
+          key={number}
+          id={number}
+          onClick={handleClick}
         >
-        {number}
+          {number}
         </li>
       );
-    }else{
+    } else {
       return (
         <li
-        className={style.number}
-        key={number}
-        id={number}
-        onClick={handleClick}
+          className={style.number}
+          key={number}
+          id={number}
+          onClick={handleClick}
         >
-        {number}
+          {number}
         </li>
       );
-    };
+    }
   });
-    
+
   const handleNext = () => {
     if (currentPage + 1 <= pages.length) {
       dispatch(setCurrentPageGames(currentPage + 1));
@@ -78,42 +73,85 @@ const PaginatedGame = ()=>{
     }
   };
 
+  //   .button{
+  //     background-color: rgb(255, 255, 0);
+  //     border-radius: 30px;
+  //     padding-right: 50%;
+  //     padding-left: 20%;
+  //     transition: 400ms;
+  // }
+
+  // .button:hover{
+  //     cursor: pointer;
+  //     transition: 400ms;
+  //     transform: scale(130%);
+  // }
+
   return (
-    <div className={style.mainContainer}>
-      <nav className={style.nav}>
+    <VStack>
+      <HStack>
         <ul className={style.pages} name="top">
           <li>
-            <button className={style.button} id="prev" onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow} /></button>
+            <Button
+            _hover={{cursor: "pointer",
+              transition: "400ms",
+              transform: "scale(130%)"}}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handlePrev}
+            >
+              <img src={prev} alt="prev" className={style.arrow} />
+            </Button>
           </li>
-    
+
           {pageNumbers}
-    
+
           <li>
-            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
+            <Button
+            _hover={{cursor: "pointer",
+            transition: "400ms",
+            transform: "scale(130%)"}}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handleNext}
+            >
+              <img src={next} alt="next" className={style.arrow} />
+            </Button>
           </li>
         </ul>
-      </nav>
-      
-      <div className={style.container}>
-        {CardContainerGames(currentGames)}
-      </div>
-    
-      <nav className={style.nav}>
+      </HStack>
+
+      <HStack w="800px" justify="space-around">{CardContainerGames(currentGames)}</HStack>
+
+      <HStack>
         <ul className={style.pages} name="bottom">
           <li>
-            <button className={style.button} onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow}/></button>
+            <Button
+            _hover={{cursor: "pointer",
+            transition: "400ms",
+            transform: "scale(130%)"}}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handlePrev}
+            >
+              <img src={prev} alt="prev" className={style.arrow} />
+            </Button>
           </li>
-    
+
           {pageNumbers}
-    
+
           <li>
-            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
+            <Button
+            _hover={{cursor: "pointer",
+            transition: "400ms",
+            transform: "scale(130%)"}}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handleNext}
+            >
+              <img src={next} alt="next" className={style.arrow} />
+            </Button>
           </li>
         </ul>
-      </nav>
-    </div>
+      </HStack>
+    </VStack>
   );
-    
-}
+};
 
 export default PaginatedGame;
