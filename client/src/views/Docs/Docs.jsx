@@ -1,7 +1,7 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs, getTopicDocs } from "../../redux/actions";
+import {filterByNameDocs, filterByTopicDocs,getDocs, setCurrentPageDocs, filterByViewsDocs, getTopicDocs, resetErrorDocs } from "../../redux/actions";
 import style from "./Docs.module.css"
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
@@ -41,9 +41,9 @@ const Docs = () =>{
     const handleDeleteFilter = (event) => {
         setFilterSelect({
             topic: [],
-        });
-        window.location.reload();        
+        });        
         dispatch(getDocs());
+        dispatch(resetErrorDocs())
     }
     const handleFilterOrder = (event) => {
         const value = event.target.value

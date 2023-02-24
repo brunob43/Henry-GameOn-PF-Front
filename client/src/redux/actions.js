@@ -42,12 +42,19 @@ export function getGames() {
 }
 
 
-// export function setError(payload) {
-//   return {
-//     type: ERROR,
-//     payload,
-//   };
-// };
+export function resetErrorGames() {
+  return {
+    type: ERROR_GAMES,
+    payload: "",
+  };
+};
+
+export function resetErrorDocs() {
+  return {
+    type: ERROR_DOCS,
+    payload: "",
+  };
+};
 
 export function getNameGames(game_name) {
   return async function (dispatch) {

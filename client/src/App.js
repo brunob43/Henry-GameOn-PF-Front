@@ -56,13 +56,7 @@ function App() {
 
             <Route exact path="/login">
                 <Login />
-            </Route>
-            
-            <Route exact path="/login">
-                <Logout />
-            </Route>
-
-            <Route exact path="/login">
+                <Logout />                
                 <Profile />
             </Route>
             
