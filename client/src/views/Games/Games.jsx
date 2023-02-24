@@ -5,6 +5,7 @@ import { filterByDifficultyGames, filterByNameGames, filterByTopicGames, filterB
 import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
+import {Heading, HStack, VStack} from "@chakra-ui/react"
 
 const Games= () =>{
     const dispatch = useDispatch();
@@ -116,10 +117,10 @@ const Games= () =>{
     }
 
     return(
-        <div className={style.main}>
-            <div >
-             <h2 className={style.title}>GAMES</h2>   
-            </div>
+        <VStack bg='black' className={style.main}>
+            <HStack >
+             <Heading fontFamily='I-pixel-u' className={style.title}>GAMES</Heading> 
+            </HStack>
 
             <div className={style.searchBar}>
              <SearchBarGame/>   
@@ -180,7 +181,7 @@ const Games= () =>{
 
             </div>
             <PaginatedGame />
-        </div>
+        </VStack>
 
     )
 }

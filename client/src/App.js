@@ -1,12 +1,14 @@
-import './App.css';
+// import './App.css';
 import { Route, Switch} from 'react-router-dom';
 import { Home, About, Contact, Docs, Donation, Games, Register, ShareInfo, GameDetail} from "./views";
+import { DocDetail } from "./views/DocDetail/DocDetail.jsx"
 import NavBar from "./component/NavBar/NavBar"
 import axios from 'axios';
 import { PageNotFound } from './component/PageNotFound/PageNotFound';
 import Login from "../src/views/Auth/Login/Login";
 import Logout from "../src/views/Auth/Logout/Logout";
 import Profile from "../src/views/Auth/Profile/Profile"
+// import style from './App.module.
 
 axios.defaults.baseURL= 'https://back-henrygame.up.railway.app';
 
@@ -15,6 +17,7 @@ function App() {
     // const location = useLocation();
     
     return(
+    
         <div>
             <NavBar />
 
@@ -42,6 +45,10 @@ function App() {
                 <Docs />
             </Route>
 
+            <Route exact path='/doc/:id'>
+                <DocDetail />
+            </Route>
+
             <Route exact path="/docs/share">
                 <ShareInfo />
             </Route>
@@ -56,14 +63,8 @@ function App() {
 
             <Route exact path="/login">
                 <Login />
-            </Route>
-            
-            <Route exact path="/login">
-                <Logout />
-            </Route>
-
-            <Route exact path="/login">
                 <Profile />
+                <Logout />
             </Route>
             
             <Route>
@@ -73,7 +74,7 @@ function App() {
             </Switch>
 
         </div>
-        
+
     )
 }
 
