@@ -18,7 +18,7 @@ const GameDetail = () =>{
     const gameDetail = useSelector((state) => state.gameDetail);
 
     const {game_id} = gameDetail;
-    console.log(gameDetail)
+    
     const game = gamesArray.filter((game) => game.id.toString() === id)
 
 

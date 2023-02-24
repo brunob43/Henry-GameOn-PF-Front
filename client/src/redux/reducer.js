@@ -99,7 +99,7 @@ const rootReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        gameDetail: gamesDetail,
+        gameDetail: gamesDetail[0],
       };
 
       case GET_DOC_DETAIL_FROM_STATE:
