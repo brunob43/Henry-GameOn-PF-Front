@@ -20,7 +20,7 @@ import { useParams } from "react-router-dom";
 
      return (
          <div className={style.main}>
-            {
+            
                 <div className={style.title}>
 
                     <h1 className={style.main}>{docDetail.doc_name}</h1>
@@ -30,7 +30,7 @@ import { useParams } from "react-router-dom";
                     <p className={style.main}>{docDetail.doc_content}</p>
                     
                 </div>
-            }
+    
          </div>
      )
      }
