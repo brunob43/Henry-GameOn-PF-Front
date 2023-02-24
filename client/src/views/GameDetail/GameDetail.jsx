@@ -8,7 +8,7 @@ import style from "./GameDetail.module.css";
 const GameDetail = () =>{
     const { id } = useParams();
     const dispatch = useDispatch();
-    console.log(id)
+   
     
     useEffect(()=>{
         dispatch(getDetailFromState(id));
@@ -17,13 +17,11 @@ const GameDetail = () =>{
 
     const gameDetail = useSelector((state) => state.gameDetail);
 
-    console.log(gamesArray)
-
-    console.log(gameDetail)
+    
 
     const game = gamesArray.filter((game) => game.id.toString() === id)
 
-    console.log(game)
+    
 
     return(
         <div className={style.main}>

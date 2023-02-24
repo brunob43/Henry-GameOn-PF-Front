@@ -14,9 +14,9 @@ import { useParams } from "react-router-dom";
             dispatch(getDocDetailFromState(id));
             countViewsDocs(id)
         }, [dispatch, id])
-    
+        console.log(id)
         const docDetail = useSelector((state) => state.docDetail);
-
+        console.log(docDetail)
 
      return (
          <div className={style.main}>
