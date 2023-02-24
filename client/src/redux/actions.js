@@ -2,7 +2,7 @@ import axios from "axios";
 export const GET_GAMES = "GET_GAMES";
 export const SET_CURRENT_PAGE_GAMES = "SET_CURRENT_PAGE_GAMES";
 export const SET_CURRENT_PAGE_DOCS = "SET_CURRENT_PAGE_DOCS";
-export const GET_DETAIL_FROM_STATE = "GET_DETAIL_FROM_STATE";
+export const GET_GAME_DETAIL_FROM_STATE = "GET_GAME_DETAIL_FROM_STATE";
 export const FILTER_BY_NAME_GAMES = "FILTER_BY_NAME_GAMES";
 export const FILTER_BY_VIEWS_GAMES = "FILTER_BY_VIEWS_GAMES";
 export const FILTER_BY_TOPIC_GAMES = "FILTER_BY_TOPIC_GAMES";
@@ -21,6 +21,7 @@ export const ERROR_DOCS = "ERROR_DOCS";
 export const ERROR_USERS = "ERROR_USERS";
 export const POST_USERS = "POST_USER";
 export const GET_TOPIC_DOCS = "GET_TOPIC_DOCS";
+export const GET_DOC_DETAIL_FROM_STATE = "GET_DOC_DETAIL_FROM_STATE";
 
 export function getGames() {
   return async function (dispatch) {
@@ -91,7 +92,7 @@ export function setCurrentPageDocs(payload) {
 
 export function getDetailFromState(payload) {
   return {
-    type: GET_DETAIL_FROM_STATE,
+    type: GET_GAME_DETAIL_FROM_STATE,
     payload,
   };
 };
@@ -276,6 +277,11 @@ export async function countViewsGames (id){
   return response;
 }
 
+export async function countViewsDocs (id){
+  const response = await axios.put(`/doc/view/${id}`);
+  return response;
+}
+
 export function getTopicDocs() {
   return async function (dispatch) {
     const response = await axios.get("/doc");
@@ -286,3 +292,14 @@ export function getTopicDocs() {
     });
   };
 };
+
+export function getDocDetailFromState(payload) {
+  return {
+    type: GET_DOC_DETAIL_FROM_STATE,
+    payload,
+  };
+};
+export async function countViewsDoc (id){
+  const response = await axios.put(`/doc/view/${id}`);
+  return response;
+}

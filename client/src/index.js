@@ -15,25 +15,26 @@ import {ChakraProvider} from "@chakra-ui/react"
 // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 // const persistor = persistStore(store)
-const rootElement = document.getElementById('root')
+
+const rootElement = document.getElementById("root");
 
 ReactDOM.createRoot(rootElement).render(
   <ChakraProvider>
+    <ColorModeScript initialColorMode="system" />
     <Provider store={store}>
       <Auth0Provider
-      domain="henrygameon.eu.auth0.com"
-      clientId="I8Pua9FRXYxAahGm0gH1UJonTh1Xspjc"
-      authorizationParams={{
-        redirect_uri: window.location.origin
-      }}
+        domain="henrygameon.eu.auth0.com"
+        clientId="I8Pua9FRXYxAahGm0gH1UJonTh1Xspjc"
+        authorizationParams={{
+          redirect_uri: window.location.origin,
+        }}
       >
         <BrowserRouter>
         <PersistGate loading={null} persistor={Persistor}>
           <App />
         </PersistGate>
-        </BrowserRouter>      
+        </BrowserRouter>
       </Auth0Provider>
-
     </Provider>
-  </ChakraProvider>,
+  </ChakraProvider>
 );

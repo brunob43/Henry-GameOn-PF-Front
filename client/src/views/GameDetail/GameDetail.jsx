@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { countViewsGames, getDetailFromState } from "../../redux/actions";
 import gamesArray from "../../games/gamesIndex";
-import style from "./GameDetail.module.css"
+import style from "./GameDetail.module.css";
 
 const GameDetail = () =>{
     const { id } = useParams();
@@ -16,7 +16,7 @@ const GameDetail = () =>{
     }, [dispatch, id])
 
     const gameDetail = useSelector((state) => state.gameDetail);
-
+   
     console.log(gamesArray)
 
     console.log(gameDetail)
@@ -26,7 +26,10 @@ const GameDetail = () =>{
     console.log(game)
 
     return(
+        
         <div className={style.main}>
+           
+             
             <div className={style.title}>
                 {game[0].name} 
             </div>
@@ -37,6 +40,8 @@ const GameDetail = () =>{
                 : console.log(id)
                 }
             </div>
+        
+        
         </div>
 
     )
