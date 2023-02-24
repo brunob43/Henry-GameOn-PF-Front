@@ -7,9 +7,10 @@ import bruno from "../assets/imagen/bruno.png";
 import nicole from "../assets/imagen/nicole.png";
 import pablo from "../assets/imagen/pablo.jpg";
 import abel from "../assets/imagen/Abel.png";
-import larry from "../assets/imagen/larry.jpeg";
+import larry from "../assets/imagen/Larry.png";
 import manu from "../assets/imagen/manu.jpg";
 import franco from "../assets/imagen/franco.jpg";
+// import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,
   VStack,
@@ -209,7 +210,7 @@ const About = () => {
               bg="rgb(143 112 191)"
             >
               <Avatar name="Dan" src={larry} size="xl" />
-              <Text fontSize="2xl">Larry Jose Guarenas Arraez</Text>
+              <Text fontSize="2xl">Larry Guarenas</Text>
               <VStack marginLeft="7">
                 <Link href="https://github.com/Larryjose" target="_blank">
                   <Image src={github} alt="github" w="10" />
