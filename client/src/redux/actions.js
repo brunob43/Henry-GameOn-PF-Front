@@ -270,6 +270,11 @@ export async function countViewsGames (id){
   return response;
 }
 
+export async function countViewsDocs (id){
+  const response = await axios.put(`/doc/view/${id}`);
+  return response;
+}
+
 export function getTopicDocs() {
   return async function (dispatch) {
     const response = await axios.get("/doc");
