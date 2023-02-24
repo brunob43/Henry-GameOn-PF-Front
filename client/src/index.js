@@ -1,14 +1,20 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
-import store from "./redux/store";
-import App from "./App";
-import { Auth0Provider } from "@auth0/auth0-react";
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import store, {Persistor} from './redux/store';
+import App from './App';
+import './index.css';
+import {Auth0Provider} from "@auth0/auth0-react";
+import { PersistGate } from 'redux-persist/integration/react'
+// import { persistStore } from 'redux-persist';
+import {ChakraProvider, ColorModeScript} from "@chakra-ui/react"
+// import { Spinner } from '@chakra-ui/react'
 
 // const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 // const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
+
+// const persistor = persistStore(store)
 
 const rootElement = document.getElementById("root");
 
@@ -24,7 +30,9 @@ ReactDOM.createRoot(rootElement).render(
         }}
       >
         <BrowserRouter>
+        <PersistGate loading={null} persistor={Persistor}>
           <App />
+        </PersistGate>
         </BrowserRouter>
       </Auth0Provider>
     </Provider>

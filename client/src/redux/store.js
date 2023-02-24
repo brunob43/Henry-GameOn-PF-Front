@@ -3,32 +3,41 @@
 // export default configureStore({
     
 // })
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware,} from "redux";
 import thunkMiddleware from "redux-thunk";
 import rootReducer from "./reducer";
-// import { persistReducer } from 'redux-persist'
-// import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/lib/storage';
+import {
+    persistReducer,persistStore
+} from 'redux-persist';
  
-// const persistConfig = {
-//   key: 'root',
-//   storage,
-//   whitelist: [rootReducer],
-// }
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-// export default () => {
-//   let store = createStore(persistedReducer)
-//   let persistor = persistStore(store)
-//   return { store, persistor }
-// }
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-const composeEnhancers = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
+
+// export default createStore({
+//   reducer: persistedReducer(),
+//   middleware: (thunkMiddleware) 
+//       getDefaultMiddleware({
+//           serializableCheck: {
+//               ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//           },
+//       }),
+// });
+
+// const composeEnhancers = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 
 const store = createStore(
-  // persistedReducer,
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunkMiddleware))
+  persistedReducer,
+  // rootReducer,
+  applyMiddleware(thunkMiddleware)
 );
+
+export const Persistor = persistStore(store)
 
 export default store;

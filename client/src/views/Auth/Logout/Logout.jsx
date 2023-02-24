@@ -5,29 +5,32 @@ import { Button, HStack, useColorMode, } from "@chakra-ui/react";
 import meta from "../../assets/imagen/Metaverso.png"
 
 const LogoutButton = () => {
+
   const { colorMode } = useColorMode();
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated  } = useAuth0();
 
   return (
-    <HStack bgImage={meta} h='800'>
-      <Button size="md"
-            height="48px"
-            width="200px"
-            border="2px"
-            borderColor="yellow"
-            _hover={
-              colorMode === "dark"
-                ? { color: "black", bg: "white" }
-                : { bg: "black", color: "white" }
-            }
-            bg={colorMode === "dark" ? "black" : "white"}
-        onClick={() =>
-          logout({ logoutParams: { returnTo: window.location.origin } })
-        }
-      >
+    isAuthenticated && (
+      <HStack bgImage={meta} h='800'>
+        <Button size="md"
+              height="48px"
+              width="200px"
+              border="2px"
+              borderColor="yellow"
+              _hover={
+                colorMode === "dark"
+                  ? { color: "black", bg: "white" }
+                  : { bg: "black", color: "white" }
+              }
+              bg={colorMode === "dark" ? "black" : "white"}
+          onClick={() =>
+            logout({ logoutParams: { returnTo: window.location.origin } })
+          }
+        >
         LOG OUT
-      </Button>
-    </HStack>
+        </Button>
+      </HStack>
+    )
   );
 };
 
