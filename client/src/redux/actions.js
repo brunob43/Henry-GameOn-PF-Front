@@ -292,3 +292,7 @@ export function getDocDetailFromState(payload) {
     payload,
   };
 };
+export async function countViewsDoc (id){
+  const response = await axios.put(`/doc/view/${id}`);
+  return response;
+}
