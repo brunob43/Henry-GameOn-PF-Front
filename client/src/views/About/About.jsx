@@ -10,7 +10,7 @@ import abel from "../assets/imagen/Abel.png";
 import larry from "../assets/imagen/Larry.png";
 import manu from "../assets/imagen/manu.jpg";
 import franco from "../assets/imagen/franco.jpg";
-// import fon from "../assets/imagen/shapesHowApply.png";
+import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,
   VStack,
@@ -24,19 +24,26 @@ import {
   Link,
   Button,
   HStack,
+  useColorMode,
 } from "@chakra-ui/react";
 
 const About = () => {
+  const { colorMode } = useColorMode();
   return (
-    <Box bg="black">
+    <Box bg={colorMode === "dark" ? "black" : "white"}>
+      <Image src={fon} position="fixed" right="0"></Image>
       <VStack>
-        <Heading color="yellow" padding="5">
+        <Heading padding="5" color={colorMode === "dark" ? "yellow" : "black"}>
           ¿QUIENES SOMOS?
         </Heading>
       </VStack>
 
       <VStack>
-        <Container color="white" textAlign="center" padding="5">
+        <Container
+          textAlign="center"
+          padding="5"
+          color={colorMode === "dark" ? "white" : "black"}
+        >
           SOMOS UN EQUIPO DE TRABAJO QUE SE FUE FORMANDO A LO LARGO DEL BOOTCAMP
           DE HENRY, A PESAR DE NO SER DEL MISMO GRUPO DE SUP, LOGRAMOS COINCIDIR
           Y COORDINAR NUESTRAS IDEAS Y PLASMARLAS PARA LLEGAR AL OBJETIVO EN
@@ -258,9 +265,12 @@ const About = () => {
             width="200px"
             border="2px"
             borderColor="yellow"
-            bg="black"
-            color="white"
-            _hover={{ color: "black", bg: "white" }}
+            _hover={
+              colorMode === "dark"
+                ? { color: "black", bg: "white" }
+                : { bg: "black", color: "white" }
+            }
+            bg={colorMode === "dark" ? "black" : "white"}
           >
             <Text>Contact</Text>
           </Button>
