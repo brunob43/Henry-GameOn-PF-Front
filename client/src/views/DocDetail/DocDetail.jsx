@@ -7,21 +7,21 @@ import { useParams } from "react-router-dom";
 
 
     const DocDetail = () =>{
-        const { idParams } = useParams();
+        const { id } = useParams();
         const dispatch = useDispatch();
        
         useEffect(()=>{
-            dispatch(getDocDetailFromState(idParams));
-            countViewsDocs(idParams)
-        }, [dispatch, idParams])
+            dispatch(getDocDetailFromState(id));
+            countViewsDocs(id)
+        }, [dispatch, id])
         
         const docDetail = useSelector((state) => state.docDetail);
         
-        const id = docDetail.doc_id;
+        const {doc_id} = docDetail;
 
      return (
          <div className={style.main}>
-            {  (idParams == id) ?
+            {  (id == doc_id) ?
                 <div className={style.title}>
 
                     <h1 className={style.main}>{docDetail.doc_name}</h1>
