@@ -16,7 +16,8 @@ import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import Login from "../src/views/Auth/Login/Login";
 import Logout from "../src/views/Auth/Logout/Logout";
-import Profile from "../src/views/Auth/Profile/Profile";
+import Profile from "../src/views/Auth/Profile/Profile"
+import DocDetail from './views/DocDetail/DocDetail';
 // import style from './App.module.
 
 axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
@@ -50,6 +51,10 @@ function App() {
         <Route exact path="/docs">
           <Docs />
         </Route>
+
+        <Route exact path='/doc/:id'>
+          <DocDetail/>
+        </Route> 
 
         <Route exact path="/docs/share">
           <ShareInfo />

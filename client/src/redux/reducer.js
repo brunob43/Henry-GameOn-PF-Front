@@ -2,7 +2,7 @@ import {
   GET_GAMES,
   SET_CURRENT_PAGE_GAMES,
   SET_CURRENT_PAGE_DOCS,  
-  GET_DETAIL_FROM_STATE, 
+  GET_GAME_DETAIL_FROM_STATE, 
   FILTER_BY_NAME_GAMES,
   FILTER_BY_VIEWS_GAMES, 
   FILTER_BY_TOPIC_GAMES, 
@@ -20,6 +20,7 @@ import {
   ERROR_DOCS,
   POST_USERS,
   GET_TOPIC_DOCS,
+  GET_DOC_DETAIL_FROM_STATE
 } from "./actions";
 
 const initialState = {
@@ -36,7 +37,8 @@ const initialState = {
   errorDocs: "",
   games : [],
   docs : [],
-  users : []
+  users : [],
+  docDetail: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -89,7 +91,7 @@ const rootReducer = (state = initialState, action) => {
         currentPageGames: action.payload,
       };
 
-    case GET_DETAIL_FROM_STATE:
+    case GET_GAME_DETAIL_FROM_STATE:
       const games = [...state.allGames];
       const gamesDetail = games.filter(
         (g) => g.game_id.toString() === action.payload
@@ -99,6 +101,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         gameDetail: gamesDetail,
       };
+
+      case GET_DOC_DETAIL_FROM_STATE:
+        const docs = [...state.allDocs];
+        const docsDetail = docs.filter(
+          (g) => g.doc_id.toString() === action.payload
+        );
+  
+        return {
+          ...state,
+          docDetail: docsDetail,
+        }; 
 
     case FILTER_BY_NAME_GAMES:
       const gamesName = [...state.games];
