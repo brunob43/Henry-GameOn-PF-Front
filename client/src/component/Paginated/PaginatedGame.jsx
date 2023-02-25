@@ -73,29 +73,17 @@ const PaginatedGame = () => {
     }
   };
 
-  //   .button{
-  //     background-color: rgb(255, 255, 0);
-  //     border-radius: 30px;
-  //     padding-right: 50%;
-  //     padding-left: 20%;
-  //     transition: 400ms;
-  // }
-
-  // .button:hover{
-  //     cursor: pointer;
-  //     transition: 400ms;
-  //     transform: scale(130%);
-  // }
-
   return (
     <VStack>
       <HStack>
         <ul className={style.pages} name="top">
           <li>
             <Button
-            _hover={{cursor: "pointer",
-              transition: "400ms",
-              transform: "scale(130%)"}}
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
               bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handlePrev}
             >
@@ -107,9 +95,11 @@ const PaginatedGame = () => {
 
           <li>
             <Button
-            _hover={{cursor: "pointer",
-            transition: "400ms",
-            transform: "scale(130%)"}}
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
               bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handleNext}
             >
@@ -119,15 +109,19 @@ const PaginatedGame = () => {
         </ul>
       </HStack>
 
-      <HStack w="800px" justify="space-around">{CardContainerGames(currentGames)}</HStack>
+      <HStack w="100%" justify="space-around">
+        {CardContainerGames(currentGames)}
+      </HStack>
 
       <HStack>
         <ul className={style.pages} name="bottom">
           <li>
             <Button
-            _hover={{cursor: "pointer",
-            transition: "400ms",
-            transform: "scale(130%)"}}
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
               bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handlePrev}
             >
@@ -139,9 +133,11 @@ const PaginatedGame = () => {
 
           <li>
             <Button
-            _hover={{cursor: "pointer",
-            transition: "400ms",
-            transform: "scale(130%)"}}
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
               bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handleNext}
             >

@@ -6,8 +6,8 @@ export const PageNotFound = () => {
   const { colorMode } = useColorMode();
   return (
     <Box bgImage={fond} h='800' bgPosition='center' bgRepeat='no-repeat'>
-      <VStack padding="10">
-        <Text fontSize="40">404</Text>
+      <VStack  padding="10">
+        <Text mt={["350px", "200px", "150px", "70px", "70px"]} fontSize="40">404</Text>
         <Text>PAGE NOT FOUND</Text>
         <Link to="/">
           <Button

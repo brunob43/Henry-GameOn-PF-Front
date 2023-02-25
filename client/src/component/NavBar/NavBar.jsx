@@ -10,6 +10,7 @@ const NavBar = (props) => {
   return (
     <div data-bs-theme="light">
       <HStack
+      zIndex="10"
       w='100%'
       position='fixed'
         flexDirection={["column", "column", "row"]}
