@@ -8,6 +8,7 @@ import {
   setCurrentPageDocs,
   filterByViewsDocs,
   getTopicDocs,
+  resetErrorDocs
 } from "../../redux/actions";
 import style from "./Docs.module.css";
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
@@ -53,8 +54,10 @@ const Docs = () => {
     setFilterSelect({
       topic: [],
     });
-    window.location.reload();
+    // window.location.reload();
     dispatch(getDocs());
+    dispatch (resetErrorDocs())
+    
   };
   const handleFilterOrder = (event) => {
     const value = event.target.value;
