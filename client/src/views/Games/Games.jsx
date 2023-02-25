@@ -7,6 +7,7 @@ import {
   filterByTopicGames,
   filterByViewsGames,
   getGames,
+  resetErrorGames,
   setCurrentPageGames,
 } from "../../redux/actions";
 import style from "./Games.module.css";
@@ -39,62 +40,52 @@ const Games = () => {
       dispatch(getGames());
     }
   }, [dispatch, allGames]);
-  //------------------------------------------HANDLERS-------------------------------------------
+
+//------------------------------------------HANDLERS-------------------------------------------
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
 
-  const handleFilterTopic = (event) => {
-    const value = event.target.value;
+    const handleFilterTopic = (event) => {
+        const value = event.target.value;
+        if (value === "all"){
+            dispatch(getGames())
+        }else{
+        dispatch(filterByTopicGames(value));
 
-    dispatch(filterByTopicGames(value));
+        setFilterSelect({
+            ...filterSelect,
+            topic: [value],
+        });            
+        }
+    };
 
-    setFilterSelect({
-      ...filterSelect,
-      topic: [value],
-    });
-  };
+    const handleFilterDificulty = (event) => {
+        const value = event.target.value
 
-  const handleFilterDificulty = (event) => {
-    const value = event.target.value;
+        if (value === "all"){
+            dispatch(getGames())
+        }else{
+        dispatch(filterByDifficultyGames(value));
 
-    dispatch(filterByDifficultyGames(value));
+        setFilterSelect({
+            ...filterSelect,
+            dificulty: [value],
+        });            
+        }
 
-    setFilterSelect({
-      ...filterSelect,
-      dificulty: [value],
-    });
-  };
+    };
 
-  const handleDeleteFilter = (event) => {
-    // const valueDif = filterSelect.dificulty;
-    // console.log(valueDif);
-    // const valueTopic = filterSelect.topic;
-    // console.log(valueTopic);
-    // const valueBtn = event.target.value;
-    // console.log(valueBtn);
-
-    // if(valueDif.length > 0 && valueTopic.length > 0 && valueBtn == valueDif){
-    //     setFilterSelect({
-    //         ...filterSelect,
-    //         dificulty: [],
-    //     });
-    //     dispatch(filterByTopicSelect(valueTopic));
-    // }else if(valueDif.length >0 && valueTopic.length >0 && valueBtn == valueTopic){
-    //     setFilterSelect({
-    //         ...filterSelect,
-    //         topic: [],
-    //     });
-    //     dispatch(filterByDificultySelect(valueDif));
-    // }else{
-    setFilterSelect({
-      topic: [],
-      dificulty: [],
-    });
-    window.location.reload();
-    dispatch(getGames());
-    // }
-  };
+    const handleDeleteFilter = (event) => {
+            setFilterSelect({
+                topic: [],
+                dificulty: [],
+            });
+            // window.location.reload();        
+            dispatch(getGames());
+            dispatch (resetErrorGames())
+        // } 
+    }
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;

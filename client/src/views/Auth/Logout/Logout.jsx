@@ -5,8 +5,9 @@ import { Button, HStack, useColorMode, } from "@chakra-ui/react";
 // import meta from "../../assets/imagen/Metaverso.png"
 
 const LogoutButton = () => {
+
   const { colorMode } = useColorMode();
-  const { logout } = useAuth0();
+  const { logout, isAuthenticated  } = useAuth0();
 
   return (
     <HStack>
@@ -25,9 +26,10 @@ const LogoutButton = () => {
           logout({ logoutParams: { returnTo: window.location.origin } })
         }
       >
-        LOG OUT
-      </Button>
-    </HStack>
+       LOG OUT
+        </Button>
+      </HStack>
+    )
   );
 };
 
