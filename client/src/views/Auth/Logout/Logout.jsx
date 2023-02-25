@@ -30,7 +30,6 @@ const LogoutButton = () => {
         </Button>
       </HStack>
     )
-  );
 };
 
 export default LogoutButton;
