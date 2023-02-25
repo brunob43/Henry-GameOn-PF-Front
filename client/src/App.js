@@ -11,14 +11,11 @@ import {
   Register,
   ShareInfo,
   GameDetail,
+  LoginView
 } from "./views";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
-
-import Login from "../src/views/Auth/Login/Login";
-import Logout from "../src/views/Auth/Logout/Logout";
-import Profile from "../src/views/Auth/Profile/Profile";
 import DocDetail from "./views/DocDetail/DocDetail";
 // import style from './App.module.
 
@@ -71,9 +68,7 @@ function App() {
         </Route>
 
         <Route exact path="/login">
-          <Login />
-          <Logout />
-          <Profile />
+          <LoginView />
         </Route>
 
         <Route>

@@ -2,14 +2,14 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 // import style from "../Logout/Logout.module.css";
 import { Button, HStack, useColorMode, } from "@chakra-ui/react";
-import meta from "../../assets/imagen/Metaverso.png"
+// import meta from "../../assets/imagen/Metaverso.png"
 
 const LogoutButton = () => {
   const { colorMode } = useColorMode();
   const { logout } = useAuth0();
 
   return (
-    <HStack bgImage={meta} h='800'>
+    <HStack>
       <Button size="md"
             height="48px"
             width="200px"

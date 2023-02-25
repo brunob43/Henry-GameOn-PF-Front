@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getNameGames } from "../../redux/actions";
 // import style from "./SearchBar.module.css";
 import { Button, HStack, Input, useColorMode } from "@chakra-ui/react";
-import {SearchIcon} from "@chakra-ui/icons"
+import { SearchIcon } from "@chakra-ui/icons";
 export default function SearchBarGame() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -23,15 +23,14 @@ export default function SearchBarGame() {
   return (
     <HStack mb="10px">
       <Input
-      focusBorderColor="purple.600"
-      color={colorMode === "dark" ? "yellow" : "black"}
+        fontWeight="bold"
         _hover={
-            colorMode === "dark"
-              ? { bg: "yellow", color: "black" }
-              : { bg: "black", color: "yellow" }
-          }
-          border="1px"
-          borderColor={colorMode === "dark" ? "yellow" : "black"}
+          colorMode === "dark"
+            ? { bg: "rgba(255, 255, 0, 0.5)"}
+            : { bg: "rgba(0, 0, 0, 0.5)" }
+        }
+        border="1px"
+        borderColor={colorMode === "dark" ? "yellow" : "black"}
         type="text"
         placeholder="Search game..."
         onChange={(e) => handlerInputChange(e)}
@@ -45,8 +44,12 @@ export default function SearchBarGame() {
         }
         border="1px"
         borderColor={colorMode === "dark" ? "yellow" : "black"}
-        type="submit" onClick={(e) => handleSubmit(e)}
-        > <SearchIcon/> </Button>
+        type="submit"
+        onClick={(e) => handleSubmit(e)}
+      >
+        {" "}
+        <SearchIcon />{" "}
+      </Button>
     </HStack>
   );
 }

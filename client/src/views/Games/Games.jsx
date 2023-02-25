@@ -12,9 +12,11 @@ import {
 import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
-import { useColorMode, HStack, VStack, Select } from "@chakra-ui/react";
+import { useColorMode, HStack, VStack, Select, Button } from "@chakra-ui/react";
+import {CloseIcon} from '@chakra-ui/icons'
 import bglight from "../../styles/images/fondo_henry_light.jpg";
 import bgdark from "../../styles/images/fondo_henry_dark.png";
+import Footer from "../../component/Footer/Footer";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
 const Games = () => {
@@ -126,15 +128,6 @@ const Games = () => {
     );
   }
 
-  //   .main{
-  //     margin-top: 3%;
-  //     background-image: url(../../styles/images/background.jpg);
-  //     display: flex;
-  //     flex-direction: column;
-  //     align-items: center;
-  //     color: rgb(255, 255, 0);
-  // }
-
   return (
     <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
       <HStack mt={["350px", "200px", "150px", "70px", "70px"]}>
@@ -144,7 +137,14 @@ const Games = () => {
       <HStack>
         <VStack w="200px" alignItems="flex-end">
           <Select
-            backgroundColor={colorMode === "dark" ? "black" : "yellow.200"}
+            fontWeight="bold"
+            _hover={
+              colorMode === "dark"
+                ? { bg: "rgba(255, 255, 0, 0.5)" }
+                : { bg: "rgba(0, 0, 0, 0.5)" }
+            }
+            border="1px"
+            borderColor={colorMode === "dark" ? "yellow" : "black"}
             onChange={handleFilterOrder}
             defaultValue="default"
           >
@@ -159,6 +159,14 @@ const Games = () => {
         <VStack w="200px" alignItems="flex-start">
           <HStack>
             <Select
+              fontWeight="bold"
+              _hover={
+                colorMode === "dark"
+                  ? { bg: "rgba(255, 255, 0, 0.5)" }
+                  : { bg: "rgba(0, 0, 0, 0.5)" }
+              }
+              border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
               disabled={disabledSelectTopic}
               onChange={handleFilterTopic}
               defaultValue="all"
@@ -177,14 +185,22 @@ const Games = () => {
               return (
                 <div>
                   <div key={index}>
-                    <button
+                    <Button
+                      fontWeight="bold"
+                      _hover={
+                        colorMode === "dark"
+                          ? { bg: "rgba(255, 255, 0, 0.5)" }
+                          : { bg: "rgba(0, 0, 0, 0.5)" }
+                      }
+                      border="1px"
+                      borderColor={colorMode === "dark" ? "yellow" : "black"}
                       value={topic}
                       name={topic}
                       key={topic}
                       onClick={handleDeleteFilter}
                     >
-                      {topic}
-                    </button>
+                      <CloseIcon/>--{topic}
+                    </Button>
                   </div>
                 </div>
               );
@@ -192,6 +208,14 @@ const Games = () => {
           </HStack>
           <HStack>
             <Select
+              fontWeight="bold"
+              _hover={
+                colorMode === "dark"
+                  ? { bg: "rgba(255, 255, 0, 0.5)" }
+                  : { bg: "rgba(0, 0, 0, 0.5)" }
+              }
+              border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
               disabled={disabledSelectDif}
               onChange={handleFilterDificulty}
               defaultValue="all"
@@ -210,14 +234,22 @@ const Games = () => {
               return (
                 <div>
                   <div key={index}>
-                    <button
+                    <Button
+                      fontWeight="bold"
+                      _hover={
+                        colorMode === "dark"
+                          ? { bg: "rgba(255, 255, 0, 0.5)" }
+                          : { bg: "rgba(0, 0, 0, 0.5)" }
+                      }
+                      border="1px"
+                      borderColor={colorMode === "dark" ? "yellow" : "black"}
                       value={dificulty}
                       name={dificulty}
                       key={dificulty}
                       onClick={handleDeleteFilter}
                     >
-                      {dificulty.toUpperCase()}
-                    </button>
+                      <CloseIcon/>--{dificulty.toUpperCase()}
+                    </Button>
                   </div>
                 </div>
               );
@@ -226,6 +258,7 @@ const Games = () => {
         </VStack>
       </HStack>
       <PaginatedGame />
+      <Footer />
     </VStack>
   );
 };

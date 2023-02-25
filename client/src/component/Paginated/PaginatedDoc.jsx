@@ -3,58 +3,57 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerDocs from "../CardContainerDocs/CardContainerDocs";
 import { setCurrentPageDocs } from "../../redux/actions";
 import style from "./Paginated.module.css";
-import prev from "../../styles/images/left-arrow.png"
-import next from "../../styles/images/right-arrow.png"
+import prev from "../../styles/images/left-arrow.png";
+import next from "../../styles/images/right-arrow.png";
+import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
 
-const PaginatedDoc = ()=>{
+const PaginatedDoc = () => {
+  const { colorMode } = useColorMode();
 
-    const dispatch = useDispatch();
-  
-    const allDocs = useSelector((state) => state.docs);
-  
-    const currentPage = useSelector((state) => state.currentPageDocs);
-  
-    const [docsPerPage] = useState(2);
+  const dispatch = useDispatch();
 
-    const handleClick = (event) => {     
-        dispatch(setCurrentPageDocs(Number(event.target.id)));
-      };
-    
-      const pages = [];
-      for (let i = 1; i <= Math.ceil(allDocs.length / docsPerPage); i++) {
-        pages.push(i);
-      }
-      const indexOfLastDoc = currentPage * docsPerPage;
+  const allDocs = useSelector((state) => state.docs);
+
+  const currentPage = useSelector((state) => state.currentPageDocs);
+
+  const [docsPerPage] = useState(2);
+
+  const handleClick = (event) => {
+    dispatch(setCurrentPageDocs(Number(event.target.id)));
+  };
+
+  const pages = [];
+  for (let i = 1; i <= Math.ceil(allDocs.length / docsPerPage); i++) {
+    pages.push(i);
+  }
+  const indexOfLastDoc = currentPage * docsPerPage;
   const indexOfFirstDoc = indexOfLastDoc - docsPerPage;
-  console.log(allDocs)
-  const currentDocs = allDocs.slice(
-    indexOfFirstDoc,
-    indexOfLastDoc
-  );
+  console.log(allDocs);
+  const currentDocs = allDocs.slice(indexOfFirstDoc, indexOfLastDoc);
   const pageNumbers = pages.map((number) => {
-    if(currentPage === number){
+    if (currentPage === number) {
       return (
         <li
-        className={style.active}
-        key={number}
-        id={number}
-        onClick={handleClick}
+          className={style.active}
+          key={number}
+          id={number}
+          onClick={handleClick}
         >
-        {number}
+          {number}
         </li>
       );
-    }else{
+    } else {
       return (
         <li
-        className={style.number}
-        key={number}
-        id={number}
-        onClick={handleClick}
+          className={style.number}
+          key={number}
+          id={number}
+          onClick={handleClick}
         >
-        {number}
+          {number}
         </li>
       );
-    };
+    }
   });
 
   const handleNext = () => {
@@ -72,41 +71,80 @@ const PaginatedDoc = ()=>{
     }
   };
   return (
-    <div className={style.mainContainer}>
-      <nav className={style.nav}>
+    <VStack>
+      <HStack>
         <ul className={style.pages} name="top">
           <li>
-            <button className={style.button} id="prev" onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow} /></button>
+            <Button
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              transition="400ms"
+              onClick={handlePrev}
+            >
+              <img src={prev} alt="prev" className={style.arrow} />
+            </Button>
           </li>
-    
+
           {pageNumbers}
-    
+
           <li>
-            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
+            <Button
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handleNext}
+            >
+              <img src={next} alt="next" className={style.arrow} />
+            </Button>
           </li>
         </ul>
-      </nav>
-      
-      <div className={style.container}>
-        {CardContainerDocs(currentDocs)}
-      </div>
-    
-      <nav className={style.nav}>
+      </HStack>
+
+      <div className={style.container}>{CardContainerDocs(currentDocs)}</div>
+
+      <HStack>
         <ul className={style.pages} name="bottom">
-          <li>
-            <button className={style.button} onClick={handlePrev}><img src={prev} alt="prev" className={style.arrow}/></button>
+        <li>
+            <Button
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              transition="400ms"
+              onClick={handlePrev}
+            >
+              <img src={prev} alt="prev" className={style.arrow} />
+            </Button>
           </li>
-    
+
           {pageNumbers}
-    
+
           <li>
-            <button className={style.button} id="next" onClick={handleNext}><img src={next} alt="next" className={style.arrow}/></button>
+            <Button
+              _hover={{
+                cursor: "pointer",
+                transition: "400ms",
+                transform: "scale(130%)",
+              }}
+              bg={colorMode === "dark" ? "yellow" : "white"}
+              onClick={handleNext}
+            >
+              <img src={next} alt="next" className={style.arrow} />
+            </Button>
           </li>
         </ul>
-      </nav>
-    </div>
+      </HStack>
+    </VStack>
   );
-    
-}
+};
 
 export default PaginatedDoc;

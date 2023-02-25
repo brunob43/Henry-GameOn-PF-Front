@@ -21,8 +21,7 @@ ReactDOM.createRoot(rootElement).render(
         clientId="I8Pua9FRXYxAahGm0gH1UJonTh1Xspjc"
         authorizationParams={{
           redirect_uri: window.location.origin,
-        }}
-      >
+        }}>
         <BrowserRouter>
           <App />
         </BrowserRouter>
