@@ -5,7 +5,12 @@ import React from "react";
 import { useColorMode, Button, HStack, Image } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
+import { useAuth0 } from "@auth0/auth0-react";
+
+
 const NavBar = (props) => {
+  const { user, isAuthenticated } = useAuth0();
+  console.log(user, isAuthenticated);
   const { colorMode } = useColorMode();
   return (
     <div data-bs-theme="light">
