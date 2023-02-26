@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import foto from "../assets/imagen/MUNDOHENRY-1.jpg";
 import logo from "../../styles/images/HenryLogo.png";
-import logoclaro from "../../styles/images/HenryLogoClaro.webp"
+import logoclaro from "../../styles/images/HenryLogoDark.png"
 import styles from "./Home.module.css";
 
 const Home = () => {

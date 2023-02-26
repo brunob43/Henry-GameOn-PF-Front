@@ -58,3 +58,11 @@
     text-align: center;
     border-radius: 20%;
 }
+
+.jugar{
+    margin-top: 15px;
+}
+
+*[disabled="true"]{
+    background-color: rgb(202, 203, 203);
+}

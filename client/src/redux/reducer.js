@@ -364,7 +364,7 @@ const rootReducer = (state = initialState, action) => {
 
       case SET_PROFILE:
         return {
-          ... state, 
+          ...state, 
           profile: action.payload
         }
 

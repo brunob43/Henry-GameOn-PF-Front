@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { countViewsGames, getDetailFromState } from "../../redux/actions";
+import {VStack, Box, HStack} from '@chakra-ui/react'
 import gamesArray from "../../games/gamesIndex";
 import style from "./GameDetail.module.css";
 
@@ -27,24 +28,24 @@ const GameDetail = () =>{
 
     return(
         
-        <div className={style.main}>
-           
-             
-            <div className={style.title}>
-                {game[0].name} 
-            </div>
+        <VStack className={style.main}>
 
-            <div>
-                {game.length === 1 
-                ? game[0].game
-                : console.log(id)
-                }
-            </div>
-        
-        
-        </div>
 
-    )
+        <Box className={style.title} mt= {["400px", "250px", "200px", "120px", "120px"]}>
+            {game[0].name} 
+        </Box>
+
+        <HStack >
+            {game.length === 1 
+            ? game[0].game
+            : console.log(id)
+            }
+        </HStack>
+
+
+    </VStack>
+
+)
 }
 
 export default GameDetail;

@@ -79,14 +79,14 @@ const Docs = () => {
   ///-----VIEW--------
   if (error) {
     return (
-      <div className={style.errorcontainer}>
+      <VStack className={style.errorcontainer}>
         <Error />
         <div>
-          <button className={style.button} onClick={handleDeleteFilter}>
+          <Button fontSize="25px" h="60px" w="300px" className={style.button} onClick={handleDeleteFilter}>
             Return to Docs
-          </button>
+          </Button>
         </div>
-      </div>
+      </VStack>
     );
   }
 

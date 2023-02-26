@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style from "./DocDetail.module.css";
 import { useParams } from "react-router-dom";
-
+import {VStack, Heading, HStack, Image, Text} from '@chakra-ui/react'
 import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
 
     const DocDetail = () =>{
@@ -20,24 +20,31 @@ import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
         const {doc_id} = docDetail;
 
      return (
-         <div className={style.main}>
-            {  (id == doc_id) ?
-                <div className={style.title}>
+        <VStack  >
+        {  (id == doc_id) ?
+            <VStack paddingTop="75px">
 
-                    <h1 className={style.main}>{docDetail.doc_name}</h1>
-                    <img alt = {docDetail.doc_name} src = {docDetail.doc_image}></img>
-                    <p className={style.main}>{docDetail.doc_topic}</p>
-                    <p className={style.main}>{docDetail.doc_author}</p>
-                    <p className={style.main}>{docDetail.doc_content}</p>
-                    
-                </div>
-                :  
-                 <div>
-                    <h1 className={style.title}>Loading...</h1>
-                 </div>
-            }
-         </div>
-     )
-     }
+                <Heading fontSize="60px" mt= {["350px", "200px", "150px", "70px", "70px"]} >{docDetail.doc_name}</Heading>
+                <HStack >
+                    <VStack w="50%" p="20px">
+                <Image borderRadius="15px" alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
+                    </VStack>
+                    <VStack w="50%" p="20px">
+                <Text fontSize="34px"  className={style.main}>{docDetail.doc_topic}</Text>
+                <Text fontSize="22px" className={style.main}>{docDetail.doc_author}</Text>
+                <Text fontSize="18px" className={style.main}>{docDetail.doc_content}</Text>
+                    </VStack>
+                </HStack>
+            </VStack>
+            :
+             <VStack>
+                <Heading>
+                Loading...
+                </Heading>
+             </VStack>
+        }
+     </VStack>
+ )
+ }
 
 export default DocDetail;
