@@ -13,6 +13,7 @@ import { profileCreation } from "../Utils/utils";
 
 const NavBar = (props) => {
   const { user, isAuthenticated } = useAuth0();
+  const profile = useSelector((state) => state.profile)
   console.log(user, isAuthenticated);
 
 const dispatch = useDispatch();
@@ -23,7 +24,9 @@ let prof = profileCreation (user)
 dispatch (sendProfile(prof))
 
 
-}, [isAuthenticated] ); 
+}, [isAuthenticated] );
+
+console.log(profile)
 
   const { colorMode } = useColorMode();
   return (
