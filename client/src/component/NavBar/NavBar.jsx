@@ -20,10 +20,13 @@ const NavBar = (props) => {
 const dispatch = useDispatch();
 useEffect ( () => {
 
-let prof = profileCreation (user)
+if (user) {
 
-dispatch (sendProfile(prof))
+  let prof = profileCreation (user)
+  
+  dispatch (sendProfile(prof))
 
+};
 
 }, [isAuthenticated] );
 
