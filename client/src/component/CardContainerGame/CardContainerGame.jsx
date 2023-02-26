@@ -1,12 +1,13 @@
 import CardGame from "../CardGame/CardGame";
-import style from "./CardContainerGame.module.css"
+// import style from "./CardContainerGame.module.css"
+import {HStack} from "@chakra-ui/react"
 
 
 const CardContainerGame = (game) => {
     console.log(game)
 
     return(
-        <div className={style.container}>
+        <HStack mt="60px" mb="60px" w="100%" justify="space-around">
             {game.map((g) => {
                 return <CardGame
                     image = {g.game_image} 
@@ -17,7 +18,7 @@ const CardContainerGame = (game) => {
                     id = {g.game_id}
                 />
             })}
-        </div>
+        </HStack>
     );
 };
 export default CardContainerGame;

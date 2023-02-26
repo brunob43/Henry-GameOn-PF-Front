@@ -15,9 +15,10 @@
   margin: 2%;
   font-size: 80px;
   font-family: "I-pixel-u";
-  /* letter-spacing: 10px; */
+  letter-spacing: 10px;
 }
 
+/* 
 .title:hover {
   cursor: default;
 }
@@ -106,4 +107,4 @@
   justify-items: center;
   align-items: center;
   margin-top: -2%;
-}
+} */
