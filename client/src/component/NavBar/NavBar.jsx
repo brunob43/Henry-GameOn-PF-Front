@@ -6,11 +6,25 @@ import { useColorMode, Button, HStack, Image } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { profileCreation } from "../Utils/utils";
 
 
 const NavBar = (props) => {
   const { user, isAuthenticated } = useAuth0();
   console.log(user, isAuthenticated);
+
+const dispatch = useDispatch();
+useEffect ( () => {
+
+let prof = profileCreation (user)
+
+dispatch (sendProfile(prof))
+
+
+}, [isAuthenticated] ); 
+
   const { colorMode } = useColorMode();
   return (
     <div data-bs-theme="light">

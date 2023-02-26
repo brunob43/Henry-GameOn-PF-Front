@@ -22,6 +22,7 @@ export const ERROR_USERS = "ERROR_USERS";
 export const POST_USERS = "POST_USER";
 export const GET_TOPIC_DOCS = "GET_TOPIC_DOCS";
 export const GET_DOC_DETAIL_FROM_STATE = "GET_DOC_DETAIL_FROM_STATE";
+export const SET_PROFILE = "SET_PROFILE";
 
 export function getGames() {
   return async function (dispatch) {
@@ -302,4 +303,15 @@ export function getDocDetailFromState(payload) {
 export async function countViewsDoc (id){
   const response = await axios.put(`/doc/view/${id}`);
   return response;
+}
+
+export function sendProfile (prof) {
+  return async function (dispatch) {
+     const response = await axios.post("/profile", prof);
+     const profile = response.data;
+
+     return dispatch ({ type: SET_PROFILE, payload: profile })
+
+  }
+
 }

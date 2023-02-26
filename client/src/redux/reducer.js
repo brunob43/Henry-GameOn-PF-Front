@@ -20,7 +20,8 @@ import {
   ERROR_DOCS,
   POST_USERS,
   GET_TOPIC_DOCS,
-  GET_DOC_DETAIL_FROM_STATE
+  GET_DOC_DETAIL_FROM_STATE,
+  SET_PROFILE
 } from "./actions";
 
 const initialState = {
@@ -38,7 +39,8 @@ const initialState = {
   games : [],
   docs : [],
   users : [],
-  docDetail: []
+  docDetail: [],
+  profile: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -360,7 +362,14 @@ const rootReducer = (state = initialState, action) => {
         ...state,
       }
 
+      case SET_PROFILE:
+        return {
+          ... state, 
+          profile: action.payload
+        }
+
     default: return {...state}
+
   }
 }
 
