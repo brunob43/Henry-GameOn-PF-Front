@@ -307,11 +307,13 @@ export async function countViewsDoc (id){
 
 export function sendProfile (prof) {
   return async function (dispatch) {
+    console.log(prof)
      const response = await axios.post("/profile", prof);
      const profile = response.data;
+     console.log(profile,"Back")
 
      return dispatch ({ type: SET_PROFILE, payload: profile })
 
   }
 
-}
+};

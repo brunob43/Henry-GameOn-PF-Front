@@ -23,7 +23,7 @@ useEffect ( () => {
 if (user) {
 
   let prof = profileCreation (user)
-  
+  console.log(prof)
   dispatch (sendProfile(prof))
 
 };
