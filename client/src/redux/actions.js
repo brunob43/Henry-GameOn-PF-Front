@@ -23,6 +23,7 @@ export const POST_USERS = "POST_USER";
 export const GET_TOPIC_DOCS = "GET_TOPIC_DOCS";
 export const GET_DOC_DETAIL_FROM_STATE = "GET_DOC_DETAIL_FROM_STATE";
 export const SET_PROFILE = "SET_PROFILE";
+export const RESET_PROFILE ="RESET_PROFILE"
 
 export function getGames() {
   return async function (dispatch) {
@@ -317,3 +318,8 @@ export function sendProfile (prof) {
   }
 
 };
+export function resetProfile (){
+  return async function (dispatch) {
+    dispatch({type:RESET_PROFILE})
+  }
+}
