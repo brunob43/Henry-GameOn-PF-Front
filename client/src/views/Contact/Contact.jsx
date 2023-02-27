@@ -2,8 +2,10 @@ import React from "react";
 import style from "./Contact.module.css";
 import { postMessage } from "../../redux/actions";
 import { useState } from "react";
+import {VStack, useColorMode} from '@chakra-ui/react'
 
 export default function ContactUs(){
+  const { colorMode } = useColorMode();
   const [input, setInput]= useState({
     message_issue: "",
     message_content: "",
@@ -53,9 +55,14 @@ export default function ContactUs(){
     });
     window.location.href="https://henry-pf-front.vercel.app/"
   }
+
   return(
-    <div className={style.body}>
-    <div className={style.container}>
+    <VStack className={style.body}>
+    <VStack
+    mt={["400px", "250px", "200px", "125px", "125px"]}
+    bgColor={colorMode === "dark" ? "gray.200" : "gray.800"}
+    color={colorMode === "dark" ? "gray.800" : "gray.200"}
+    className={style.container}>
       <div className={style.title}>
         <h1>Contact Us</h1>
       </div>
@@ -106,7 +113,7 @@ export default function ContactUs(){
 
       </form>
 
-    </div>
-    </div>
+    </VStack>
+    </VStack>
   )
 }
