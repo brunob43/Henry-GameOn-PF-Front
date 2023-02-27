@@ -51,7 +51,7 @@ export default function ContactUs(){
       message_content: "",
       message_email: ""
     });
-    window.location.href="https://henrygame.up.railway.app/"
+    window.location.href="https://henry-pf-front.vercel.app/"
   }
   return(
     <div className={style.body}>

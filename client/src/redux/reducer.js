@@ -21,7 +21,8 @@ import {
   POST_USERS,
   GET_TOPIC_DOCS,
   GET_DOC_DETAIL_FROM_STATE,
-  SET_PROFILE
+  SET_PROFILE,
+  RESET_PROFILE
 } from "./actions";
 
 const initialState = {
@@ -367,6 +368,11 @@ const rootReducer = (state = initialState, action) => {
           ...state, 
           profile: action.payload
         }
+      case RESET_PROFILE:
+        return{
+          ...state,
+        profile:{}
+              }
 
     default: return {...state}
 

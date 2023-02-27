@@ -9,7 +9,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileCreation } from "../Utils/utils";
-import { sendProfile } from "../../redux/actions";
+import { sendProfile,resetProfile } from "../../redux/actions";
 
 
 const NavBar = (props) => {
@@ -23,13 +23,15 @@ useEffect ( () => {
 if (user) {
 
   let prof = profileCreation (user)
-  console.log(prof)
   dispatch (sendProfile(prof))
 
+}else{
+  dispatch(resetProfile())
 };
 
 }, [isAuthenticated] );
-
+console.log(user)
+console.log(isAuthenticated)
 console.log(profile)
 
   const { colorMode } = useColorMode();
