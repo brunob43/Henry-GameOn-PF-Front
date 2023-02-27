@@ -1,4 +1,4 @@
-import { VStack, useColorMode } from "@chakra-ui/react";
+import { VStack, Input, useColorMode,Textarea } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -53,8 +53,10 @@ const ShareInfo = () => {
         </div>
         <form className={style.form} onSubmit={submitHandler}>
           <label>Author:</label>
-          <input
-            autoComplete="off"
+          <Input
+        
+          color={colorMode === "dark" ? "gray.200" : "gray.800"}
+          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
             type="text"
             name="doc_author"
             placeholder="Escribe tu nombre"
@@ -63,7 +65,9 @@ const ShareInfo = () => {
           />
 
           <label>Image(Optional):</label>
-          <input
+          <Input
+          color={colorMode === "dark" ? "gray.200" : "gray.800"}
+          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
             autoComplete="off"
             type="url"
             name="doc_image"
@@ -73,7 +77,9 @@ const ShareInfo = () => {
           />
 
           <label>Name:</label>
-          <input
+          <Input
+          color={colorMode === "dark" ? "gray.200" : "gray.800"}
+          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
             autoComplete="off"
             type="text"
             name="doc_name"
@@ -84,7 +90,9 @@ const ShareInfo = () => {
           />
 
           <label>Topic:</label>
-          <input
+          <Input
+          color={colorMode === "dark" ? "gray.200" : "gray.800"}
+          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
             autoComplete="off"
             type="text"
             name="doc_topic"
@@ -95,14 +103,18 @@ const ShareInfo = () => {
           />
 
           <label>Content:</label>
-          <textarea
+          <Textarea
+          color={colorMode === "dark" ? "gray.200" : "gray.800"}
+          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+          w="820px"
+          h="80px"
             className={style.textarea}
             id="content"
             name="doc_content"
             required
             value={form.doc_content}
             onChange={changeHandler}
-          ></textarea>
+          ></Textarea>
           <div>
             <button className={style.button} type="submit">
               POST
