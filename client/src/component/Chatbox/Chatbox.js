@@ -4,6 +4,7 @@ import styles from "./index.module.css";
 export default function ChatBox() {
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
+  const [engResult, setEngResult] = useState()
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -45,6 +46,7 @@ export default function ChatBox() {
         }
 
         const aTraducir = data.result;
+        setEngResult(aTraducir)
         console.log(aTraducir, "respuesta en ingles");
         try {
           const response = await fetch("https://back-henrygame.up.railway.app/chatbot/generate3", {
@@ -97,6 +99,7 @@ export default function ChatBox() {
           />
           <input type="submit" value="Generate names" />
         </form>
+        <div className={styles.result}>{engResult}</div>
         <div className={styles.result}>{result}</div>
       </main>
     </div>
