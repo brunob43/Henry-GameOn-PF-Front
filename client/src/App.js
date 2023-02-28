@@ -15,6 +15,7 @@ import {
 } from "./views";
 import DashboardAdmin from "./component/DashboardAdmin/DashboardArdmin";
 import NavBar from "./component/NavBar/NavBar";
+import ChatBox from "./component/Chatbox/Chatbox"
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import DocDetail from "./views/DocDetail/DocDetail";
@@ -28,6 +29,8 @@ function App() {
   return (
     <div>
       <NavBar />
+
+      <ChatBox />
 
       <Switch>
         <Route exact path="/" render={() => <Home />} />
