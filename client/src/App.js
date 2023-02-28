@@ -13,6 +13,7 @@ import {
   GameDetail,
   LoginView
 } from "./views";
+import DashboardAdmin from "./component/DashboardAdmin/DashboardArdmin";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
@@ -70,7 +71,9 @@ function App() {
         <Route exact path="/login">
           <LoginView />
         </Route>
-
+        <Route exact path="/dashboardAdmin">
+            <DashboardAdmin/>
+        </Route>
         <Route>
           <PageNotFound />
         </Route>

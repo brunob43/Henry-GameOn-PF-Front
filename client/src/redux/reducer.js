@@ -14,6 +14,7 @@ import {
   FILTER_BY_NAME_DOCS,
   FILTER_BY_VIEWS_DOCS, 
   GET_USERS,
+  GET_USER_DETAIL,
   GET_NAME_USERS,
   FILTER_BY_NAME_USERS,
   ERROR_GAMES,
@@ -22,7 +23,17 @@ import {
   GET_TOPIC_DOCS,
   GET_DOC_DETAIL_FROM_STATE,
   SET_PROFILE,
-  RESET_PROFILE
+  RESET_PROFILE,
+  GET_DONATIONS,
+  GET_GAMES_AD,
+  GET_NAME_GAMES_AD,
+  FILTER_BY_VIEWS_GAMES_AD,
+  GET_GAME_DETAIL_FROM_STATE_AD,
+  GET_DOCS_AD,
+  FILTER_BY_VIEWS_DOCS_AD,
+  GET_NAME_DOCS_AD,
+  GET_DOC_DETAIL_FROM_STATE_AD
+  
 } from "./actions";
 
 const initialState = {
@@ -35,17 +46,43 @@ const initialState = {
   currentPageGames: 1,
   currentPageDocs: 1,
   gameDetail: [],
+  gameDetailAd:{},
   errorGames: "",
   errorDocs: "",
   games : [],
+  gamesAd:[],
   docs : [],
+  docsAd:[],
   users : [],
   docDetail: [],
-  profile: {}
+  docDetailAd:{},
+  profile: {},
+  donations:[],
+  userDetail:{}
 };
 
 const rootReducer = (state = initialState, action) => {
   switch(action.type){
+    case GET_DOCS_AD:
+      return{
+        ...state,
+        docsAd: action.payload
+      }
+    case GET_NAME_DOCS_AD:
+        return{
+          ...state,
+          docsAd: action.payload
+        }
+    case GET_GAMES_AD:
+      return{
+        ...state,
+        gamesAd: action.payload
+      }
+    case GET_DONATIONS:
+      return{
+        ...state,
+        donations:action.payload
+      }
     case GET_GAMES:
       //if (!action.payload.length === 0) {    
         return {
@@ -54,13 +91,7 @@ const rootReducer = (state = initialState, action) => {
          allGames: action.payload,
          currentPageGames: 1,
         };
-      //} else {
-        //return { 
-         // ...state,
-          //errorGames: "Can't get games" 
-        //};
-      //}
-
+    
     case ERROR_GAMES: 
       return { 
         ...state, 
@@ -81,13 +112,12 @@ const rootReducer = (state = initialState, action) => {
          allGames: action.payload,
          currentPageGames: 1,
         };
-      // } else {
-      //   return { 
-      //     ...state,
-      //     error: "Can't get games" 
-      //   };
-      // }
-
+     
+    case GET_NAME_GAMES_AD:
+      return{
+        ...state,
+        gamesAd: action.payload
+      }
     case SET_CURRENT_PAGE_GAMES:
       return {
         ...state,
@@ -104,8 +134,28 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         gameDetail: gamesDetail,
       };
+    case GET_GAME_DETAIL_FROM_STATE_AD:
+      const gamesAd = [...state.gamesAd];
+      const gamesDetailAd = games.filter(
+        (g) => g.game_id.toString() === action.payload
+      );
 
-      case GET_DOC_DETAIL_FROM_STATE:
+      return {
+        ...state,
+        gameDetailAd: gamesDetail[0],
+      };
+    case GET_USER_DETAIL:
+      const users = [...state.allUsers];
+      const userDetail = users.filter(
+        (g) => g.game_id.toString() === action.payload
+      );
+
+      return {
+        ...state,
+        gameDetail: gamesDetail,
+      };
+
+    case GET_DOC_DETAIL_FROM_STATE:
         const docs = [...state.allDocs];
         const docsDetail = docs.filter(
           (g) => g.doc_id.toString() === action.payload
@@ -115,6 +165,17 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           docDetail: docsDetail[0],
         }; 
+
+    case GET_DOC_DETAIL_FROM_STATE_AD:
+          const docsAd = [...state.docsAd];
+          const docsDetailAd = docsAd.filter(
+            (g) => g.doc_id.toString() === action.payload
+          );
+    
+          return {
+            ...state,
+            docDetailAd: docsDetailAd[0],
+          }; 
 
     case FILTER_BY_NAME_GAMES:
       const gamesName = [...state.games];
@@ -171,7 +232,35 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         games: viewsFilter,
       };
-
+    
+    case FILTER_BY_VIEWS_GAMES_AD:
+        const gamesViewsAd = [...state.gamesAd];
+    
+        const viewsFilterAd = action.payload === "popular" 
+        ? gamesViewsAd.sort((a, b) => {
+          if (a.game_views > b.game_views) {
+            return -1;
+          }
+          if (b.game_views > a.game_views) {
+            return 1;
+          }
+          return 0;
+        }) 
+        : gamesViewsAd.sort((a, b) => {
+          if (a.game_views > b.game_views) {
+           return 1;
+          }
+          if (b.game_views > a.game_views) {
+            return -1;
+          }
+          return 0;
+        });
+  
+        return {
+          ...state,
+          gamesAd: viewsFilterAd,
+        };
+   
     case FILTER_BY_TOPIC_GAMES:
       const gamesFT = [...state.games]
       let gamesByTopic = []
@@ -200,12 +289,6 @@ const rootReducer = (state = initialState, action) => {
        allDocs: action.payload,
        currentPageDocs: 1,
       };
-    // } else {
-    //   return { 
-    //     ...state,
-    //     errorDocs: "Can't get docs" 
-    //   };
-    // }
 
     case SET_CURRENT_PAGE_DOCS:
       return {
@@ -221,13 +304,7 @@ const rootReducer = (state = initialState, action) => {
          allDocs: action.payload,
          currentPageDocs: 1,
         };
-      // } else {
-      //   return { 
-      //     ...state,
-      //     errorDocs: "Can't get docs" 
-      //   };
-      // }
-
+     
     case GET_TOPIC_DOCS:
       return {
         ...state,
@@ -242,7 +319,7 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           docs: docsByTopic,
           errorDocs: docsByTopic.length > 0 ? false : `There are no docs with the "${action.payload}" topic`
-      }
+        }
       
     case FILTER_BY_NAME_DOCS:
       const docsName = [...state.docs];
@@ -272,7 +349,7 @@ const rootReducer = (state = initialState, action) => {
         docs: nameDocsFilter,
       };
 
-      case FILTER_BY_VIEWS_DOCS:
+    case FILTER_BY_VIEWS_DOCS:
       const docsViews = [...state.docs];
   
       const docsFilter = action.payload === "popular" 
@@ -300,6 +377,34 @@ const rootReducer = (state = initialState, action) => {
         docs: docsFilter,
       };
 
+    case FILTER_BY_VIEWS_DOCS_AD:
+        const docsViewsAd = [...state.docsAd];
+    
+        const docsFilterAd = action.payload === "popular" 
+        ? docsViewsAd.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+            return -1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return 1;
+          }
+          return 0;
+        }) 
+        : docsViewsAd.sort((a, b) => {
+          if (a.doc_views > b.doc_views) {
+           return 1;
+          }
+          if (b.doc_views > a.doc_views) {
+            return -1;
+          }
+          return 0;
+        });
+  
+        return {
+          ...state,
+          docsAd: docsFilterAd,
+        };
+    
     case GET_USERS: 
     if (!action.payload.length === 0) {    
       return {
@@ -321,7 +426,6 @@ const rootReducer = (state = initialState, action) => {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
-       currentPageUsers: 1,
       };
     } else {
       return { 
@@ -358,17 +462,17 @@ const rootReducer = (state = initialState, action) => {
         users: nameUsersFilter,
       };
 
-     case POST_USERS: 
+    case POST_USERS: 
       return {
         ...state,
       }
 
-      case SET_PROFILE:
+    case SET_PROFILE:
         return {
           ...state, 
           profile: action.payload
         }
-      case RESET_PROFILE:
+    case RESET_PROFILE:
         return{
           ...state,
         profile:{}
