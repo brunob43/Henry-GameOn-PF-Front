@@ -415,13 +415,6 @@ export function payment20 (){
   } 
 }
 
-export function payment20() {
-  return async function (dispatch) {
-    const response = await axios.get("/payment/20");
-    const link = response.data.init_point;
-    window.location.href = link;
-  };
-}
 
 export function payment50() {
   return async function (dispatch) {
