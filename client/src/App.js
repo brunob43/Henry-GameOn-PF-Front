@@ -28,6 +28,10 @@ function App() {
 
   return (
     <div>
+      
+        <Route exact path="/dashboardAdmin">
+            <DashboardAdmin/>
+        </Route>
       <NavBar />
       <ChatBox/>
       <Switch>
@@ -71,9 +75,6 @@ function App() {
 
         <Route exact path="/login">
           <LoginView />
-        </Route>
-        <Route exact path="/dashboardAdmin">
-            <DashboardAdmin/>
         </Route>
         <Route>
           <PageNotFound />

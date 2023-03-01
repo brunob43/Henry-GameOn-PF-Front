@@ -29,6 +29,7 @@ const Games = () => {
   const dificulties = useSelector((state) => state.dificulties);
   // const gamesTopic = useSelector(state => state.gamesTopic)
   // const gamesDif = useSelector(state => state.gamesDif)
+  const user= useSelector((state=>state.users))
 
   const [filterSelect, setFilterSelect] = useState({
     topic: [],
@@ -39,6 +40,7 @@ const Games = () => {
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
+      console.log(user, "users en games")
     }
   }, [dispatch, allGames]);
 

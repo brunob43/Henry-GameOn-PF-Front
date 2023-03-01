@@ -82,40 +82,40 @@ const DashboardAdmin =()=>{
    const columnsUsers=[
     {
         name:'ID',
-        selector:'user_id',
+        selector:user_id,
         sortable:true
     },
     {   name:'Internal ID',
-        selector:'internal_id',
+        selector:internal_id,
         sortable:true
     },
     { 
         name:'Name',
-        selector:'user_name',
+        selector:user_name,
         sortable:true
     },
     {   name:'Email',
-        selector:'user_email',
+        selector:user_email,
         sortable:true
     },
     {   name:'Password',
-        selector:'user_password',
+        selector:user_password,
         sortable:true
     },
     {   name:'Image',
-        selector:'user_image',
+        selector:user_image,
         sortable:true
     },
     {   name:'Type',
-        selector:'user_type',
+        selector:user_type,
         sortable:true
     },
     {   name:'State',
-        selector:'user_state',
+        selector:user_state,
         sortable:true
     },
     {   name:'Deleted',
-        selector:'user_deleted',
+        selector:user_deleted,
         sortable:true
     }
     
