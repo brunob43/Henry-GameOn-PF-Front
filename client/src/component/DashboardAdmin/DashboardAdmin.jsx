@@ -6,15 +6,15 @@ import {
     getUsers,
     getNameUsers,
    // postUser,
-    getGamesAd,
+   //getGamesAd,
     getNameGamesAd,
     //filterByViewsGamesAd,
     //getDetailFromStateAd,
-    getDocsAd,
+   // getDocsAd,
     //filterByViewsDocsAd,
     getNameDocsAd,
     //getDocDetailFromStateAd,
-    getDonations,
+    //getDonations,
     //updateUser,
     //deleteUser,
     //updateGame,
@@ -121,10 +121,10 @@ const DashboardAdmin =()=>{
     
    ]
    useEffect(()=>{
-      dispatch(getUsers()),
-      dispatch(getDocsAd()),
-      dispatch(getGamesAd())
-      dispatch(getDonations())
+      dispatch(getUsers())
+    //   dispatch(getDocsAd()),
+    //   dispatch(getGamesAd())
+    //   dispatch(getDonations())
    },[])
 
    return(
