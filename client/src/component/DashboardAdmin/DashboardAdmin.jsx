@@ -101,23 +101,28 @@ const DashboardAdmin =()=>{
     },
     {   name:'Password',
         selector:'user_password',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Image',
         selector:'user_image',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Type',
         selector:'user_type',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'State',
         selector:'user_state',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Deleted',
         selector:'user_deleted',
-        sortable:true
+        sortable:true,
+        width: "70px"
     }
     
    ]
@@ -132,12 +137,12 @@ const DashboardAdmin =()=>{
         name:'Name',
         selector:'game_name',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Topic',
         selector:'game_topic',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Image',
         selector:'game_image',
@@ -147,7 +152,7 @@ const DashboardAdmin =()=>{
     {   name:'Difficulty',
         selector:'game_difficulty',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Views',
         selector:'game_views',
@@ -172,22 +177,22 @@ const DashboardAdmin =()=>{
         name:'Name',
         selector:'doc_name',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Topic',
         selector:'doc_topic',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Author',
         selector:'doc_author',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Content',
         selector:'doc_content',
         sortable:true,
-        width: "70px"
+        width: "250px"
     },
     {   name:'Image',
         selector:'doc_image',
@@ -217,12 +222,12 @@ const DashboardAdmin =()=>{
         name:'Name',
         selector:'donation_name',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Info',
         selector:'donation_info',
         sortable:true,
-        width: "70px"
+        width: "250px"
     },
     {   name:'Quantity',
         selector:'donation_quantity',
