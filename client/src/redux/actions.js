@@ -56,7 +56,7 @@ export function getGames() {
 export function getGamesAd() {
   return async function (dispatch) {
     try{
-        const apiGames = await axios.get("/game", {admin:true});
+        const apiGames = await axios.get("/game?admin=true");
        const games = apiGames.data;
 
     return dispatch({
