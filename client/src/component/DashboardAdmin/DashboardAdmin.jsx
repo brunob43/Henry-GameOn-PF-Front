@@ -6,11 +6,11 @@ import {
     getUsers,
     getNameUsers,
    // postUser,
-   //getGamesAd,
+   getGamesAd,
     getNameGamesAd,
     //filterByViewsGamesAd,
     //getDetailFromStateAd,
-   // getDocsAd,
+   getDocsAd,
     //filterByViewsDocsAd,
     getNameDocsAd,
     //getDocDetailFromStateAd,
@@ -27,8 +27,8 @@ import {
 
 const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
-//    const games = useSelector((state)=>state.gamesAd)
-//    const docs = useSelector((state)=>state.docsAd)
+   const games = useSelector((state)=>state.gamesAd)
+   const docs = useSelector((state)=>state.docsAd)
 //    const donations = useSelector((state)=>state.donations)
 //    const gameDetail = useSelector((state)=>state.gameDetailAd)
 //    const docDetail = useSelector((state)=>state.docDetailAd)
@@ -120,10 +120,79 @@ const DashboardAdmin =()=>{
     }
     
    ]
+   const columnsGames=[
+    {
+        name:'ID',
+        selector:'game_id',
+        sortable:true
+    },
+    { 
+        name:'Name',
+        selector:'game_name',
+        sortable:true
+    },
+    {   name:'Topic',
+        selector:'game_topic',
+        sortable:true
+    },
+    {   name:'Image',
+        selector:'game_image',
+        sortable:true
+    },
+    {   name:'Difficulty',
+        selector:'game_difficulty',
+        sortable:true
+    },
+    {   name:'Views',
+        selector:'game_views',
+        sortable:true
+    },
+    {   name:'Deleted',
+        selector:'game_deleted',
+        sortable:true
+    } 
+   ]
+
+   const columnsDocs=[
+    {
+        name:'ID',
+        selector:'doc_id',
+        sortable:true
+    },
+    { 
+        name:'Name',
+        selector:'doc_name',
+        sortable:true
+    },
+    {   name:'Topic',
+        selector:'doc_topic',
+        sortable:true
+    },
+    {   name:'Author',
+        selector:'doc_author',
+        sortable:true
+    },
+    {   name:'Content',
+        selector:'doc_content',
+        sortable:true
+    },
+    {   name:'Image',
+        selector:'doc_image',
+        sortable:true
+    },
+    {   name:'Views',
+        selector:'doc_views',
+        sortable:true
+    },
+    {   name:'Deleted',
+        selector:'game_deleted',
+        sortable:true
+    } 
+   ]
    useEffect(()=>{
       dispatch(getUsers())
-    //   dispatch(getDocsAd()),
-    //   dispatch(getGamesAd())
+      dispatch(getDocsAd()),
+      dispatch(getGamesAd())
     //   dispatch(getDonations())
    },[users])
    console.log(users)
@@ -155,9 +224,11 @@ const DashboardAdmin =()=>{
                 <button type="submit">Buscar</button>
                 <button onClick={resetGames}>Reset</button>
              </form>
-             <DataTable>
-
-             </DataTable>
+             <DataTable
+             columns={columnsGames}
+             data={games}
+             title="Juegos"
+             />
              <form onSubmit={handleDocsSubmit}>
                 <input
                 type="text"
@@ -168,9 +239,11 @@ const DashboardAdmin =()=>{
                 <button type="submit">Buscar</button>
                 <button onClick={resetDocs}>Reset</button>
              </form>
-             <DataTable>
-
-             </DataTable>
+             <DataTable
+             columns={columnsDocs}
+             data={docs}
+             title="Documentos"
+             />
           </div>
    )
 }
