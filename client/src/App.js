@@ -11,11 +11,12 @@ import {
   Register,
   ShareInfo,
   GameDetail,
-  LoginView
+  LoginView,
+  ChatBox
 } from "./views";
-import DashboardAdmin from "./component/DashboardAdmin/DashboardArdmin";
-import NavBar from "./component/NavBar/NavBar";
 import ChatBox from "./component/Chatbox/Chatbox"
+import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
+import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import DocDetail from "./views/DocDetail/DocDetail";
@@ -29,9 +30,7 @@ function App() {
   return (
     <div>
       <NavBar />
-
-      <ChatBox />
-
+      <ChatBox/>
       <Switch>
         <Route exact path="/" render={() => <Home />} />
 

@@ -5,33 +5,33 @@ import DataTable from "react-data-table-component";
 import {
     getUsers,
     getNameUsers,
-    postUser,
+   // postUser,
     getGamesAd,
     getNameGamesAd,
-    filterByViewsGamesAd,
-    getDetailFromStateAd,
+    //filterByViewsGamesAd,
+    //getDetailFromStateAd,
     getDocsAd,
-    filterByViewsDocsAd,
+    //filterByViewsDocsAd,
     getNameDocsAd,
-    getDocDetailFromStateAd,
+    //getDocDetailFromStateAd,
     getDonations,
-    updateUser,
-    deleteUser,
-    updateGame,
-    deleteGame,
-    updateDoc,
-    deleteDoc,
-    postDoc,
-    postGame
+    //updateUser,
+    //deleteUser,
+    //updateGame,
+    //deleteGame,
+    //updateDoc,
+    //deleteDoc,
+    //postDoc,
+    //postGame
 } from "../../redux/actions"
 
 const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
-   const games = useSelector((state)=>state.gamesAd)
-   const docs = useSelector((state)=>state.docsAd)
-   const donations = useSelector((state)=>state.donations)
-   const gameDetail = useSelector((state)=>state.gameDetailAd)
-   const docDetail = useSelector((state)=>state.docDetailAd)
+//    const games = useSelector((state)=>state.gamesAd)
+//    const docs = useSelector((state)=>state.docsAd)
+//    const donations = useSelector((state)=>state.donations)
+//    const gameDetail = useSelector((state)=>state.gameDetailAd)
+//    const docDetail = useSelector((state)=>state.docDetailAd)
    const [input,setInput]=useState({
     inputUser:"",
     inputGame:"",
