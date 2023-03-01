@@ -406,20 +406,20 @@ const rootReducer = (state = initialState, action) => {
         };
     
     case GET_USERS: 
-    if (!action.payload.length === 0) {  
-      console.log(action.payload)  
+    // if (!action.payload.length === 0) {  
+      // console.log("reducer",action.payload)  
       return {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
-       currentPageUsers: 1,
+       currentPageUsers: 1
       };
-    } else {
-      return { 
-        ...state,
-        errorUsers: "Can't get users" 
-      };
-    }
+    // } else {
+    //   return { 
+    //     ...state,
+    //     errorUsers: "Can't get users" 
+    //   };
+    // }
 
     case GET_NAME_USERS: 
     if (!action.payload.length === 0) {    
