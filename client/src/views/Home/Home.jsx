@@ -3,83 +3,53 @@ import Footer from "../../component/Footer/Footer";
 import { Link } from "react-router-dom";
 import {
   Button,
-  Box,
   Text,
   Heading,
   VStack,
   HStack,
-  Image,
-  useColorMode
+  Container
 } from "@chakra-ui/react";
 import foto from "../assets/imagen/MUNDOHENRY-1.jpg";
-import logo from "../../styles/images/HenryLogo.png";
-import logoclaro from "../../styles/images/HenryLogoDark.png"
-import styles from "./Home.module.css";
+
+
 
 const Home = () => {
-  const { colorMode } = useColorMode();
   return (
     <>
-      <Box bgImage={foto} bgSize="cover" bgPosition="center">
-        <VStack>
+      <VStack bgImage={foto} bgSize="cover" bgPosition="center" 
+      h="1000px"
+      >
+          <VStack>
           <Heading
-            mt={["350px", "200px", "150px", "70px", "70px"]}
-            color="white"
-            h="50"
+            mt={["450px", "200px", "150px", "70px", "70px"]}
+            h="3px"
             display="flex"
             flexDirection="row"
-            padding="10"
-            as="h1"
-            size="xl"
+            padding="100px"
             noOfLines={1}
+            bgGradient='linear(to-l, yellow, white)'
+            bgClip='text'
+            fontSize='6xl'
+            fontWeight='extrabold'
+  
           >
-            Bienvenidos a...
-          </Heading>
-          <VStack w="500px" justify="center" color="black">
-            <Image p="5px" w="100%" bg={colorMode === "dark" ? "black" : "yellow"} src={colorMode === "dark" ? logoclaro : logo}></Image>
-            <Heading
-              bg="yellow"
-              fontSize="65px"
-              w="100%"
-              textAlign="center"
-              className={styles.title}
-            >
-              GAME ON
-            </Heading>
-          </VStack>
+              HENRY GAME ON
+              
+              </Heading>
+          
           <Text
-            color="blackAlpha.800"
+            color="white"
             textAlign="center"
-            fontSize="30"
-            fontWeight="bold"
-            bg="rgba(255, 255, 59, 0.655)"
-            borderRadius="10px"
+            fontSize="20"
+            
           >
             Un espacio donde podras codear jugando
           </Text>
-          <Text
-            _hover={{
-              bg: "rgba(201, 201, 59, 0.455)",
-              transition: "0.2s ease",
-            }}
-            w="80%"
-            h={["400", "330", "200", "150"]}
-            color="white"
-            justifyContent="center"
-            textAlign="center"
-            fontSize="21px"
-            fontWeight="bold"
-          >
-            Nuestro principal objetivo es hacer del aprendizaje de programacion, una
-            experiencia inolvidable mas alla del estudio, aprender habilidades
-            jugando (Games) y compartir conocimiento. (Docs)<br></br>Proponemos
-            brindar a la comunidad de Henry un espacio donde la comunidad Henry
-            pueda compartir resumenes de documentacion y aprender programacion
-            con juegos.
-          </Text>
         </VStack>
-        <HStack>
-          <VStack h="400px" color="white" justify="flex-start" fontSize="20px">
+
+
+        <HStack justifyContent="space-evenly" >
+          <VStack h="310px" color="white" justify="flex-start" fontSize="20px" mr="300px">
             <Link to="/games">
               <Button
                 variant="ghost"
@@ -87,11 +57,14 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
+                mt="266px"
+                
               >
                 Games👾
               </Button>
             </Link>
-            <Text
+           
+            <Container
               w="80%"
               textAlign="center"
               _hover={{
@@ -102,9 +75,12 @@ const Home = () => {
               HenryGames es una plataforma de juegos tematicos de programacion
               ,construidos con javascript, para entretenerse y aprender mientras
               tanto.
-            </Text>
-          </VStack>
-          <VStack h="400px" color="white" justify="flex-start" fontSize="20px">
+            </Container>
+            
+          </VStack> 
+
+
+           <VStack h="300px" color="white" justifyContent="flex-start" fontSize="20px" >
             <Link to="/docs">
               <Button
                 variant="ghost"
@@ -112,25 +88,30 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
+                mt="260px" 
               >
                 HenryDocs 📑
               </Button>
             </Link>
-            <Text
+            
+            <Container
               w="80%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",
                 transition: "0.2s ease",
+                
               }}
+             
             >
               HenryDocs es una plataforma social en la que puedes compartir
               documentos, resumenes, informacion util y demas a la comunidad y
               esta a su vez dar feedback con su like👍
-            </Text>
+            </Container>
+          
           </VStack>
         </HStack>
-      </Box>
+        </VStack>
       <Footer />
     </>
   );
