@@ -347,7 +347,7 @@ export function getUsers() {
     try {
       const apiUsers = await axios.get("/users");
       const Users = apiUsers.data;
-
+      console.log(Users)
       return dispatch({
         type: GET_USERS,
         payload: Users,

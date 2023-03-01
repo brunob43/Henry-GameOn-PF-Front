@@ -406,7 +406,8 @@ const rootReducer = (state = initialState, action) => {
         };
     
     case GET_USERS: 
-    if (!action.payload.length === 0) {    
+    if (!action.payload.length === 0) {  
+      console.log(action.payload)  
       return {
        ...state, 
        users: action.payload,
