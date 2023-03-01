@@ -125,8 +125,8 @@ const DashboardAdmin =()=>{
     //   dispatch(getDocsAd()),
     //   dispatch(getGamesAd())
     //   dispatch(getDonations())
-   },[])
-
+   },[users])
+   console.log(users)
    return(
           <div>
              <form onSubmit={handleUsersSubmit}>
