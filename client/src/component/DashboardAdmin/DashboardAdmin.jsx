@@ -190,11 +190,11 @@ const DashboardAdmin =()=>{
     } 
    ]
    useEffect(()=>{
-      dispatch(getUsers())
-      dispatch(getDocsAd()),
-      dispatch(getGamesAd())
+      dispatch(getUsers());
+      dispatch(getDocsAd());
+      dispatch(getGamesAd());
     //   dispatch(getDonations())
-   },[users])
+   },[users,games,docs])
    console.log(users)
    return(
           <div>
