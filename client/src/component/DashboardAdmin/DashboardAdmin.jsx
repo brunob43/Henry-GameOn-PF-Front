@@ -235,6 +235,14 @@ const DashboardAdmin =()=>{
         width: "70px"
     }
    ]
+   const paginationOptions={
+      rowsPerPageText:"Filas por página",
+      rangeSeparatorText: "de",
+      selectAllRowsItem: true,
+      selectAllRowsItemText: "Todos",
+      fixedHeader,
+      fixedHeaderScrollHeight:"600px"
+   }
    useEffect(()=>{
       dispatch(getUsers());
       dispatch(getDocsAd());
@@ -258,6 +266,8 @@ const DashboardAdmin =()=>{
              columns={columnsUsers}
              data={users}
              title="Usuarios"
+             pagination
+             paginationomponentOption={paginationOptions}
              />
 
              <form onSubmit={handleGameSubmit}>
@@ -274,6 +284,8 @@ const DashboardAdmin =()=>{
              columns={columnsGames}
              data={games}
              title="Juegos"
+             pagination
+             paginationomponentOption={paginationOptions}
              />
              <form onSubmit={handleDocsSubmit}>
                 <input
@@ -289,11 +301,15 @@ const DashboardAdmin =()=>{
              columns={columnsDocs}
              data={docs}
              title="Documentos"
+             pagination
+             paginationomponentOption={paginationOptions}
              />
              <DataTable
              columns={columnsDonations}
              data={donations}
              title="Donaciones"
+             pagination
+             paginationomponentOption={paginationOptions}
              />
           </div>
    )
