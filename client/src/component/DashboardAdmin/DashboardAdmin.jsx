@@ -247,7 +247,7 @@ const DashboardAdmin =()=>{
       dispatch(getDocsAd());
       dispatch(getGamesAd());
       dispatch(getDonations())
-   },[users,games,docs,donations])
+   },[])
    console.log(users)
    return(
           <div>
