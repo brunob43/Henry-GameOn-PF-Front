@@ -82,7 +82,7 @@ const DashboardAdmin =()=>{
    const columnsUsers=[
     {
         name:'ID',
-        selector:user_id,
+        selector:'user_id',
         sortable:true
     },
     {   name:'Internal ID',
