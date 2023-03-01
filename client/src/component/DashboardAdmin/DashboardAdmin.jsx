@@ -265,7 +265,7 @@ const DashboardAdmin =()=>{
              data={users}
              title="Usuarios"
              pagination
-             paginationomponentOption={paginationOptions}
+             paginationComponentOption={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
              />
@@ -285,7 +285,7 @@ const DashboardAdmin =()=>{
              data={games}
              title="Juegos"
              pagination
-             paginationomponentOption={paginationOptions}
+             paginationComponentOption={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
              />
@@ -304,7 +304,7 @@ const DashboardAdmin =()=>{
              data={docs}
              title="Documentos"
              pagination
-             paginationomponentOption={paginationOptions}
+             paginationComponentOption={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
              />
@@ -313,7 +313,7 @@ const DashboardAdmin =()=>{
              data={donations}
              title="Donaciones"
              pagination
-             paginationomponentOption={paginationOptions}
+             paginationComponentOption={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
              />
