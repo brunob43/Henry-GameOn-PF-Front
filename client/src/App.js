@@ -11,8 +11,7 @@ import {
   Register,
   ShareInfo,
   GameDetail,
-  LoginView,
-  ChatBox
+  LoginView
 } from "./views";
 import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
