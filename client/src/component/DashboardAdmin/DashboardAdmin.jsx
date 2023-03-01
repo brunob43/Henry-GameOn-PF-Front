@@ -241,6 +241,7 @@ const DashboardAdmin =()=>{
       selectAllRowsItem: true,
       selectAllRowsItemText: "Todos"
    }
+   const ExpandedComponent = ({ users }) => <pre>{JSON.stringify(users, null, 2)}</pre>;
    useEffect(()=>{
       dispatch(getUsers());
       dispatch(getDocsAd());
@@ -268,6 +269,8 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
+             expandableRows
+            expandableRowsComponent={ExpandedComponent}
              />
 
              <form onSubmit={handleGameSubmit}>
