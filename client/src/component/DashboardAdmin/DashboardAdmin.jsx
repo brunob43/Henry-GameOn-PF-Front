@@ -239,9 +239,7 @@ const DashboardAdmin =()=>{
       rowsPerPageText:"Filas por página",
       rangeSeparatorText: "de",
       selectAllRowsItem: true,
-      selectAllRowsItemText: "Todos",
-      fixedHeader,
-      fixedHeaderScrollHeight:"600px"
+      selectAllRowsItemText: "Todos"
    }
    useEffect(()=>{
       dispatch(getUsers());
@@ -268,6 +266,8 @@ const DashboardAdmin =()=>{
              title="Usuarios"
              pagination
              paginationomponentOption={paginationOptions}
+             fixedHeader
+             fixedHeaderScrollHeight="600px"
              />
 
              <form onSubmit={handleGameSubmit}>
@@ -286,6 +286,8 @@ const DashboardAdmin =()=>{
              title="Juegos"
              pagination
              paginationomponentOption={paginationOptions}
+             fixedHeader
+             fixedHeaderScrollHeight="600px"
              />
              <form onSubmit={handleDocsSubmit}>
                 <input
@@ -303,6 +305,8 @@ const DashboardAdmin =()=>{
              title="Documentos"
              pagination
              paginationomponentOption={paginationOptions}
+             fixedHeader
+             fixedHeaderScrollHeight="600px"
              />
              <DataTable
              columns={columnsDonations}
@@ -310,6 +314,8 @@ const DashboardAdmin =()=>{
              title="Donaciones"
              pagination
              paginationomponentOption={paginationOptions}
+             fixedHeader
+             fixedHeaderScrollHeight="600px"
              />
           </div>
    )
