@@ -14,7 +14,7 @@ import {
     //filterByViewsDocsAd,
     getNameDocsAd,
     //getDocDetailFromStateAd,
-    //getDonations,
+    getDonations,
     //updateUser,
     //deleteUser,
     //updateGame,
@@ -29,7 +29,7 @@ const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
    const games = useSelector((state)=>state.gamesAd)
    const docs = useSelector((state)=>state.docsAd)
-//    const donations = useSelector((state)=>state.donations)
+   const donations = useSelector((state)=>state.donations)
 //    const gameDetail = useSelector((state)=>state.gameDetailAd)
 //    const docDetail = useSelector((state)=>state.docDetailAd)
    const [input,setInput]=useState({
@@ -188,13 +188,34 @@ const DashboardAdmin =()=>{
         selector:'game_deleted',
         sortable:true
     } 
+   ];
+
+   const columnsDonations=[
+    {
+        name:'ID',
+        selector:'donation_id',
+        sortable:true
+    },
+    { 
+        name:'Name',
+        selector:'donation_name',
+        sortable:true
+    },
+    {   name:'Info',
+        selector:'donation_info',
+        sortable:true
+    },
+    {   name:'Quantity',
+        selector:'donation_quantity',
+        sortable:true
+    }
    ]
    useEffect(()=>{
       dispatch(getUsers());
       dispatch(getDocsAd());
       dispatch(getGamesAd());
-    //   dispatch(getDonations())
-   },[users,games,docs])
+      dispatch(getDonations())
+   },[users,games,docs,donations])
    console.log(users)
    return(
           <div>
@@ -243,6 +264,11 @@ const DashboardAdmin =()=>{
              columns={columnsDocs}
              data={docs}
              title="Documentos"
+             />
+             <DataTable
+             columns={columnsDonations}
+             data={donations}
+             title="Donaciones"
              />
           </div>
    )
