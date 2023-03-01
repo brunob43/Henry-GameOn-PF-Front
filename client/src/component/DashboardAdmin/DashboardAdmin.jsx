@@ -83,7 +83,8 @@ const DashboardAdmin =()=>{
     {
         name:'ID',
         selector:'user_id',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Internal ID',
         selector:'internal_id',
@@ -124,32 +125,39 @@ const DashboardAdmin =()=>{
     {
         name:'ID',
         selector:'game_id',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     { 
         name:'Name',
         selector:'game_name',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Topic',
         selector:'game_topic',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Image',
         selector:'game_image',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Difficulty',
         selector:'game_difficulty',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Views',
         selector:'game_views',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Deleted',
         selector:'game_deleted',
-        sortable:true
+        sortable:true,
+        width: "70px"
     } 
    ]
 
@@ -157,36 +165,44 @@ const DashboardAdmin =()=>{
     {
         name:'ID',
         selector:'doc_id',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     { 
         name:'Name',
         selector:'doc_name',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Topic',
         selector:'doc_topic',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Author',
         selector:'doc_author',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Content',
         selector:'doc_content',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Image',
         selector:'doc_image',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Views',
         selector:'doc_views',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Deleted',
         selector:'game_deleted',
-        sortable:true
+        sortable:true,
+        width: "70px"
     } 
    ];
 
@@ -194,20 +210,24 @@ const DashboardAdmin =()=>{
     {
         name:'ID',
         selector:'donation_id',
-        sortable:true
+        sortable:true,
+        width: "70px",
     },
     { 
         name:'Name',
         selector:'donation_name',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Info',
         selector:'donation_info',
-        sortable:true
+        sortable:true,
+        width: "70px"
     },
     {   name:'Quantity',
         selector:'donation_quantity',
-        sortable:true
+        sortable:true,
+        width: "70px"
     }
    ]
    useEffect(()=>{
