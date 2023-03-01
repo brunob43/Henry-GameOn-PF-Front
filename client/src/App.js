@@ -14,7 +14,7 @@ import {
   LoginView
 } from "./views";
 import ChatBox from "./component/Chatbox/Chatbox"
-import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
+// import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
@@ -28,10 +28,10 @@ function App() {
 
   return (
     <div>
-      
-        <Route exact path="/dashboardAdmin">
+
+        {/* <Route exact path="/dashboardAdmin">
             <DashboardAdmin/>
-        </Route>
+        </Route> */}
       <NavBar />
       <ChatBox/>
       <Switch>
