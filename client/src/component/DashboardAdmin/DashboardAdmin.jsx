@@ -5,26 +5,22 @@ import DataTable from "react-data-table-component";
 import {
     getUsers,
     getNameUsers,
-   // postUser,
+   
     getGamesAd,
     getNameGamesAd,
-    //getDetailFromStateAd,
     getDocsAd,
     getNameDocsAd,
-    //getDocDetailFromStateAd,
     getDonations,
     deleteUser,
-    //updateUser,
-    //updateGame,
     deleteGame,
-    //updateDoc,
-    deleteDoc,
+    deleteDoc, 
+    //postUser,
     //postDoc,
     //postGame
 } from "../../redux/actions"
 import EditUser from "./EditUser";
 import EditGame from "./EditGame";
-// import EditDoc from "./EditDoc";
+import EditDoc from "./EditDoc";
 
 const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
@@ -33,10 +29,10 @@ const DashboardAdmin =()=>{
    const donations = useSelector((state)=>state.donations)
    const [rowUser,setRowUser]=useState({})
     const [rowGame,setRowGame]=useState({})
-//    const [rowDoc,setRowDoc]=useState({})
+    const [rowDoc,setRowDoc]=useState({})
    const [isOpenEditUser,setIsOpenEditUser]=useState(false)
     const [isOpenEditGame,setIsOpenEditGame]=useState(false)
-//    const [isOpenEditDoc,setIsOpenEditDoc]=useState(false)
+    const [isOpenEditDoc,setIsOpenEditDoc]=useState(false)
    const [input,setInput]=useState({
     inputUser:"",
     inputGame:"",
@@ -268,9 +264,17 @@ const DashboardAdmin =()=>{
    const handleDocEliminate=(row)=>{
     dispatch(deleteDoc(row.doc_id))
    }
-  const handleDocEdit=()=>{
-    // setRowDoc(row);
-    // setIsOpenEditDoc(true)
+  const handleDocEdit=(row)=>{
+    const aux={
+        doc_id:row.doc_id,
+        doc_name:row.doc_name,
+        doc_topic:row.doc_topic,
+        doc_image:row.doc_image,
+        doc_content:row.doc_content,
+    }
+
+    setRowDoc(aux);
+    setIsOpenEditDoc(true)
   }
     
    const columnsDonations=[
@@ -314,7 +318,7 @@ const DashboardAdmin =()=>{
           <div>
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
-             {/*<EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>*/}
+             <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <form onSubmit={handleUsersSubmit}>
                 <input
                 type="text"

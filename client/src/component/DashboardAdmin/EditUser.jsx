@@ -48,7 +48,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
     }
     const onSubmit=(e)=>{
        e.preventDefault();
-       dispatch(updateUser(internal_id, input))
+       dispatch(updateUser(internal_id, input));
+       onClose()
     }
     console.log(input, "input de edit")
     console.log(rowUser,isOpenEditUser)

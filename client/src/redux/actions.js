@@ -205,7 +205,7 @@ export const filterByDifficultyGames = (payload) => {
 
 export function updateGame(game_id, payload){
   return async function (dispatch) {
-  await axios.put(`/game/:${game_id}`,payload);
+  await axios.put(`/game/${game_id}`,payload);
   dispatch(getGames());
   dispatch(getGamesAd())
 }
@@ -333,7 +333,7 @@ export const filterByViewsDocsAd = (payload) => {
 
 export function updateDoc(doc_id, payload){
   return async function (dispatch) {
-  await axios.put(`/doc/:${doc_id}`,payload);
+  await axios.put(`/doc/${doc_id}`,payload);
   dispatch(getDocs());
   dispatch(getDocsAd())
 }

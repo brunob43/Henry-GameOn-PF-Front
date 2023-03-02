@@ -46,7 +46,8 @@ export default function EditGame({rowGame,isOpenEditGame}){
     }
     const onSubmit=(e)=>{
        e.preventDefault();
-       dispatch(updateGame(game_id, input))
+       dispatch(updateGame(game_id, input));
+       onClose()
     }
     return(
         <div>
@@ -80,7 +81,7 @@ export default function EditGame({rowGame,isOpenEditGame}){
              <label>Tema de el juego</label>
               <Input
                 autoComplete="off"
-                type="email"
+                type="text"
                 value={input.game_topic}
                 name="game_topic"
                 required
@@ -95,7 +96,7 @@ export default function EditGame({rowGame,isOpenEditGame}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-              <label>Type: </label>
+              <label>Dificultad: </label>
               <Select name="game_difficulty" onChange={handleChange}>
                    <option value={input.game_difficulty} >{input.game_difficulty}</option>
                    <option value="Easy">Easy</option>
