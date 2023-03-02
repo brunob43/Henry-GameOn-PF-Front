@@ -122,11 +122,15 @@ const DashboardAdmin =()=>{
     {   name:'Eliminar',
         cell:(row)=>(<button
         onClick={()=>handleUserEliminate(row)}>{row.user_name}</button>)
+    },
+    {   name:'Editar',
+        cell:(row)=>(<button
+        onClick={()=>handleUserEliminate(row)}>{row.user_name}</button>)
     }
 ]
     const handleUserEliminate=(row)=>{
 
-           console.log("Hola", console.log(row.user_name))
+        console.log(row.user_name)
     }
 
    const columnsGames=[
