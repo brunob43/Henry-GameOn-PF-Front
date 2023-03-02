@@ -2,11 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { countViewsGames, getDetailFromState } from "../../redux/actions";
-import {VStack, Box, HStack} from '@chakra-ui/react'
+import {VStack, Box, HStack, useColorMode} from '@chakra-ui/react'
 import gamesArray from "../../games/gamesIndex";
 import style from "./GameDetail.module.css";
+import bglight from "../../styles/images/fondogameblanco.jpg";
+import bgdark from "../../styles/images/fondogames.jpg";
+
 
 const GameDetail = () =>{
+    const { colorMode } = useColorMode();
     const { id } = useParams();
     const dispatch = useDispatch();
     console.log(id)
@@ -28,7 +32,7 @@ const GameDetail = () =>{
 
     return(
         
-        <VStack className={style.main}>
+        <VStack bgImage={colorMode === "dark" ? bgdark : bglight} className={style.main}>
 
 
         <Box className={style.title} mt= {["400px", "250px", "200px", "120px", "120px"]}>
