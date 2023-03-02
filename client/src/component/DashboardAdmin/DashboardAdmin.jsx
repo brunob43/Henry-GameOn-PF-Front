@@ -22,7 +22,7 @@ import {
     //postDoc,
     //postGame
 } from "../../redux/actions"
-import EditUser from "./EditUser";
+import EditUser ,{onOpen} from "./EditUser";
 // import EditGame from "./EditGame";
 // import EditDoc from "./EditDoc";
 
@@ -148,7 +148,7 @@ const DashboardAdmin =()=>{
         
         console.log(aux)
         setRowUser(aux);
-        setIsOpenEditUser(true)
+        onOpen()
     }
 
    const columnsGames=[

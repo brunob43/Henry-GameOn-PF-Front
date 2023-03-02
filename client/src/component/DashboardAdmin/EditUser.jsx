@@ -123,3 +123,5 @@ export default function EditUser({rowUser,isOpenEditUser}){
     </div>
     )
 };
+
+export const {onOpen} = useDisclosure();
