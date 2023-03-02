@@ -42,6 +42,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
        e.preventDefault();
        dispatch(updateUser(internal_id, input))
     }
+    console.log(rowUser)
     return(
         <div>
 

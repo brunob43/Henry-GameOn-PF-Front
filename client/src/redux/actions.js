@@ -395,7 +395,7 @@ export function postUser(payload) {
 };
 export function updateUser(internal_id, payload){
   return async function (dispatch) {
-  await axios.put(`/users/:${internal_id}`,payload);
+  await axios.put(`/users/${internal_id}`,payload);
   dispatch(getUsers())
 }
 }
