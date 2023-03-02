@@ -20,7 +20,7 @@ import {
     //updateGame,
     deleteGame,
     //updateDoc,
-    //deleteDoc,
+    deleteDoc,
     //postDoc,
     //postGame
 } from "../../redux/actions"
@@ -228,9 +228,23 @@ const DashboardAdmin =()=>{
         selector:'game_deleted',
         sortable:true,
         width: "70px"
-    } 
+    } ,
+    {   name:'Eliminar',
+        cell:(row)=>(<button
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</button>)
+    },
+    {   name:'Editar',
+        cell:(row)=>(<button
+        onClick={()=>handleDocEdit(row)}>Editar</button>)
+    }
    ];
 
+   const handleDocEliminate=(row)=>{
+    dispatch(deleteDoc(row.doc_id))
+   }
+  const handleDocEdit=()=>{
+  }
+    
    const columnsDonations=[
     {
         name:'ID',

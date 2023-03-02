@@ -198,7 +198,6 @@ export function updateGame(game_id, payload){
 }
 export function deleteGame(game_id){
   return async function (dispatch) {
-    console.log(game_id)
     await axios.delete(`/game/${game_id}`)
     dispatch(getGames())
     dispatch(getGamesAd())
@@ -328,7 +327,8 @@ export function updateDoc(doc_id, payload){
 }
 export function deleteDoc(doc_id){
   return async function (dispatch) {
-    await axios.delete(`/doc/:${doc_id}`)
+    console.log(doc_id)
+    await axios.delete(`/doc/${doc_id}`)
     dispatch(getDocs())
     dispatch(getDocsAd())
   }
