@@ -1,14 +1,12 @@
-import { HStack, VStack, useColorMode } from "@chakra-ui/react";
+import { HStack, VStack, Text} from "@chakra-ui/react";
 // import style from "./Footer.module.css";
 const Footer = () => {
-  const { colorMode } = useColorMode();
   return (
-    <HStack borderTop="1px solid"
-    borderColor={colorMode === "dark" ? "yellow" : "black"} w="100%" justifyContent="center" bg={colorMode === "dark" ? "black" : "yellow"}>
-      <VStack fontSize="14" >
-        <h1>Trabajo realizado con 💛 por alumnos de Henry</h1>
-        <h1>Politicas de privacidad 🔒 | Terminos y condiciones</h1>
-        <h2>2023</h2>
+    <HStack 
+ w="100%" justifyContent="center" p="45px 0 25px" flex-shrink="0" box-sizing= "border-box" display= "block" bg="black">
+      <VStack fontSize="14" color="white" mt="-3">
+        <Text>Trabajo realizado con 💛 por alumnos de Henry</Text>
+        <Text>Henry GameOn 2023</Text>
       </VStack>
     </HStack>
   );

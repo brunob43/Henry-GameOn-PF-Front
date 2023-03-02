@@ -1,4 +1,5 @@
-import { useColorMode, Button } from "@chakra-ui/react";
+import { useColorMode, Button, HStack } from "@chakra-ui/react";
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 
 
@@ -19,13 +20,18 @@ export function ColorModeSwitcher() {
   const isDark = colorMode === "dark";
 
   return (
+   
     <Button onClick={toggleColorMode} 
-    bg={colorMode === "dark" ? "black" : "yellow"} 
-    _hover={colorMode === "dark" ? { bg: 'yellow', color: 'black' } : { bg: 'black', color: 'yellow' }}
-    border='1px'
+   p="35px"
+   
+    
+    
+  
+    colorScheme='black' variant='link'
     borderColor={colorMode === "dark" ? "yellow" : "black"}>
-      {isDark ? "Modo claro 🌞" : "Modo oscuro 🌙"}
+      {isDark ? <SunIcon /> : <MoonIcon />}
     </Button>
   );
 }
+
 

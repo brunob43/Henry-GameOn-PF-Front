@@ -1,9 +1,0 @@
-@font-face {
-    font-family: "I-pixel-u";
-    src: url("../../styles/fonts/I-pixel-u.ttf") format("truetype");
-  }
-  
-  .title {
-    font-family: "I-pixel-u";
-    letter-spacing: 10px;
-  }
