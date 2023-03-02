@@ -29,7 +29,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
     useEffect(()=>{
        console.log(rowUser)
     //    if(isOpenEditUser){
-    
+        onOpen
     //    }
     },[])
     const handleChange=(e)=>{
@@ -124,4 +124,4 @@ export default function EditUser({rowUser,isOpenEditUser}){
     )
 };
 
-export const {onOpen} = useDisclosure();
+export const onOpenUser=
