@@ -119,13 +119,15 @@ const DashboardAdmin =()=>{
         sortable:true,
         width: "70px"
     },
-    {   name:'Deleted',
-        selector:'user_deleted',
-        sortable:true,
-        width: "70px"
+    {   name:'Eliminar',
+        cell:(row)=>(<button
+        onClick={()=>handleUserEliminate(row)}>Eliminar</button>)
     }
-    
-   ]
+]
+    const handleUserEliminate=(e,row)=>{
+           console.log("Hola", console.log(row))
+    }
+
    const columnsGames=[
     {
         name:'ID',
@@ -248,7 +250,7 @@ const DashboardAdmin =()=>{
       dispatch(getGamesAd());
       dispatch(getDonations())
    },[])
-   console.log(users)
+   console.log(users)   
    return(
           <div>
              <form onSubmit={handleUsersSubmit}>
@@ -270,7 +272,8 @@ const DashboardAdmin =()=>{
              fixedHeader
              fixedHeaderScrollHeight="600px"
              expandableRows
-            expandableRowsComponent={ExpandedComponent}
+             expandableRowsComponent={ExpandedComponent}
+             theme="dark"
              />
 
              <form onSubmit={handleGameSubmit}>
@@ -325,3 +328,20 @@ const DashboardAdmin =()=>{
 }
 
 export default DashboardAdmin
+
+
+
+
+// const handleSelectTypeUser = (row, e) => {
+
+
+    // name: "Editar",
+    //   cell: (row) => (      column
+
+
+    //     <button
+    //       className={styles.dashBoardAdm_button_Table}
+    //       onClick={() => handleClickSix(row)}
+    //     >
+    //       Editar
+    //     </button>
