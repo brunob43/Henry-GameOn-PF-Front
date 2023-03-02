@@ -132,6 +132,8 @@ const DashboardAdmin =()=>{
          dispatch(deleteUser(row.internal_id))
          dispatch(getUsers())
     }
+    const handleUserEdit=()=>{
+    }
 
    const columnsGames=[
     {
