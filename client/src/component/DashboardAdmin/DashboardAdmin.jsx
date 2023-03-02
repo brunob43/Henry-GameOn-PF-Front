@@ -146,7 +146,6 @@ const DashboardAdmin =()=>{
             internal_id:row.internal_id
         }
         
-        console.log(aux)
         setRowUser(aux);
         setIsOpenEditUser(true)
     }

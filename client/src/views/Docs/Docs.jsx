@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import { HStack, VStack, Button, useColorMode, Select } from "@chakra-ui/react";
 import bglight from "../../styles/images/fondo_henry_light.jpg";
 import bgdark from "../../styles/images/fondo_henry_dark.png";
+import { RepeatIcon } from "@chakra-ui/icons";
 
 const Docs = () => {
   const { colorMode } = useColorMode();
@@ -39,15 +40,28 @@ const Docs = () => {
   //------------------------------------------HANDLERS-------------------------------------------
   let disabledSelectTopic = !!filterSelect.topic.length;
 
+  const reload = () =>{
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    dispatch(getDocs())
+    dispatch (resetErrorDocs())
+    // window.location.reload()
+  }
+
   const handleFilterTopic = (event) => {
     const value = event.target.value;
+    if (value === "all"){
+      dispatch(getDocs())
+    }else{
+      dispatch(filterByTopicDocs(value));
 
-    dispatch(filterByTopicDocs(value));
-
-    setFilterSelect({
-      ...filterSelect,
-      topic: [value],
-    });
+      setFilterSelect({
+        ...filterSelect,
+        topic: [value],
+      });
+    };
   };
 
   const handleDeleteFilter = (event) => {
@@ -123,7 +137,7 @@ const Docs = () => {
           </Select>
         </VStack>
         <SearchBarDoc />
-        
+        <Button onClick={reload}><RepeatIcon/></Button>
       <VStack w="250px" justify="space-around" align="flex-start">
         <div>
           <NavLink to="/docs/share">
@@ -186,7 +200,7 @@ const Docs = () => {
                     key={topic}
                     onClick={handleDeleteFilter}
                   >
-                    X -- {topic}
+                    X {topic}
                   </Button>
                 </div>
               </div>
