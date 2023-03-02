@@ -56,9 +56,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
         <div>
 
       <>
-      <Button zIndex="10" position="fixed" right="15px" bottom="50px" colorScheme="teal" onClick={onOpen}>
+      {/* <Button zIndex="10" position="fixed" right="15px" bottom="50px" colorScheme="teal" onClick={onOpen}>
          userEdit
-        </Button>
+        </Button> */}
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -100,22 +100,22 @@ export default function EditUser({rowUser,isOpenEditUser}){
                 onChange={(e) => handleChange(e)}
               />
               <label>Type: </label>
-              <Select name="user_type" onChange={handleChange}>
+              <select name="user_type" onChange={handleChange}>
                    <option value={input.user_type} ></option>
                    <option value="user"></option>
                    <option value="admin"></option>
-                   </Select>
+                   </select>
 
               <label>State: </label>
-              <Select name="user_state" onChange={handleChange}>
+              <select name="user_state" onChange={handleChange}>
               <option value={input.user_state} ></option>
                    <option value="active"></option>
                    <option value="warned"></option>
                    <option value="banned"></option>
-                   </Select>
-               <button type="submit">
+                   </select>
+               <Button type="submit">
                 Save
-              </button>
+              </Button>
         </form>
         
         
