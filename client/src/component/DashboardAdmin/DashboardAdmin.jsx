@@ -192,8 +192,8 @@ const DashboardAdmin =()=>{
      dispatch(deleteGame(row.game_id))
     }
    const handleGameEdit=()=>{
-        setRowGame(row);
-        setIsOpenEditGame(true)
+        // setRowGame(row);
+        // setIsOpenEditGame(true)
    }
    const columnsDocs=[
     {
@@ -252,8 +252,8 @@ const DashboardAdmin =()=>{
     dispatch(deleteDoc(row.doc_id))
    }
   const handleDocEdit=()=>{
-    setRowDoc(row);
-    setIsOpenEditDoc(true)
+    // setRowDoc(row);
+    // setIsOpenEditDoc(true)
   }
     
    const columnsDonations=[
@@ -295,7 +295,7 @@ const DashboardAdmin =()=>{
    },[])  
    return(
           <div>
-             <EditUser row={rowUser} opened={isOpenEditUser}/>
+             <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
              {/* <EditGame row={rowGame} opened={isOpenEditGame}/>
              <EditDoc row={rowDoc} opened={isOpenEditDoc}/> */}
              <form onSubmit={handleUsersSubmit}>
