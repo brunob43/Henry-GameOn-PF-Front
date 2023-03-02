@@ -7,6 +7,7 @@ import {
   filterByTopicGames,
   filterByViewsGames,
   getGames,
+  getTopicGames,
   resetErrorGames,
   setCurrentPageGames,
 } from "../../redux/actions";
@@ -14,7 +15,7 @@ import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
 import { useColorMode, HStack, VStack, Select, Button } from "@chakra-ui/react";
-import {CloseIcon} from '@chakra-ui/icons'
+import {RepeatIcon} from '@chakra-ui/icons'
 import bglight from "../../styles/images/fondo_henry_light.jpg";
 import bgdark from "../../styles/images/fondo_henry_dark.png";
 import Footer from "../../component/Footer/Footer";
@@ -40,55 +41,64 @@ const Games = () => {
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
+      dispatch(getTopicGames())
       console.log(user, "users en games")
     }
-  }, [dispatch, allGames]);
+  }, [dispatch, allGames, user]);
 
 //------------------------------------------HANDLERS-------------------------------------------
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
+  
+  const reload = () =>{
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    dispatch(getGames())
+    dispatch (resetErrorGames())
+    // window.location.reload()
+  }
 
-    const handleFilterTopic = (event) => {
-        const value = event.target.value;
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByTopicGames(value));
+  const handleFilterTopic = (event) => {
+    const value = event.target.value;
+    if (value === "all"){
+      dispatch(getGames())
+    }else{
+      dispatch(filterByTopicGames(value));
 
-        setFilterSelect({
-            ...filterSelect,
-            topic: [value],
-        });            
-        }
-    };
-
-    const handleFilterDificulty = (event) => {
-        const value = event.target.value
-
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByDifficultyGames(value));
-
-        setFilterSelect({
-            ...filterSelect,
-            dificulty: [value],
-        });            
-        }
-
-    };
-
-    const handleDeleteFilter = (event) => {
-            setFilterSelect({
-                topic: [],
-                dificulty: [],
-            });
-            // window.location.reload();        
-            dispatch(getGames());
-            dispatch (resetErrorGames())
-        // } 
+      setFilterSelect({
+        ...filterSelect,
+        topic: [value],
+      });            
     }
+  };
+
+  const handleFilterDificulty = (event) => {
+    const value = event.target.value
+
+    if (value === "all"){
+      dispatch(getGames())
+    }else{
+      dispatch(filterByDifficultyGames(value));
+
+      setFilterSelect({
+        ...filterSelect,
+        dificulty: [value],
+      });            
+    }
+  };
+
+  const handleDeleteFilter = (event) => {
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    // window.location.reload();        
+    dispatch(getGames());
+    dispatch (resetErrorGames())
+  }
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;
@@ -150,6 +160,7 @@ const Games = () => {
           </Select>
         </VStack>
         <SearchBarGame />
+        <Button onClick={reload}><RepeatIcon/></Button>
         <VStack w="200px" alignItems="flex-start">
           <HStack>
             <Select
@@ -193,7 +204,7 @@ const Games = () => {
                       key={topic}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{topic}
+                      X {topic}
                     </Button>
                   </div>
                 </div>
@@ -242,7 +253,7 @@ const Games = () => {
                       key={dificulty}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{dificulty.toUpperCase()}
+                      X {dificulty.toUpperCase()}
                     </Button>
                   </div>
                 </div>
