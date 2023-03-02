@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../component/Footer/Footer";
+
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -7,9 +7,11 @@ import {
   Heading,
   VStack,
   HStack,
-  Container
+  Container,
+  Box
 } from "@chakra-ui/react";
 import foto from "../assets/imagen/MUNDOHENRY-1.jpg";
+
 
 
 
@@ -17,31 +19,30 @@ const Home = () => {
   return (
     <>
       <VStack bgImage={foto} bgSize="cover" bgPosition="center" 
-      h="1000px"
+      h="1010px"
       >
           <VStack>
-          <Heading
+          <HStack> 
+          <Box
             mt={["450px", "200px", "150px", "70px", "70px"]}
-            h="3px"
             display="flex"
-            flexDirection="row"
-            padding="100px"
-            noOfLines={1}
+            pt="100px"
             bgGradient='linear(to-l, yellow, white)'
             bgClip='text'
             fontSize='6xl'
             fontWeight='extrabold'
+            textAlign="center"
   
           >
               HENRY GAME ON
               
-              </Heading>
-          
+              </Box>
+              
+              </HStack> 
           <Text
             color="white"
             textAlign="center"
             fontSize="20"
-            
           >
             Un espacio donde podras codear jugando
           </Text>
@@ -49,7 +50,7 @@ const Home = () => {
 
 
         <HStack justifyContent="space-evenly" >
-          <VStack h="310px" color="white" justify="flex-start" fontSize="20px" mr="300px">
+          <VStack h="310px" color="white" justify="flex-start" fontSize="20px">
             <Link to="/games">
               <Button
                 variant="ghost"
@@ -57,7 +58,7 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt="266px"
+                mt={["0px", "0px", "200px", "200px", "200px"]}
                 
               >
                 Games👾
@@ -88,7 +89,7 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt="260px" 
+                mt={["0px", "0px", "200px", "200px", "200px"]}
               >
                 HenryDocs 📑
               </Button>
@@ -112,7 +113,7 @@ const Home = () => {
           </VStack>
         </HStack>
         </VStack>
-      <Footer />
+     
     </>
   );
 };
