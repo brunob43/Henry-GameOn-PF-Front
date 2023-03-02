@@ -15,6 +15,7 @@ import {
     getNameDocsAd,
     //getDocDetailFromStateAd,
     getDonations,
+    deleteUser,
     //updateUser,
     //deleteUser,
     //updateGame,
@@ -121,16 +122,16 @@ const DashboardAdmin =()=>{
     },
     {   name:'Eliminar',
         cell:(row)=>(<button
-        onClick={()=>handleUserEliminate(row)}>{row.user_name}</button>)
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</button>)
     },
     {   name:'Editar',
         cell:(row)=>(<button
-        onClick={()=>handleUserEliminate(row)}>{row.user_name}</button>)
+        onClick={()=>handleUserEdit(row)}>Editar</button>)
     }
 ]
     const handleUserEliminate=(row)=>{
-
-        console.log(row.user_name)
+         dispatch(deleteUser(row.internal_id))
+         dispatch(getUsers())
     }
 
    const columnsGames=[
