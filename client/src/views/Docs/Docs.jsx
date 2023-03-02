@@ -10,14 +10,12 @@ import {
   getTopicDocs,
   resetErrorDocs
 } from "../../redux/actions";
-import style from "./Docs.module.css";
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
 import { NavLink } from "react-router-dom";
-import { HStack, VStack, Button, useColorMode, Select } from "@chakra-ui/react";
-import bglight from "../../styles/images/fondo_henry_light.jpg";
-import bgdark from "../../styles/images/fondo_henry_dark.png";
-import { RepeatIcon } from "@chakra-ui/icons";
+import { HStack, VStack, Button, useColorMode, Select, Text } from "@chakra-ui/react";
+import bglight from "../../styles/images/fondoblanco.jpg";
+import bgdark from "../../styles/images/fondonegro.jpg";
 
 const Docs = () => {
   const { colorMode } = useColorMode();
@@ -40,28 +38,15 @@ const Docs = () => {
   //------------------------------------------HANDLERS-------------------------------------------
   let disabledSelectTopic = !!filterSelect.topic.length;
 
-  const reload = () =>{
-    setFilterSelect({
-      topic: [],
-      dificulty: [],
-    });
-    dispatch(getDocs())
-    dispatch (resetErrorDocs())
-    // window.location.reload()
-  }
-
   const handleFilterTopic = (event) => {
     const value = event.target.value;
-    if (value === "all"){
-      dispatch(getDocs())
-    }else{
-      dispatch(filterByTopicDocs(value));
 
-      setFilterSelect({
-        ...filterSelect,
-        topic: [value],
-      });
-    };
+    dispatch(filterByTopicDocs(value));
+
+    setFilterSelect({
+      ...filterSelect,
+      topic: [value],
+    });
   };
 
   const handleDeleteFilter = (event) => {
@@ -93,10 +78,10 @@ const Docs = () => {
   ///-----VIEW--------
   if (error) {
     return (
-      <VStack className={style.errorcontainer}>
+      <VStack >
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px" className={style.button} onClick={handleDeleteFilter}>
+          <Button fontSize="25px" h="60px" w="300px"  onClick={handleDeleteFilter}>
             Return to Docs
           </Button>
         </div>
@@ -111,14 +96,27 @@ const Docs = () => {
         mt={["350px", "200px", "150px", "70px", "70px"]}
         
       >
-        <h2 className={style.title}>DOCS</h2>
+        <Text 
+        fontSize="90px"
+        fontFamily= "I-pixel-u"
+        mt="20"
+        bg={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        letterSpacing= "10px">DOCS</Text>
       </HStack>
 
-      <HStack justify="center" w="80%">
-        <VStack align="flex-end" w="250px">
+      <HStack justify="space-around" w="80%" bg={
+                colorMode === "dark"
+                  ? { color: "black", bg: "yellow" }
+                  : { bg: "black", color: "yellow" }
+              }>
+        <VStack align="" w="250px">
           <Select
           w="120px"
-            fontWeight="bold"
+            
             _hover={
               colorMode === "dark"
                 ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -137,8 +135,8 @@ const Docs = () => {
           </Select>
         </VStack>
         <SearchBarDoc />
-        <Button onClick={reload}><RepeatIcon/></Button>
-      <VStack w="250px" justify="space-around" align="flex-start">
+        
+      <HStack w="250px" justify="space-around" align="flex-start">
         <div>
           <NavLink to="/docs/share">
             <Button
@@ -150,16 +148,15 @@ const Docs = () => {
               }
               border="1px"
               borderColor={colorMode === "dark" ? "yellow" : "black"}
-              className={style.create}
+              w="120px"
             >
               CREATE DOC
             </Button>
           </NavLink>
         </div>
 
-        <div className={style.filtersContainer}>
+        <HStack >
           <Select
-            fontWeight="bold"
             _hover={
               colorMode === "dark"
                 ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -200,14 +197,14 @@ const Docs = () => {
                     key={topic}
                     onClick={handleDeleteFilter}
                   >
-                    X {topic}
+                    X -- {topic}
                   </Button>
                 </div>
               </div>
             );
           })}
-        </div>
-      </VStack>
+        </HStack>
+      </HStack>
       </HStack>
 
       <PaginatedDoc />
