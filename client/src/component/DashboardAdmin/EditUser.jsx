@@ -47,7 +47,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
 
       <>
       <Button zIndex="10" position="fixed" right="15px" bottom="50px" colorScheme="teal" onClick={onOpen}>
-         <Image mr="3px" w="20px" h="20px"></Image>userEdit
+         userEdit
         </Button>
         <Drawer
           isOpen={isOpen}
