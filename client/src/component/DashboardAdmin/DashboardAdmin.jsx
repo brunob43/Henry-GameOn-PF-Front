@@ -6,12 +6,10 @@ import {
     getUsers,
     getNameUsers,
    // postUser,
-   getGamesAd,
+    getGamesAd,
     getNameGamesAd,
-    //filterByViewsGamesAd,
     //getDetailFromStateAd,
-   getDocsAd,
-    //filterByViewsDocsAd,
+    getDocsAd,
     getNameDocsAd,
     //getDocDetailFromStateAd,
     getDonations,
@@ -24,14 +22,21 @@ import {
     //postDoc,
     //postGame
 } from "../../redux/actions"
+import EditUser from "./EditUser";
+// import EditGame from "./EditGame";
+// import EditDoc from "./EditDoc";
 
 const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
    const games = useSelector((state)=>state.gamesAd)
    const docs = useSelector((state)=>state.docsAd)
    const donations = useSelector((state)=>state.donations)
-//    const gameDetail = useSelector((state)=>state.gameDetailAd)
-//    const docDetail = useSelector((state)=>state.docDetailAd)
+   const [rowUser,setRowUser]=useState({})
+//    const [rowGame,setRowGame]=useState({})
+//    const [rowDoc,setRowDoc]=useState({})
+   const [isOpenEditUser,setIsOpenEditUser]=useState(false)
+//    const [isOpenEditGame,setIsOpenEditGame]=useState(false)
+//    const [isOpenEditDoc,setIsOpenEditDoc]=useState(false)
    const [input,setInput]=useState({
     inputUser:"",
     inputGame:"",
@@ -123,15 +128,17 @@ const DashboardAdmin =()=>{
         cell:(row)=>(<button
         onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</button>)
     },
-    {   name:'Editar',
+    {   name:'EDITAR',
         cell:(row)=>(<button
-        onClick={()=>handleUserEdit(row)}>Editar</button>)
+        onClick={()=>handleUserEdit(row)}>Ver Detalle/Editar</button>)
     }
 ]
     const handleUserEliminate=(row)=>{
          dispatch(deleteUser(row.internal_id))
     }
-    const handleUserEdit=()=>{
+    const handleUserEdit=(row)=>{
+        setRowUser(row);
+        setIsOpenEditUser(true)
     }
 
    const columnsGames=[
@@ -185,6 +192,8 @@ const DashboardAdmin =()=>{
      dispatch(deleteGame(row.game_id))
     }
    const handleGameEdit=()=>{
+        setRowGame(row);
+        setIsOpenEditGame(true)
    }
    const columnsDocs=[
     {
@@ -243,6 +252,8 @@ const DashboardAdmin =()=>{
     dispatch(deleteDoc(row.doc_id))
    }
   const handleDocEdit=()=>{
+    setRowDoc(row);
+    setIsOpenEditDoc(true)
   }
     
    const columnsDonations=[
@@ -281,10 +292,12 @@ const DashboardAdmin =()=>{
       dispatch(getDocsAd());
       dispatch(getGamesAd());
       dispatch(getDonations())
-   },[])
-   console.log(users)   
+   },[])  
    return(
           <div>
+             <EditUser row={rowUser} opened={isOpenEditUser}/>
+             {/* <EditGame row={rowGame} opened={isOpenEditGame}/>
+             <EditDoc row={rowDoc} opened={isOpenEditDoc}/> */}
              <form onSubmit={handleUsersSubmit}>
                 <input
                 type="text"
