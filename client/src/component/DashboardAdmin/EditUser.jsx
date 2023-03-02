@@ -124,4 +124,3 @@ export default function EditUser({rowUser,isOpenEditUser}){
     )
 };
 
-export const onOpenUser=
