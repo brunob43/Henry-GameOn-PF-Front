@@ -40,9 +40,8 @@ const Games = () => {
     if (!allGames.length) {
       dispatch(getGames());
       dispatch(getTopicGames())
-      console.log(user, "users en games")
     }
-  }, [dispatch, allGames, user]);
+  }, [dispatch, allGames]);
 
 //------------------------------------------HANDLERS-------------------------------------------
 
