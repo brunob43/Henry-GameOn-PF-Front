@@ -1,18 +1,16 @@
 .container{
-    background-color: rgba(46, 46, 46, 0.767);
-    width: 280px;
-    height: 290px;
+    width: 390px;
+    height: 445px;
+    background: rgb(0, 0, 0);
     border-radius: 30px;
-    margin: 1%;
-    border: 3px;
-    border-style:groove;
-    border-color: rgba(0, 0, 0, 0.884);
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    padding: 1%;
-    transition: 800ms;
+    transition: 0.2s ease-in-out;
+    display: block;
+    margin-top: 100px;
+    margin-left: 100px;
+   padding-bottom: 20px;
+   box-sizing: border-box;
+   margin-bottom: 30px;
+   
 }
 
 .container:hover{
@@ -22,18 +20,29 @@
 }
 
 .image{
-    height: 200px;
-    width: 250px;
+    width: 100%;
+    height: 65%;
+    background: linear-gradient(#e66465, #9198e5);
+    display: flex;
+    align-items: top;
+    justify-content: right;
+    border-end-end-radius: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .link{
     text-decoration: none;
+    letter-spacing: .2px;
+    line-height: 4;
+    text-align: center;
     color: azure;
     font-size: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .details{
     display: flex;
+    line-height: 1.5;
     justify-content: space-around;
     margin: 2%;
     font-size: 15px;
@@ -45,12 +54,12 @@
     background-color: rgb(255, 255, 0);
     color: black;
     padding: 2%;
-    border-radius: 30px;
+    border-radius: 10px;
 }
 
 .author{
     background-color: rgb(255, 255, 0);
     color: black;
     padding: 2%;
-    border-radius: 30px;
-}
+    border-radius: 10px;
+} 

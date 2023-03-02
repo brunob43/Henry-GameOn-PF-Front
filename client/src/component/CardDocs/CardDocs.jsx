@@ -1,9 +1,12 @@
+import { VStack, SimpleGrid
+} from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardDocs.module.css"
 
 const CardDocs = ({ name, image, id, topic, author })=> {
     return (
+      <VStack>
       <div className={style.container}>
         <Link to={`/doc/${id}`} className={style.link}>
           <img src={image} alt="imagen card" className={style.image}/>
@@ -18,6 +21,7 @@ const CardDocs = ({ name, image, id, topic, author })=> {
           </div>        
         </Link>
       </div>
+      </VStack>
     );
   }
   export default CardDocs;
