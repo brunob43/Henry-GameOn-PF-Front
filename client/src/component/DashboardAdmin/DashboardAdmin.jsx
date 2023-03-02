@@ -142,8 +142,10 @@ const DashboardAdmin =()=>{
             user_email:row.user_email,
             user_image:row.user_image,
             user_type:row.user_type,
-            user_state:row.user_state
+            user_state:row.user_state,
+            internal_id:row.internal_id
         }
+        
         console.log(aux)
         setRowUser(aux);
         setIsOpenEditUser(true)
