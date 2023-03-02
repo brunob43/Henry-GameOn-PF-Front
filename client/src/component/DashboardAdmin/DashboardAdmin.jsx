@@ -313,8 +313,8 @@ const DashboardAdmin =()=>{
    return(
           <div>
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
-             {/* <EditGame row={rowGame} opened={isOpenEditGame}/>
-             <EditDoc row={rowDoc} opened={isOpenEditDoc}/> */}
+             <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
+             {/*<EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>*/}
              <form onSubmit={handleUsersSubmit}>
                 <input
                 type="text"
