@@ -402,7 +402,7 @@ export function updateUser(internal_id, payload){
 export function deleteUser(internal_id){
   return async function (dispatch) {
     console.log(internal_id)
-    await axios.delete(`/users/:${internal_id}`)
+    await axios.delete(`/users/${internal_id}`)
     dispatch(getUsers())
   }
 }

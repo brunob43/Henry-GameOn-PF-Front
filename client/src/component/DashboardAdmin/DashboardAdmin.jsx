@@ -129,7 +129,6 @@ const DashboardAdmin =()=>{
     }
 ]
     const handleUserEliminate=(row)=>{
-        console.log(row.internal_id)
          dispatch(deleteUser(row.internal_id))
     }
     const handleUserEdit=()=>{
@@ -172,9 +171,21 @@ const DashboardAdmin =()=>{
         selector:'game_deleted',
         sortable:true,
         width: "70px"
-    } 
+    } ,
+    {   name:'Eliminar',
+        cell:(row)=>(<button
+        onClick={()=>handleGameEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</button>)
+    },
+    {   name:'Editar',
+        cell:(row)=>(<button
+        onClick={()=>handleGameEdit(row)}>Editar</button>)
+    }
    ]
-
+   const handleGameEliminate=(row)=>{
+     dispatch(deleteUser(row.game_id))
+    }
+   const handleGameEdit=()=>{
+   }
    const columnsDocs=[
     {
         name:'ID',
