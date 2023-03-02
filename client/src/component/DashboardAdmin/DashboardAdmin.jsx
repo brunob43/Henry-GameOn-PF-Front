@@ -129,8 +129,8 @@ const DashboardAdmin =()=>{
     }
 ]
     const handleUserEliminate=(row)=>{
+        console.log(row.internal_id)
          dispatch(deleteUser(row.internal_id))
-         dispatch(getUsers())
     }
     const handleUserEdit=()=>{
     }

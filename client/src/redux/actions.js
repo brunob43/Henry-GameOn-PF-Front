@@ -107,8 +107,7 @@ export function getNameGames(game_name) {
 export function getNameGamesAd(game_name) {
   return async function (dispatch) {
     try{
-      const admin={admin:true}
-      const apiGames = await axios.get(`/game?name=${game_name}`, admin);
+      const apiGames = await axios.get(`/game?name=${game_name}&admin=true`);
       const games = apiGames.data;
 
     return dispatch({
@@ -402,6 +401,7 @@ export function updateUser(internal_id, payload){
 }
 export function deleteUser(internal_id){
   return async function (dispatch) {
+    console.log(internal_id)
     await axios.delete(`/users/:${internal_id}`)
     dispatch(getUsers())
   }
