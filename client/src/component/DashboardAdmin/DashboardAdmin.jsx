@@ -137,7 +137,15 @@ const DashboardAdmin =()=>{
          dispatch(deleteUser(row.internal_id))
     }
     const handleUserEdit=(row)=>{
-        setRowUser(row);
+        const aux={
+            user_name:row.user_name,
+            user_email:row.user_email,
+            user_image:row.user_image,
+            user_type:row.user_type,
+            user_state:row.user_state
+        }
+        console.log(aux)
+        setRowUser(aux);
         setIsOpenEditUser(true)
     }
 

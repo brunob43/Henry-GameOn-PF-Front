@@ -18,16 +18,10 @@ import { useDispatch } from "react-redux";
 export default function EditUser({rowUser,isOpenEditUser}){
     const dispatch=useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [input,setInput]=useState({
-        user_name:rowUser.user_name,
-        user_email:rowUser.user_email,
-        user_image:rowUser.user_image,
-        user_type:rowUser.user_type,
-        user_state:rowUser.user_state
-    })
+    const [input,setInput]=useState(rowUser)
       const internal_id = rowUser.internal_id
     useEffect(()=>{
-       
+       console.log(rowUser)
        if(isOpenEditUser){
         onOpen()
        }
