@@ -28,9 +28,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
       const {internal_id}= rowUser
     useEffect(()=>{
        console.log(rowUser)
-       if(isOpenEditUser){
-        onOpen()
-       }
+    //    if(isOpenEditUser){
+    
+    //    }
     },[])
     const handleChange=(e)=>{
         setInput({
@@ -46,6 +46,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
         <div>
 
       <>
+      <Button zIndex="10" position="fixed" right="15px" bottom="50px" colorScheme="teal" onClick={onOpen}>
+         <Image mr="3px" w="20px" h="20px"></Image>userEdit
+        </Button>
         <Drawer
           isOpen={isOpen}
           placement="right"
