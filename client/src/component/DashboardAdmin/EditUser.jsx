@@ -59,7 +59,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
-            <label className={style.label}>Nombre del usuario:</label>
+            <label>Nombre del usuario:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -68,7 +68,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-             <label className={style.labelEmail}>E-mail</label>
+             <label>E-mail</label>
               <Input
                 autoComplete="off"
                 type="email"
@@ -77,7 +77,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-               <label className={style.label}>Imagen:</label>
+               <label>Imagen:</label>
               <Input
                 autoComplete="off"
                 type="text"
