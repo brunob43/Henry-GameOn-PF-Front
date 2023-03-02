@@ -23,7 +23,7 @@ import {
     //postGame
 } from "../../redux/actions"
 import EditUser from "./EditUser";
-// import EditGame from "./EditGame";
+import EditGame from "./EditGame";
 // import EditDoc from "./EditDoc";
 
 const DashboardAdmin =()=>{
@@ -32,10 +32,10 @@ const DashboardAdmin =()=>{
    const docs = useSelector((state)=>state.docsAd)
    const donations = useSelector((state)=>state.donations)
    const [rowUser,setRowUser]=useState({})
-//    const [rowGame,setRowGame]=useState({})
+    const [rowGame,setRowGame]=useState({})
 //    const [rowDoc,setRowDoc]=useState({})
    const [isOpenEditUser,setIsOpenEditUser]=useState(false)
-//    const [isOpenEditGame,setIsOpenEditGame]=useState(false)
+    const [isOpenEditGame,setIsOpenEditGame]=useState(false)
 //    const [isOpenEditDoc,setIsOpenEditDoc]=useState(false)
    const [input,setInput]=useState({
     inputUser:"",
@@ -200,9 +200,17 @@ const DashboardAdmin =()=>{
    const handleGameEliminate=(row)=>{
      dispatch(deleteGame(row.game_id))
     }
-   const handleGameEdit=()=>{
-        // setRowGame(row);
-        // setIsOpenEditGame(true)
+   const handleGameEdit=(row)=>{
+    const aux={
+        game_id:row.game_id,
+        game_name:row.game_name,
+        game_topic:row.game_topic,
+        game_image:row.game_image,
+        game_difficulty:row.game_difficulty,
+    }
+    
+    setRowGame(aux);
+    setIsOpenEditGame(true)
    }
    const columnsDocs=[
     {
