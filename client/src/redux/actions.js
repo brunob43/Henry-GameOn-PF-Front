@@ -14,6 +14,7 @@ export const FILTER_BY_TOPIC_DOCS = "FILTER_BY_TOPIC_DOCS";
 export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS";
 export const FILTER_BY_VIEWS_DOCS = "FILTER_BY_VIEWS_DOCS";
 export const GET_USERS = "GET_USERS";
+export const GET_TOPIC_GAMES = "GET_TOPIC_GAMES";
 export const GET_NAME_USERS = "GET_NAME_USERS";
 export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS";
 export const ERROR_GAMES = "ERROR_GAMES";
@@ -53,6 +54,19 @@ export function getGames() {
     }
   };
 }
+
+export function getTopicGames() {
+  return async function (dispatch) {
+    const response = await axios.get("/game");
+    const topics = response.data.map((game) => game.game_topic);
+    const filterTopics = topics.filter((topic, index) => topics.indexOf(topic) === index);
+    return dispatch({
+      type: GET_TOPIC_GAMES,
+      payload: filterTopics,
+    });
+  };
+}
+
 export function getGamesAd() {
   return async function (dispatch) {
     try{
@@ -449,9 +463,10 @@ export function getTopicDocs() {
   return async function (dispatch) {
     const response = await axios.get("/doc");
     const topics = response.data.map((doc) => doc.doc_topic);
+    const filterTopics = topics.filter((topic, index) => topics.indexOf(topic) === index);
     return dispatch({
       type: GET_TOPIC_DOCS,
-      payload: topics,
+      payload: filterTopics,
     });
   };
 }
