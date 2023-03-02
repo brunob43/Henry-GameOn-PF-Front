@@ -17,7 +17,7 @@ import {
     getDonations,
     deleteUser,
     //updateUser,
-    //deleteUser,
+    deleteUser,
     //updateGame,
     //deleteGame,
     //updateDoc,
