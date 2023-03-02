@@ -65,7 +65,7 @@ export function getTopicGames() {
       payload: filterTopics,
     });
   };
-}
+} 
 
 export function getGamesAd() {
   return async function (dispatch) {
