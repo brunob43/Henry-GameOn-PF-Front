@@ -82,46 +82,46 @@ const DashboardAdmin =()=>{
    const columnsUsers=[
     {
         name:'ID',
-        selector:'user_id',
+        selector:(row)=>row.user_id,
         sortable:true,
         width: "70px"
     },
     {   name:'Internal ID',
-        selector:'internal_id',
+        selector:(row)=>row.internal_id,
         sortable:true
     },
     { 
         name:'Name',
-        selector:'user_name',
+        selector:(row)=>row.user_name,
         sortable:true
     },
     {   name:'Email',
-        selector:'user_email',
+        selector:(row)=>row.user_email,
         sortable:true
     },
     {   name:'Password',
-        selector:'user_password',
+        selector:(row)=>row.user_password,
         sortable:true,
         width: "70px"
     },
     {   name:'Image',
-        selector:'user_image',
+        selector:(row)=>row.user_image,
         sortable:true,
         width: "70px"
     },
     {   name:'Type',
-        selector:'user_type',
+        selector:(row)=>row.user_type,
         sortable:true,
         width: "70px"
     },
     {   name:'State',
-        selector:'user_state',
+        selector:(row)=>row.user_state,
         sortable:true,
         width: "70px"
     },
     {   name:'Eliminar',
         cell:(row)=>(<button
-        onClick={()=>handleUserEliminate(row)}>Eliminar</button>)
+        onClick={()=>handleUserEliminate(row)}>Delete</button>)
     }
 ]
     const handleUserEliminate=(e,row)=>{
