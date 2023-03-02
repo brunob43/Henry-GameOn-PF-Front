@@ -289,7 +289,7 @@ const DashboardAdmin =()=>{
                 <input
                 type="text"
                 value={input.inputUser}
-                name="InputUser"
+                name="inputUser"
                 placeholder="Buscar usuarios"
                 onChange={handleChange}></input>
                 <button type="submit">Buscar</button>
@@ -306,6 +306,7 @@ const DashboardAdmin =()=>{
              expandableRows
              expandableRowsComponent={ExpandedComponent}
              theme="dark"
+             responsive
              />
 
              <form onSubmit={handleGameSubmit}>
@@ -326,12 +327,14 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
+             responsive
+             theme="dark"
              />
              <form onSubmit={handleDocsSubmit}>
                 <input
                 type="text"
                 value={input.inputDoc}
-                name="InputDoc"
+                name="inputDoc"
                 placeholder="Buscar Docs"
                 onChange={handleChange}></input>
                 <button type="submit">Buscar</button>
@@ -345,6 +348,8 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
+             responsive
+             theme="dark"
              />
              <DataTable
              columns={columnsDonations}
@@ -354,7 +359,9 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
-             />
+             responsive   
+             theme="dark"        
+               />
           </div>
    )
 }

@@ -422,18 +422,18 @@ const rootReducer = (state = initialState, action) => {
     // }
 
     case GET_NAME_USERS: 
-    if (!action.payload.length === 0) {    
+    // if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
       };
-    } else {
-      return { 
-        ...state,
-        errorUsers: "Can't get users" 
-      };
-    }
+    // } else {
+    //   return { 
+    //     ...state,
+    //     errorUsers: "Can't get users" 
+    //   };
+    
 
     case FILTER_BY_NAME_USERS: 
     const userName = [...state.users];

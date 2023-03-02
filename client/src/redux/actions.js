@@ -233,8 +233,8 @@ export function getDocs() {
 export function getDocsAd() {
   return async function (dispatch) {
     try{
-      const admin ={admin:true}
-  const apiDocs = await axios.get("/doc", admin);
+      
+  const apiDocs = await axios.get("/doc?admin=true");
   const Docs = apiDocs.data;
     return dispatch({
       type: GET_DOCS_AD,
@@ -250,10 +250,10 @@ export function getDocsAd() {
 };
 
 
-export function getNameDocs(docs_name) {
+export function getNameDocs(doc_name) {
   return async function (dispatch) {
     try {
-      const apiDocs = await axios.get(`/doc?name=${docs_name}`);
+      const apiDocs = await axios.get(`/doc?name=${doc_name}`);
       const Docs = apiDocs.data;
 
       return dispatch({
@@ -269,11 +269,10 @@ export function getNameDocs(docs_name) {
   };
 }
 
-export function getNameDocsAd(docs_name) {
+export function getNameDocsAd(doc_name) {
   return async function (dispatch) {
     try {
-      const admin ={admin:true}
-  const apiDocs = await axios.get(`/doc?name=${docs_name}`, admin);
+  const apiDocs = await axios.get(`/doc?name=${doc_name}&admin=true`);
   const Docs = apiDocs.data;
 
     return dispatch({
@@ -365,7 +364,7 @@ export function getNameUsers(user_name) {
     try {
       const apiUsers = await axios.get(`/users?name=${user_name}`);
       const Users = apiUsers.data;
-
+      console.log(Users)
       return dispatch({
         type: GET_NAME_USERS,
         payload: Users,
