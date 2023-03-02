@@ -174,7 +174,7 @@ const DashboardAdmin =()=>{
     } ,
     {   name:'Eliminar',
         cell:(row)=>(<button
-        onClick={()=>handleGameEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</button>)
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</button>)
     },
     {   name:'Editar',
         cell:(row)=>(<button

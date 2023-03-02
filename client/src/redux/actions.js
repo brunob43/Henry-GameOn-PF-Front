@@ -198,6 +198,7 @@ export function updateGame(game_id, payload){
 }
 export function deleteGame(game_id){
   return async function (dispatch) {
+    console.log(game_id)
     await axios.delete(`/game/${game_id}`)
     dispatch(getGames())
     dispatch(getGamesAd())
