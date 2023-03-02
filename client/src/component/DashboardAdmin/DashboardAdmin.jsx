@@ -71,13 +71,13 @@ const DashboardAdmin =()=>{
         })
    }
    const resetUsers=()=>{
-
+       dispatch(getUsers())
    }
    const resetGames=()=>{
-
+       dispatch(getGamesAd())
    }
    const resetDocs=()=>{
-
+       dispatch(getDocsAd())
    }
    const columnsUsers=[
     {
