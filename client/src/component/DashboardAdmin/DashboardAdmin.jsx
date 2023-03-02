@@ -18,7 +18,7 @@ import {
     deleteUser,
     //updateUser,
     //updateGame,
-    //deleteGame,
+    deleteGame,
     //updateDoc,
     //deleteDoc,
     //postDoc,
@@ -182,7 +182,7 @@ const DashboardAdmin =()=>{
     }
    ]
    const handleGameEliminate=(row)=>{
-     dispatch(deleteUser(row.game_id))
+     dispatch(deleteGame(row.game_id))
     }
    const handleGameEdit=()=>{
    }

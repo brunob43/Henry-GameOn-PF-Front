@@ -198,7 +198,7 @@ export function updateGame(game_id, payload){
 }
 export function deleteGame(game_id){
   return async function (dispatch) {
-    await axios.delete(`/game/:${game_id}`)
+    await axios.delete(`/game/${game_id}`)
     dispatch(getGames())
     dispatch(getGamesAd())
   }
@@ -401,7 +401,6 @@ export function updateUser(internal_id, payload){
 }
 export function deleteUser(internal_id){
   return async function (dispatch) {
-    console.log(internal_id)
     await axios.delete(`/users/${internal_id}`)
     dispatch(getUsers())
   }
