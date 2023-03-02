@@ -27,9 +27,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
     })
       const {internal_id}= rowUser
     useEffect(()=>{
-       console.log(rowUser)
-    //    if(isOpenEditUser){
-        onOpen
+       console.log(rowUser,"edit")
+    // 
+        onOpen()
     //    }
     },[])
     const handleChange=(e)=>{
@@ -42,6 +42,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
        e.preventDefault();
        dispatch(updateUser(internal_id, input))
     }
+    console.log(onOpen)
+    console.log(input, "input de edit")
     console.log(rowUser)
     return(
         <div>
