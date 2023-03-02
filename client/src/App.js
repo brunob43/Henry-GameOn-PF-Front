@@ -13,12 +13,11 @@ import {
   GameDetail,
   LoginView
 } from "./views";
-import ChatBox from "./component/Chatbox/Chatbox"
-import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import DocDetail from "./views/DocDetail/DocDetail";
+import Footer from "./component/Footer/Footer";
 // import style from './App.module.
 
 axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
@@ -28,12 +27,8 @@ function App() {
 
   return (
     <div>
-
-        <Route exact path="/dashboardAdmin">
-            <DashboardAdmin/>
-        </Route>
       <NavBar />
-      <ChatBox/>
+      
       <Switch>
         <Route exact path="/" render={() => <Home />} />
 
@@ -76,10 +71,12 @@ function App() {
         <Route exact path="/login">
           <LoginView />
         </Route>
+
         <Route>
           <PageNotFound />
         </Route>
       </Switch>
+      <Footer/>
     </div>
   );
 }
