@@ -19,19 +19,27 @@ export default function EditUser({rowUser,isOpenEditUser}){
     const dispatch=useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [input,setInput]=useState({
+        user_name:"",
+        user_email:"",
+        user_image:"",
+        user_type:"",
+        user_state:"",
+    })
+      const {internal_id}= rowUser
+    useEffect(()=>{
+      setInput({
         user_name:rowUser.user_name,
         user_email:rowUser.user_email,
         user_image:rowUser.user_image,
         user_type:rowUser.user_type,
         user_state:rowUser.user_state,
     })
-      const {internal_id}= rowUser
-    useEffect(()=>{
-       console.log(rowUser,"edit")
-    // 
+     if(isOpenEditUser){
         onOpen()
+     }
+       
     //    }
-    },[])
+    },[rowUser])
     const handleChange=(e)=>{
         setInput({
             ...input,
@@ -42,9 +50,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
        e.preventDefault();
        dispatch(updateUser(internal_id, input))
     }
-    console.log(onOpen)
     console.log(input, "input de edit")
-    console.log(rowUser)
+    console.log(rowUser,isOpenEditUser)
     return(
         <div>
 
