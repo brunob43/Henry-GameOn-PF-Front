@@ -18,13 +18,19 @@ import { useDispatch } from "react-redux";
 export default function EditUser({rowUser,isOpenEditUser}){
     const dispatch=useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const [input,setInput]=useState(rowUser)
-      const internal_id = rowUser.internal_id
+    const [input,setInput]=useState({
+        user_name:rowUser.user_name,
+        user_email:rowUser.user_email,
+        user_image:rowUser.user_image,
+        user_type:rowUser.user_type,
+        user_state:rowUser.user_state,
+    })
+      const {internal_id}= rowUser
     useEffect(()=>{
        console.log(rowUser)
-       if(isOpenEditUser){
-        onOpen()
-       }
+    //    if(isOpenEditUser){
+    
+    //    }
     },[])
     const handleChange=(e)=>{
         setInput({
@@ -40,6 +46,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
         <div>
 
       <>
+      <Button zIndex="10" position="fixed" right="15px" bottom="50px" colorScheme="teal" onClick={onOpen}>
+         userEdit
+        </Button>
         <Drawer
           isOpen={isOpen}
           placement="right"
