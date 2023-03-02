@@ -10,13 +10,12 @@ import {
   resetErrorGames,
   setCurrentPageGames,
 } from "../../redux/actions";
-import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
-import { useColorMode, HStack, VStack, Select, Button } from "@chakra-ui/react";
+import { useColorMode, HStack, VStack, Select, Button,Text } from "@chakra-ui/react";
 import {CloseIcon} from '@chakra-ui/icons'
-import bglight from "../../styles/images/fondo_henry_light.jpg";
-import bgdark from "../../styles/images/fondo_henry_dark.png";
+import bglight from "../../styles/images/fondoblanco.jpg";
+import bgdark from "../../styles/images/fondonegro.jpg";
 import Footer from "../../component/Footer/Footer";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
@@ -29,7 +28,6 @@ const Games = () => {
   const dificulties = useSelector((state) => state.dificulties);
   // const gamesTopic = useSelector(state => state.gamesTopic)
   // const gamesDif = useSelector(state => state.gamesDif)
-  const user= useSelector((state=>state.users))
 
   const [filterSelect, setFilterSelect] = useState({
     topic: [],
@@ -40,7 +38,6 @@ const Games = () => {
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
-      console.log(user, "users en games")
     }
   }, [dispatch, allGames]);
 
@@ -111,10 +108,10 @@ const Games = () => {
   //------------------------------------------VIEW-----------------------------------------------
   if (error) {
     return (
-      <VStack className={style.errorcontainer}>
+      <VStack>
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px" className={style.button} onClick={handleDeleteFilter}>
+          <Button fontSize="25px" h="60px" w="300px" onClick={handleDeleteFilter}>
             Return to Games
           </Button>
         </div>
@@ -123,14 +120,28 @@ const Games = () => {
   }
 
   return (
-    <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
-      <HStack mt={["350px", "200px", "150px", "70px", "70px"]}>
-        <h2 className={style.title}>GAMES</h2>
+    <VStack  bgImage={colorMode === "dark" ? bgdark : bglight}>
+      <HStack mt={["350px", "200px", "150px", "70px", "70px"]}
+         color={colorMode === "dark" ? "yellow" : "black"}
+      >
+        <Text 
+        fontSize="90px"
+        fontFamily= "I-pixel-u"
+        mt="80px"
+        mb="30px"
+        bg={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        letterSpacing= "10px">GAMES</Text>
       </HStack>
 
-      <HStack>
-        <VStack w="200px" alignItems="flex-end">
-          <Select
+     <HStack alignItems="center" w="100%" justify="center">
+          <HStack w="30%" justify="center">
+         
+           <Select 
+            w="200px"
             fontWeight="bold"
             _hover={
               colorMode === "dark"
@@ -141,19 +152,23 @@ const Games = () => {
             borderColor={colorMode === "dark" ? "yellow" : "black"}
             onChange={handleFilterOrder}
             defaultValue="default"
-          >
+           >
             <option value="default">Default</option>
             <option value="asc">A-Z</option>
             <option value="des">Z-A</option>
             <option value="popular">Popular</option>
             <option value="unpopular">Unpopular</option>
-          </Select>
-        </VStack>
-        <SearchBarGame />
-        <VStack w="200px" alignItems="flex-start">
-          <HStack>
+           </Select>
+          </HStack>
+
+          <HStack w="30%" justify="center">
+           <SearchBarGame />
+           </HStack>
+
+        <HStack align="center" w="30%">
+          <VStack w="200px" justifyContent="flex-start">
             <Select
-              fontWeight="bold"
+            w="130px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -180,7 +195,6 @@ const Games = () => {
                 <div>
                   <div key={index}>
                     <Button
-                      fontWeight="bold"
                       _hover={
                         colorMode === "dark"
                           ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -199,10 +213,11 @@ const Games = () => {
                 </div>
               );
             })}
-          </HStack>
-          <HStack>
+          </VStack>
+
+          <VStack w="200px" justifyContent="flex-start">
             <Select
-              fontWeight="bold"
+            w="145px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -229,7 +244,6 @@ const Games = () => {
                 <div>
                   <div key={index}>
                     <Button
-                      fontWeight="bold"
                       _hover={
                         colorMode === "dark"
                           ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -248,13 +262,13 @@ const Games = () => {
                 </div>
               );
             })}
-          </HStack>
-        </VStack>
+          </VStack>
+        </HStack>
       </HStack>
       <PaginatedGame />
-      <Footer />
     </VStack>
   );
 };
 
 export default Games;
+
