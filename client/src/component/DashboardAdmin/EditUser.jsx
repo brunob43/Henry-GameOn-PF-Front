@@ -100,19 +100,19 @@ export default function EditUser({rowUser,isOpenEditUser}){
                 onChange={(e) => handleChange(e)}
               />
               <label>Type: </label>
-              <select name="user_type" onChange={handleChange}>
-                   <option value={input.user_type} ></option>
-                   <option value="user"></option>
-                   <option value="admin"></option>
-                   </select>
+              <Select name="user_type" onChange={handleChange}>
+                   <option value={input.user_type} >{input.user_type}</option>
+                   <option value="user">User</option>
+                   <option value="admin">Admin</option>
+                   </Select>
 
               <label>State: </label>
-              <select name="user_state" onChange={handleChange}>
-              <option value={input.user_state} ></option>
-                   <option value="active"></option>
-                   <option value="warned"></option>
-                   <option value="banned"></option>
-                   </select>
+              <Select name="user_state" onChange={handleChange}>
+              <option value={input.user_state} >{input.user_state}</option>
+                   <option value="active">Active</option>
+                   <option value="warned">Warned</option>
+                   <option value="banned">Banned</option>
+                   </Select>
                <Button type="submit">
                 Save
               </Button>
