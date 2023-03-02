@@ -40,7 +40,7 @@ const initialState = {
   allGames : [],
   allDocs : [],
   allUsers : [],
-  topics: ["Languages", "Strings Methods", "Code"],
+  topics: ["Languages", "Strings Methods", "Code", "General"],
   docTopics: [],
   dificulties: ["Easy", "Medium", "Hard"],
   currentPageGames: 1,
