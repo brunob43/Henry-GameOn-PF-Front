@@ -6,6 +6,8 @@ import style from "./Paginated.module.css";
 import prev from "../../styles/images/left-arrow.png";
 import next from "../../styles/images/right-arrow.png";
 import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+
 
 const PaginatedGame = () => {
   const { colorMode } = useColorMode();
@@ -16,7 +18,7 @@ const PaginatedGame = () => {
 
   const currentPage = useSelector((state) => state.currentPageGames);
 
-  const [gamesPerPage] = useState(2);
+  const [gamesPerPage] = useState(3);
 
   const handleClick = (event) => {
     dispatch(setCurrentPageGames(Number(event.target.id)));
@@ -74,41 +76,7 @@ const PaginatedGame = () => {
   };
 
   return (
-    <VStack>
-      <HStack>
-        <ul className={style.pages} name="top">
-          <li>
-            <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
-              onClick={handlePrev}
-            >
-              <img src={prev} alt="prev" className={style.arrow} />
-            </Button>
-          </li>
-
-          {pageNumbers}
-
-          <li>
-            <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
-              onClick={handleNext}
-            >
-              <img src={next} alt="next" className={style.arrow} />
-            </Button>
-          </li>
-        </ul>
-      </HStack>
-
+    <VStack w="80%">
       <HStack w="100%" justify="space-around">
         {CardContainerGames(currentGames)}
       </HStack>
@@ -117,15 +85,18 @@ const PaginatedGame = () => {
         <ul className={style.pages} name="bottom">
           <li>
             <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handlePrev}
+              variant="ghost"
+              _hover={
+                colorMode === "dark"
+             ? { bg: "yellow", color: "black" }
+             : { bg: "black", color: "yellow" }
+              }
+             border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
+              mr="10px"
             >
-              <img src={prev} alt="prev" className={style.arrow} />
+             <ChevronLeftIcon/>
             </Button>
           </li>
 
@@ -133,15 +104,18 @@ const PaginatedGame = () => {
 
           <li>
             <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handleNext}
+              variant="ghost"
+               _hover={
+               colorMode === "dark"
+                ? { bg: "yellow", color: "black" }
+                : { bg: "black", color: "yellow" }
+               }
+                border="1px"
+                borderColor={colorMode === "dark" ? "yellow" : "black"}
+                ml="10px"
             >
-              <img src={next} alt="next" className={style.arrow} />
+             <ChevronRightIcon/>
             </Button>
           </li>
         </ul>
