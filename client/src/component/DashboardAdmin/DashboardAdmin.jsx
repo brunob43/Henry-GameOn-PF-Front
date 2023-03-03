@@ -408,6 +408,8 @@ const DashboardAdmin =()=>{
              fixedHeaderScrollHeight="600px"
              responsive = {true}
              theme="dark"
+             highlightOnHover
+		     pointerOnHover
              />
              <HStack bg="blackAlpha.100" alignItems="flex-start" w="100%" justify="center">
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
@@ -434,6 +436,8 @@ const DashboardAdmin =()=>{
              fixedHeaderScrollHeight="600px"
              responsive={true}
              theme="dark"
+             highlightOnHover
+		     pointerOnHover
              />
              <HStack bg="black">
 
@@ -448,7 +452,9 @@ const DashboardAdmin =()=>{
              fixedHeader
              fixedHeaderScrollHeight="600px"
              responsive = {true}   
-             theme="dark"        
+             theme="dark"    
+             highlightOnHover
+		     pointerOnHover    
                />
           </div>
    )
