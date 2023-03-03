@@ -47,7 +47,7 @@ const ShareInfo = () => {
   };
 
   return (
-    <VStack className={style.body}>
+    <VStack>
       <VStack
         mt={["400px", "250px", "200px", "125px", "125px"]}
         bgColor={colorMode === "dark" ? "white" : "black"}
