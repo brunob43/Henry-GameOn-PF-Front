@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDocs } from "../../redux/actions";
+import UploadWidget from "../../component/CloudinaryUpload/cloudinaryWidget";
 import fondo from "../../styles/images/fondodocs5.jpg"
 
 const ShareInfo = () => {
@@ -26,8 +27,13 @@ const ShareInfo = () => {
     setForm({ ...form, [property]: value });
   };
 
+  const formWidget = (data) => {
+    setForm({...form, doc_image : data})
+  }
+
   const submitHandler = async (event) => {
     event.preventDefault();
+    console.log(form)
     axios
       .post("/doc", form)
       .then((res) => {
@@ -41,8 +47,8 @@ const ShareInfo = () => {
   };
 
   return (
-  <VStack >  
-    <VStack   mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="100vh" >
+<VStack>  
+    <VStack mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="100vh" >
       <VStack
         mt="50px"
         bgColor={colorMode === "dark" ? "white" : "black"}
@@ -78,6 +84,8 @@ const ShareInfo = () => {
             onChange={changeHandler}
             w="367px"
           />
+
+          <UploadWidget formWidget={formWidget}/>
 
           <FormLabel mt="5px">Name:</FormLabel>
           <Input
@@ -140,7 +148,6 @@ const ShareInfo = () => {
         </FormControl>
       </VStack>
     </VStack>
-
  </VStack>  
   );
 };
