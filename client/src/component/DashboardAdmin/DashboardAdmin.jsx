@@ -384,7 +384,7 @@ const DashboardAdmin =()=>{
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
              <FormControl onSubmit={handleGameSubmit}>
-                <HStack bg="blackAlpha.300">
+                <HStack bg="black">
                 <Input
                 w ="250px"
                 type="text"
@@ -411,7 +411,7 @@ const DashboardAdmin =()=>{
              highlightOnHover
 		     pointerOnHover
              />
-             <HStack bg="blackAlpha.100" alignItems="flex-start" w="100%" justify="center">
+             <HStack bg="black" alignItems="flex-start" w="100%" justify="center">
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
                 <HStack>
                 <Input
