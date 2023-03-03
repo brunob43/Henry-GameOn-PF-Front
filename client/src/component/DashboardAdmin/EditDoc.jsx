@@ -78,7 +78,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-             <label>Tema de el Documento</label>
+             <label>Tema del Documento</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -87,7 +87,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-               <label>Imagen de el Documento:</label>
+               <label>Imagen del Documento:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -96,7 +96,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-                <label>Contenidos de el Documento:</label>
+                <label>Contenidos del Documento:</label>
               <Input
                 autoComplete="off"
                 type="text"
