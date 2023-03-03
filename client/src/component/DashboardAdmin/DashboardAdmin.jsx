@@ -113,8 +113,8 @@ const DashboardAdmin =()=>{
     // },
     {   name:'IMAGE',
         selector:(row)=>row.user_image,
-        cell: row => <img height="84px" width="60px" src={row.user_image} />,
-        width: "60px"
+        cell: row => <img height="84px" width="80px" src={row.user_image} />,
+        width: "110px"
     },
     {   name:'TYPE',
         selector:(row)=>row.user_type,
@@ -172,23 +172,24 @@ const DashboardAdmin =()=>{
         sortable:true,
         width: "100px"
     },
-    {   name:'IMAGE',
-        selector:'game_image',
-        cell: row => <img height="84px" width="60px"src={row.game_image} />,
-        width: "60px"
-    },
     {   name:'DIFFICULTY',
-        selector:'game_difficulty',
-        sortable:true,
-        width: "120px"
+    selector:'game_difficulty',
+    sortable:true,
+    width: "120px"
     },
     {   name:'VIEWS',
-        selector:'game_views',
-        sortable:true,
-        width: "100px"
+     selector:'game_views',
+       sortable:true,
+    width: "100px"
     },
-    // {   name:'Deleted',
-    //     selector:'game_deleted',
+   {
+    name:'IMAGE',
+    selector:'game_image',
+    cell: row => <img height="84px" width="80px"src={row.game_image} />,
+    width: "110px"
+},
+// {   name:'Deleted',
+//     selector:'game_deleted',
     //     sortable:true,
     //     width: "70px"
     // } ,
@@ -248,8 +249,8 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'doc_image',
-        width: "60px",
-        cell: row => <img height="84px" width="60px"  src={row.doc_image} />
+        width: "110px",
+        cell: row => <img height="84px" width="80px"  src={row.doc_image} />
 
     },
     {   name:'VIEWS',
@@ -350,7 +351,7 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack alignItems="flex" w="100%">
+             <HStack bg="blackAlpha.200" alignItems="flex" w="100%">
              <FormControl alignItems="flex" onSubmit={handleUsersSubmit}>
                 <HStack>
                 <Input
@@ -383,7 +384,7 @@ const DashboardAdmin =()=>{
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
              <FormControl onSubmit={handleGameSubmit}>
-                <HStack>
+                <HStack bg="blackAlpha.300">
                 <Input
                 w ="250px"
                 type="text"
@@ -408,7 +409,7 @@ const DashboardAdmin =()=>{
              responsive = {true}
              theme="dark"
              />
-             <HStack alignItems="flex-start" w="100%" justify="center">
+             <HStack bg="blackAlpha.100" alignItems="flex-start" w="100%" justify="center">
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
                 <HStack>
                 <Input
@@ -434,6 +435,9 @@ const DashboardAdmin =()=>{
              responsive={true}
              theme="dark"
              />
+             <HStack bg="black">
+
+             </HStack>
              <DataTable
              customStyles={customStyle}
              columns={columnsDonations}
