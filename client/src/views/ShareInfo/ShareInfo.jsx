@@ -1,10 +1,11 @@
-import { VStack, Input, useColorMode,Textarea } from "@chakra-ui/react";
+import { VStack, Input, useColorMode,Textarea, Text, FormControl, FormLabel, Button } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDocs } from "../../redux/actions";
-import style from "./ShareInfo.module.css";
+import Footer from "../../component/Footer/Footer";
+import fondo from "../../styles/images/fondodocs5.jpg"
 
 const ShareInfo = () => {
   const { colorMode } = useColorMode();
@@ -41,45 +42,48 @@ const ShareInfo = () => {
   };
 
   return (
-    <VStack className={style.body}>
+  <>  
+    <VStack bgImage={fondo}  bgSize="cover" bgPosition="center"   h="100vh" >
       <VStack
         mt={["400px", "250px", "200px", "125px", "125px"]}
-        bgColor={colorMode === "dark" ? "gray.200" : "gray.800"}
-        color={colorMode === "dark" ? "gray.800" : "gray.200"}
-        className={style.container}
+        bgColor={colorMode === "dark" ? "white" : "black"}
+        color={colorMode === "dark" ? "black" : "white"}
+        borderRadius="15px"
+        h="610"
       >
-        <div className={style.title}>
-          <h1>Share your info</h1>
-        </div>
-        <form className={style.form} onSubmit={submitHandler}>
-          <label>Author:</label>
+        <Text  p="20px" mt="5px" as="u" fontSize="25px">
+          Share your info
+        </Text>
+        <FormControl letterSpacing={3} p="6" onSubmit={submitHandler}>
+          <FormLabel mt="-2.5" >Author:</FormLabel>
           <Input
-        
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+          color={colorMode === "dark" ? "white" : "black"}
+          bg={colorMode === "dark" ? "black" : "white"}
             type="text"
             name="doc_author"
             placeholder="Escribe tu nombre"
             value={form.doc_author}
             onChange={changeHandler}
+            w="367px"
           />
-
-          <label>Image(Optional):</label>
+          
+          <FormLabel mt="5px">Image(Optional):</FormLabel>
           <Input
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+          color={colorMode === "dark" ? "white" : "black"}
+          bg={colorMode === "dark" ? "black" : "white"}
             autoComplete="off"
             type="url"
             name="doc_image"
             placeholder="Agrega url de imagen"
             value={form.doc_image}
             onChange={changeHandler}
+            w="367px"
           />
 
-          <label>Name:</label>
+          <FormLabel mt="5px">Name:</FormLabel>
           <Input
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+           color={colorMode === "dark" ? "white" : "black"}
+           bg={colorMode === "dark" ? "black" : "white"}
             autoComplete="off"
             type="text"
             name="doc_name"
@@ -87,12 +91,13 @@ const ShareInfo = () => {
             required
             value={form.doc_name}
             onChange={changeHandler}
+            w="367px"
           />
 
-          <label>Topic:</label>
+          <FormLabel mt="5px">Topic:</FormLabel>
           <Input
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+             color={colorMode === "dark" ? "white" : "black"}
+             bg={colorMode === "dark" ? "black" : "white"}
             autoComplete="off"
             type="text"
             name="doc_topic"
@@ -100,29 +105,44 @@ const ShareInfo = () => {
             required
             value={form.doc_topic}
             onChange={changeHandler}
+            w="367px"
           />
 
-          <label>Content:</label>
+          <FormLabel mt="5px">Content:</FormLabel>
           <Textarea
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
-          w="820px"
+            color={colorMode === "dark" ? "white" : "black"}
+            bg={colorMode === "dark" ? "black" : "white"}
+          w="367px"
           h="80px"
-            className={style.textarea}
             id="content"
             name="doc_content"
             required
             value={form.doc_content}
             onChange={changeHandler}
           ></Textarea>
-          <div>
-            <button className={style.button} type="submit">
+           <VStack mt="5px">
+            <Button  
+             marginTop="20px"
+             size="md"
+             height="48px"
+             width="100px"
+             border="2px"
+             borderColor={colorMode === "dark" ? "yellow" : "black"}
+             _hover={
+               colorMode === "dark"
+                 ? { color: "black", bg: "yellow" }
+                 : { bg: "black", color: "yellow" }
+             }
+             bg={colorMode === "dark" ? "white" : "yellow"}
+             >
               POST
-            </button>
-          </div>
-        </form>
+            </Button>
+            </VStack>
+        </FormControl>
       </VStack>
     </VStack>
+
+ </>  
   );
 };
 
