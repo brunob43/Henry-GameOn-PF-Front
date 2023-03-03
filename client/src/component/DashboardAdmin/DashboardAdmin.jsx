@@ -442,14 +442,8 @@ const DashboardAdmin =()=>{
              <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
                 <HStack bg="black">
-                <Input
-                w ="250px"
-                type="text"
-                value={input.inputDoc}
-                name="inputDoc"
-                placeholder="Buscar Docs"
-                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
-                <Button onClick={resetDocs}>Reset</Button>
+                
+                <Button></Button>
                 </HStack>
              </FormControl>
              <DataTable
