@@ -10,8 +10,6 @@ import larry from "../assets/imagen/Larry.png";
 import manu from "../assets/imagen/manu.jpg";
 import franco from "../assets/imagen/franco.jpg";
 import fon from "../assets/imagen/shapesHowApply.png";
-import Footer from "../../component/Footer/Footer";
-import style from "./About.module.css"
 import {
   Box,
   VStack,
