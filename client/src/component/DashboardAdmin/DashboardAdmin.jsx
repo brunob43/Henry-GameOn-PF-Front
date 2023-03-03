@@ -266,7 +266,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="green">Agregar</Text>:<Text color="rgba(163, 27, 27, 0.685)">Eliminar</Text>}</Button>)
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
