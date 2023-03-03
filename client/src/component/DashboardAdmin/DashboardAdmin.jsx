@@ -113,8 +113,8 @@ const DashboardAdmin =()=>{
     // },
     {   name:'IMAGE',
         selector:(row)=>row.user_image,
-        cell: row => <img height="84px" width="56px" alt={row.user_name} src={row.user_image} />,
-        width: "150px"
+        cell: row => <img height="84px" width="60px" src={row.user_image} />,
+        width: "60px"
     },
     {   name:'TYPE',
         selector:(row)=>row.user_type,
@@ -174,8 +174,8 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'game_image',
-        cell: row => <img height="84px" width="56px" alt={row.game_name} src={row.game_image} />,
-        width: "200px"
+        cell: row => <img height="84px" width="60px"src={row.game_image} />,
+        width: "60px"
     },
     {   name:'DIFFICULTY',
         selector:'game_difficulty',
@@ -248,8 +248,8 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'doc_image',
-        width: "150px",
-        cell: row => <img height="84px" width="56px" alt={row.doc_name} src={row.doc_image} />
+        width: "60px",
+        cell: row => <img height="84px" width="60px"  src={row.doc_image} />
 
     },
     {   name:'VIEWS',
@@ -337,7 +337,7 @@ const DashboardAdmin =()=>{
     header: {
 		style: {
             fontSize: '40px',
-            fontFamily: "Georgia",
+            fontFamily: "cursive,Georgia",
             fontWeight: 'bold',
             paddingLeft: '0 8px',
             textAlign: 'center',
@@ -397,6 +397,7 @@ const DashboardAdmin =()=>{
              </FormControl>
             </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsGames}
              data={games}
              title="Juegos"
@@ -422,6 +423,7 @@ const DashboardAdmin =()=>{
              </FormControl>
              </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsDocs}
              data={docs}
              title="Documentos"
@@ -433,6 +435,7 @@ const DashboardAdmin =()=>{
              theme="dark"
              />
              <DataTable
+             customStyles={customStyle}
              columns={columnsDonations}
              data={donations}
              title="Donaciones"
