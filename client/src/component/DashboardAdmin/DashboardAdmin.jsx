@@ -119,17 +119,17 @@ const DashboardAdmin =()=>{
     {   name:'TYPE',
         selector:(row)=>row.user_type,
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     {   name:'STATE',
         selector:(row)=>row.user_state,
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="green">Agregar</Text>:<Text color="rgba(163, 27, 27, 0.685)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -195,7 +195,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="green">Agregar</Text>:<Text color="rgba(163, 27, 27, 0.685)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -264,7 +264,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="green">Agregar</Text>:<Text color="rgba(163, 27, 27, 0.685)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -332,6 +332,17 @@ const DashboardAdmin =()=>{
       dispatch(getGamesAd());
       dispatch(getDonations())
    },[])  
+   const customStyle={
+    header: {
+		style: {
+            fontSize: '20px',
+            fontWeight: 'bold',
+            paddingLeft: '0 8px',
+            textAlign: 'center',
+            backgroundColor: '#FFA500'
+          }
+	}
+   }
    return(
           <div>
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
@@ -355,6 +366,7 @@ const DashboardAdmin =()=>{
              </FormControl>
              </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsUsers}
              data={users}
              title="Usuarios"
