@@ -346,14 +346,14 @@ const DashboardAdmin =()=>{
 	}
    }
    return(
-          <div>
+          <div fontFamily="Georgia">
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
              <HStack bg="blackAlpha.200" alignItems="flex" w="100%">
              <FormControl alignItems="flex" onSubmit={handleUsersSubmit}>
-                <HStack>
+                <HStack bg="blackAlpha.200">
                 <Input
                 w ="250px"
                 type="text"
