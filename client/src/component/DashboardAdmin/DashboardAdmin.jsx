@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import {Input, Button}from "@chakra-ui/react";
+import {Input, Button,HStack,VStack}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -90,40 +90,43 @@ const DashboardAdmin =()=>{
         sortable:true,
         width: "70px"
     },
-    {   name:'Internal ID',
+    {   name:'INTERNAL ID',
         selector:(row)=>row.internal_id,
-        sortable:true
+        sortable:true,
+        width: "150px"
     },
     { 
-        name:'Name',
+        name:'NAME',
         selector:(row)=>row.user_name,
-        sortable:true
+        sortable:true,
+        width: "200px"
     },
-    {   name:'Email',
+    {   name:'EMAIL',
         selector:(row)=>row.user_email,
-        sortable:true
+        sortable:true,
+        width: "200px"
     },
     // {   name:'Password',
     //     selector:(row)=>row.user_password,
     //     sortable:true,
     //     width: "70px"
     // },
-    {   name:'Image',
+    {   name:'IMAGE',
         selector:(row)=>row.user_image,
         sortable:true,
         width: "150px"
     },
-    {   name:'Type',
+    {   name:'TYPE',
         selector:(row)=>row.user_type,
         sortable:true,
         width: "70px"
     },
-    {   name:'State',
+    {   name:'STATE',
         selector:(row)=>row.user_state,
         sortable:true,
         width: "70px"
     },
-    {   name:'Eliminar',
+    {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
         onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</Button>)
@@ -131,7 +134,7 @@ const DashboardAdmin =()=>{
     {   name:'EDITAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleUserEdit(row)}>Ver Detalle/Editar</Button>)
+        onClick={()=>handleUserEdit(row)}>Detalle/Editar</Button>)
     }
 ]
     const handleUserEliminate=(row)=>{
@@ -159,27 +162,27 @@ const DashboardAdmin =()=>{
         width: "70px"
     },
     { 
-        name:'Name',
+        name:'NAME',
         selector:'game_name',
         sortable:true,
         width: "200px"
     },
-    {   name:'Topic',
+    {   name:'TOPIC',
         selector:'game_topic',
         sortable:true,
         width: "100px"
     },
-    {   name:'Image',
+    {   name:'IMAGE',
         selector:'game_image',
         sortable:true,
         width: "200px"
     },
-    {   name:'Difficulty',
+    {   name:'DIFFICULTY',
         selector:'game_difficulty',
         sortable:true,
         width: "70px"
     },
-    {   name:'Views',
+    {   name:'VIEWS',
         selector:'game_views',
         sortable:true,
         width: "70px"
@@ -189,15 +192,15 @@ const DashboardAdmin =()=>{
     //     sortable:true,
     //     width: "70px"
     // } ,
-    {   name:'Eliminar',
+    {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
         onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</Button>)
     },
-    {   name:'Ver Detalle/Editar',
+    {   name:'EDITAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleGameEdit(row)}>Editar</Button>)
+        onClick={()=>handleGameEdit(row)}>Detalle/Editar</Button>)
     }
    ]
    const handleGameEliminate=(row)=>{
@@ -223,32 +226,32 @@ const DashboardAdmin =()=>{
         width: "70px"
     },
     { 
-        name:'Name',
+        name:'NAME',
         selector:'doc_name',
         sortable:true,
         width: "150px"
     },
-    {   name:'Topic',
+    {   name:'TOPIC',
         selector:'doc_topic',
         sortable:true,
         width: "150px"
     },
-    {   name:'Author',
+    {   name:'AUTHOR',
         selector:'doc_author',
         sortable:true,
         width: "80px"
     },
-    {   name:'Content',
+    {   name:'CONTENT',
         selector:'doc_content',
         sortable:true,
         width: "250px"
     },
-    {   name:'Image',
+    {   name:'IMAGE',
         selector:'doc_image',
         sortable:true,
         width: "150px"
     },
-    {   name:'Views',
+    {   name:'VIEWS',
         selector:'doc_views',
         sortable:true,
         width: "70px"
@@ -258,15 +261,15 @@ const DashboardAdmin =()=>{
     //     sortable:true,
     //     width: "70px"
     // } ,
-    {   name:'Eliminar',
+    {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
         onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</Button>)
     },
-    {   name:'Ver Detalles/Editar',
+    {   name:'EDITAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEdit(row)}>Editar</Button>)
+        onClick={()=>handleDocEdit(row)}>Detalle/Editar</Button>)
     }
    ];
 
@@ -335,6 +338,7 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
+             <HStack>
              <form onSubmit={handleUsersSubmit}>
                 <Input
                 w ="250px"
@@ -345,10 +349,12 @@ const DashboardAdmin =()=>{
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetUsers}>Reset</Button>
              </form>
+             </HStack>
              <DataTable
              columns={columnsUsers}
              data={users}
              title="Usuarios"
+             
              pagination
              paginationComponentOptions={paginationOptions}
              fixedHeader
@@ -356,7 +362,7 @@ const DashboardAdmin =()=>{
              theme="dark"
              responsive={true}
              />
-
+            <HStack>
              <form onSubmit={handleGameSubmit}>
                 <Input
                 w ="250px"
@@ -368,6 +374,7 @@ const DashboardAdmin =()=>{
                 <Button onClick={resetGames}>Reset</Button>
                 <Button onClick={createGame}>New Game</Button>
              </form>
+            </HStack>
              <DataTable
              columns={columnsGames}
              data={games}
@@ -379,6 +386,7 @@ const DashboardAdmin =()=>{
              responsive = {true}
              theme="dark"
              />
+             <HStack>
              <form onSubmit={handleDocsSubmit}>
                 <Input
                 w ="250px"
@@ -389,6 +397,7 @@ const DashboardAdmin =()=>{
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetDocs}>Reset</Button>
              </form>
+             </HStack>
              <DataTable
              columns={columnsDocs}
              data={docs}
