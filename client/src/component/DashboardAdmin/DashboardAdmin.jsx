@@ -317,7 +317,11 @@ const DashboardAdmin =()=>{
       selectAllRowsItemText: "Todos"
    }
    const createGame =()=>{
-    setIsOpenPostGame(true)
+    if(isOpenPostGame){
+        setIsOpenPostGame(false)
+    }else{
+        setIsOpenPostGame(true)
+    }
    }
    useEffect(()=>{
       dispatch(getUsers());
@@ -333,6 +337,7 @@ const DashboardAdmin =()=>{
              <PostGame isOpenPostGame={isOpenPostGame}/>
              <form onSubmit={handleUsersSubmit}>
                 <Input
+                w ="250px"
                 type="text"
                 value={input.inputUser}
                 name="inputUser"
@@ -354,6 +359,7 @@ const DashboardAdmin =()=>{
 
              <form onSubmit={handleGameSubmit}>
                 <Input
+                w ="250px"
                 type="text"
                 value={input.inputGame}
                 name="inputGame"
@@ -375,6 +381,7 @@ const DashboardAdmin =()=>{
              />
              <form onSubmit={handleDocsSubmit}>
                 <Input
+                w ="250px"
                 type="text"
                 value={input.inputDoc}
                 name="inputDoc"
