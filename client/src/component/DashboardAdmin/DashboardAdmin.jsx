@@ -351,9 +351,9 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack bg="blackAlpha.200" alignItems="flex" w="100%">
+             <HStack bg="black" alignItems="flex" w="100%">
              <FormControl alignItems="flex" onSubmit={handleUsersSubmit}>
-                <HStack bg="blackAlpha.200">
+                <HStack bg="black">
                 <Input
                 w ="250px"
                 type="text"
