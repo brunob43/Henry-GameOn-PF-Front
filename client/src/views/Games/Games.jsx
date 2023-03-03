@@ -47,8 +47,8 @@ const Games = () => {
       topic: [],
       dificulty: [],
     });
-    dispatch(getDocs())
-    dispatch (resetErrorDocs())
+    dispatch(getGames())
+    dispatch (resetErrorGames())
 }
 
 //------------------------------------------HANDLERS-------------------------------------------
@@ -174,7 +174,7 @@ const Games = () => {
           <HStack w="30%" justify="center">
            <SearchBarGame />
            </HStack>
-           <Button ><RepeatIcon/></Button>
+           <Button onClick={reload}><RepeatIcon/></Button>
         <HStack align="flex-start" w="30%">
           <VStack w="200px" justifyContent="flex-start">
             <Select
