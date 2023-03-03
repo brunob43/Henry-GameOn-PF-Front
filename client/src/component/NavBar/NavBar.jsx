@@ -45,13 +45,11 @@ console.log(profile)
           position='fixed'
          flexDirection={["column", "column", "row"]}
          justify="space-between"
-         p="1px"
-             
         bg={colorMode === "dark" ? "black" : "yellow"}
                >
         <a href="https://www.soyhenry.com" target="_blank" rel="noreferrer">
           <Image 
-            p="35px"
+            p={["15px", "20px", "25px"]}
             src={colorMode === "dark" ? logoblanco : logonegro}
             alt="Henry-Logo"
             w= "254px"
@@ -112,7 +110,7 @@ console.log(profile)
           </HStack>
           
           </HStack >
-          <HStack >
+          <HStack pr={["15px", "20px", "25px"]} pl={["15px", "20px", "25px"]} >
           <NavLink to="/login">
               <Button
               colorScheme='black' variant='link'

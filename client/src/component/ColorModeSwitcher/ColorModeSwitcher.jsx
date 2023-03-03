@@ -22,8 +22,9 @@ export function ColorModeSwitcher() {
   return (
    
     <Button onClick={toggleColorMode} 
-   p="35px"
+   p="7px"
     colorScheme='black' variant='link'
+    border="1px solid"
     borderColor={colorMode === "dark" ? "yellow" : "black"}>
       {isDark ? <SunIcon /> : <MoonIcon />}
     </Button>

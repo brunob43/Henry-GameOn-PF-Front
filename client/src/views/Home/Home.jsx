@@ -24,12 +24,12 @@ const Home = () => {
           <VStack>
           <HStack> 
           <Box
-            mt={["250px", "200px", "150px", "70px", "70px"]}
+            mt={["180px", "130px", "70px", "70px", "70px"]}
             display="flex"
             pt="50px"
             bgGradient='linear(to-l, yellow, white)'
             bgClip='text'
-            fontSize='6xl'
+            fontSize={['4xl','5xl','6xl','6xl','6xl']}
             fontWeight='extrabold'
             textAlign="center"
   
