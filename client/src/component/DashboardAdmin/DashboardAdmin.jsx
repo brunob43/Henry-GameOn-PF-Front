@@ -440,9 +440,11 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
              <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
-             <HStack bg="black">
-
-             </HStack>
+             <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+                <HStack bg="black">
+               
+                </HStack>
+             </FormControl>
              <DataTable
              customStyles={customStyle}
              columns={columnsDonations}
