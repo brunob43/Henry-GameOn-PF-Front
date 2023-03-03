@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import {Input, Button,HStack,VStack}from "@chakra-ui/react";
+import {Input, Button,HStack,VStack,Form}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -339,16 +339,16 @@ const DashboardAdmin =()=>{
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
              <HStack alignItems="flex" w="100%">
-             <form alignItems="flex" onSubmit={handleUsersSubmit}>
+             <Form alignItems="flex" onSubmit={handleUsersSubmit}>
                 <Input
-                w ="250px"
+                w ="250px"gi
                 type="text"
                 value={input.inputUser}
                 name="inputUser"
                 placeholder="Buscar usuarios"
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetUsers}>Reset</Button>
-             </form>
+             </Form>
              </HStack>
              <DataTable
              columns={columnsUsers}
@@ -365,7 +365,7 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
-             <form onSubmit={handleGameSubmit}>
+             <Form onSubmit={handleGameSubmit}>
                 <Input
                 w ="250px"
                 type="text"
@@ -375,7 +375,7 @@ const DashboardAdmin =()=>{
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetGames}>Reset</Button>
                 <Button onClick={createGame}>New Game</Button>
-             </form>
+             </Form>
             </HStack>
              <DataTable
              columns={columnsGames}
@@ -389,7 +389,7 @@ const DashboardAdmin =()=>{
              theme="dark"
              />
              <HStack alignItems="flex-start" w="100%" justify="center">
-             <form onSubmit={handleDocsSubmit}>
+             <Form alignItems="flex-start" onSubmit={handleDocsSubmit}>
                 <Input
                 w ="250px"
                 type="text"
@@ -398,7 +398,7 @@ const DashboardAdmin =()=>{
                 placeholder="Buscar Docs"
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetDocs}>Reset</Button>
-             </form>
+             </Form>
              </HStack>
              <DataTable
              columns={columnsDocs}
