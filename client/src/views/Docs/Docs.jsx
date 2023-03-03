@@ -16,6 +16,7 @@ import { NavLink } from "react-router-dom";
 import { HStack, VStack, Button, useColorMode, Select, Text } from "@chakra-ui/react";
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
+import {RepeatIcon} from "@chakra-ui/icons"
 
 const Docs = () => {
   const { colorMode } = useColorMode();
@@ -135,7 +136,7 @@ const Docs = () => {
           </Select>
         </VStack>
         <SearchBarDoc />
-        
+        <Button onClick={reload}><RepeatIcon/></Button>
       <HStack w="250px" justify="space-around" align="flex-start">
         <div>
           <NavLink to="/docs/share">

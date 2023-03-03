@@ -7,7 +7,6 @@ import {
   filterByTopicGames,
   filterByViewsGames,
   getGames,
-  getTopicGames,
   resetErrorGames,
   setCurrentPageGames,
 } from "../../redux/actions";
@@ -17,6 +16,7 @@ import { useColorMode, HStack, VStack, Select, Button,Text } from "@chakra-ui/re
 import {CloseIcon} from '@chakra-ui/icons'
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
+import {RepeatIcon} from "@chakra-ui/icons"
 import Footer from "../../component/Footer/Footer";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
@@ -39,7 +39,6 @@ const Games = () => {
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
-      dispatch(getTopicGames())
     }
   }, [dispatch, allGames]);
 
@@ -47,55 +46,47 @@ const Games = () => {
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
-  
-  const reload = () =>{
-    setFilterSelect({
-      topic: [],
-      dificulty: [],
-    });
-    dispatch(getGames())
-    dispatch (resetErrorGames())
-    // window.location.reload()
-  }
 
-  const handleFilterTopic = (event) => {
-    const value = event.target.value;
-    if (value === "all"){
-      dispatch(getGames())
-    }else{
-      dispatch(filterByTopicGames(value));
+    const handleFilterTopic = (event) => {
+        const value = event.target.value;
+        if (value === "all"){
+            dispatch(getGames())
+        }else{
+        dispatch(filterByTopicGames(value));
 
-      setFilterSelect({
-        ...filterSelect,
-        topic: [value],
-      });            
+        setFilterSelect({
+            ...filterSelect,
+            topic: [value],
+        });            
+        }
+    };
+
+    const handleFilterDificulty = (event) => {
+        const value = event.target.value
+
+        if (value === "all"){
+            dispatch(getGames())
+        }else{
+        dispatch(filterByDifficultyGames(value));
+
+        setFilterSelect({
+            ...filterSelect,
+            dificulty: [value],
+        });            
+        }
+
+    };
+
+    const handleDeleteFilter = (event) => {
+            setFilterSelect({
+                topic: [],
+                dificulty: [],
+            });
+            // window.location.reload();        
+            dispatch(getGames());
+            dispatch (resetErrorGames())
+        // } 
     }
-  };
-
-  const handleFilterDificulty = (event) => {
-    const value = event.target.value
-
-    if (value === "all"){
-      dispatch(getGames())
-    }else{
-      dispatch(filterByDifficultyGames(value));
-
-      setFilterSelect({
-        ...filterSelect,
-        dificulty: [value],
-      });            
-    }
-  };
-
-  const handleDeleteFilter = (event) => {
-    setFilterSelect({
-      topic: [],
-      dificulty: [],
-    });
-    // window.location.reload();        
-    dispatch(getGames());
-    dispatch (resetErrorGames())
-  }
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;
@@ -147,7 +138,7 @@ const Games = () => {
         letterSpacing= "10px">GAMES</Text>
       </HStack>
 
-     <HStack alignItems="center" w="100%" justify="center">
+     <HStack alignItems="flex-start" w="100%" justify="center">
           <HStack w="30%" justify="center">
          
            <Select 
@@ -174,8 +165,8 @@ const Games = () => {
           <HStack w="30%" justify="center">
            <SearchBarGame />
            </HStack>
-
-        <HStack align="center" w="30%">
+           <Button ><RepeatIcon/></Button>
+        <HStack align="flex-start" w="30%">
           <VStack w="200px" justifyContent="flex-start">
             <Select
             w="130px"
@@ -217,7 +208,7 @@ const Games = () => {
                       key={topic}
                       onClick={handleDeleteFilter}
                     >
-                      X {topic}
+                      <CloseIcon/>--{topic}
                     </Button>
                   </div>
                 </div>
@@ -266,7 +257,7 @@ const Games = () => {
                       key={dificulty}
                       onClick={handleDeleteFilter}
                     >
-                      X {dificulty.toUpperCase()}
+                      <CloseIcon/>--{dificulty.toUpperCase()}
                     </Button>
                   </div>
                 </div>
@@ -281,4 +272,3 @@ const Games = () => {
 };
 
 export default Games;
-
