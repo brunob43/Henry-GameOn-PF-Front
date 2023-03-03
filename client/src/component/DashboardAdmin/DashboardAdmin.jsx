@@ -248,8 +248,9 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'doc_image',
-        sortable:true,
-        width: "150px"
+        width: "150px",
+        cell: row => <img height="84px" width="56px" alt={row.name} src={row.user_image} />
+
     },
     {   name:'VIEWS',
         selector:'doc_views',
@@ -335,11 +336,11 @@ const DashboardAdmin =()=>{
    const customStyle={
     header: {
 		style: {
-            fontSize: '20px',
+            fontSize: '40px',
+            fontFamily: "Georgia",
             fontWeight: 'bold',
             paddingLeft: '0 8px',
             textAlign: 'center',
-            backgroundColor: '#FFA500'
           }
 	}
    }
