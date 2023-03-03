@@ -36,6 +36,9 @@ export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
 
+
+//---------------GAME-------------------------------//
+
 export function getGames() {
   return async function (dispatch) {
     try {
@@ -227,6 +230,8 @@ export function postGame(payload){
 }
 }
 
+//--------------------DOCS--------------------------//
+
 export function getDocs() {
   return async function (dispatch) {
     try {
@@ -354,6 +359,9 @@ export function postDoc(payload){
     return response;
 }
 }
+
+//---------------------USERS-------------------------//
+
 export function getUsers() {
   return async function (dispatch) {
     try {
@@ -419,6 +427,9 @@ export function deleteUser(internal_id){
     dispatch(getUsers())
   }
 }
+
+//----------------------PAYMENT-------------------//
+
 export function payment20 (){
   return async function (dispatch) {
     const response = await axios.get("/payment/20")
@@ -444,10 +455,14 @@ export function payment100() {
   };
 }
 
+//-------------------------MESSAGE--------------------//
+
 export async function postMessage(input) {
   const response = await axios.post("/message", input);
   return response;
 }
+
+//--------------------------VIEWS-----------------------//
 
 export async function countViewsGames(id) {
   const response = await axios.put(`/game/view/${id}`);
@@ -488,6 +503,8 @@ export async function countViewsDoc (id){
   return response;
 }
 
+//-------------PROFILE------------------------------------//
+
 export function sendProfile(prof) {
   return async function (dispatch) {
     console.log(prof);
@@ -503,6 +520,9 @@ export function resetProfile() {
     dispatch({ type: RESET_PROFILE });
   };
 }
+
+//---------------------DONATION------------------//
+
 export function getDonations(){
   return async function (dispatch){
     const response = await axios.get("/donation")
