@@ -20,6 +20,7 @@ import DocDetail from "./views/DocDetail/DocDetail";
 import Footer from "./component/Footer/Footer";
 import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
+import Profile from "./views/Profile/Profile";
 // import style from './App.module.
 
 axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
@@ -73,8 +74,8 @@ function App() {
           <Donation />
         </Route>
 
-        <Route exact path="/login">
-          <LoginView />
+        <Route exact path="/user">
+          <Profile/>
         </Route>
 
         <Route>
