@@ -1,13 +1,14 @@
-import { VStack, SimpleGrid
+import { VStack, useColorMode, Box
 } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardDocs.module.css"
 
-const CardDocs = ({ name, image, id, topic, author })=> {
+const CardDocs = ({ name, image, id, topic, author })=> 
+{  const { colorMode } = useColorMode();
     return (
-      <VStack>
-      <div className={style.container}>
+      <VStack >
+      <Box borderColor={colorMode === "dark" ? "yellow" : "black"} className={style.container}>
         <Link to={`/doc/${id}`} className={style.link}>
           <img src={image} alt="imagen card" className={style.image}/>
           <div className={style.name}>{name}</div>
@@ -20,7 +21,7 @@ const CardDocs = ({ name, image, id, topic, author })=> {
             </div>
           </div>        
         </Link>
-      </div>
+      </Box>
       </VStack>
     );
   }
