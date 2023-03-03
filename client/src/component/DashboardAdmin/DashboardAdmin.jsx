@@ -312,7 +312,7 @@ const DashboardAdmin =()=>{
     {   name:'Quantity',
         selector:'donation_quantity',
         sortable:true,
-        width: "70px"
+        width: "250px"
     }
    ]
    const paginationOptions={
