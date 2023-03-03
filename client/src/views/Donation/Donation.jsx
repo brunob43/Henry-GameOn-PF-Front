@@ -3,7 +3,7 @@ import coin from "../../styles/images/coin.png";
 import mp from "../../styles/images/Mercado-Pago.jpg";
 import { payment20, payment50, payment100 } from "../../redux/actions";
 import { VStack, useColorMode,Heading } from "@chakra-ui/react";
-import Footer from "../../component/Footer/Footer";
+
 
 const Donation = () => {
   const { colorMode } = useColorMode();
@@ -83,7 +83,6 @@ const Donation = () => {
           American Express. Tambien pago en Rapipago/Pagofacil y mas...
         </p>
       </VStack>
-      <Footer/>
     </VStack>
   );
 };
