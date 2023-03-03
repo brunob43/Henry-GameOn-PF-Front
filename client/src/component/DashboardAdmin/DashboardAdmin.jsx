@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import {Input, Button,HStack,VStack,Form}from "@chakra-ui/react";
+import {Input, Button,HStack,VStack,FormControl,Text}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -113,23 +113,23 @@ const DashboardAdmin =()=>{
     // },
     {   name:'IMAGE',
         selector:(row)=>row.user_image,
-        sortable:true,
-        width: "150px"
+        cell: row => <img height="84px" width="80px" src={row.user_image} />,
+        width: "110px"
     },
     {   name:'TYPE',
         selector:(row)=>row.user_type,
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     {   name:'STATE',
         selector:(row)=>row.user_state,
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -172,30 +172,31 @@ const DashboardAdmin =()=>{
         sortable:true,
         width: "100px"
     },
-    {   name:'IMAGE',
-        selector:'game_image',
-        sortable:true,
-        width: "200px"
-    },
     {   name:'DIFFICULTY',
-        selector:'game_difficulty',
-        sortable:true,
-        width: "120px"
+    selector:'game_difficulty',
+    sortable:true,
+    width: "120px"
     },
     {   name:'VIEWS',
-        selector:'game_views',
-        sortable:true,
-        width: "100px"
+     selector:'game_views',
+       sortable:true,
+    width: "100px"
     },
-    // {   name:'Deleted',
-    //     selector:'game_deleted',
+   {
+    name:'IMAGE',
+    selector:'game_image',
+    cell: row => <img height="84px" width="80px"src={row.game_image} />,
+    width: "110px"
+},
+// {   name:'Deleted',
+//     selector:'game_deleted',
     //     sortable:true,
     //     width: "70px"
     // } ,
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -248,8 +249,9 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'doc_image',
-        sortable:true,
-        width: "150px"
+        width: "110px",
+        cell: row => <img height="84px" width="80px"  src={row.doc_image} />
+
     },
     {   name:'VIEWS',
         selector:'doc_views',
@@ -264,7 +266,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -310,7 +312,7 @@ const DashboardAdmin =()=>{
     {   name:'Quantity',
         selector:'donation_quantity',
         sortable:true,
-        width: "70px"
+        width: "250px"
     }
    ]
    const paginationOptions={
@@ -332,25 +334,41 @@ const DashboardAdmin =()=>{
       dispatch(getGamesAd());
       dispatch(getDonations())
    },[])  
+   const customStyle={
+    header: {
+		style: {
+            fontSize: '40px',
+            fontFamily: "cursive,Georgia",
+            fontWeight: 'bold',
+            paddingLeft: '0 8px',
+            textAlign: 'center',
+          }
+	}
+   }
    return(
-          <div>
+          <div fontFamily="Georgia">
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack alignItems="flex" w="100%">
-             <Form alignItems="flex" onSubmit={handleUsersSubmit}>
+             <HStack bg="black" alignItems="flex" w="100%">
+             <FormControl alignItems="flex" onSubmit={handleUsersSubmit}>
+                <HStack bg="black">
                 <Input
-                w ="250px"gi
+                w ="250px"
                 type="text"
                 value={input.inputUser}
                 name="inputUser"
                 placeholder="Buscar usuarios"
-                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                onChange={handleChange}></Input>
+                <Button type="submit">Buscar</Button>
                 <Button onClick={resetUsers}>Reset</Button>
-             </Form>
+                    
+                </HStack>           
+             </FormControl>
              </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsUsers}
              data={users}
              title="Usuarios"
@@ -365,7 +383,8 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
-             <Form onSubmit={handleGameSubmit}>
+             <FormControl onSubmit={handleGameSubmit}>
+                <HStack bg="black">
                 <Input
                 w ="250px"
                 type="text"
@@ -375,9 +394,11 @@ const DashboardAdmin =()=>{
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetGames}>Reset</Button>
                 <Button onClick={createGame}>New Game</Button>
-             </Form>
+                </HStack>
+             </FormControl>
             </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsGames}
              data={games}
              title="Juegos"
@@ -387,9 +408,12 @@ const DashboardAdmin =()=>{
              fixedHeaderScrollHeight="600px"
              responsive = {true}
              theme="dark"
+             highlightOnHover
+		     pointerOnHover
              />
-             <HStack alignItems="flex-start" w="100%" justify="center">
-             <Form alignItems="flex-start" onSubmit={handleDocsSubmit}>
+             <HStack bg="black" alignItems="flex-start" w="100%" justify="center">
+             <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+                <HStack>
                 <Input
                 w ="250px"
                 type="text"
@@ -398,9 +422,11 @@ const DashboardAdmin =()=>{
                 placeholder="Buscar Docs"
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetDocs}>Reset</Button>
-             </Form>
+                </HStack>
+             </FormControl>
              </HStack>
              <DataTable
+             customStyles={customStyle}
              columns={columnsDocs}
              data={docs}
              title="Documentos"
@@ -410,8 +436,18 @@ const DashboardAdmin =()=>{
              fixedHeaderScrollHeight="600px"
              responsive={true}
              theme="dark"
+             highlightOnHover
+		     pointerOnHover
              />
+             <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
+             <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+                <HStack bg="black">
+                
+                <Button></Button>
+                </HStack>
+             </FormControl>
              <DataTable
+             customStyles={customStyle}
              columns={columnsDonations}
              data={donations}
              title="Donaciones"
@@ -420,7 +456,9 @@ const DashboardAdmin =()=>{
              fixedHeader
              fixedHeaderScrollHeight="600px"
              responsive = {true}   
-             theme="dark"        
+             theme="dark"    
+             highlightOnHover
+		     pointerOnHover    
                />
           </div>
    )

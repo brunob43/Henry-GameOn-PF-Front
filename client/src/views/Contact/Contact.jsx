@@ -2,7 +2,6 @@ import React from "react";
 import { postMessage } from "../../redux/actions";
 import { useState } from "react";
 import { VStack, useColorMode, Input, Textarea ,Text,FormControl,FormLabel, Button} from "@chakra-ui/react";
-import Footer from "../../component/Footer/Footer";
 import foto from "../assets/imagen/contact.jpg";
 
 
@@ -61,10 +60,10 @@ export default function ContactUs() {
   };
 
   return (
-  <>  
-    <VStack bgImage={foto} bgSize="cover" bgPosition="center" h="100vh" >
+  <VStack>  
+    <VStack  mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="100vh" >
     <VStack
-      mt={["450px", "300px", "250px", "175px", "175px"]}
+       mt="90px"
       bgColor={colorMode === "dark" ? "white" : "black"}
       color={colorMode === "dark" ? "black" : "white"}
       borderRadius="15px"
@@ -164,7 +163,6 @@ export default function ContactUs() {
                   : { bg: "black", color: "yellow" }
               }
               bg={colorMode === "dark" ? "white" : "yellow"}
-              type="submit"
             >
               SEND
             </Button>
@@ -175,7 +173,7 @@ export default function ContactUs() {
    
      
     
-    </>
+    </VStack>
 
   );
 }

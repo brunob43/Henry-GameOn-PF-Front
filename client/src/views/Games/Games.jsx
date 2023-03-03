@@ -17,7 +17,6 @@ import {CloseIcon} from '@chakra-ui/icons'
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
 import {RepeatIcon} from "@chakra-ui/icons"
-import Footer from "../../component/Footer/Footer";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
 const Games = () => {
@@ -175,6 +174,7 @@ const Games = () => {
            <SearchBarGame />
            </HStack>
            <Button onClick={reload}><RepeatIcon/></Button>
+
         <HStack align="flex-start" w="30%">
           <VStack w="200px" justifyContent="flex-start">
             <Select
