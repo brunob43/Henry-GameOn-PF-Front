@@ -159,7 +159,7 @@ const DashboardAdmin =()=>{
         name:'ID',
         selector:'game_id',
         sortable:true,
-        width: "70px"
+        width: "50px"
     },
     { 
         name:'NAME',
@@ -180,12 +180,12 @@ const DashboardAdmin =()=>{
     {   name:'DIFFICULTY',
         selector:'game_difficulty',
         sortable:true,
-        width: "70px"
+        width: "120px"
     },
     {   name:'VIEWS',
         selector:'game_views',
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     // {   name:'Deleted',
     //     selector:'game_deleted',
@@ -223,7 +223,7 @@ const DashboardAdmin =()=>{
         name:'ID',
         selector:'doc_id',
         sortable:true,
-        width: "70px"
+        width: "50px"
     },
     { 
         name:'NAME',
@@ -239,7 +239,7 @@ const DashboardAdmin =()=>{
     {   name:'AUTHOR',
         selector:'doc_author',
         sortable:true,
-        width: "80px"
+        width: "120px"
     },
     {   name:'CONTENT',
         selector:'doc_content',
@@ -254,7 +254,7 @@ const DashboardAdmin =()=>{
     {   name:'VIEWS',
         selector:'doc_views',
         sortable:true,
-        width: "70px"
+        width: "100px"
     },
     // {   name:'Deleted',
     //     selector:'game_deleted',
@@ -294,7 +294,7 @@ const DashboardAdmin =()=>{
         name:'ID',
         selector:'donation_id',
         sortable:true,
-        width: "70px",
+        width: "50px",
     },
     { 
         name:'Name',
@@ -338,7 +338,7 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack>
+             <HStack alignItems="flex-start" w="100%" justify="center">
              <form onSubmit={handleUsersSubmit}>
                 <Input
                 w ="250px"
@@ -362,7 +362,7 @@ const DashboardAdmin =()=>{
              theme="dark"
              responsive={true}
              />
-            <HStack>
+            <HStack alignItems="flex-start" w="100%" justify="center">
              <form onSubmit={handleGameSubmit}>
                 <Input
                 w ="250px"
@@ -386,7 +386,7 @@ const DashboardAdmin =()=>{
              responsive = {true}
              theme="dark"
              />
-             <HStack>
+             <HStack alignItems="flex-start" w="100%" justify="center">
              <form onSubmit={handleDocsSubmit}>
                 <Input
                 w ="250px"
