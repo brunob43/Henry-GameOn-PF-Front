@@ -12,34 +12,24 @@ import {
   Select
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { updateUser } from "../../redux/actions";
+import { postGame } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
-export default function EditUser({rowUser,isOpenEditUser}){
+export default function PostGame({isOpenPostGame}){
     const dispatch=useDispatch()
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [input,setInput]=useState({
-        user_name:"",
-        user_email:"",
-        user_image:"",
-        user_type:"",
-        user_state:"",
+        game_name:"",
+        game_topic:"",
+        game_image:"",
+        game_difficulty:"",
     })
-      const {internal_id}= rowUser
     useEffect(()=>{
-      setInput({
-        user_name:rowUser.user_name,
-        user_email:rowUser.user_email,
-        user_image:rowUser.user_image,
-        user_type:rowUser.user_type,
-        user_state:rowUser.user_state,
-    })
-     if(isOpenEditUser){
+    
+     if(isOpenPostGame){
         onOpen()
      }
-       
-    //    }
-    },[rowUser])
+    },[isOpenPostGame])
     const handleChange=(e)=>{
         setInput({
             ...input,
@@ -48,11 +38,9 @@ export default function EditUser({rowUser,isOpenEditUser}){
     }
     const onSubmit=(e)=>{
        e.preventDefault();
-       dispatch(updateUser(internal_id, input));
+       dispatch(postGame(input));
        onClose()
     }
-    console.log(input, "input de edit")
-    console.log(rowUser,isOpenEditUser)
     return(
         <div>
 
@@ -69,7 +57,7 @@ export default function EditUser({rowUser,isOpenEditUser}){
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Detalle de Usuario</DrawerHeader>
+            <DrawerHeader>Nuevo juego</DrawerHeader>
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
@@ -77,17 +65,17 @@ export default function EditUser({rowUser,isOpenEditUser}){
               <Input
                 autoComplete="off"
                 type="text"
-                value={input.user_name}
-                name="user_name"
+                value={input.game_name}
+                name="game_name"
                 required
                 onChange={(e) => handleChange(e)}
               />
-             <label>E-mail:</label>
+             <label>Tema:</label>
               <Input
                 autoComplete="off"
-                type="email"
-                value={input.user_email}
-                name="user_email"
+                type="text"
+                value={input.game_topic}
+                name="game_topic"
                 required
                 onChange={(e) => handleChange(e)}
               />
@@ -95,27 +83,19 @@ export default function EditUser({rowUser,isOpenEditUser}){
               <Input
                 autoComplete="off"
                 type="text"
-                value={input.user_image}
-                name="user_image"
+                value={input.game_image}
+                name="game_image"
                 required
                 onChange={(e) => handleChange(e)}
               />
-              <label>Tipo: </label>
-              <Select name="user_type" onChange={handleChange}>
-                   <option value={input.user_type} >{input.user_type}</option>
-                   <option value="user">User</option>
-                   <option value="admin">Admin</option>
-                   </Select>
-
-              <label>Estado: </label>
-              <Select name="user_state" onChange={handleChange}>
-              <option value={input.user_state} >{input.user_state}</option>
-                   <option value="active">Active</option>
-                   <option value="warned">Warned</option>
-                   <option value="banned">Banned</option>
+                <label>Dificultad:</label>
+                <Select name="game_difficulty" onChange={handleChange}>
+                   <option value="Easy">Easy</option>
+                   <option value="Medium">Medium</option>
+                   <option value="Hard">Hard</option>
                    </Select>
                <Button type="submit">
-                Save
+                Create
               </Button>
         </form>
         

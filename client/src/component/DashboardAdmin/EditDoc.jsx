@@ -69,7 +69,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
-            <label>Nombre del Documento:</label>
+            <label>Nombre:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -78,7 +78,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-             <label>Tema del Documento</label>
+             <label>Tema:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -87,7 +87,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-               <label>Imagen del Documento:</label>
+               <label>Imagen:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -96,7 +96,7 @@ export default function EditDoc({rowDoc,isOpenEditDoc}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-                <label>Contenidos del Documento:</label>
+                <label>Contenidos:</label>
               <Input
                 autoComplete="off"
                 type="text"

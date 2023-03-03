@@ -69,7 +69,7 @@ export default function EditGame({rowGame,isOpenEditGame}){
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
-            <label>Nombre del juego:</label>
+            <label>Nombre:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -78,7 +78,7 @@ export default function EditGame({rowGame,isOpenEditGame}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-             <label>Tema de el juego</label>
+             <label>Tema:</label>
               <Input
                 autoComplete="off"
                 type="text"
@@ -87,7 +87,7 @@ export default function EditGame({rowGame,isOpenEditGame}){
                 required
                 onChange={(e) => handleChange(e)}
               />
-               <label>Imagen de el juego:</label>
+               <label>Imagen:</label>
               <Input
                 autoComplete="off"
                 type="text"

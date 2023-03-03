@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
+import {Input, Button}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -21,6 +22,7 @@ import {
 import EditUser from "./EditUser";
 import EditGame from "./EditGame";
 import EditDoc from "./EditDoc";
+import PostGame from "./PostGame";
 
 const DashboardAdmin =()=>{
    const users = useSelector((state)=>state.users)
@@ -33,6 +35,7 @@ const DashboardAdmin =()=>{
    const [isOpenEditUser,setIsOpenEditUser]=useState(false)
     const [isOpenEditGame,setIsOpenEditGame]=useState(false)
     const [isOpenEditDoc,setIsOpenEditDoc]=useState(false)
+    const [isOpenPostGame ,setIsOpenPostGame]=useState(false)
    const [input,setInput]=useState({
     inputUser:"",
     inputGame:"",
@@ -100,15 +103,15 @@ const DashboardAdmin =()=>{
         selector:(row)=>row.user_email,
         sortable:true
     },
-    {   name:'Password',
-        selector:(row)=>row.user_password,
-        sortable:true,
-        width: "70px"
-    },
+    // {   name:'Password',
+    //     selector:(row)=>row.user_password,
+    //     sortable:true,
+    //     width: "70px"
+    // },
     {   name:'Image',
         selector:(row)=>row.user_image,
         sortable:true,
-        width: "70px"
+        width: "150px"
     },
     {   name:'Type',
         selector:(row)=>row.user_type,
@@ -121,12 +124,14 @@ const DashboardAdmin =()=>{
         width: "70px"
     },
     {   name:'Eliminar',
-        cell:(row)=>(<button
-        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</button>)
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</Button>)
     },
     {   name:'EDITAR',
-        cell:(row)=>(<button
-        onClick={()=>handleUserEdit(row)}>Ver Detalle/Editar</button>)
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleUserEdit(row)}>Ver Detalle/Editar</Button>)
     }
 ]
     const handleUserEliminate=(row)=>{
@@ -162,35 +167,37 @@ const DashboardAdmin =()=>{
     {   name:'Topic',
         selector:'game_topic',
         sortable:true,
-        width: "200px"
+        width: "100px"
     },
     {   name:'Image',
         selector:'game_image',
         sortable:true,
-        width: "70px"
+        width: "200px"
     },
     {   name:'Difficulty',
         selector:'game_difficulty',
         sortable:true,
-        width: "200px"
+        width: "70px"
     },
     {   name:'Views',
         selector:'game_views',
         sortable:true,
         width: "70px"
     },
-    {   name:'Deleted',
-        selector:'game_deleted',
-        sortable:true,
-        width: "70px"
-    } ,
+    // {   name:'Deleted',
+    //     selector:'game_deleted',
+    //     sortable:true,
+    //     width: "70px"
+    // } ,
     {   name:'Eliminar',
-        cell:(row)=>(<button
-        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</button>)
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</Button>)
     },
-    {   name:'Editar',
-        cell:(row)=>(<button
-        onClick={()=>handleGameEdit(row)}>Editar</button>)
+    {   name:'Ver Detalle/Editar',
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleGameEdit(row)}>Editar</Button>)
     }
    ]
    const handleGameEliminate=(row)=>{
@@ -219,17 +226,17 @@ const DashboardAdmin =()=>{
         name:'Name',
         selector:'doc_name',
         sortable:true,
-        width: "200px"
+        width: "150px"
     },
     {   name:'Topic',
         selector:'doc_topic',
         sortable:true,
-        width: "200px"
+        width: "150px"
     },
     {   name:'Author',
         selector:'doc_author',
         sortable:true,
-        width: "200px"
+        width: "80px"
     },
     {   name:'Content',
         selector:'doc_content',
@@ -239,25 +246,27 @@ const DashboardAdmin =()=>{
     {   name:'Image',
         selector:'doc_image',
         sortable:true,
-        width: "70px"
+        width: "150px"
     },
     {   name:'Views',
         selector:'doc_views',
         sortable:true,
         width: "70px"
     },
-    {   name:'Deleted',
-        selector:'game_deleted',
-        sortable:true,
-        width: "70px"
-    } ,
+    // {   name:'Deleted',
+    //     selector:'game_deleted',
+    //     sortable:true,
+    //     width: "70px"
+    // } ,
     {   name:'Eliminar',
-        cell:(row)=>(<button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</button>)
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</Button>)
     },
-    {   name:'Editar',
-        cell:(row)=>(<button
-        onClick={()=>handleDocEdit(row)}>Editar</button>)
+    {   name:'Ver Detalles/Editar',
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleDocEdit(row)}>Editar</Button>)
     }
    ];
 
@@ -307,7 +316,9 @@ const DashboardAdmin =()=>{
       selectAllRowsItem: true,
       selectAllRowsItemText: "Todos"
    }
-   const ExpandedComponent = ({ users }) => <pre>{JSON.stringify(users, null, 2)}</pre>;
+   const createGame =()=>{
+    setIsOpenPostGame(true)
+   }
    useEffect(()=>{
       dispatch(getUsers());
       dispatch(getDocsAd());
@@ -319,15 +330,15 @@ const DashboardAdmin =()=>{
              <EditUser rowUser={rowUser} isOpenEditUser={isOpenEditUser}/>
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
+             <PostGame isOpenPostGame={isOpenPostGame}/>
              <form onSubmit={handleUsersSubmit}>
-                <input
+                <Input
                 type="text"
                 value={input.inputUser}
                 name="inputUser"
                 placeholder="Buscar usuarios"
-                onChange={handleChange}></input>
-                <button type="submit">Buscar</button>
-                <button onClick={resetUsers}>Reset</button>
+                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                <Button onClick={resetUsers}>Reset</Button>
              </form>
              <DataTable
              columns={columnsUsers}
@@ -337,21 +348,19 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
-             expandableRows
-             expandableRowsComponent={ExpandedComponent}
              theme="dark"
-             responsive
+             responsive={true}
              />
 
              <form onSubmit={handleGameSubmit}>
-                <input
+                <Input
                 type="text"
                 value={input.inputGame}
                 name="inputGame"
                 placeholder="Buscar juegos"
-                onChange={handleChange}></input>
-                <button type="submit">Buscar</button>
-                <button onClick={resetGames}>Reset</button>
+                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                <Button onClick={resetGames}>Reset</Button>
+                <Button onClick={createGame}>New Game</Button>
              </form>
              <DataTable
              columns={columnsGames}
@@ -361,18 +370,17 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
-             responsive
+             responsive = {true}
              theme="dark"
              />
              <form onSubmit={handleDocsSubmit}>
-                <input
+                <Input
                 type="text"
                 value={input.inputDoc}
                 name="inputDoc"
                 placeholder="Buscar Docs"
-                onChange={handleChange}></input>
-                <button type="submit">Buscar</button>
-                <button onClick={resetDocs}>Reset</button>
+                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                <Button onClick={resetDocs}>Reset</Button>
              </form>
              <DataTable
              columns={columnsDocs}
@@ -382,7 +390,7 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
-             responsive
+             responsive={true}
              theme="dark"
              />
              <DataTable
@@ -393,7 +401,7 @@ const DashboardAdmin =()=>{
              paginationComponentOptions={paginationOptions}
              fixedHeader
              fixedHeaderScrollHeight="600px"
-             responsive   
+             responsive = {true}   
              theme="dark"        
                />
           </div>
