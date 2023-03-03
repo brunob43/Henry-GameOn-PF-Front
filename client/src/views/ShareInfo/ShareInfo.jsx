@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDocs } from "../../redux/actions";
+import UploadWidget from "../../component/CloudinaryUpload/cloudinaryWidget";
 import fondo from "../../styles/images/fondodocs5.jpg"
 
 const ShareInfo = () => {
@@ -26,8 +27,13 @@ const ShareInfo = () => {
     setForm({ ...form, [property]: value });
   };
 
+  const formWidget = (data) => {
+    setForm({...form, doc_image : data})
+  }
+
   const submitHandler = async (event) => {
     event.preventDefault();
+    console.log(form)
     axios
       .post("/doc", form)
       .then((res) => {
@@ -41,10 +47,9 @@ const ShareInfo = () => {
   };
 
   return (
-  <VStack >  
-    <VStack   mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="100vh" >
+    <VStack className={style.body}>
       <VStack
-        mt="50px"
+        mt={["400px", "250px", "200px", "125px", "125px"]}
         bgColor={colorMode === "dark" ? "white" : "black"}
         color={colorMode === "dark" ? "black" : "white"}
         borderRadius="15px"
@@ -78,6 +83,8 @@ const ShareInfo = () => {
             onChange={changeHandler}
             w="367px"
           />
+
+          <UploadWidget formWidget={formWidget}/>
 
           <FormLabel mt="5px">Name:</FormLabel>
           <Input
@@ -121,6 +128,7 @@ const ShareInfo = () => {
           ></Textarea>
            <VStack mt="5px">
             <Button  
+             type="submit"
              marginTop="20px"
              size="md"
              height="48px"
@@ -133,6 +141,7 @@ const ShareInfo = () => {
                  : { bg: "black", color: "yellow" }
              }
              bg={colorMode === "dark" ? "white" : "yellow"}
+             onClick={submitHandler}
              >
               POST
             </Button>
@@ -140,8 +149,6 @@ const ShareInfo = () => {
         </FormControl>
       </VStack>
     </VStack>
-
- </VStack>  
   );
 };
 
