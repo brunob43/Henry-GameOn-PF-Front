@@ -36,6 +36,15 @@ const Docs = () => {
     }
   }, [dispatch, allDocs]);
 
+  const reload = () =>{
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    dispatch(getDocs())
+    dispatch (resetErrorDocs())
+}
+
   //------------------------------------------HANDLERS-------------------------------------------
   let disabledSelectTopic = !!filterSelect.topic.length;
 
