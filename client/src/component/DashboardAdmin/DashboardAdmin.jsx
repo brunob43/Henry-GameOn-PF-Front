@@ -338,8 +338,8 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack alignItems="flex-start" w="100%" justify="center">
-             <form onSubmit={handleUsersSubmit}>
+             <HStack alignItems="flex" w="100%">
+             <form alignItems="flex" onSubmit={handleUsersSubmit}>
                 <Input
                 w ="250px"
                 type="text"
@@ -361,6 +361,8 @@ const DashboardAdmin =()=>{
              fixedHeaderScrollHeight="600px"
              theme="dark"
              responsive={true}
+             highlightOnHover
+		     pointerOnHover
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
              <form onSubmit={handleGameSubmit}>
