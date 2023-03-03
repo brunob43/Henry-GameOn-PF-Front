@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDocs } from "../../redux/actions";
 import UploadWidget from "../../component/CloudinaryUpload/cloudinaryWidget";
-import fondo from "../../styles/images/fondodocs5"
+import fondo from "../../styles/images/fondodocs5.jpg"
 
 const ShareInfo = () => {
   const { colorMode } = useColorMode();
