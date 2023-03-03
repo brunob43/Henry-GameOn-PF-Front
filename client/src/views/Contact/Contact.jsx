@@ -153,7 +153,6 @@ export default function ContactUs() {
                   ? false
                   : true
               }
-              type="submit"
               size="md"
               height="48px"
               width="100px"
@@ -165,6 +164,7 @@ export default function ContactUs() {
                   : { bg: "black", color: "yellow" }
               }
               bg={colorMode === "dark" ? "white" : "yellow"}
+              type="submit"
             >
               SEND
             </Button>
