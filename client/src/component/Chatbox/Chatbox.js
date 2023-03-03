@@ -10,7 +10,9 @@ import {
   DrawerCloseButton,
   Button,
   Input,
-  Image
+  Image,
+  Spinner,
+  VStack
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import icon from "../../styles/images/iconopenai.png"
@@ -21,8 +23,10 @@ export default function ChatBox() {
   const [engResult, setEngResult] = useState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const [loading,setLoading]=useState(false)
 
   async function onSubmit(event) {
+    setLoading(true)
     event.preventDefault();
     try {
       const response = await fetch(
@@ -91,6 +95,7 @@ export default function ChatBox() {
           }
 
           setResult(data.result);
+          setLoading(false)
           console.log(data.result, "respuesta en español");
         } catch (error) {
           // Consider implementing your own error handling logic here
@@ -138,10 +143,13 @@ export default function ChatBox() {
           />
           <Input padding="5px" bg="#10a37f" mt="25px" type="submit" value="SEND / ENVIAR" />
         </form>
-        <div className={styles.result}>espere 20 segundos que la respuesta tarda y no me sale poner el boton de loading... gracias</div>
-        <div className={styles.result}><h1>ANSWER IN ENGLISH:</h1>{engResult}</div>
-        
-        <div className={styles.result}><h1>RESPUESTA EN ESPAÑOL:</h1>{result}</div>
+        {loading?<VStack aling="center"><Spinner mt="20px" thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl'/> </VStack>:<div>
+          <div className={styles.result}><h1>ANSWER IN ENGLISH:</h1>{engResult}</div>
+          
+          <div className={styles.result}><h1>RESPUESTA EN ESPAÑOL:</h1>{result}</div>
+         </div>
+        }
+          
         
             </DrawerBody>
 
