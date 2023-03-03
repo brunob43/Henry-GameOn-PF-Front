@@ -41,10 +41,10 @@ const ShareInfo = () => {
   };
 
   return (
-  <>  
-    <VStack bgImage={fondo}  bgSize="cover" bgPosition="center"   h="100vh" >
+  <VStack >  
+    <VStack   mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="100vh" >
       <VStack
-        mt={["400px", "250px", "200px", "125px", "125px"]}
+        mt="50px"
         bgColor={colorMode === "dark" ? "white" : "black"}
         color={colorMode === "dark" ? "black" : "white"}
         borderRadius="15px"
@@ -121,7 +121,6 @@ const ShareInfo = () => {
           ></Textarea>
            <VStack mt="5px">
             <Button  
-             type="submit"
              marginTop="20px"
              size="md"
              height="48px"
@@ -142,8 +141,9 @@ const ShareInfo = () => {
       </VStack>
     </VStack>
 
- </>  
+ </VStack>  
   );
 };
 
 export default ShareInfo;
+
