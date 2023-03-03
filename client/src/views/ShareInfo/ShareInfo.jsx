@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getDocs } from "../../redux/actions";
-import Footer from "../../component/Footer/Footer";
 import fondo from "../../styles/images/fondodocs5.jpg"
 
 const ShareInfo = () => {
@@ -122,6 +121,7 @@ const ShareInfo = () => {
           ></Textarea>
            <VStack mt="5px">
             <Button  
+             type="submit"
              marginTop="20px"
              size="md"
              height="48px"

@@ -153,6 +153,7 @@ export default function ContactUs() {
                   ? false
                   : true
               }
+              type="submit"
               size="md"
               height="48px"
               width="100px"
