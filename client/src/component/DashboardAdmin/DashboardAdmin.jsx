@@ -113,7 +113,7 @@ const DashboardAdmin =()=>{
     // },
     {   name:'IMAGE',
         selector:(row)=>row.user_image,
-        sortable:true,
+        cell: row => <img height="84px" width="56px" alt={row.user_name} src={row.user_image} />,
         width: "150px"
     },
     {   name:'TYPE',
@@ -174,7 +174,7 @@ const DashboardAdmin =()=>{
     },
     {   name:'IMAGE',
         selector:'game_image',
-        sortable:true,
+        cell: row => <img height="84px" width="56px" alt={row.game_name} src={row.game_image} />,
         width: "200px"
     },
     {   name:'DIFFICULTY',
@@ -249,7 +249,7 @@ const DashboardAdmin =()=>{
     {   name:'IMAGE',
         selector:'doc_image',
         width: "150px",
-        cell: row => <img height="84px" width="56px" alt={row.name} src={row.user_image} />
+        cell: row => <img height="84px" width="56px" alt={row.doc_name} src={row.doc_image} />
 
     },
     {   name:'VIEWS',
