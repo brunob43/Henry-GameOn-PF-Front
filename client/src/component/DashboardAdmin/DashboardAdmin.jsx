@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import {Input, Button,HStack,VStack,FormControl}from "@chakra-ui/react";
+import {Input, Button,HStack,VStack,FormControl,Text}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -129,7 +129,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -195,7 +195,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -264,7 +264,7 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?"Reincorporar":"Eliminar"}</Button>)
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="green">Reincorporar</Text>:<Text color="red">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
         width:"150px",
@@ -370,6 +370,7 @@ const DashboardAdmin =()=>{
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
              <FormControl onSubmit={handleGameSubmit}>
+                <HStack>
                 <Input
                 w ="250px"
                 type="text"
@@ -379,6 +380,7 @@ const DashboardAdmin =()=>{
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetGames}>Reset</Button>
                 <Button onClick={createGame}>New Game</Button>
+                </HStack>
              </FormControl>
             </HStack>
              <DataTable
@@ -394,6 +396,7 @@ const DashboardAdmin =()=>{
              />
              <HStack alignItems="flex-start" w="100%" justify="center">
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+                <HStack>
                 <Input
                 w ="250px"
                 type="text"
@@ -402,6 +405,7 @@ const DashboardAdmin =()=>{
                 placeholder="Buscar Docs"
                 onChange={handleChange}></Input><Button type="submit">Buscar</Button>
                 <Button onClick={resetDocs}>Reset</Button>
+                </HStack>
              </FormControl>
              </HStack>
              <DataTable
