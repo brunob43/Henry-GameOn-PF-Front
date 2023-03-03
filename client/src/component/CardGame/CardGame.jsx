@@ -1,11 +1,14 @@
+import { VStack } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardGame.module.css"
+
 
 const CardGame = ({ name, image, id, topic, difficulty })=> {
   console.log(name)
   console.log(difficulty)
   return (
+    <VStack>
     <div className={style.container}>
       <Link to={`/games/${id}`} className={style.link}>
         <img src={image} alt="imagen card" className={style.image}/>
@@ -20,6 +23,7 @@ const CardGame = ({ name, image, id, topic, difficulty })=> {
         </div>        
       </Link>
     </div>
+    </VStack>
   );
 }
 export default CardGame;

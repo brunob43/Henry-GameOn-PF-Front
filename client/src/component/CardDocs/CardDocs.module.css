@@ -5,11 +5,9 @@
     border-radius: 30px;
     transition: 0.2s ease-in-out;
     display: block;
-    margin-top: 100px;
-    margin-left: 100px;
    padding-bottom: 20px;
    box-sizing: border-box;
-   margin-bottom: 30px;
+   margin: 30px;
    
 }
 
