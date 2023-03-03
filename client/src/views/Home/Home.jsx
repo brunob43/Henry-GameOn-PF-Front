@@ -24,9 +24,9 @@ const Home = () => {
           <VStack>
           <HStack> 
           <Box
-            mt={["450px", "200px", "150px", "70px", "70px"]}
+            mt={["250px", "200px", "150px", "70px", "70px"]}
             display="flex"
-            pt="100px"
+            pt="50px"
             bgGradient='linear(to-l, yellow, white)'
             bgClip='text'
             fontSize='6xl'
@@ -58,8 +58,7 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt={["0px", "0px", "200px", "200px", "200px"]}
-                
+                mt={["0px", "0px", "0px", "393px", "393px"]}
               >
                 Games👾
               </Button>
@@ -89,7 +88,7 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt={["0px", "0px", "200px", "200px", "200px"]}
+                mt={["0px", "0px", "0px", "274px", "274px"]}
               >
                 HenryDocs 📑
               </Button>
