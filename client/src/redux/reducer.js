@@ -59,7 +59,9 @@ const initialState = {
   docDetailAd:{},
   profile: {},
   donations:[],
-  userDetail:{}
+  userDetail:{},
+  gamesProfile:[],
+  docsProfile:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -477,7 +479,9 @@ const rootReducer = (state = initialState, action) => {
     case SET_PROFILE:
         return {
           ...state, 
-          profile: action.payload
+          profile: action.payload,
+          gamesProfile:action.payload.Games.map((g)=>g.game_name),
+          docsProfile:action.payload.Docs.map((d)=>d.doc_name)
         }
     case RESET_PROFILE:
         return{
