@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { countViewsGames, getDetailFromState } from "../../redux/actions";
-import {VStack, Box, HStack, useColorMode} from '@chakra-ui/react'
+import { countViewsGames,addLikeGame,removeLikeGame } from "../../redux/actions";
+import {VStack, Box, HStack, useColorMode, Button} from '@chakra-ui/react'
 import gamesArray from "../../games/gamesIndex";
 import style from "./GameDetail.module.css";
 import bglight from "../../styles/images/fondogameblanco.jpg";
@@ -13,22 +13,21 @@ const GameDetail = () =>{
     const { colorMode } = useColorMode();
     const { id } = useParams();
     const dispatch = useDispatch();
-    console.log(id)
-    
+    const profile = useSelector((state)=>state.profile)
+    const likedGames = useSelector((state)=>state.profile).Games.map((g)=>g.game_name)
+    // const gameDetail = useSelector((state) => state.gameDetail);
     useEffect(()=>{
-        dispatch(getDetailFromState(id));
+        // dispatch(getDetailFromState(id));
         countViewsGames(id)
     }, [dispatch, id])
-
-    const gameDetail = useSelector((state) => state.gameDetail);
-   
-    console.log(gamesArray)
-
-    console.log(gameDetail)
-
+    const likeHandler=()=>{
+        dispatch(addLikeGame(id,profile.internal_id))
+    }
+    const dislikeHandler=()=>{
+        dispatch(removeLikeGame(id,profile.internal_id))
+    }
+    console.log(profile, likedGames,"perfil y gustados")
     const game = gamesArray.filter((game) => game.id.toString() === id)
-
-    console.log(game)
 
     return(
         
@@ -39,6 +38,10 @@ const GameDetail = () =>{
             {game[0].name} 
         </Box>
 
+        {profile&likedGames.includes(game.name)&<Button onClick={dislikeHandler}>Quitar Like</Button>}
+        
+        {profile&!likedGames.includes(game.name)&<Button onClick={likeHandler}>Dar Like</Button>}
+        
         <HStack >
             {game.length === 1 
             ? game[0].game
@@ -47,7 +50,7 @@ const GameDetail = () =>{
         </HStack>
 
 
-    </VStack>
+        </VStack>
 
 )
 }
