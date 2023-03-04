@@ -502,6 +502,27 @@ export async function countViewsDoc (id){
   const response = await axios.put(`/doc/view/${id}`);
   return response;
 }
+//--------------------------LIKES-----------------------//
+export async function addLikeGame(id,internal_id) {
+  console.log(id,internal_id,"addLikeGame")
+  //  await axios.put(`/game/like/${id}?like_game=true`);
+  //  await axios.put(`/users/${internal_id}?like_game=true`)
+}
+export async function removeLikeGame(id,internal_id) {
+  console.log(id,internal_id,"addLikeGame")
+  //  await axios.put(`/game/like/${id}`);
+  //  await axios.put(`/users/${internal_id}`)
+}
+export async function addLikeDoc(id,internal_id) {
+  console.log(id,internal_id,"addLikeDoc")
+  //  await axios.put(`/doc/like/${id}?like_game=true`);
+  //  await axios.put(`/users/${internal_id}?like_game=true`)
+}
+export async function removeLikeDoc(id,internal_id) {
+  console.log(id,internal_id,"addLikeDoc")
+  //  await axios.put(`/doc/like/${id}`);
+  //  await axios.put(`/users/${internal_id}`)
+}
 
 //-------------PROFILE------------------------------------//
 
