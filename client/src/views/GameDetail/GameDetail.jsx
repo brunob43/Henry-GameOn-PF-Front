@@ -18,11 +18,9 @@ const GameDetail = () =>{
     let likedGames=[];
     useEffect(()=>{
         // dispatch(getDetailFromState(id));
+        likedGames = profile.Games.map((g)=>g.game_name)
         countViewsGames(id)
     }, [dispatch, id])
-    useEffect(()=>{
-        likedGames = profile.Games.map((g)=>g.game_name)
-    },[profile])
     const likeHandler=()=>{
         dispatch(addLikeGame(id,profile.internal_id))
     }
