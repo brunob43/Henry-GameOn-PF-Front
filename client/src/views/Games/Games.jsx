@@ -147,8 +147,7 @@ const Games = () => {
         <Text
           fontSize={["70px", "90px"]}
           fontFamily="I-pixel-u"
-          mt="80px"
-          mb="30px"
+          mt="20"
           bg={
             colorMode === "dark"
               ? { color: "black", bg: "yellow" }
