@@ -38,9 +38,9 @@ const GameDetail = () =>{
             {game[0].name} 
         </Box>
 
-        {profile&likedGames.includes(game.name)&<Button onClick={dislikeHandler}>Quitar Like</Button>}
+        {likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
         
-        {profile&!likedGames.includes(game.name)&<Button onClick={likeHandler}>Dar Like</Button>}
+        {!likedGames.includes(game.name)&&<Button onClick={likeHandler}>Dar Like</Button>}
         
         <HStack >
             {game.length === 1 
