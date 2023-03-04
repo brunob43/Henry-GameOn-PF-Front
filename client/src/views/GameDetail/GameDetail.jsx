@@ -14,12 +14,13 @@ const GameDetail = () =>{
     const { id } = useParams();
     const dispatch = useDispatch();
     const profile = useSelector((state)=>state.profile)
-    const likedGames = useSelector((state)=>state.profile).Games.map((g)=>g.game_name)
     // const gameDetail = useSelector((state) => state.gameDetail);
+    let likedGames=[];
     useEffect(()=>{
         // dispatch(getDetailFromState(id));
+        likedGames= profile.Games.map((g)=>g.game_name)
         countViewsGames(id)
-    }, [dispatch, id])
+    }, [dispatch, id,profile])
     const likeHandler=()=>{
         dispatch(addLikeGame(id,profile.internal_id))
     }
@@ -38,9 +39,9 @@ const GameDetail = () =>{
             {game[0].name} 
         </Box>
 
-        {likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
+        {profile&&likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
         
-        {!likedGames.includes(game.name)&&<Button onClick={likeHandler}>Dar Like</Button>}
+        {profile&&!likedGames.includes(game.name)&&<Button onClick={likeHandler}>Dar Like</Button>}
         
         <HStack >
             {game.length === 1 
