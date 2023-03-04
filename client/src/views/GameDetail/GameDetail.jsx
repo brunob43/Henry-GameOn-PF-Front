@@ -29,7 +29,7 @@ const GameDetail = () =>{
     const dislikeHandler=()=>{
         dispatch(removeLikeGame(id,profile.internal_id))
     }
-
+    console.log(profile, likedGames,"perfil y gustados")
     const game = gamesArray.filter((game) => game.id.toString() === id)
 
     return(
