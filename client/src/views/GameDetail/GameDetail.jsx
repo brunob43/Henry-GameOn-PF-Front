@@ -15,12 +15,14 @@ const GameDetail = () =>{
     const dispatch = useDispatch();
     const profile = useSelector((state)=>state.profile)
     // const gameDetail = useSelector((state) => state.gameDetail);
-    
+    let likedGames=[];
     useEffect(()=>{
         // dispatch(getDetailFromState(id));
         countViewsGames(id)
     }, [dispatch, id])
-    
+    useEffect(()=>{
+        likedGames = profile.Games.map((g)=>g.game_id)
+    },[profile])
     const likeHandler=()=>{
         dispatch(addLikeGame(id,profile.internal_id))
     }
@@ -29,7 +31,7 @@ const GameDetail = () =>{
     }
 
     const game = gamesArray.filter((game) => game.id.toString() === id)
-    let likedGames = profile.Games.map((g)=>g.game_id)
+
     return(
         
         <VStack bgImage={colorMode === "dark" ? bgdark : bglight} className={style.main}>
