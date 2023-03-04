@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerGames from "../CardContainerGame/CardContainerGame";
 import { setCurrentPageGames } from "../../redux/actions";
 import style from "./Paginated.module.css";
-import prev from "../../styles/images/left-arrow.png";
-import next from "../../styles/images/right-arrow.png";
 import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -77,9 +75,9 @@ const PaginatedGame = () => {
 
   return (
     <VStack w="80%">
-      <HStack w="100%" justify="space-around">
+      <VStack w="100%" justify="space-around">
         {CardContainerGames(currentGames)}
-      </HStack>
+      </VStack>
 
       <HStack>
         <ul className={style.pages} name="bottom">
@@ -94,7 +92,6 @@ const PaginatedGame = () => {
               }
              border="1px"
               borderColor={colorMode === "dark" ? "yellow" : "black"}
-              mr="10px"
             >
              <ChevronLeftIcon/>
             </Button>
@@ -113,7 +110,7 @@ const PaginatedGame = () => {
                }
                 border="1px"
                 borderColor={colorMode === "dark" ? "yellow" : "black"}
-                ml="10px"
+
             >
              <ChevronRightIcon/>
             </Button>

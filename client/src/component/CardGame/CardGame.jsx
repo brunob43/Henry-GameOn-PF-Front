@@ -8,6 +8,7 @@ const CardGame = ({ name, image, id, topic, difficulty })=> {
   console.log(name)
   console.log(difficulty)
   return (
+    
     <VStack>
     <div className={style.container}>
       <Link to={`/games/${id}`} className={style.link}>

@@ -1,11 +1,12 @@
+import { HStack } from "@chakra-ui/react";
 import CardDocs from "../CardDocs/CardDocs";
-import style from "./CardContainerDocs.module.css"
+
 const CardContainerDocs = (doc) => {
     console.log(doc)
     console.log(1)
 
     return(
-        <div className={style.container}>
+        <HStack flexDirection={["column","column","column","row","row"]} mt="60px" mb="60px" w="100%" justify="space-around">
             {doc.map((d) => {
                 return <CardDocs
                     image = {d.doc_image} 
@@ -16,7 +17,7 @@ const CardContainerDocs = (doc) => {
                     id = {d.doc_id}
                 />
             })}
-        </div>
+        </HStack>
     );
 };
 export default CardContainerDocs;

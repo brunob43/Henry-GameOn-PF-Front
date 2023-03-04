@@ -20,14 +20,14 @@ import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
 
            return (
         <VStack >
-           <Image boxSize='525px' objectFit='cover' w="100%"   alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
+           <Image mt={["170px", "100px", "40px", "40px", "40px"]} boxSize='525px' objectFit='cover' w="100%"   alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
             <HStack  >
             {  (id == doc_id) ?
           
 
             <VStack >
                 <VStack>
-                <Text textAlign="center" fontSize="60px" fontWeight="bold" mt= {["350px", "200px", "150px", "70px", "70px"]} >{docDetail.doc_name}</Text>
+                <Text textAlign="center" fontSize="60px" fontWeight="bold" >{docDetail.doc_name}</Text>
                 </VStack>
                    
                     <VStack w="70%" p="20px" align="flex-start">

@@ -103,11 +103,11 @@ const Docs = () => {
     <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
       <HStack
         color={colorMode === "dark" ? "yellow" : "black"}
-        mt={["350px", "200px", "150px", "70px", "70px"]}
+        mt={["170px", "100px", "40px", "40px", "40px"]}
         
       >
         <Text 
-        fontSize="90px"
+        fontSize={["70px","90px"]}
         fontFamily= "I-pixel-u"
         mt="20"
         bg={
@@ -118,12 +118,12 @@ const Docs = () => {
         letterSpacing= "10px">DOCS</Text>
       </HStack>
 
-      <HStack justify="space-around" w="80%" bg={
+      <HStack flexDirection={["column","column","column","row"]} alignItems={["center","center","center","flex-start"]} w="100%" justify="center" bg={
                 colorMode === "dark"
                   ? { color: "black", bg: "yellow" }
                   : { bg: "black", color: "yellow" }
               }>
-        <VStack align="" w="250px">
+        <VStack pt="10px" w={["100%","100%","30%"]} justify="center">
           <Select
           w="120px"
             
@@ -144,9 +144,13 @@ const Docs = () => {
             <option value="unpopular">Unpopular</option>
           </Select>
         </VStack>
+        <HStack pt="10px">
         <SearchBarDoc />
+        </HStack>
+        <HStack pt="10px">
         <Button onClick={reload}><RepeatIcon/></Button>
-      <HStack w="250px" justify="space-around" align="flex-start">
+        </HStack>
+      <HStack pt="10px" w="250px" justify="space-around" align="flex-start">
         <div>
           <NavLink to="/docs/share">
             <Button
@@ -165,7 +169,7 @@ const Docs = () => {
           </NavLink>
         </div>
 
-        <HStack >
+        <vStack w="200px" justifyContent="flex-start">
           <Select
             _hover={
               colorMode === "dark"
@@ -193,7 +197,7 @@ const Docs = () => {
               <div>
                 <div key={index}>
                   <Button
-                  ml="10px"
+                  mt="10px"
                     variant="ghost"
                     _hover={
                       colorMode === "dark"
@@ -213,7 +217,7 @@ const Docs = () => {
               </div>
             );
           })}
-        </HStack>
+        </vStack>
       </HStack>
       </HStack>
 

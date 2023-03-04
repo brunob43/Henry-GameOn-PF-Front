@@ -13,7 +13,6 @@ import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,
   VStack,
-  Container,
   Heading,
   Avatar,
   Image,
@@ -22,11 +21,6 @@ import {
   Button,
   HStack,
   useColorMode,
-  Stack,
-  Flex,
-
-  Grid, GridItem
-  
 } from "@chakra-ui/react";
 
 const About = () => {
@@ -40,12 +34,13 @@ const About = () => {
         bgAttachment="fixed"
         zIndex="8"
       >
-        <HStack mt={["350px", "200px", "150px", "70px", "70px"]}>
+        <HStack mt={["170px", "100px", "40px", "40px", "40px"]}>
           <Heading
+          mt="50px"
             padding="30px"
             color={colorMode === "dark" ? "while" : "black"}
-            textAlign="flex-start"
-            fontSize="60px"
+            textAlign="center"
+            fontSize={["40px","60px"]}
             w=""
           >
             ¿QUIENES SOMOS?
@@ -54,11 +49,11 @@ const About = () => {
 
         <HStack>
           <Text
-            fontSize="24"
+            fontSize={["18px","18px","22px", "24px"]}
             padding="5"
             color={colorMode === "dark" ? "white" : "black"}
             justifyContent="flex-start"
-            textAlign="flex-start"
+            textAlign="center"
           >
             SOMOS UN EQUIPO DE TRABAJO QUE SE FUE FORMANDO A LO LARGO DEL
             BOOTCAMP DE HENRY. LOGRAMOS COINCIDIR Y COORDINAR NUESTRAS IDEAS Y

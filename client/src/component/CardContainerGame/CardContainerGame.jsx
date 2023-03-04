@@ -1,5 +1,5 @@
 import CardGame from "../CardGame/CardGame";
-// import style from "./CardContainerGame.module.css"
+
 import {HStack} from "@chakra-ui/react"
 
 
@@ -7,7 +7,8 @@ const CardContainerGame = (game) => {
     console.log(game)
 
     return(
-        <HStack mt="60px" mb="60px" w="100%" justify="space-around">
+
+        <HStack flexDirection={["column","column","column","row","row"]} mt="60px" mb="60px" w="100%" justify="space-around">
             {game.map((g) => {
                 return <CardGame
                     image = {g.game_image} 

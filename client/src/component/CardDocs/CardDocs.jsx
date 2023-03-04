@@ -7,6 +7,7 @@ import style from "./CardDocs.module.css"
 const CardDocs = ({ name, image, id, topic, author })=> 
 {  const { colorMode } = useColorMode();
     return (
+      
       <VStack >
       <Box borderColor={colorMode === "dark" ? "yellow" : "black"} className={style.container}>
         <Link to={`/doc/${id}`} className={style.link}>

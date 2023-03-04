@@ -40,17 +40,20 @@ const NavBar = (props) => {
   return (
     <div data-bs-theme="light">
       <HStack
-        zIndex="10"
-        w="100%"
-        position="fixed"
-        flexDirection={["column", "column", "row"]}
-        justify="space-between"
-        p="1px"
+
+         zIndex="10"
+          w='100%'
+          position='fixed'
+         flexDirection={["column", "column", "row"]}
+         justify="space-between"
+
         bg={colorMode === "dark" ? "black" : "yellow"}
       >
         <a href="https://www.soyhenry.com" target="_blank" rel="noreferrer">
-          <Image
-            p="35px"
+
+          <Image 
+            p={["15px", "20px", "25px"]}
+
             src={colorMode === "dark" ? logoblanco : logonegro}
             alt="Henry-Logo"
             w="254px"
@@ -91,10 +94,11 @@ const NavBar = (props) => {
               </Button>
             </NavLink>
           </HStack>
+
         </HStack>
-        <HStack>
+        <HStack pl="10px" pr="10px">
           <LoginButton />
-          <ColorModeSwitcher />
+          <ColorModeSwitcher  />
           <ProfileButton />
         </HStack>
       </HStack>
