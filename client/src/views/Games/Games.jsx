@@ -130,11 +130,11 @@ const Games = () => {
 
   return (
     <VStack  bgImage={colorMode === "dark" ? bgdark : bglight}>
-      <HStack mt={["350px", "200px", "150px", "70px", "70px"]}
+      <HStack mt={["170px", "100px", "40px", "40px", "40px"]}
          color={colorMode === "dark" ? "yellow" : "black"}
       >
         <Text 
-        fontSize="90px"
+        fontSize={["70px","90px"]}
         fontFamily= "I-pixel-u"
         mt="80px"
         mb="30px"
@@ -145,10 +145,8 @@ const Games = () => {
         }
         letterSpacing= "10px">GAMES</Text>
       </HStack>
-
-     <HStack alignItems="flex-start" w="100%" justify="center">
-          <HStack w="30%" justify="center">
-         
+     <HStack flexDirection={["column","column","column","row"]} alignItems={["center","center","center","flex-start"]} w="100%" justify="center">
+          <VStack pt="10px" w={["100%","100%","30%"]} justify="center">         
            <Select 
             w="200px"
             fontWeight="bold"
@@ -168,14 +166,16 @@ const Games = () => {
             <option value="popular">Popular</option>
             <option value="unpopular">Unpopular</option>
            </Select>
-          </HStack>
+          </VStack>
 
-          <HStack w="30%" justify="center">
+          <HStack pt="10px" w={["100%","100%","30%"]} justify="center">
            <SearchBarGame />
            </HStack>
+           <HStack pt="10px">
            <Button onClick={reload}><RepeatIcon/></Button>
+           </HStack>
 
-        <HStack align="flex-start" w="30%">
+        <HStack pt="10px" justify="center" align="flex-start" w={["100%","100%","30%"]}>
           <VStack w="200px" justifyContent="flex-start">
             <Select
             w="130px"

@@ -96,9 +96,9 @@ const NavBar = (props) => {
           </HStack>
 
         </HStack>
-        <HStack>
+        <HStack pl="10px" pr="10px">
           <LoginButton />
-          <ColorModeSwitcher />
+          <ColorModeSwitcher  />
           <ProfileButton />
         </HStack>
       </HStack>

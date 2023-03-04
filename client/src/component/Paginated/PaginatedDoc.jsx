@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerDocs from "../CardContainerDocs/CardContainerDocs";
 import { setCurrentPageDocs } from "../../redux/actions";
 import style from "./Paginated.module.css";
-import prev from "../../styles/images/left-arrow.png";
-import next from "../../styles/images/right-arrow.png";
 import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
@@ -72,9 +70,10 @@ const PaginatedDoc = () => {
     }
   };
   return (
-    <VStack>
-   <HStack w="100%" justify="space-around">
-    {CardContainerDocs(currentDocs)}</HStack>
+
+    <VStack w="80%">
+      <VStack w="100%" justify="space-around">
+    {CardContainerDocs(currentDocs)}</VStack>
 
       <HStack>
         <ul className={style.pages} name="bottom">
@@ -89,7 +88,6 @@ const PaginatedDoc = () => {
               }
              border="1px"
               borderColor={colorMode === "dark" ? "yellow" : "black"}
-              mr="10px"
             >
              <ChevronLeftIcon/>
             </Button>
@@ -108,7 +106,6 @@ const PaginatedDoc = () => {
                }
                 border="1px"
                 borderColor={colorMode === "dark" ? "yellow" : "black"}
-                ml="10px"
             >
              <ChevronRightIcon/>
             </Button>

@@ -1,11 +1,13 @@
 .container{
-    width: 390px;
-    height: 445px;
+    margin: 10px;
+    width: 325px;
+    height: 375px;
     background: rgb(0, 0, 0);
-    border-radius: 30px;
+    border-radius: 22px;
     transition: 0.2s ease-in-out;
     display: block;
-   box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid black;
 }
 
 .container:hover{

@@ -50,7 +50,7 @@ const Home = () => {
 
 
         <HStack justifyContent="space-evenly" >
-          <VStack h="310px" color="white" justify="flex-start" fontSize="20px">
+          <VStack w="50%" h="300px" color="white" fontSize="20px">
             <Link to="/games">
               <Button
                 variant="ghost"
@@ -65,7 +65,7 @@ const Home = () => {
             </Link>
            
             <Container
-              w="80%"
+              w="95%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",
@@ -80,7 +80,7 @@ const Home = () => {
           </VStack> 
 
 
-           <VStack h="300px" color="white" justifyContent="flex-start" fontSize="20px" >
+           <VStack w="50%" h="300px" color="white" fontSize="20px" >
             <Link to="/docs">
               <Button
                 variant="ghost"
@@ -88,14 +88,14 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt={["0px", "0px", "0px", "274px", "274px"]}
+                mt={["0px", "0px", "0px", "277px", "277px"]}
               >
                 HenryDocs 📑
               </Button>
             </Link>
             
             <Container
-              w="80%"
+              w="95%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",

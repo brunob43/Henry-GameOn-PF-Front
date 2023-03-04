@@ -2,7 +2,7 @@ import style from "./Donation.module.css";
 import coin from "../../styles/images/coin.png";
 import mp from "../../styles/images/Mercado-Pago.jpg";
 import { payment20, payment50, payment100 } from "../../redux/actions";
-import { VStack, useColorMode,Heading } from "@chakra-ui/react";
+import { VStack, useColorMode,Heading, HStack, Text } from "@chakra-ui/react";
 
 
 const Donation = () => {
@@ -23,24 +23,26 @@ const Donation = () => {
   return (
     <VStack>
       <VStack
-        mt={["400px", "250px", "200px", "125px", "125px"]}
+        mt={["250px", "180px", "120px", "110px", "90px"]}
         mb="50px"
         bgColor={colorMode === "dark" ? "black" : "yellow"}
         color={colorMode === "dark" ? "yellow" : "black"}
         className={style.cont}
         borderColor={colorMode === "dark" ? "yellow" : "black"}
-        border="8px solid"
+        border="5px solid"
+        w={["350px","480px","600px","800px","800px"]}
+        h={["1800px","1600px","1600px","900","900"]}
       >
-        <p className={style.ttl}>💵DONACIONES💰</p>
+        <Text fontSize={["25px","30px","40px","50px","50px"]} className={style.ttl}>💵DONACIONES💰</Text>
         <p className={style.msg}>
           Para aportar economicamente al desarrollo del sitio y juntos hacer mas
           contenido y mejoras al espacio HenryGameON
         </p>
         <Heading fontSize="50px">↓↓fichas↓↓</Heading>
-        <div className={style.coins}>
-          <VStack
+        <HStack gap="10px" flexDirection={["column","column","column","row","row"]} w="100%" justify="space-around">
+          <VStack 
             bgColor={colorMode === "dark" ? "black" : "yellow"}
-            border="8px outset"
+            border="2px solid"
             borderColor={colorMode === "dark" ? "yellow" : "black"}
             _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
             fontSize="20px"
@@ -53,7 +55,7 @@ const Donation = () => {
           </VStack>
           <VStack 
           bgColor={colorMode === "dark" ? "black" : "yellow"}
-          border="8px outset"
+          border="2px solid"
           borderColor={colorMode === "dark" ? "yellow" : "black"}
           _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
           fontSize="20px"
@@ -64,7 +66,7 @@ const Donation = () => {
           </VStack>
           <VStack 
           bgColor={colorMode === "dark" ? "black" : "yellow"}
-          border="8px outset"
+          border="2px solid"
           borderColor={colorMode === "dark" ? "yellow" : "black"}
           _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
           fontSize="20px"
@@ -73,9 +75,10 @@ const Donation = () => {
             <h2>Euforia</h2>
             <h1>$100</h1>
           </VStack>
-        </div>
+        </HStack>
         <div className={style.textArea}>
-          Las fichas corren en{" "}
+          <br></br>
+          <p>Las fichas corren en:</p>
           <img className={style.mp} src={mp} alt="mp"></img>👌🔒
         </div>
         <p className={style.textAreaS}>
