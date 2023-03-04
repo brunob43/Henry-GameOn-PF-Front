@@ -146,7 +146,7 @@ export default function ContactUs() {
           )}
           <br></br>
           <VStack>
-            <Button onClick= "handleSubmit()"
+            <Button onClick= ""
               disabled={
                 !Object.keys(error).length && input.message_email !== ""
                   ? false
