@@ -31,7 +31,7 @@ const Donation = () => {
         borderColor={colorMode === "dark" ? "yellow" : "black"}
         border="5px solid"
         w={["350px","480px","600px","800px","800px"]}
-        h={["1800px","1600px","1600px","900px","900px"]}
+        h={["1800px","1600px","1600px","1100px","1100px"]}
       >
         <Text fontSize={["25px","30px","40px","50px","50px"]} className={style.ttl}>💵DONACIONES💰</Text>
         <p className={style.msg}>
