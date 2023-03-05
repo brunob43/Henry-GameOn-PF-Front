@@ -20,6 +20,7 @@ const GameDetail = () =>{
         // dispatch(getDetailFromState(id));
         countViewsGames(id)
     }, [dispatch, id])
+    
     const likeHandler=()=>{
         dispatch(addLikeGame(id,profile.internal_id))
     }
