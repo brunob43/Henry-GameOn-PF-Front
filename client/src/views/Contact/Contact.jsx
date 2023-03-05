@@ -61,29 +61,30 @@ export default function ContactUs() {
 
   return (
   <VStack>  
-    <VStack  mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="100vh" >
+    <VStack  mt={["220px", "160px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="800px" >
     <VStack
        mt="90px"
-      bgColor={colorMode === "dark" ? "white" : "black"}
-      color={colorMode === "dark" ? "black" : "white"}
+      bgColor={colorMode === "dark" ? "black" : "white"}
+      color={colorMode === "dark" ? "white" : "black"}
       borderRadius="15px"
-      h="515"
+      h="550px"
+      border="2px solid black"
     >
-         <Text  p="20px" mt="5px" as="u" >
+         <Text fontSize="25px" p="20px" mt="5px" as="u" >
           Contact Us
           </Text>
         <FormControl letterSpacing={3} p="6" onSubmit={handleSubmit}>
           <FormLabel mt="-2.5" >Issue:</FormLabel>
           <Input
-           color={colorMode === "dark" ? "white" : "black"}
-           bg={colorMode === "dark" ? "black" : "white"}
+           color={colorMode === "dark" ? "black" : "white"}
+           bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
             autoComplete="off"
             type="text"
             name="message_issue"
             placeholder="Escribe tu nombre"
             required
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
 
           {error.issue ? (
@@ -97,15 +98,15 @@ export default function ContactUs() {
 
           <FormLabel mt="-2.5" >Email:</FormLabel>
           <Input
-           color={colorMode === "dark" ? "white" : "black"}
-           bg={colorMode === "dark" ? "black" : "white"}
+           color={colorMode === "dark" ? "black" : "white"}
+           bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
             autoComplete="off"
             type="text"
             name="message_email"
             placeholder="Escribe tu email"
             required
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
           {error.email ? (
             <div>
@@ -127,10 +128,10 @@ export default function ContactUs() {
 
           <FormLabel mt="-2.5">Message:</FormLabel>
           <Textarea
-         color={colorMode === "dark" ? "white" : "black"}
-         bg={colorMode === "dark" ? "black" : "white"}
+         color={colorMode === "dark" ? "black" : "white"}
+         bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
             h="80px"
             id="message"
             name="message_content"
@@ -156,13 +157,13 @@ export default function ContactUs() {
               height="48px"
               width="100px"
               border="2px"
-              borderColor={colorMode === "dark" ? "yellow" : "black"}
+              borderColor={colorMode === "dark" ? "white" : "black"}
               _hover={
                 colorMode === "dark"
-                  ? { color: "black", bg: "yellow" }
-                  : { bg: "black", color: "yellow" }
+                  ? { color: "black", bg: "white" }
+                  : { bg: "black", color: "white" }
               }
-              bg={colorMode === "dark" ? "white" : "yellow"}
+              bg={colorMode === "dark" ? "black" : "white"}
             >
               SEND
             </Button>
