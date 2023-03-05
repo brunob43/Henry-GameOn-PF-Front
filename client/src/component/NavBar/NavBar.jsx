@@ -44,7 +44,7 @@ const NavBar = (props) => {
          zIndex="10"
           w='100%'
           position='fixed'
-         flexDirection={["column", "column", "row"]}
+         flexDirection={["column", "row", "row"]}
          justify="space-between"
 
         bg={colorMode === "dark" ? "black" : "yellow"}

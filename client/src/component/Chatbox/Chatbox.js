@@ -12,10 +12,15 @@ import {
   Input,
   Image,
   Spinner,
-  VStack
+  VStack,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import icon from "../../styles/images/iconopenai.png"
+import icon from "../../styles/images/iconopenai.png";
 
 export default function ChatBox() {
   const [animalInput, setAnimalInput] = useState("");
@@ -23,10 +28,10 @@ export default function ChatBox() {
   const [engResult, setEngResult] = useState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-  const [loading,setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
 
   async function onSubmit(event) {
-    setLoading(true)
+    setLoading(true);
     event.preventDefault();
     try {
       const response = await fetch(
@@ -95,7 +100,7 @@ export default function ChatBox() {
           }
 
           setResult(data.result);
-          setLoading(false)
+          setLoading(false);
           console.log(data.result, "respuesta en español");
         } catch (error) {
           // Consider implementing your own error handling logic here
@@ -116,10 +121,17 @@ export default function ChatBox() {
 
   return (
     <div>
-
       <>
-        <Button zIndex="10" position="fixed" right="15px" bottom="15px" ref={btnRef} colorScheme="teal" onClick={onOpen}>
-         <Image mr="3px" w="20px" h="20px" src={icon} ></Image>ChatGPT
+        <Button
+          zIndex="10"
+          position="fixed"
+          right="15px"
+          bottom="15px"
+          ref={btnRef}
+          colorScheme="teal"
+          onClick={onOpen}
+        >
+          <Image mr="3px" w="20px" h="20px" src={icon}></Image>ChatGPT
         </Button>
         <Drawer
           isOpen={isOpen}
@@ -133,24 +145,50 @@ export default function ChatBox() {
             <DrawerHeader>↓↓haz tu pregunta↓↓</DrawerHeader>
 
             <DrawerBody>
-            <form onSubmit={onSubmit}>
-          <Input
-            type="text"
-            name="animal"
-            placeholder="Enter an question"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <Input padding="5px" bg="#10a37f" mt="25px" type="submit" value="SEND / ENVIAR" />
-        </form>
-        {loading?<VStack aling="center"><Spinner mt="20px" thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl'/> </VStack>:<div>
-          <div className={styles.result}><h1>ANSWER IN ENGLISH:</h1>{engResult}</div>
-          
-          <div className={styles.result}><h1>RESPUESTA EN ESPAÑOL:</h1>{result}</div>
-         </div>
-        }
-          
-        
+              <form onSubmit={onSubmit}>
+                <Input
+                  type="text"
+                  name="animal"
+                  placeholder="Enter an question"
+                  value={animalInput}
+                  onChange={(e) => setAnimalInput(e.target.value)}
+                />
+                <Input
+                  padding="5px"
+                  bg="#10a37f"
+                  mt="25px"
+                  type="submit"
+                  value="SEND / ENVIAR"
+                />
+              </form>
+              {loading ? (
+                <VStack aling="center">
+                  <Spinner
+                    mt="20px"
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="blue.500"
+                    size="xl"
+                  />{" "}
+                </VStack>
+              ) : (
+                <Tabs mt="10px">
+                  <TabList justifyContent="center">
+                    <Tab>ESPAÑOL</Tab>
+                    <Tab>ENGLISH</Tab>
+                  </TabList>
+
+                  <TabPanels>
+                    <TabPanel>
+                      <p>{result}</p>
+                    </TabPanel>
+                    <TabPanel>
+                      <p>{engResult}</p>
+                    </TabPanel>
+                  </TabPanels>
+                </Tabs>
+              )}
             </DrawerBody>
 
             <DrawerFooter>

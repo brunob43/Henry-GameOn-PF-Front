@@ -11,7 +11,7 @@ import ts from './images/ts.png'
 import style from './Memory2.module.css'
 
 const Memory2 = () =>{
-  document.addEventListener('DOMContentLoaded', () => {
+  // document.addEventListener('DOMContentLoaded', () => {
     //card options
     const cardArray = [
       {
@@ -98,12 +98,12 @@ const Memory2 = () =>{
         card.setAttribute('data-id', i)
         card.setAttribute('id', "cards")
         card.addEventListener('click', flipCard)
-        grid.appendChild(card)
+        document.querySelector('#grid').appendChild(card)
       }
-      const cards = document.querySelectorAll('#cards')
-      if( cards.length !== 16){
-      window.location.reload();
-      }
+      // const cards = document.querySelectorAll('#cards')
+      // if( cards.length !== 16){
+      // window.location.reload();
+      // }
     }
 
 
@@ -156,18 +156,18 @@ const Memory2 = () =>{
         setTimeout(checkForMatch, 500)
       }
     }
-        
-    createBoard()
-  })
+    window.setTimeout(createBoard, 600)   
+    
+  // })
 
   const restart= (event)=>{
-    window.location.reload();
+    window.location.reload()
   };
       
   return(
     <div className={style.main}>
       <div className={style.buttons}>
-        <button className={style.button} onClick={restart}>Start New Game</button>
+        {/* <button className={style.button} onClick={restart}>Start New Game</button> */}
         <button className={style.button} onClick={restart}>restart</button>
       </div>
 
