@@ -40,7 +40,7 @@ const GameDetail = () =>{
         <Box className={style.title} mt= {["400px", "250px", "200px", "120px", "120px"]}>
             {game[0].name} 
         </Box>
-        {likedGames.includes(game.name)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}
+        {likedGames.includes(game[0].name)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}
 
         {/* {profile&&likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
         
