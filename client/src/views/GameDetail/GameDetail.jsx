@@ -28,6 +28,7 @@ const GameDetail = () =>{
     }
     console.log(profile, likedGames,"perfil y gustados")
     const game = gamesArray.filter((game) => game.id.toString() === id)
+    console.log(game)
     console.log(game.name,"gamename")
     console.log(likedGames, "gameliked")
 
