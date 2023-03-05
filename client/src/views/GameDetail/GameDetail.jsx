@@ -28,6 +28,8 @@ const GameDetail = () =>{
     }
     console.log(profile, likedGames,"perfil y gustados")
     const game = gamesArray.filter((game) => game.id.toString() === id)
+    console.log(game.name,"gamename")
+    console.log(likedGames, "gameliked")
 
     return(
         
@@ -37,10 +39,11 @@ const GameDetail = () =>{
         <Box className={style.title} mt= {["400px", "250px", "200px", "120px", "120px"]}>
             {game[0].name} 
         </Box>
+        {likedGames.includes(game.name)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}
 
-        {profile&&likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
+        {/* {profile&&likedGames.includes(game.name)&&<Button onClick={dislikeHandler}>Quitar Like</Button>}
         
-        {profile&&!likedGames.includes(game.name)&&<Button onClick={likeHandler}>Dar Like</Button>}
+        {profile&&!likedGames.includes(game.name)&&<Button onClick={likeHandler}>Dar Like</Button>} */}
         
         <HStack >
             {game.length === 1 
