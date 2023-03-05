@@ -2,13 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {VStack, Heading, HStack, Image, Text, Button} from '@chakra-ui/react'
+import {VStack, Heading, HStack, Image, Text, Button, Box} from '@chakra-ui/react'
 import { getDocDetailFromState, countViewsDocs, addLikeDoc, removeLikeDoc } from "../../redux/actions";
 
     const DocDetail = () =>{
         const { id } = useParams();
         const dispatch = useDispatch();
-       
+        const profile = useSelector((state)=>state.profile)
+        const likedDocs = useSelector((state)=>state.docsProfile)
         useEffect(()=>{
             dispatch(getDocDetailFromState(id));
             countViewsDocs(id)
@@ -43,7 +44,7 @@ import { getDocDetailFromState, countViewsDocs, addLikeDoc, removeLikeDoc } from
                   <Text fontSize="18px">{docDetail.doc_content}</Text>
                     </VStack>
               
-                    {Object.keys(profile).length&&<Box>{!likedDocs.includes(doc[0].id)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}</Box>}
+                    {Object.keys(profile).length&&<Box>{!likedDocs.includes(doc_id)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}</Box>}
         
               </VStack>
               :
