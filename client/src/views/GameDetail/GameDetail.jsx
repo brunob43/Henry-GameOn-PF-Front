@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { countViewsGames} from "../../redux/actions";
@@ -10,7 +10,6 @@ import bgdark from "../../styles/images/fondogames.jpg";
 
 
 const GameDetail = () =>{
-    const [recargar, setRecargar]=useState(false)
     const { colorMode } = useColorMode();
     const { id } = useParams();
     const dispatch = useDispatch();
@@ -32,13 +31,7 @@ const GameDetail = () =>{
     // console.log(game)
     // console.log(game[0].name,"gamename")
     // console.log(likedGames, "gameliked")
-    const recargarGame =()=>{
-        if(!recargar){
-            setRecargar(true)
-        }else{
-            setRecargar(false)
-        }
-    }
+
     return(
         
         <VStack bgImage={colorMode === "dark" ? bgdark : bglight} className={style.main}>
@@ -49,12 +42,10 @@ const GameDetail = () =>{
         </Box>
         {/* {likedGames.includes(game[0].name)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>} */}
 
-        <button onClick={recargarGame}>Recargar</button>
+        
         <HStack >
             {game.length === 1 
-            ? <div recargar={recargar}>
-               {game[0].game}
-            </div>
+            ? game[0].game
             : console.log(id)
             }
         </HStack>
