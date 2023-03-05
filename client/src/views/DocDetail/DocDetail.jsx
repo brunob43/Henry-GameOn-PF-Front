@@ -10,6 +10,8 @@ import { getDocDetailFromState, countViewsDocs, addLikeDoc, removeLikeDoc } from
         const dispatch = useDispatch();
         const profile = useSelector((state)=>state.profile)
         const likedDocs = useSelector((state)=>state.docsProfile)
+        const docDetail = useSelector((state) => state.docDetail);
+        const {doc_id} = docDetail;
         useEffect(()=>{
             dispatch(getDocDetailFromState(id));
             countViewsDocs(id)
@@ -22,20 +24,20 @@ import { getDocDetailFromState, countViewsDocs, addLikeDoc, removeLikeDoc } from
             dispatch(removeLikeDoc(id,profile.internal_id))
         }
 
-           const docDetail = useSelector((state) => state.docDetail);
-        
-          const {doc_id} = docDetail;
+        console.log(id, "idParams")
+        console.log(doc_id, "doc_id")
 
            return (
         <VStack >
            <Image mt={["170px", "100px", "40px", "40px", "40px"]} boxSize='525px' objectFit='cover' w="100%"   alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
             <HStack  >
-            {  (id === doc_id) ?
+            {id == doc_id ?
           
 
             <VStack >
                 <VStack>
                 <Text textAlign="center" fontSize="60px" fontWeight="bold" >{docDetail.doc_name}</Text>
+                    {Object.keys(profile).length&&<Box>{!likedDocs.includes(doc_id)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}</Box>}
                 </VStack>
                    
                     <VStack w="70%" p="20px" align="flex-start">
@@ -44,7 +46,7 @@ import { getDocDetailFromState, countViewsDocs, addLikeDoc, removeLikeDoc } from
                   <Text fontSize="18px">{docDetail.doc_content}</Text>
                     </VStack>
               
-                    {Object.keys(profile).length&&<Box>{!likedDocs.includes(doc_id)?<Button onClick={likeHandler}>Dar Like</Button>:<Button onClick={dislikeHandler}>Quitar Like</Button>}</Box>}
+                   
         
               </VStack>
               :
