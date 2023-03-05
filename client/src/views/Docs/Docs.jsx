@@ -1,5 +1,5 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterByNameDocs,
@@ -13,10 +13,19 @@ import {
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
 import { NavLink } from "react-router-dom";
-import { HStack, VStack, Button, useColorMode, Select, Text, Box } from "@chakra-ui/react";
+import { HStack, VStack, Button, useColorMode, Select, Text, Box, useDisclosure } from "@chakra-ui/react";
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
 import {RepeatIcon} from "@chakra-ui/icons"
+import { useAuth0 } from "@auth0/auth0-react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+} from "@chakra-ui/modal";
 
 const Docs = () => {
   const { colorMode } = useColorMode();
@@ -24,6 +33,9 @@ const Docs = () => {
   const error = useSelector((state) => state.errorDocs);
   const allDocs = useSelector((state) => state.docs);
   const topics = useSelector((state) => state.docTopics);
+  const {isAuthenticated, loginWithRedirect} = useAuth0();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
 
   const [filterSelect, setFilterSelect] = useState({
     topic: [],
@@ -47,6 +59,11 @@ const Docs = () => {
 
   //------------------------------------------HANDLERS-------------------------------------------
   let disabledSelectTopic = !!filterSelect.topic.length;
+
+  const LogInHandler = (event)=>{
+    alert('please log in')
+    loginWithRedirect()
+  }
 
   const handleFilterTopic = (event) => {
     const value = event.target.value;
@@ -151,7 +168,8 @@ const Docs = () => {
         <Button onClick={reload}><RepeatIcon/></Button>
         </HStack>
       <HStack flexDirection={["column","column","column","row","row"]} pt="10px" w={["100%","100%","100%","30%","30%"]} justify="space-around" align="flex-start">
-        <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
+        {isAuthenticated ? (
+          <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
           <NavLink to="/docs/share">
             <Button
               variant="ghost"
@@ -169,6 +187,51 @@ const Docs = () => {
             </Button>
           </NavLink>
         </Box>
+        ):(
+          <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
+            <Button
+              variant="ghost"
+              _hover={
+                colorMode === "dark"
+                  ? { bg: "yellow", color: "black" }
+                  : { bg: "black", color: "yellow" }
+              }
+              border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
+              w="120px"
+              onClick={onOpen}
+            >
+              CREATE DOC
+            </Button>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                Want this content?
+              </AlertDialogHeader>
+
+              <AlertDialogBody>
+                You need to be logged in to access this content
+              </AlertDialogBody>
+
+              <AlertDialogFooter>
+                <Button ref={cancelRef} onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button colorScheme="yellow" onClick={LogInHandler} ml={3}>
+                  Log In
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
+
+        </Box>
+        )}
 
         <VStack h="100px" w={["100%","100%","100%","30%"]} justifyContent="flex-start">
           <Select
