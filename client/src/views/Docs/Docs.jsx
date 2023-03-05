@@ -13,7 +13,7 @@ import {
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
 import { NavLink } from "react-router-dom";
-import { HStack, VStack, Button, useColorMode, Select, Text } from "@chakra-ui/react";
+import { HStack, VStack, Button, useColorMode, Select, Text, Box } from "@chakra-ui/react";
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
 import {RepeatIcon} from "@chakra-ui/icons"
@@ -125,7 +125,7 @@ const Docs = () => {
               }>
         <VStack pt="10px" w={["100%","100%","30%"]} justify="center">
           <Select
-          w="120px"
+          w="200px"
             
             _hover={
               colorMode === "dark"
@@ -144,14 +144,14 @@ const Docs = () => {
             <option value="unpopular">Unpopular</option>
           </Select>
         </VStack>
-        <HStack pt="10px">
+        <VStack pt="10px" w={["100%","100%","30%"]} justify="center">
         <SearchBarDoc />
-        </HStack>
+        </VStack>
         <HStack pt="10px">
         <Button onClick={reload}><RepeatIcon/></Button>
         </HStack>
-      <HStack pt="10px" w="250px" justify="space-around" align="flex-start">
-        <div>
+      <HStack flexDirection={["column","column","column","row","row"]} pt="10px" w={["100%","100%","100%","30%","30%"]} justify="space-around" align="flex-start">
+        <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
           <NavLink to="/docs/share">
             <Button
               variant="ghost"
@@ -163,13 +163,14 @@ const Docs = () => {
               border="1px"
               borderColor={colorMode === "dark" ? "yellow" : "black"}
               w="120px"
+              
             >
               CREATE DOC
             </Button>
           </NavLink>
-        </div>
+        </Box>
 
-        <vStack w="200px" justifyContent="flex-start">
+        <VStack h="100px" w={["100%","100%","100%","30%"]} justifyContent="flex-start">
           <Select
             _hover={
               colorMode === "dark"
@@ -181,6 +182,7 @@ const Docs = () => {
             disabled={disabledSelectTopic}
             onChange={handleFilterTopic}
             defaultValue="all"
+            w={["200px","200px","200px","120px","120px"]}
           >
             <option value="all">All Topics</option>
             {topics.map((topic) => {
@@ -217,7 +219,7 @@ const Docs = () => {
               </div>
             );
           })}
-        </vStack>
+        </VStack>
       </HStack>
       </HStack>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import {VStack, Heading, HStack, Image, Text, Stack} from '@chakra-ui/react'
+import {VStack, Heading, HStack, Image, Text} from '@chakra-ui/react'
 import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
 
     const DocDetail = () =>{
@@ -22,7 +22,7 @@ import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
         <VStack >
            <Image mt={["170px", "100px", "40px", "40px", "40px"]} boxSize='525px' objectFit='cover' w="100%"   alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
             <HStack  >
-            {  (id == doc_id) ?
+            {  (id === doc_id) ?
           
 
             <VStack >

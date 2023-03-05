@@ -12,11 +12,18 @@ import {
 } from "../../redux/actions";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
-import { useColorMode, HStack, VStack, Select, Button,Text } from "@chakra-ui/react";
-import {CloseIcon} from '@chakra-ui/icons'
+import {
+  useColorMode,
+  HStack,
+  VStack,
+  Select,
+  Button,
+  Text,
+} from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
-import {RepeatIcon} from "@chakra-ui/icons"
+import { RepeatIcon } from "@chakra-ui/icons";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
 const Games = () => {
@@ -34,67 +41,65 @@ const Games = () => {
     dificulty: [],
   });
 
-
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
     }
   }, [dispatch, allGames]);
 
-  const reload = () =>{
+  const reload = () => {
     setFilterSelect({
       topic: [],
       dificulty: [],
     });
-    dispatch(getGames())
-    dispatch (resetErrorGames())
-}
+    dispatch(getGames());
+    dispatch(resetErrorGames());
+  };
 
-//------------------------------------------HANDLERS-------------------------------------------
+  //------------------------------------------HANDLERS-------------------------------------------
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
 
-    const handleFilterTopic = (event) => {
-        const value = event.target.value;
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByTopicGames(value));
+  const handleFilterTopic = (event) => {
+    const value = event.target.value;
+    if (value === "all") {
+      dispatch(getGames());
+    } else {
+      dispatch(filterByTopicGames(value));
 
-        setFilterSelect({
-            ...filterSelect,
-            topic: [value],
-        });            
-        }
-    };
-
-    const handleFilterDificulty = (event) => {
-        const value = event.target.value
-
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByDifficultyGames(value));
-
-        setFilterSelect({
-            ...filterSelect,
-            dificulty: [value],
-        });            
-        }
-
-    };
-
-    const handleDeleteFilter = (event) => {
-            setFilterSelect({
-                topic: [],
-                dificulty: [],
-            });
-            // window.location.reload();        
-            dispatch(getGames());
-            dispatch (resetErrorGames())
-        // } 
+      setFilterSelect({
+        ...filterSelect,
+        topic: [value],
+      });
     }
+  };
+
+  const handleFilterDificulty = (event) => {
+    const value = event.target.value;
+
+    if (value === "all") {
+      dispatch(getGames());
+    } else {
+      dispatch(filterByDifficultyGames(value));
+
+      setFilterSelect({
+        ...filterSelect,
+        dificulty: [value],
+      });
+    }
+  };
+
+  const handleDeleteFilter = (event) => {
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    // window.location.reload();
+    dispatch(getGames());
+    dispatch(resetErrorGames());
+    // }
+  };
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;
@@ -120,7 +125,12 @@ const Games = () => {
       <VStack>
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px" onClick={handleDeleteFilter}>
+          <Button
+            fontSize="25px"
+            h="60px"
+            w="300px"
+            onClick={handleDeleteFilter}
+          >
             Return to Games
           </Button>
         </div>
@@ -129,25 +139,33 @@ const Games = () => {
   }
 
   return (
-    <VStack  bgImage={colorMode === "dark" ? bgdark : bglight}>
-      <HStack mt={["170px", "100px", "40px", "40px", "40px"]}
-         color={colorMode === "dark" ? "yellow" : "black"}
+    <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
+      <HStack
+        mt={["170px", "100px", "40px", "40px", "40px"]}
+        color={colorMode === "dark" ? "yellow" : "black"}
       >
-        <Text 
-        fontSize={["70px","90px"]}
-        fontFamily= "I-pixel-u"
-        mt="80px"
-        mb="30px"
-        bg={
-          colorMode === "dark"
-            ? { color: "black", bg: "yellow" }
-            : { bg: "black", color: "yellow" }
-        }
-        letterSpacing= "10px">GAMES</Text>
+        <Text
+          fontSize={["70px", "90px"]}
+          fontFamily="I-pixel-u"
+          mt="20"
+          bg={
+            colorMode === "dark"
+              ? { color: "black", bg: "yellow" }
+              : { bg: "black", color: "yellow" }
+          }
+          letterSpacing="10px"
+        >
+          GAMES
+        </Text>
       </HStack>
-     <HStack flexDirection={["column","column","column","row"]} alignItems={["center","center","center","flex-start"]} w="100%" justify="center">
-          <VStack pt="10px" w={["100%","100%","30%"]} justify="center">         
-           <Select 
+      <HStack
+        flexDirection={["column", "column", "column", "row"]}
+        alignItems={["center", "center", "center", "flex-start"]}
+        w="100%"
+        justify="center"
+      >
+        <VStack pt="10px" w={["100%", "100%", "30%"]} justify="center">
+          <Select
             w="200px"
             fontWeight="bold"
             _hover={
@@ -159,26 +177,33 @@ const Games = () => {
             borderColor={colorMode === "dark" ? "yellow" : "black"}
             onChange={handleFilterOrder}
             defaultValue="default"
-           >
+          >
             <option value="default">Default</option>
             <option value="asc">A-Z</option>
             <option value="des">Z-A</option>
             <option value="popular">Popular</option>
             <option value="unpopular">Unpopular</option>
-           </Select>
-          </VStack>
+          </Select>
+        </VStack>
 
-          <HStack pt="10px" w={["100%","100%","30%"]} justify="center">
-           <SearchBarGame />
-           </HStack>
-           <HStack pt="10px">
-           <Button onClick={reload}><RepeatIcon/></Button>
-           </HStack>
+        <HStack pt="10px" w={["100%", "100%", "30%"]} justify="center">
+          <SearchBarGame />
+        </HStack>
+        <HStack pt="10px">
+          <Button onClick={reload}>
+            <RepeatIcon />
+          </Button>
+        </HStack>
 
-        <HStack pt="10px" justify="center" align="flex-start" w={["100%","100%","30%"]}>
+        <HStack
+          pt="10px"
+          justify="center"
+          align="flex-start"
+          w={["100%", "100%", "30%"]}
+        >
           <VStack w="200px" justifyContent="flex-start">
             <Select
-            w="130px"
+              w="130px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -217,7 +242,8 @@ const Games = () => {
                       key={topic}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{topic}
+                      <CloseIcon />
+                      --{topic}
                     </Button>
                   </div>
                 </div>
@@ -227,7 +253,7 @@ const Games = () => {
 
           <VStack w="200px" justifyContent="flex-start">
             <Select
-            w="145px"
+              w="145px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -266,7 +292,8 @@ const Games = () => {
                       key={dificulty}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{dificulty.toUpperCase()}
+                      <CloseIcon />
+                      --{dificulty.toUpperCase()}
                     </Button>
                   </div>
                 </div>

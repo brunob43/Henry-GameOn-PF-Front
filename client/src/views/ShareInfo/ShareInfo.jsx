@@ -48,13 +48,14 @@ const ShareInfo = () => {
 
   return (
 <VStack>  
-    <VStack mt={["300px", "240px", "100px", "75px", "75px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="100vh" >
+    <VStack mt={["220px", "160px", "80px", "85px", "85px"]} bgImage={fondo}  bgSize="cover" bgPosition="center" w="100%" h="800px" >
       <VStack
         mt="50px"
-        bgColor={colorMode === "dark" ? "white" : "black"}
-        color={colorMode === "dark" ? "black" : "white"}
+        bgColor={colorMode === "dark" ? "black" : "white"}
+        color={colorMode === "dark" ? "white" : "black"}
         borderRadius="15px"
-        h="610"
+        h="680px"
+        border="2px solid black"
       >
         <Text  p="20px" mt="5px" as="u" fontSize="25px">
           Share your info
@@ -62,35 +63,37 @@ const ShareInfo = () => {
         <FormControl letterSpacing={3} p="6" onSubmit={submitHandler}>
           <FormLabel mt="-2.5" >Author:</FormLabel>
           <Input
-          color={colorMode === "dark" ? "white" : "black"}
-          bg={colorMode === "dark" ? "black" : "white"}
+          color={colorMode === "dark" ? "black" : "white"}
+          bg={colorMode === "dark" ? "white" : "black"}
             type="text"
             name="doc_author"
             placeholder="Escribe tu nombre"
             value={form.doc_author}
             onChange={changeHandler}
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
           
           <FormLabel mt="5px">Image(Optional):</FormLabel>
           <Input
-          color={colorMode === "dark" ? "white" : "black"}
-          bg={colorMode === "dark" ? "black" : "white"}
+          color={colorMode === "dark" ? "black" : "white"}
+          bg={colorMode === "dark" ? "white" : "black"}
             autoComplete="off"
             type="url"
             name="doc_image"
             placeholder="Agrega url de imagen"
             value={form.doc_image}
             onChange={changeHandler}
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
+<Button>
 
           <UploadWidget formWidget={formWidget}/>
+</Button>
 
           <FormLabel mt="5px">Name:</FormLabel>
           <Input
-           color={colorMode === "dark" ? "white" : "black"}
-           bg={colorMode === "dark" ? "black" : "white"}
+           color={colorMode === "dark" ? "black" : "white"}
+           bg={colorMode === "dark" ? "white" : "black"}
             autoComplete="off"
             type="text"
             name="doc_name"
@@ -98,13 +101,13 @@ const ShareInfo = () => {
             required
             value={form.doc_name}
             onChange={changeHandler}
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
 
           <FormLabel mt="5px">Topic:</FormLabel>
           <Input
-             color={colorMode === "dark" ? "white" : "black"}
-             bg={colorMode === "dark" ? "black" : "white"}
+             color={colorMode === "dark" ? "black" : "white"}
+             bg={colorMode === "dark" ? "white" : "black"}
             autoComplete="off"
             type="text"
             name="doc_topic"
@@ -112,14 +115,14 @@ const ShareInfo = () => {
             required
             value={form.doc_topic}
             onChange={changeHandler}
-            w="367px"
+            w={["280px","380px","500px","500px","500px"]}
           />
 
           <FormLabel mt="5px">Content:</FormLabel>
           <Textarea
-            color={colorMode === "dark" ? "white" : "black"}
-            bg={colorMode === "dark" ? "black" : "white"}
-          w="367px"
+            color={colorMode === "dark" ? "black" : "white"}
+            bg={colorMode === "dark" ? "white" : "black"}
+          w={["280px","380px","500px","500px","500px"]}
           h="80px"
             id="content"
             name="doc_content"
@@ -134,13 +137,13 @@ const ShareInfo = () => {
              height="48px"
              width="100px"
              border="2px"
-             borderColor={colorMode === "dark" ? "yellow" : "black"}
+             borderColor={colorMode === "dark" ? "white" : "black"}
              _hover={
                colorMode === "dark"
-                 ? { color: "black", bg: "yellow" }
-                 : { bg: "black", color: "yellow" }
+                 ? { color: "black", bg: "white" }
+                 : { bg: "black", color: "white" }
              }
-             bg={colorMode === "dark" ? "white" : "yellow"}
+             bg={colorMode === "dark" ? "black" : "white"}
              >
               POST
             </Button>
