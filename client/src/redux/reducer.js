@@ -480,13 +480,15 @@ const rootReducer = (state = initialState, action) => {
         return {
           ...state, 
           profile: action.payload,
-          gamesProfile:action.payload.Games.map((g)=>g.game_name),
-          docsProfile:action.payload.Docs.map((d)=>d.doc_name)
+          gamesProfile:action.payload.Games.map((g)=>g.game_id),
+          docsProfile:action.payload.Docs.map((d)=>d.doc_id)
         }
     case RESET_PROFILE:
         return{
           ...state,
-        profile:{}
+        profile:{},
+        gamesProfile:[],
+        docsProfile:[]
               }
 
     default: return {...state}
