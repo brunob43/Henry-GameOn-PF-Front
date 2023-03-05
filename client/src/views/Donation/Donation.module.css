@@ -19,7 +19,7 @@
 .msg {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 16px;
 }
 
 .textArea {
@@ -31,23 +31,23 @@
   text-align: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 .textAreaS {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .imgcoin {
-  width: 150px;
+  width: 90px;
   height: auto;
 }
 
 .coin {
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 177px;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
