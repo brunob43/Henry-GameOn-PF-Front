@@ -11,7 +11,6 @@ import npm from './images/npm.png'
 import style from './Memory.module.css'
 
 const Memory = () =>{
-  document.addEventListener('DOMContentLoaded', () => {
     //card options
     const cardArray = [
       {
@@ -98,7 +97,7 @@ const Memory = () =>{
         card.setAttribute('data-id', i)
         card.setAttribute('id', "cards")
         card.addEventListener('click', flipCard)
-        grid.appendChild(card)
+        document.querySelector('#grid').appendChild(card)
       }
       const cards = document.querySelectorAll('#cards')
       if( cards.length !== 16){
@@ -157,8 +156,7 @@ const Memory = () =>{
       }
     }
         
-    createBoard()
-  })
+    window.setTimeout(createBoard, 600)  
 
   const restart= (event)=>{
     window.location.reload();
@@ -167,7 +165,7 @@ const Memory = () =>{
   return(
     <div className={style.main}>
       <div className={style.buttons}>
-        <button className={style.button} onClick={restart}>Start New Game</button>
+        {/* <button className={style.button} onClick={restart}>Start New Game</button> */}
         <button className={style.button} onClick={restart}>restart</button>
       </div>
       
