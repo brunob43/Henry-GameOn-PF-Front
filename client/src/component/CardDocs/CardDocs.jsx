@@ -70,6 +70,7 @@ const CardDocs = ({ name, image, id, topic, author })=> {
             </AlertDialogContent>
           </AlertDialogOverlay>
         </AlertDialog>
+        <Link className={style.link}>
           <img src={image} alt="imagen card" className={style.image}/>
           <div className={style.name}>{name}</div>
           <div className={style.details}>
@@ -80,6 +81,7 @@ const CardDocs = ({ name, image, id, topic, author })=> {
               {author.toUpperCase()}
             </div>
           </div>
+        </Link> 
       </Box>
       </VStack>
       )
