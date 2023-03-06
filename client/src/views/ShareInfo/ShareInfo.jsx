@@ -133,35 +133,36 @@ const ShareInfo = () => {
               w={["180px", "280px", "400px", "400px", "400px"]}
             />
 
-            <FormLabel mt="5px">Content:</FormLabel>
-            <Textarea
-              color={colorMode === "dark" ? "black" : "white"}
-              bg={colorMode === "dark" ? "white" : "black"}
-              w={["180px", "280px", "400px", "400px", "400px"]}
-              h="80px"
-              id="content"
-              name="doc_content"
-              required
-              value={form.doc_content}
-              onChange={changeHandler}
-            ></Textarea>
-            <VStack mt="5px">
-              <Button
-                marginTop="20px"
-                size="md"
-                height="48px"
-                width="100px"
-                border="2px"
-                borderColor={colorMode === "dark" ? "white" : "black"}
-                _hover={
-                  colorMode === "dark"
-                    ? { color: "black", bg: "white" }
-                    : { bg: "black", color: "white" }
-                }
-                bg={colorMode === "dark" ? "black" : "white"}
-              >
-                POST
-              </Button>
+          <FormLabel mt="5px">Content:</FormLabel>
+          <Textarea
+            color={colorMode === "dark" ? "black" : "white"}
+            bg={colorMode === "dark" ? "white" : "black"}
+          w={["280px","380px","500px","500px","500px"]}
+          h="80px"
+            id="content"
+            name="doc_content"
+            required
+            value={form.doc_content}
+            onChange={changeHandler}
+          ></Textarea>
+           <VStack mt="5px">
+            <Button  
+             type="submit"
+             marginTop="20px"
+             size="md"
+             height="48px"
+             width="100px"
+             border="2px"
+             borderColor={colorMode === "dark" ? "white" : "black"}
+             _hover={
+               colorMode === "dark"
+                 ? { color: "black", bg: "white" }
+                 : { bg: "black", color: "white" }
+             }
+             bg={colorMode === "dark" ? "black" : "white"}
+             >
+              POST
+            </Button>
             </VStack>
           </FormControl>
         </VStack>
