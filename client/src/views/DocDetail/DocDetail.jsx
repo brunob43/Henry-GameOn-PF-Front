@@ -64,9 +64,9 @@ const DocDetail = () => {
               {Object.keys(profile).length && (
                 <Box>
                   {!likedDocs.includes(doc_id) ? (
-                    <Button onClick={likeHandler}>Dar Like</Button>
+                    <Button onClick={likeHandler}>Like👍🏼</Button>
                   ) : (
-                    <Button onClick={dislikeHandler}>Quitar Like</Button>
+                    <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
                   )}
                 </Box>
               )}
