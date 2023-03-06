@@ -2,11 +2,29 @@ import style from "./Donation.module.css";
 import coin from "../../styles/images/coin.png";
 import mp from "../../styles/images/Mercado-Pago.jpg";
 import { payment20, payment50, payment100 } from "../../redux/actions";
-import { VStack, useColorMode,Heading, HStack, Text } from "@chakra-ui/react";
+import { VStack, useColorMode,Heading, HStack, Text, Button, useDisclosure } from "@chakra-ui/react";
+import { useAuth0 } from "@auth0/auth0-react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+} from "@chakra-ui/modal";
+import { useRef } from "react";
 import bgdark from "../assets/imagen/darkdonation.jpg"
 import bglight from "../assets/imagen/lightdonation.jpg"
 const Donation = () => {
   const { colorMode } = useColorMode();
+  const {isAuthenticated, loginWithRedirect} = useAuth0();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
+
+  const LogInHandler = (event)=>{
+    alert('please log in')
+    loginWithRedirect()
+  }
 
   const pay20 = (e) => {
     payment20()();
@@ -47,7 +65,7 @@ const Donation = () => {
             borderColor={colorMode === "dark" ? "yellow" : "black"}
             _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
             fontSize="16px"
-            onClick={pay20}
+            onClick={isAuthenticated ? pay20 : onOpen}
             className={style.coin}
           >
             <img className={style.imgcoin} src={coin} alt="coin 20"></img>
@@ -60,7 +78,7 @@ const Donation = () => {
           borderColor={colorMode === "dark" ? "yellow" : "black"}
           _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
           fontSize="16px"
-          onClick={pay50} className={style.coin}>
+          onClick={isAuthenticated ? pay50 : onOpen} className={style.coin}>
             <img className={style.imgcoin} src={coin} alt="coin 50"></img>
             <h2>Manón</h2>
             <h1>$50</h1>
@@ -71,11 +89,37 @@ const Donation = () => {
           borderColor={colorMode === "dark" ? "yellow" : "black"}
           _hover={colorMode === "dark" ? {bg:"rgb(180, 168, 0);", color:"black"} : {bg:"rgba(27, 27, 0, 0.781);", color:"yellow"}}
           fontSize="16px"
-          onClick={pay100} className={style.coin}>
+          onClick={isAuthenticated ? pay100 : onOpen} className={style.coin}>
             <img className={style.imgcoin} src={coin} alt="coin 100"></img>
             <h2>Euforia</h2>
             <h1>$100</h1>
           </VStack>
+          <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                Want this content?
+              </AlertDialogHeader>
+
+              <AlertDialogBody>
+                You need to be logged in to access this content
+              </AlertDialogBody>
+
+              <AlertDialogFooter>
+                <Button ref={cancelRef} onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button colorScheme="yellow" onClick={LogInHandler} ml={3}>
+                  Log In
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
         </HStack>
         <div className={style.textArea}>
           <br></br>

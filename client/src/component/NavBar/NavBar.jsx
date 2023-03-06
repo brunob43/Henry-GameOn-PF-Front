@@ -44,7 +44,7 @@ const NavBar = (props) => {
          zIndex="10"
           w='100%'
           position='fixed'
-         flexDirection={["column", "column", "row"]}
+         flexDirection={["column", "row", "row"]}
          justify="space-between"
 
         bg={colorMode === "dark" ? "black" : "yellow"}
@@ -63,7 +63,7 @@ const NavBar = (props) => {
         </a>
 
         <HStack flexDirection={["column", "column", "column", "row", "row"]}>
-          <HStack flexDirection={["column", "row", "row", "row", "row"]}>
+          <HStack>
             <NavLink to="/">
               <Button colorScheme="black" variant="link" pr="3" pl="3">
                 HOME
@@ -82,7 +82,7 @@ const NavBar = (props) => {
               </Button>
             </NavLink>
           </HStack>
-          <HStack flexDirection={["column", "row", "row", "row", "row"]}>
+          <HStack>
             <NavLink to="/about">
               <Button colorScheme="black" variant="link" pr="3" pl="3">
                 ABOUT US
