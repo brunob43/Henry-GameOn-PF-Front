@@ -76,11 +76,11 @@ const CardDocs = ({ name, image, id, topic, author })=> {
           <div className={style.details}>
             <Stack direction="row" h="30px" >
             <div className={style.topic}>
-              {topic}
+             Topic: {topic}
             </div>
             <Divider orientation="vertical" />
             <div className={style.author}>
-              {author.toUpperCase()}
+             Author: {author.toUpperCase()}
             </div>
             </Stack>
           </div>

@@ -70,9 +70,9 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
         <div className={style.name}>{name}</div>
         <div className={style.details}>
           <Stack direction="row" h="30px" >
-          <div className={style.topic}>{topic}</div>
+          <div className={style.topic}>Topic: {topic}</div>
           <Divider orientation="vertical"/>
-          <div className={style.dificulty}>{difficulty.toUpperCase()}</div>
+          <div className={style.dificulty}>Difficulty: {difficulty.toUpperCase()}</div>
           </Stack>
         </div>
         </Link>
