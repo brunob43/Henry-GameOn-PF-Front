@@ -15,11 +15,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileCreation } from "../Utils/utils";
 import { sendProfile, resetProfile } from "../../redux/actions";
-<<<<<<< HEAD
-=======
 import LoginButton from "../../views/Auth/Login/Login";
 import ProfileButton from "../ProfileButton/ProfileButton";
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
 
 const NavBar = (props) => {
   const { user, isAuthenticated } = useAuth0();
@@ -43,14 +40,6 @@ const NavBar = (props) => {
   return (
     <div data-bs-theme="light">
       <HStack
-<<<<<<< HEAD
-        zIndex="10"
-        w="100%"
-        position="fixed"
-        flexDirection={["column", "column", "row"]}
-        justify="space-around"
-        p="10px"
-=======
 
          zIndex="10"
           w='100%'
@@ -58,7 +47,6 @@ const NavBar = (props) => {
          flexDirection={["column", "row", "row"]}
          justify="space-between"
 
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
         bg={colorMode === "dark" ? "black" : "yellow"}
       >
         <a href="https://www.soyhenry.com" target="_blank" rel="noreferrer">

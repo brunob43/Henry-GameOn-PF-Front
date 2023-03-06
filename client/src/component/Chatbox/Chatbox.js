@@ -11,23 +11,17 @@ import {
   Button,
   Input,
   Image,
-<<<<<<< HEAD
-  useColorMode,
-} from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
-import chat from "../../styles/images/chat.jpg";
-=======
   Spinner,
   VStack,
   Tabs,
   TabList,
   Tab,
   TabPanels,
-  TabPanel
+  TabPanel,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import icon from "../../styles/images/iconopenai.png";
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
 
 export default function ChatBox() {
   const [animalInput, setAnimalInput] = useState("");
@@ -35,11 +29,8 @@ export default function ChatBox() {
   const [engResult, setEngResult] = useState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
-<<<<<<< HEAD
   const { colorMode } = useColorMode();
-=======
   const [loading, setLoading] = useState(false);
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
 
   async function onSubmit(event) {
     setLoading(true);
@@ -134,26 +125,15 @@ export default function ChatBox() {
     <div>
       <>
         <Button
-<<<<<<< HEAD
-          zIndex="30"
-          position="fixed"
-          right="20px"
-          bottom="20px"
-=======
           zIndex="10"
           position="fixed"
           right="15px"
           bottom="15px"
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
           ref={btnRef}
           colorScheme="teal"
           onClick={onOpen}
         >
-<<<<<<< HEAD
-          <Image mr="3px" w="30px" h="30px" src={chat}></Image>You need help?
-=======
           <Image mr="3px" w="20px" h="20px" src={icon}></Image>ChatGPT
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
         </Button>
 
         <Drawer
@@ -163,21 +143,15 @@ export default function ChatBox() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent bg="black">
+          <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader color="yellow">↓↓¿Alguna pregunta?↓↓</DrawerHeader>
 
-<<<<<<< HEAD
             <DrawerBody >
               <form onSubmit={onSubmit}>
                 <Input
                   color="black"
                   bg="white"
-=======
-            <DrawerBody>
-              <form onSubmit={onSubmit}>
-                <Input
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
                   type="text"
                   name="animal"
                   placeholder="Enter an question"
@@ -185,44 +159,6 @@ export default function ChatBox() {
                   onChange={(e) => setAnimalInput(e.target.value)}
                 />
                 <Input
-<<<<<<< HEAD
-                cursor='pointer'
-                  marginLeft='10'
-                  size="md"
-                  height="48px"
-                  width="200px"
-                  border="2px"
-                  borderColor={colorMode === "dark" ? "yellow" : "black"}
-                  _hover={
-                    colorMode === "dark"
-                      ? { color: "black", bg: "yellow" }
-                      : { bg: "black", color: "yellow" }
-                  }
-                  bg={colorMode === "dark" ? "black" : "yellow"}
-                  value="SEND / ENVIAR"
-                />
-              </form>
-
-              <div className={styles.result}>
-                {/* <Spinner
-                  thickness="4px"
-                  speed="0.90s"
-                  emptyColor="black"
-                  color="yellow"
-                  size="xl"
-                /> */}
-              </div>
-
-              <div className={styles.result}>
-                <h1>RESPUESTA EN ESPAÑOL:</h1>
-                {result}
-              </div>
-
-              <div className={styles.result}>
-                <h1>ANSWER IN ENGLISH:</h1>
-                {engResult}
-              </div>
-=======
                   padding="5px"
                   bg="#10a37f"
                   mt="25px"
@@ -258,7 +194,6 @@ export default function ChatBox() {
                   </TabPanels>
                 </Tabs>
               )}
->>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
             </DrawerBody>
 
             <DrawerFooter>
