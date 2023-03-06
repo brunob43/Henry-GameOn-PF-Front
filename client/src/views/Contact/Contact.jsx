@@ -61,7 +61,7 @@ export default function ContactUs() {
 
   return (
   <VStack>  
-    <VStack  mt={["220px", "160px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="800px" >
+    <VStack  mt={["220px", "50px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="880px" >
     <VStack
        mt="90px"
       bgColor={colorMode === "dark" ? "black" : "white"}
@@ -70,7 +70,7 @@ export default function ContactUs() {
       h="550px"
       border="2px solid black"
     >
-         <Text fontSize="25px" p="20px" mt="5px" as="u" >
+         <Text fontSize="20px" p="20px" mt="5px" as="u" >
           Contact Us
           </Text>
         <FormControl letterSpacing={3} p="6" onSubmit={handleSubmit}>
@@ -84,7 +84,7 @@ export default function ContactUs() {
             name="message_issue"
             placeholder="Escribe tu nombre"
             required
-            w={["280px","380px","500px","500px","500px"]}
+            w={["180px","280px","400px","400px","400px"]}
           />
 
           {error.issue ? (
@@ -106,7 +106,7 @@ export default function ContactUs() {
             name="message_email"
             placeholder="Escribe tu email"
             required
-            w={["280px","380px","500px","500px","500px"]}
+            w={["180px","280px","400px","400px","400px"]}
           />
           {error.email ? (
             <div>
@@ -131,7 +131,7 @@ export default function ContactUs() {
          color={colorMode === "dark" ? "black" : "white"}
          bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
-            w={["280px","380px","500px","500px","500px"]}
+            w={["180px","280px","400px","400px","400px"]}
             h="80px"
             id="message"
             name="message_content"

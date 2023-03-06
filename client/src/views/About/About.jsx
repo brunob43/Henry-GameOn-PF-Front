@@ -64,10 +64,7 @@ const About = () => {
               los desarrolladores, es por eso que decidimos crear un espacio en
               el cual el aprendizaje sea una experiencia inolvidable, donde a
               través del juego y compartiendo información potenciemos dichas
-              habilidades. Nuestro principal objetivo fue trabajar en un
-              ambiente tranquilo, con respeto y disfrutar el proceso del
-              proyecto, para poder así desarrollar un sitio novedoso y divertido
-              para estudiantes de la comunidad de Henry.
+              habilidades. 
             </Text>
             <Text fontSize="30px" fontWeight="bold" as="u">
               Nuestro Equipo
@@ -75,7 +72,10 @@ const About = () => {
             <Text fontSize="18px">
               Nuestro equipo de trabajo se fue formando a lo largo del bootcamp
               de Henry. Logramos coincidir, coordinar nuestras ideas y
-              plasmarlas para llegar al objetivo en común.
+              plasmarlas en el proyecto. Nuestro principal objetivo fue trabajar en un
+              ambiente tranquilo, con respeto y disfrutar el proceso del
+              proyecto, para poder así desarrollar un sitio novedoso y divertido
+              para estudiantes de la comunidad de Henry.
             </Text>
           </VStack>
         </VStack>
