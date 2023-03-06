@@ -16,9 +16,9 @@ const PorfileButton = () => {
       <Menu>
         <MenuButton>
           <Image
-            boxSize="2rem"
+            boxSize="2.8rem"
             borderRadius="full"
-            border="1px"
+            border="2px"
             src={user.picture}
             alt={user.name}
             mr="12px"

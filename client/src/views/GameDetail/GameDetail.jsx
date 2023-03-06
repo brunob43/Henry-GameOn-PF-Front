@@ -55,9 +55,9 @@ const GameDetail = () => {
       {Object.keys(profile).length && (
         <Box>
           {!likedGames.includes(game[0].id) ? (
-            <Button onClick={likeHandler}>Dar Like</Button>
+            <Button onClick={likeHandler}> Like👍🏼</Button>
           ) : (
-            <Button onClick={dislikeHandler}>Quitar Like</Button>
+            <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
           )}
         </Box>
       )}
