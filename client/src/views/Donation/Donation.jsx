@@ -2,7 +2,8 @@ import style from "./Donation.module.css";
 import coin from "../../styles/images/coin.png";
 import mp from "../../styles/images/Mercado-Pago.jpg";
 import { payment20, payment50, payment100 } from "../../redux/actions";
-import { VStack, useColorMode,Heading, HStack, Text, Button, useDisclosure } from "@chakra-ui/react";
+import { VStack, useColorMode,Heading, HStack, Text, Button, useDisclosure } from "@chakra-ui/react"
+import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   AlertDialog,
@@ -16,6 +17,8 @@ import { useRef } from "react";
 import bgdark from "../assets/imagen/darkdonation.jpg"
 import bglight from "../assets/imagen/lightdonation.jpg"
 const Donation = () => {
+  const profile = useSelector((state)=>state.profile)
+  const {internal_id} = profile
   const { colorMode } = useColorMode();
   const {isAuthenticated, loginWithRedirect} = useAuth0();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,15 +30,22 @@ const Donation = () => {
   }
 
   const pay20 = (e) => {
-    payment20()();
+    if(Object.keys(profile).length){
+      payment20(internal_id)(internal_id)
+    }
+    ;
   };
 
   const pay50 = (e) => {
-    payment50()();
+    if(Object.keys(profile).length){
+    payment50(internal_id)(internal_id);
+  }
   };
 
   const pay100 = (e) => {
-    payment100()();
+    if(Object.keys(profile).length){
+    payment100(internal_id)(internal_id);
+  }
   };
 
   return (

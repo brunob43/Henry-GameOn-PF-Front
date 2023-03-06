@@ -430,26 +430,32 @@ export function deleteUser(internal_id){
 
 //----------------------PAYMENT-------------------//
 
-export function payment20 (){
+export function payment20 (internal_id){
   return async function (dispatch) {
     const response = await axios.get("/payment/20")
+    const payload= {user_payment_id :response.data.collector_id};
+    await axios.put(`/users/${internal_id}`,payload);
     const link = response.data.init_point
     window.location.href=link
   } 
 }
 
 
-export function payment50() {
+export function payment50(internal_id) {
   return async function (dispatch) {
     const response = await axios.get("/payment/50");
+    const payload= {user_payment_id :response.data.collector_id};
+    await axios.put(`/users/${internal_id}`,payload);
     const link = response.data.init_point;
     window.location.href = link;
   };
 }
 
-export function payment100() {
+export function payment100(internal_id) {
   return async function (dispatch) {
     const response = await axios.get("/payment/100");
+    const payload= {user_payment_id :response.data.collector_id};
+    await axios.put(`/users/${internal_id}`,payload);
     const link = response.data.init_point;
     window.location.href = link;
   };
