@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Menu, MenuButton, MenuItem, MenuList, Image, Text } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuItem, MenuList, Image, Text, HStack, AvatarGroup ,  Avatar,} from "@chakra-ui/react";
 import LogoutButton from "../../views/Auth/Logout/Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 import {ExternalLinkIcon } from '@chakra-ui/icons'
