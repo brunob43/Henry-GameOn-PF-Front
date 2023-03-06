@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { VStack, useColorMode, Box, useDisclosure, Button
+import { VStack, useColorMode, Box, useDisclosure, Button, Stack, Divider
 } from "@chakra-ui/react";
 import React from "react";
 import { Link} from "react-router-dom";
@@ -74,13 +74,17 @@ const CardDocs = ({ name, image, id, topic, author })=> {
           <img src={image} alt="imagen card" className={style.image}/>
           <div className={style.name}>{name}</div>
           <div className={style.details}>
+            <Stack direction="row" h="30px" >
             <div className={style.topic}>
               {topic}
             </div>
+            <Divider orientation="vertical" />
             <div className={style.author}>
               {author.toUpperCase()}
             </div>
+            </Stack>
           </div>
+          
         </Link> 
       </Box>
       </VStack>

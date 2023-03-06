@@ -1,4 +1,4 @@
-import { Button, useDisclosure, VStack } from "@chakra-ui/react";
+import { Button, Stack, useDisclosure, VStack ,Divider} from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardGame.module.css";
@@ -69,8 +69,11 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
         <img src={image} alt="imagen card" className={style.image} />
         <div className={style.name}>{name}</div>
         <div className={style.details}>
+          <Stack direction="row" h="30px" >
           <div className={style.topic}>{topic}</div>
+          <Divider orientation="vertical"/>
           <div className={style.dificulty}>{difficulty.toUpperCase()}</div>
+          </Stack>
         </div>
         </Link>
       </div> 

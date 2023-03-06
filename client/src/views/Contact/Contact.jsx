@@ -61,7 +61,7 @@ export default function ContactUs() {
 
   return (
   <VStack>  
-    <VStack  mt={["220px", "50px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="880px" >
+    <VStack  mt={["150px", "50px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="880px" >
     <VStack
        mt="90px"
       bgColor={colorMode === "dark" ? "black" : "white"}

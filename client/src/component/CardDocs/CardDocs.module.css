@@ -2,7 +2,7 @@
     margin: 10px;
     width: 325px;
     height: 375px;
-    background: rgb(0, 0, 0);
+    background: rgb(25, 25, 25);
     border-radius: 22px;
     transition: 0.2s ease-in-out;
     display: block;
@@ -49,15 +49,13 @@
 
 
 .topic{
-    background-color: rgb(255, 255, 0);
-    color: black;
-    padding: 2%;
-    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    padding: 1px;
 }
 
 .author{
-    background-color: rgb(255, 255, 0);
-    color: black;
-    padding: 2%;
-    border-radius: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    padding: 1px;
 } 

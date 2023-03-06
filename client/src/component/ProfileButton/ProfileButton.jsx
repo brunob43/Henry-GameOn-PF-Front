@@ -18,6 +18,7 @@ const PorfileButton = () => {
           <Image
             boxSize="2rem"
             borderRadius="full"
+            border="1px"
             src={user.picture}
             alt={user.name}
             mr="12px"

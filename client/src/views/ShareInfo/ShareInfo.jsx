@@ -58,7 +58,7 @@ const ShareInfo = () => {
   return (
     <VStack>
       <VStack
-        mt={["220px", "50px", "80px", "85px", "85px"]}
+        mt={["150px", "50px", "80px", "85px", "85px"]}
         bgImage={fondo}
         bgSize="cover"
         bgPosition="center"
