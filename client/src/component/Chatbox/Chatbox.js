@@ -131,6 +131,10 @@ export default function ChatBox() {
           bottom="15px"
           ref={btnRef}
           colorScheme="teal"
+          bg="yellow"
+          color="black"
+          border="1px solid black"
+          _hover={{bg:"#C2C222"}}
           onClick={onOpen}
         >
           <Image mr="3px" w="20px" h="20px" src={icon}></Image>ChatGPT
@@ -143,13 +147,13 @@ export default function ChatBox() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent borderLeft={colorMode === "dark" ? "1px solid yellow" : "1px solid black"}>
             <DrawerCloseButton />
-            <DrawerHeader color="yellow">↓↓¿Alguna pregunta?↓↓</DrawerHeader>
+            <DrawerHeader bg={colorMode === "dark" ? "black" : "white" } justifyContent="center">↓↓¿Alguna pregunta?↓↓</DrawerHeader>
 
-            <DrawerBody >
+            <DrawerBody  bg={colorMode === "dark" ? "black" : "white" } >
               <form onSubmit={onSubmit}>
-                <Input
+                <Input focusBorderColor="yellow.300"
                   color="black"
                   bg="white"
                   type="text"
@@ -160,7 +164,10 @@ export default function ChatBox() {
                 />
                 <Input
                   padding="5px"
-                  bg="#10a37f"
+                  bg="yellow"
+          color="black"
+          border="1px solid black"
+          _hover={{bg:"#C2C222"}}
                   mt="25px"
                   type="submit"
                   value="SEND / ENVIAR"
@@ -172,14 +179,14 @@ export default function ChatBox() {
                     mt="20px"
                     thickness="4px"
                     speed="0.65s"
-                    emptyColor="gray.200"
-                    color="blue.500"
+                    emptyColor="black"
+                    color="yellow"
                     size="xl"
                   />{" "}
                 </VStack>
               ) : (
-                <Tabs mt="10px">
-                  <TabList justifyContent="center">
+                <Tabs colorScheme="yellow" mt="10px">
+                  <TabList  justifyContent="center">
                     <Tab>ESPAÑOL</Tab>
                     <Tab>ENGLISH</Tab>
                   </TabList>
@@ -196,12 +203,16 @@ export default function ChatBox() {
               )}
             </DrawerBody>
 
-            <DrawerFooter>
+            <DrawerFooter bg={colorMode === "dark" ? "black" : "white" }>
               <Button
+              
                 variant="outline"
                 mr={3}
                 onClick={onClose}
-                bgColor="yellow"
+                bg="yellow"
+          color="black"
+          border="1px solid black"
+          _hover={{bg:"#C2C222"}}
               >
                 Cancel
               </Button>
