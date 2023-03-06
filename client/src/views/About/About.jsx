@@ -8,7 +8,7 @@ import pablo from "../assets/imagen/Pablo_IA.jpg";
 import abel from "../assets/imagen/Abel_IA.jpg";
 import larry from "../assets/imagen/Larry_IA.png";
 import manu from "../assets/imagen/Abel_IA.jpg";
-import franco from "../assets/imagen/Larry_IA.png";
+import franco from "../assets/imagen/Franco_IA.jpg";
 import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,
