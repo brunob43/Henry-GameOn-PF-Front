@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import belen from "../assets/imagen/Belen_IA.jpg";
 import bruno from "../assets/imagen/Bruno_IA.jpg";
 import nicole from "../assets/imagen/Nicole_IA.jpg";
-import pablo from "../assets/imagen/Nicole_IA.jpg";
+import pablo from "../assets/imagen/Pablo_IA.jpg";
 import abel from "../assets/imagen/Abel_IA.jpg";
 import larry from "../assets/imagen/Larry_IA.png";
 import manu from "../assets/imagen/Abel_IA.jpg";
