@@ -80,7 +80,7 @@ const About = () => {
           </VStack>
         </VStack>
 
-        <Divider p="6" orientation="horizontal" />
+        <Divider  orientation="horizontal" />
 
         <VStack w="85%">
           <HStack
