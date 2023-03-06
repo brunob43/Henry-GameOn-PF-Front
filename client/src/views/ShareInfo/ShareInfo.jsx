@@ -137,7 +137,7 @@ const ShareInfo = () => {
           <Textarea
             color={colorMode === "dark" ? "black" : "white"}
             bg={colorMode === "dark" ? "white" : "black"}
-          w={["280px","380px","500px","500px","500px"]}
+          w={["180px","280px","400px","400px","400px"]}
           h="80px"
             id="content"
             name="doc_content"
