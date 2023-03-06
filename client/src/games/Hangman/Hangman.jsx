@@ -63,7 +63,9 @@ const Hangman= () =>{
     const HangmanArray = [Hangman0, Hangman1,Hangman2,Hangman3,Hangman4,Hangman5,Hangman6,Hangman7]
 
     function slowAlertWin() {
-        alert("¡GANASTE!");
+        // alert("¡GANASTE!");
+        document.getElementById("fin").innerHTML=`¡Ganaste!`;
+        document.getElementById("fin").className=style.win;
     }
 
     function slowAlertLoose() {
@@ -85,22 +87,24 @@ const Hangman= () =>{
         if(palabrita === 'toUpperCase'){
             descripcion = 'Este método convierte una cadena de texto en letras mayúsculas.'
         }
-        if(palabrita === 'indexof'){
+        if(palabrita === 'indexOf'){
             descripcion = 'Este método devuelve la posición de la primera aparición de un valor especificado en una cadena.'
         }
         if(palabrita === 'charAt'){
             descripcion = 'Este método devuelve el carácter de una cadena de texto en el índice especificado.'
         }
-        alert(`Perdiste... la palabra era "${palabrita}".
+//         alert(`Perdiste... la palabra era "${palabrita}".
         
-${descripcion}`)
-        // document.getElementById("error").className=style.error
+// ${descripcion}`)
+        document.getElementById("fin").innerHTML=`Perdiste... la palabra era "${palabrita}".        
+        ${descripcion}`
+        document.getElementById("fin").className=style.error;
     }
 
     /* click en iniciar juego */
     function iniciar(event){
-        // document.getElementById("error").innerHTML=``
-        // document.getElementById("error").className="";
+        document.getElementById("fin").innerHTML=``;
+        document.getElementById("fin").className="";
         // setFallo('false')
         setWin('false')
         const imagen = id('imagen');
@@ -191,7 +195,7 @@ ${descripcion}`)
     <div className={style.header}>
         <h3 className={style.description}>Ahorcaras a Woody si no aprendes los metodos</h3>       
     </div>
-    <Box id="error"></Box>
+    <Box id="fin"></Box>
 {/* {fallo === 'true' && 
      (<Alert
         status='error'
