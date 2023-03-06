@@ -11,7 +11,6 @@ import npm from './images/npm.png'
 import style from './Memory.module.css'
 
 const Memory = () =>{
-  document.addEventListener('DOMContentLoaded', () => {
     //card options
     const cardArray = [
       {
@@ -82,9 +81,8 @@ const Memory = () =>{
       
     cardArray.sort(() => 0.5 - Math.random())
   
-    const grid = document.getElementById('grid')
-    const resultDisplay = document.querySelector('#result')
-    const tryDisplay = document.querySelector('#try')
+    const resultDisplay = ()=>{return (document.querySelector('#result'))}
+    const tryDisplay = ()=>{return (document.querySelector('#try'))}
     let cardsChosen = []
     let cardsChosenId = []
     let cardsWon = []
@@ -98,7 +96,7 @@ const Memory = () =>{
         card.setAttribute('data-id', i)
         card.setAttribute('id', "cards")
         card.addEventListener('click', flipCard)
-        grid.appendChild(card)
+        document.querySelector('#grid').appendChild(card)
       }
       const cards = document.querySelectorAll('#cards')
       if( cards.length !== 16){
@@ -139,10 +137,10 @@ const Memory = () =>{
       }
       cardsChosen = []
       cardsChosenId = []
-      resultDisplay.textContent = cardsWon.length
-      tryDisplay.textContent = tryArray.length
+      resultDisplay().textContent = cardsWon.length
+      tryDisplay().textContent = tryArray.length
       if  (cardsWon.length === cardArray.length/2) {
-        resultDisplay.textContent = 'Congratulations! You found them all!'
+        resultDisplay().textContent = 'Congratulations! You found them all!'
       }
     }
   
@@ -153,12 +151,11 @@ const Memory = () =>{
       cardsChosenId.push(cardId)
       this.setAttribute('src', cardArray[cardId].img)
       if (cardsChosen.length ===2) {
-        setTimeout(checkForMatch, 500)
+        setTimeout(checkForMatch, 300)
       }
     }
         
-    createBoard()
-  })
+    window.setTimeout(createBoard, 600)  
 
   const restart= (event)=>{
     window.location.reload();
@@ -167,13 +164,13 @@ const Memory = () =>{
   return(
     <div className={style.main}>
       <div className={style.buttons}>
-        <button className={style.button} onClick={restart}>Start New Game</button>
+        {/* <button className={style.button} onClick={restart}>Start New Game</button> */}
         <button className={style.button} onClick={restart}>restart</button>
       </div>
       
       <div className={style.points}>
-        <h3>Score: <span id="result"></span></h3>
-        <h3>Try: <span id="try"></span></h3>
+        <h3>Score: <span id="result">0</span></h3>
+        <h3>Try: <span id="try">0</span></h3>
       </div>
       
       <div id="grid">

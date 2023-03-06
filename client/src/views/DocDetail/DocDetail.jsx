@@ -1,50 +1,96 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import style from "./DocDetail.module.css";
 import { useParams } from "react-router-dom";
-import {VStack, Heading, HStack, Image, Text} from '@chakra-ui/react'
-import { getDocDetailFromState, countViewsDocs } from "../../redux/actions";
+import {
+  VStack,
+  Heading,
+  HStack,
+  Image,
+  Text,
+  Button,
+  Box,
+} from "@chakra-ui/react";
+import {
+  getDocDetailFromState,
+  countViewsDocs,
+  addLikeDoc,
+  removeLikeDoc,
+} from "../../redux/actions";
+import { useAuth0 } from "@auth0/auth0-react";
+import { PageNotFound } from "../../component/PageNotFound/PageNotFound";
 
-    const DocDetail = () =>{
-        const { id } = useParams();
-        const dispatch = useDispatch();
-       
-        useEffect(()=>{
-            dispatch(getDocDetailFromState(id));
-            countViewsDocs(id)
-        }, [dispatch, id])
-        
-        const docDetail = useSelector((state) => state.docDetail);
-        
-        const {doc_id} = docDetail;
+const DocDetail = () => {
+  const { isAuthenticated } = useAuth0();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.profile);
+  const likedDocs = useSelector((state) => state.docsProfile);
+  const docDetail = useSelector((state) => state.docDetail);
+  const { doc_id } = docDetail;
+  useEffect(() => {
+    dispatch(getDocDetailFromState(id));
+    countViewsDocs(id);
+  }, [dispatch, id]);
 
-     return (
-        <VStack  >
-        {  (id == doc_id) ?
-            <VStack paddingTop="75px">
+  const likeHandler = () => {
+    dispatch(addLikeDoc(id, profile.internal_id));
+  };
+  const dislikeHandler = () => {
+    dispatch(removeLikeDoc(id, profile.internal_id));
+  };
 
-                <Heading fontSize="60px" mt= {["350px", "200px", "150px", "70px", "70px"]} >{docDetail.doc_name}</Heading>
-                <HStack >
-                    <VStack w="50%" p="20px">
-                <Image borderRadius="15px" alt = {docDetail.doc_name} src = {docDetail.doc_image}></Image>
-                    </VStack>
-                    <VStack w="50%" p="20px">
-                <Text fontSize="34px"  className={style.main}>{docDetail.doc_topic}</Text>
-                <Text fontSize="22px" className={style.main}>{docDetail.doc_author}</Text>
-                <Text fontSize="18px" className={style.main}>{docDetail.doc_content}</Text>
-                    </VStack>
-                </HStack>
+  console.log(id, "idParams");
+  console.log(doc_id, "doc_id");
+
+  return (
+    isAuthenticated ? (
+    <VStack>
+      <Image
+        mt={["170px", "100px", "40px", "40px", "40px"]}
+        boxSize="525px"
+        objectFit="cover"
+        w="100%"
+        alt={docDetail.doc_name}
+        src={docDetail.doc_image}
+      ></Image>
+      <HStack>
+        {id === doc_id.toString() ? (
+          <VStack>
+            <VStack>
+              <Text textAlign="center" fontSize="60px" fontWeight="bold">
+                {docDetail.doc_name}
+              </Text>
+              {Object.keys(profile).length && (
+                <Box>
+                  {!likedDocs.includes(doc_id) ? (
+                    <Button onClick={likeHandler}>Dar Like</Button>
+                  ) : (
+                    <Button onClick={dislikeHandler}>Quitar Like</Button>
+                  )}
+                </Box>
+              )}
             </VStack>
-            :
-             <VStack>
-                <Heading>
-                Loading...
-                </Heading>
-             </VStack>
-        }
-     </VStack>
- )
- }
+
+            <VStack w="70%" p="20px" align="flex-start">
+              <Text fontSize="34px" fontWeight="bold">
+                {docDetail.doc_topic}
+              </Text>
+              <Text fontSize="22px">Author: {docDetail.doc_author}</Text>
+              <Text fontSize="18px">{docDetail.doc_content}</Text>
+            </VStack>
+          </VStack>
+        ) : (
+          <VStack>
+            <Heading>Loading...</Heading>
+          </VStack>
+        )}
+      </HStack>
+    </VStack>
+  ) : (
+    <PageNotFound />
+  )
+  );
+};
 
 export default DocDetail;

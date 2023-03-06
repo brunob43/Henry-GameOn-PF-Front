@@ -1,5 +1,5 @@
 import PaginatedDoc from "../../component/Paginated/PaginatedDoc";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterByNameDocs,
@@ -10,13 +10,22 @@ import {
   getTopicDocs,
   resetErrorDocs
 } from "../../redux/actions";
-import style from "./Docs.module.css";
 import SearchBarDoc from "../../component/SearchBar/SearchBarDoc";
 import Error from "../../component/Error/ErrorDocs";
 import { NavLink } from "react-router-dom";
-import { HStack, VStack, Button, useColorMode, Select } from "@chakra-ui/react";
-import bglight from "../../styles/images/fondo_henry_light.jpg";
-import bgdark from "../../styles/images/fondo_henry_dark.png";
+import { HStack, VStack, Button, useColorMode, Select, Text, Box, useDisclosure } from "@chakra-ui/react";
+import bglight from "../../styles/images/fondoblanco.jpg";
+import bgdark from "../../styles/images/fondonegro.jpg";
+import {RepeatIcon} from "@chakra-ui/icons"
+import { useAuth0 } from "@auth0/auth0-react";
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+} from "@chakra-ui/modal";
 
 const Docs = () => {
   const { colorMode } = useColorMode();
@@ -24,6 +33,9 @@ const Docs = () => {
   const error = useSelector((state) => state.errorDocs);
   const allDocs = useSelector((state) => state.docs);
   const topics = useSelector((state) => state.docTopics);
+  const {isAuthenticated, loginWithRedirect} = useAuth0();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
 
   const [filterSelect, setFilterSelect] = useState({
     topic: [],
@@ -36,8 +48,22 @@ const Docs = () => {
     }
   }, [dispatch, allDocs]);
 
+  const reload = () =>{
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    dispatch(getDocs())
+    dispatch (resetErrorDocs())
+}
+
   //------------------------------------------HANDLERS-------------------------------------------
   let disabledSelectTopic = !!filterSelect.topic.length;
+
+  const LogInHandler = (event)=>{
+    alert('please log in')
+    loginWithRedirect()
+  }
 
   const handleFilterTopic = (event) => {
     const value = event.target.value;
@@ -79,10 +105,10 @@ const Docs = () => {
   ///-----VIEW--------
   if (error) {
     return (
-      <VStack className={style.errorcontainer}>
+      <VStack >
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px" className={style.button} onClick={handleDeleteFilter}>
+          <Button fontSize="25px" h="60px" w="300px"  onClick={handleDeleteFilter}>
             Return to Docs
           </Button>
         </div>
@@ -94,17 +120,30 @@ const Docs = () => {
     <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
       <HStack
         color={colorMode === "dark" ? "yellow" : "black"}
-        mt={["350px", "200px", "150px", "70px", "70px"]}
+        mt={["170px", "100px", "40px", "40px", "40px"]}
         
       >
-        <h2 className={style.title}>DOCS</h2>
+        <Text 
+        fontSize={["70px","90px"]}
+        fontFamily= "I-pixel-u"
+        mt="20"
+        bg={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        letterSpacing= "10px">DOCS</Text>
       </HStack>
 
-      <HStack justify="center" w="80%">
-        <VStack align="flex-end" w="250px">
+      <HStack flexDirection={["column","column","column","row"]} alignItems={["center","center","center","flex-start"]} w="100%" justify="center" bg={
+                colorMode === "dark"
+                  ? { color: "black", bg: "yellow" }
+                  : { bg: "black", color: "yellow" }
+              }>
+        <VStack pt="10px" w={["100%","100%","30%"]} justify="center">
           <Select
-          w="120px"
-            fontWeight="bold"
+          w="200px"
+            
             _hover={
               colorMode === "dark"
                 ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -122,10 +161,15 @@ const Docs = () => {
             <option value="unpopular">Unpopular</option>
           </Select>
         </VStack>
+        <VStack pt="10px" w={["100%","100%","30%"]} justify="center">
         <SearchBarDoc />
-        
-      <VStack w="250px" justify="space-around" align="flex-start">
-        <div>
+        </VStack>
+        <HStack pt="10px">
+        <Button onClick={reload}><RepeatIcon/></Button>
+        </HStack>
+      <HStack flexDirection={["column","column","column","row","row"]} pt="10px" w={["100%","100%","100%","30%","30%"]} justify="space-around" align="flex-start">
+        {isAuthenticated ? (
+          <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
           <NavLink to="/docs/share">
             <Button
               variant="ghost"
@@ -136,16 +180,61 @@ const Docs = () => {
               }
               border="1px"
               borderColor={colorMode === "dark" ? "yellow" : "black"}
-              className={style.create}
+              w="120px"
+              
             >
               CREATE DOC
             </Button>
           </NavLink>
-        </div>
+        </Box>
+        ):(
+          <Box mb="10px" display="flex" flexDirection="row" justifyContent="center" w={["100%","100%","100%","30%"]}>
+            <Button
+              variant="ghost"
+              _hover={
+                colorMode === "dark"
+                  ? { bg: "yellow", color: "black" }
+                  : { bg: "black", color: "yellow" }
+              }
+              border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
+              w="120px"
+              onClick={onOpen}
+            >
+              CREATE DOC
+            </Button>
+        <AlertDialog
+          isOpen={isOpen}
+          leastDestructiveRef={cancelRef}
+          onClose={onClose}
+        >
+          <AlertDialogOverlay>
+            <AlertDialogContent>
+              <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                Want this content?
+              </AlertDialogHeader>
 
-        <div className={style.filtersContainer}>
+              <AlertDialogBody>
+                You need to be logged in to access this content
+              </AlertDialogBody>
+
+              <AlertDialogFooter>
+                <Button ref={cancelRef} onClick={onClose}>
+                  Cancel
+                </Button>
+                <Button colorScheme="yellow" onClick={LogInHandler} ml={3}>
+                  Log In
+                </Button>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialogOverlay>
+        </AlertDialog>
+
+        </Box>
+        )}
+
+        <VStack h="100px" w={["100%","100%","100%","30%"]} justifyContent="flex-start">
           <Select
-            fontWeight="bold"
             _hover={
               colorMode === "dark"
                 ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -156,6 +245,7 @@ const Docs = () => {
             disabled={disabledSelectTopic}
             onChange={handleFilterTopic}
             defaultValue="all"
+            w={["200px","200px","200px","120px","120px"]}
           >
             <option value="all">All Topics</option>
             {topics.map((topic) => {
@@ -172,7 +262,7 @@ const Docs = () => {
               <div>
                 <div key={index}>
                   <Button
-                  ml="10px"
+                  mt="10px"
                     variant="ghost"
                     _hover={
                       colorMode === "dark"
@@ -192,8 +282,8 @@ const Docs = () => {
               </div>
             );
           })}
-        </div>
-      </VStack>
+        </VStack>
+      </HStack>
       </HStack>
 
       <PaginatedDoc />

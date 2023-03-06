@@ -1,5 +1,6 @@
 import { 
   GET_GAMES,
+  GET_TOPIC_GAMES,
   SET_CURRENT_PAGE_GAMES,
   SET_CURRENT_PAGE_DOCS,  
   GET_GAME_DETAIL_FROM_STATE, 
@@ -40,7 +41,7 @@ const initialState = {
   allGames : [],
   allDocs : [],
   allUsers : [],
-  topics: ["Languages", "Strings Methods", "Code"],
+  topics: ["Languages", "String Methods", "Code", "General"],
   docTopics: [],
   dificulties: ["Easy", "Medium", "Hard"],
   currentPageGames: 1,
@@ -58,7 +59,9 @@ const initialState = {
   docDetailAd:{},
   profile: {},
   donations:[],
-  userDetail:{}
+  userDetail:{},
+  gamesProfile:[],
+  docsProfile:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -92,6 +95,11 @@ const rootReducer = (state = initialState, action) => {
          currentPageGames: 1,
         };
     
+    case GET_TOPIC_GAMES:
+      return {
+        ...state,
+        topics: action.payload,
+      };
     case ERROR_GAMES: 
       return { 
         ...state, 
@@ -422,18 +430,18 @@ const rootReducer = (state = initialState, action) => {
     // }
 
     case GET_NAME_USERS: 
-    if (!action.payload.length === 0) {    
+    // if (!action.payload.length === 0) {    
       return {
        ...state, 
        users: action.payload,
        allUsers: action.payload,
       };
-    } else {
-      return { 
-        ...state,
-        errorUsers: "Can't get users" 
-      };
-    }
+    // } else {
+    //   return { 
+    //     ...state,
+    //     errorUsers: "Can't get users" 
+    //   };
+    
 
     case FILTER_BY_NAME_USERS: 
     const userName = [...state.users];
@@ -471,12 +479,16 @@ const rootReducer = (state = initialState, action) => {
     case SET_PROFILE:
         return {
           ...state, 
-          profile: action.payload
+          profile: action.payload,
+          gamesProfile:action.payload.Games.map((g)=>g.game_id),
+          docsProfile:action.payload.Docs.map((d)=>d.doc_id)
         }
     case RESET_PROFILE:
         return{
           ...state,
-        profile:{}
+        profile:{},
+        gamesProfile:[],
+        docsProfile:[]
               }
 
     default: return {...state}

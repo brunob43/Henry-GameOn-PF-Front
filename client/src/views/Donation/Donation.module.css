@@ -1,12 +1,7 @@
 .cont {
   font-family: Arial, Helvetica, sans-serif;
   padding: 15px;
-  width: 800px;
-  height: 850px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: space-around;
 }
 
@@ -18,51 +13,41 @@
 .ttl {
   text-align: center;
   font-family: "I-pixel-u";
-  font-size: 50px;
   letter-spacing: 10px;
 }
 
 .msg {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 16px;
 }
 
 .textArea {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 50px;
   margin: 10px;
   align-items: center;
   text-align: center;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 .textAreaS {
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
-
-.coins {
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  font-size: 15px;
 }
 
 .imgcoin {
-  width: 150px;
+  width: 90px;
   height: auto;
 }
 
 .coin {
-  width: 200px;
-  height: 250px;
+  width: 150px;
+  height: 177px;
   padding: 10px;
   text-align: center;
   border-radius: 10px;

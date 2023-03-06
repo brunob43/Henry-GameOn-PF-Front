@@ -14,6 +14,7 @@ export const FILTER_BY_TOPIC_DOCS = "FILTER_BY_TOPIC_DOCS";
 export const FILTER_BY_NAME_DOCS = "FILTER_BY_NAME_DOCS";
 export const FILTER_BY_VIEWS_DOCS = "FILTER_BY_VIEWS_DOCS";
 export const GET_USERS = "GET_USERS";
+export const GET_TOPIC_GAMES = "GET_TOPIC_GAMES";
 export const GET_NAME_USERS = "GET_NAME_USERS";
 export const FILTER_BY_NAME_USERS = "FILTER_BY_NAME_USERS";
 export const ERROR_GAMES = "ERROR_GAMES";
@@ -35,6 +36,9 @@ export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
 
+
+//---------------GAME-------------------------------//
+
 export function getGames() {
   return async function (dispatch) {
     try {
@@ -53,11 +57,23 @@ export function getGames() {
     }
   };
 }
+
+export function getTopicGames() {
+  return async function (dispatch) {
+    const response = await axios.get("/game");
+    const topics = response.data.map((game) => game.game_topic);
+    const filterTopics = topics.filter((topic, index) => topics.indexOf(topic) === index);
+    return dispatch({
+      type: GET_TOPIC_GAMES,
+      payload: filterTopics,
+    });
+  };
+}
+
 export function getGamesAd() {
   return async function (dispatch) {
     try{
-      const admin ={admin:true};
-        const apiGames = await axios.get("/game", admin);
+        const apiGames = await axios.get("/game?admin=true");
        const games = apiGames.data;
 
     return dispatch({
@@ -108,8 +124,7 @@ export function getNameGames(game_name) {
 export function getNameGamesAd(game_name) {
   return async function (dispatch) {
     try{
-      const admin={admin:true}
-      const apiGames = await axios.get(`/game?name=${game_name}`, admin);
+      const apiGames = await axios.get(`/game?name=${game_name}&admin=true`);
       const games = apiGames.data;
 
     return dispatch({
@@ -193,14 +208,14 @@ export const filterByDifficultyGames = (payload) => {
 
 export function updateGame(game_id, payload){
   return async function (dispatch) {
-  await axios.put(`/game/:${game_id}`,payload);
+  await axios.put(`/game/${game_id}`,payload);
   dispatch(getGames());
   dispatch(getGamesAd())
 }
 }
 export function deleteGame(game_id){
   return async function (dispatch) {
-    await axios.delete(`/game/:${game_id}`)
+    await axios.delete(`/game/${game_id}`)
     dispatch(getGames())
     dispatch(getGamesAd())
   }
@@ -214,6 +229,8 @@ export function postGame(payload){
     return response;
 }
 }
+
+//--------------------DOCS--------------------------//
 
 export function getDocs() {
   return async function (dispatch) {
@@ -235,8 +252,8 @@ export function getDocs() {
 export function getDocsAd() {
   return async function (dispatch) {
     try{
-      const admin ={admin:true}
-  const apiDocs = await axios.get("/doc", admin);
+      
+  const apiDocs = await axios.get("/doc?admin=true");
   const Docs = apiDocs.data;
     return dispatch({
       type: GET_DOCS_AD,
@@ -252,10 +269,10 @@ export function getDocsAd() {
 };
 
 
-export function getNameDocs(docs_name) {
+export function getNameDocs(doc_name) {
   return async function (dispatch) {
     try {
-      const apiDocs = await axios.get(`/doc?name=${docs_name}`);
+      const apiDocs = await axios.get(`/doc?name=${doc_name}`);
       const Docs = apiDocs.data;
 
       return dispatch({
@@ -271,11 +288,10 @@ export function getNameDocs(docs_name) {
   };
 }
 
-export function getNameDocsAd(docs_name) {
+export function getNameDocsAd(doc_name) {
   return async function (dispatch) {
     try {
-      const admin ={admin:true}
-  const apiDocs = await axios.get(`/doc?name=${docs_name}`, admin);
+  const apiDocs = await axios.get(`/doc?name=${doc_name}&admin=true`);
   const Docs = apiDocs.data;
 
     return dispatch({
@@ -322,14 +338,15 @@ export const filterByViewsDocsAd = (payload) => {
 
 export function updateDoc(doc_id, payload){
   return async function (dispatch) {
-  await axios.put(`/doc/:${doc_id}`,payload);
+  await axios.put(`/doc/${doc_id}`,payload);
   dispatch(getDocs());
   dispatch(getDocsAd())
 }
 }
 export function deleteDoc(doc_id){
   return async function (dispatch) {
-    await axios.delete(`/doc/:${doc_id}`)
+    console.log(doc_id)
+    await axios.delete(`/doc/${doc_id}`)
     dispatch(getDocs())
     dispatch(getDocsAd())
   }
@@ -342,6 +359,9 @@ export function postDoc(payload){
     return response;
 }
 }
+
+//---------------------USERS-------------------------//
+
 export function getUsers() {
   return async function (dispatch) {
     try {
@@ -366,7 +386,7 @@ export function getNameUsers(user_name) {
     try {
       const apiUsers = await axios.get(`/users?name=${user_name}`);
       const Users = apiUsers.data;
-
+      console.log(Users)
       return dispatch({
         type: GET_NAME_USERS,
         payload: Users,
@@ -397,16 +417,19 @@ export function postUser(payload) {
 };
 export function updateUser(internal_id, payload){
   return async function (dispatch) {
-  await axios.put(`/users/:${internal_id}`,payload);
+  await axios.put(`/users/${internal_id}`,payload);
   dispatch(getUsers())
 }
 }
 export function deleteUser(internal_id){
   return async function (dispatch) {
-    await axios.delete(`/users/:${internal_id}`)
+    await axios.delete(`/users/${internal_id}`)
     dispatch(getUsers())
   }
 }
+
+//----------------------PAYMENT-------------------//
+
 export function payment20 (){
   return async function (dispatch) {
     const response = await axios.get("/payment/20")
@@ -432,10 +455,14 @@ export function payment100() {
   };
 }
 
+//-------------------------MESSAGE--------------------//
+
 export async function postMessage(input) {
   const response = await axios.post("/message", input);
   return response;
 }
+
+//--------------------------VIEWS-----------------------//
 
 export async function countViewsGames(id) {
   const response = await axios.put(`/game/view/${id}`);
@@ -451,9 +478,10 @@ export function getTopicDocs() {
   return async function (dispatch) {
     const response = await axios.get("/doc");
     const topics = response.data.map((doc) => doc.doc_topic);
+    const filterTopics = topics.filter((topic, index) => topics.indexOf(topic) === index);
     return dispatch({
       type: GET_TOPIC_DOCS,
-      payload: topics,
+      payload: filterTopics,
     });
   };
 }
@@ -474,6 +502,29 @@ export async function countViewsDoc (id){
   const response = await axios.put(`/doc/view/${id}`);
   return response;
 }
+//--------------------------LIKES-----------------------//
+export async function addLikeGame(id,internal_id) {
+  console.log(id,internal_id,"addLikeGame")
+  //  await axios.put(`/game/like/${id}?like_game=true`);
+  //  await axios.put(`/users/${internal_id}?like_game=true`)
+}
+export async function removeLikeGame(id,internal_id) {
+  console.log(id,internal_id,"addLikeGame")
+  //  await axios.put(`/game/like/${id}`);
+  //  await axios.put(`/users/${internal_id}`)
+}
+export async function addLikeDoc(id,internal_id) {
+  console.log(id,internal_id,"addLikeDoc")
+  //  await axios.put(`/doc/like/${id}?like_game=true`);
+  //  await axios.put(`/users/${internal_id}?like_game=true`)
+}
+export async function removeLikeDoc(id,internal_id) {
+  console.log(id,internal_id,"addLikeDoc")
+  //  await axios.put(`/doc/like/${id}`);
+  //  await axios.put(`/users/${internal_id}`)
+}
+
+//-------------PROFILE------------------------------------//
 
 export function sendProfile(prof) {
   return async function (dispatch) {
@@ -490,6 +541,9 @@ export function resetProfile() {
     dispatch({ type: RESET_PROFILE });
   };
 }
+
+//---------------------DONATION------------------//
+
 export function getDonations(){
   return async function (dispatch){
     const response = await axios.get("/donation")

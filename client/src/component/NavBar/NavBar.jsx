@@ -1,8 +1,13 @@
 import { NavLink } from "react-router-dom";
 import logonegro from "../../styles/images/HenryLogo.png";
-import logoblanco from "../../styles/images/HenryLogoClaro.webp";
+import logoblanco from "../../styles/images/HenryLogoDark.png";
 import React from "react";
-import { useColorMode, Button, HStack, Image } from "@chakra-ui/react";
+import {
+  useColorMode,
+  Button,
+  HStack,
+  Image,
+} from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher/ColorModeSwitcher";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -10,6 +15,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileCreation } from "../Utils/utils";
 import { sendProfile, resetProfile } from "../../redux/actions";
+<<<<<<< HEAD
+=======
+import LoginButton from "../../views/Auth/Login/Login";
+import ProfileButton from "../ProfileButton/ProfileButton";
+>>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
 
 const NavBar = (props) => {
   const { user, isAuthenticated } = useAuth0();
@@ -33,106 +43,75 @@ const NavBar = (props) => {
   return (
     <div data-bs-theme="light">
       <HStack
+<<<<<<< HEAD
         zIndex="10"
         w="100%"
         position="fixed"
         flexDirection={["column", "column", "row"]}
         justify="space-around"
         p="10px"
+=======
+
+         zIndex="10"
+          w='100%'
+          position='fixed'
+         flexDirection={["column", "row", "row"]}
+         justify="space-between"
+
+>>>>>>> a7277af3e29cc8826583d2f978c9fbee1f1462c2
         bg={colorMode === "dark" ? "black" : "yellow"}
       >
         <a href="https://www.soyhenry.com" target="_blank" rel="noreferrer">
-          <Image
-            p="5px"
+
+          <Image 
+            p={["15px", "20px", "25px"]}
+
             src={colorMode === "dark" ? logoblanco : logonegro}
             alt="Henry-Logo"
-            width="240px"
-            height="auto"
+            w="254px"
+            h="auto"
+            alignItems="center"
           ></Image>
         </a>
 
         <HStack flexDirection={["column", "column", "column", "row", "row"]}>
-          <HStack flexDirection={["column", "row", "row", "row", "row"]}>
+          <HStack>
             <NavLink to="/">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-              >
+              <Button colorScheme="black" variant="link" pr="3" pl="3">
                 HOME
               </Button>
             </NavLink>
 
             <NavLink to="/games">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-              >
+              <Button colorScheme="black" variant="link" pr="3" pl="3">
                 GAMES
               </Button>
             </NavLink>
 
             <NavLink to="/docs">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-              >
+              <Button colorScheme="black" variant="link" pr="3" pl="3">
                 HENRYDOCS
               </Button>
             </NavLink>
           </HStack>
-          <HStack flexDirection={["column", "row", "row", "row", "row"]}>
+          <HStack>
             <NavLink to="/about">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-              >
+              <Button colorScheme="black" variant="link" pr="3" pl="3">
                 ABOUT US
               </Button>
             </NavLink>
             <NavLink to="/donation">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-              >
+              <Button colorScheme="black" variant="link" pr="3" pl="3">
                 DONATION
               </Button>
             </NavLink>
-            <NavLink to="/login">
-              <Button
-                variant="ghost"
-                _hover={
-                  colorMode === "dark"
-                    ? { bg: "yellow", color: "black" }
-                    : { bg: "black", color: "yellow" }
-                }
-                src=" "
-                alt=" "
-              >
-                LOGIN
-              </Button>
-            </NavLink>
           </HStack>
-          <ColorModeSwitcher />
+
+        </HStack>
+        <HStack pl="10px" pr="10px">
+          <LoginButton />
+          <ColorModeSwitcher  />
+          <ProfileButton />
         </HStack>
       </HStack>
     </div>

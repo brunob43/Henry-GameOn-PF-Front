@@ -3,9 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import CardContainerDocs from "../CardContainerDocs/CardContainerDocs";
 import { setCurrentPageDocs } from "../../redux/actions";
 import style from "./Paginated.module.css";
-import prev from "../../styles/images/left-arrow.png";
-import next from "../../styles/images/right-arrow.png";
 import { HStack, VStack, Button, useColorMode } from "@chakra-ui/react";
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 const PaginatedDoc = () => {
   const { colorMode } = useColorMode();
@@ -16,7 +15,7 @@ const PaginatedDoc = () => {
 
   const currentPage = useSelector((state) => state.currentPageDocs);
 
-  const [docsPerPage] = useState(2);
+  const [docsPerPage] = useState(6);
 
   const handleClick = (event) => {
     dispatch(setCurrentPageDocs(Number(event.target.id)));
@@ -71,58 +70,26 @@ const PaginatedDoc = () => {
     }
   };
   return (
-    <VStack>
-      <HStack>
-        <ul className={style.pages} name="top">
-          <li>
-            <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
-              transition="400ms"
-              onClick={handlePrev}
-            >
-              <img src={prev} alt="prev" className={style.arrow} />
-            </Button>
-          </li>
 
-          {pageNumbers}
-
-          <li>
-            <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
-              onClick={handleNext}
-            >
-              <img src={next} alt="next" className={style.arrow} />
-            </Button>
-          </li>
-        </ul>
-      </HStack>
-
-      <div className={style.container}>{CardContainerDocs(currentDocs)}</div>
+    <VStack w="80%">
+      <VStack w="100%" justify="space-around">
+    {CardContainerDocs(currentDocs)}</VStack>
 
       <HStack>
         <ul className={style.pages} name="bottom">
         <li>
             <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
-              transition="400ms"
               onClick={handlePrev}
+              variant="ghost"
+              _hover={
+                colorMode === "dark"
+             ? { bg: "yellow", color: "black" }
+             : { bg: "black", color: "yellow" }
+              }
+             border="1px"
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
             >
-              <img src={prev} alt="prev" className={style.arrow} />
+             <ChevronLeftIcon/>
             </Button>
           </li>
 
@@ -130,15 +97,17 @@ const PaginatedDoc = () => {
 
           <li>
             <Button
-              _hover={{
-                cursor: "pointer",
-                transition: "400ms",
-                transform: "scale(130%)",
-              }}
-              bg={colorMode === "dark" ? "yellow" : "white"}
               onClick={handleNext}
+              variant="ghost"
+               _hover={
+               colorMode === "dark"
+                ? { bg: "yellow", color: "black" }
+                : { bg: "black", color: "yellow" }
+               }
+                border="1px"
+                borderColor={colorMode === "dark" ? "yellow" : "black"}
             >
-              <img src={next} alt="next" className={style.arrow} />
+             <ChevronRightIcon/>
             </Button>
           </li>
         </ul>

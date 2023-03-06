@@ -10,14 +10,20 @@ import {
   resetErrorGames,
   setCurrentPageGames,
 } from "../../redux/actions";
-import style from "./Games.module.css";
 import SearchBarGame from "../../component/SearchBar/SearchBarGame";
 import Error from "../../component/Error/ErrorGames";
-import { useColorMode, HStack, VStack, Select, Button } from "@chakra-ui/react";
-import {CloseIcon} from '@chakra-ui/icons'
-import bglight from "../../styles/images/fondo_henry_light.jpg";
-import bgdark from "../../styles/images/fondo_henry_dark.png";
-import Footer from "../../component/Footer/Footer";
+import {
+  useColorMode,
+  HStack,
+  VStack,
+  Select,
+  Button,
+  Text,
+} from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
+import bglight from "../../styles/images/fondoblanco.jpg";
+import bgdark from "../../styles/images/fondonegro.jpg";
+import { RepeatIcon } from "@chakra-ui/icons";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
 const Games = () => {
@@ -29,66 +35,71 @@ const Games = () => {
   const dificulties = useSelector((state) => state.dificulties);
   // const gamesTopic = useSelector(state => state.gamesTopic)
   // const gamesDif = useSelector(state => state.gamesDif)
-  const user= useSelector((state=>state.users))
 
   const [filterSelect, setFilterSelect] = useState({
     topic: [],
     dificulty: [],
   });
 
-
   useEffect(() => {
     if (!allGames.length) {
       dispatch(getGames());
-      console.log(user, "users en games")
     }
   }, [dispatch, allGames]);
 
-//------------------------------------------HANDLERS-------------------------------------------
+  const reload = () => {
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    dispatch(getGames());
+    dispatch(resetErrorGames());
+  };
+
+  //------------------------------------------HANDLERS-------------------------------------------
 
   let disabledSelectTopic = !!filterSelect.topic.length;
   let disabledSelectDif = !!filterSelect.dificulty.length;
 
-    const handleFilterTopic = (event) => {
-        const value = event.target.value;
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByTopicGames(value));
+  const handleFilterTopic = (event) => {
+    const value = event.target.value;
+    if (value === "all") {
+      dispatch(getGames());
+    } else {
+      dispatch(filterByTopicGames(value));
 
-        setFilterSelect({
-            ...filterSelect,
-            topic: [value],
-        });            
-        }
-    };
-
-    const handleFilterDificulty = (event) => {
-        const value = event.target.value
-
-        if (value === "all"){
-            dispatch(getGames())
-        }else{
-        dispatch(filterByDifficultyGames(value));
-
-        setFilterSelect({
-            ...filterSelect,
-            dificulty: [value],
-        });            
-        }
-
-    };
-
-    const handleDeleteFilter = (event) => {
-            setFilterSelect({
-                topic: [],
-                dificulty: [],
-            });
-            // window.location.reload();        
-            dispatch(getGames());
-            dispatch (resetErrorGames())
-        // } 
+      setFilterSelect({
+        ...filterSelect,
+        topic: [value],
+      });
     }
+  };
+
+  const handleFilterDificulty = (event) => {
+    const value = event.target.value;
+
+    if (value === "all") {
+      dispatch(getGames());
+    } else {
+      dispatch(filterByDifficultyGames(value));
+
+      setFilterSelect({
+        ...filterSelect,
+        dificulty: [value],
+      });
+    }
+  };
+
+  const handleDeleteFilter = (event) => {
+    setFilterSelect({
+      topic: [],
+      dificulty: [],
+    });
+    // window.location.reload();
+    dispatch(getGames());
+    dispatch(resetErrorGames());
+    // }
+  };
 
   const handleFilterOrder = (event) => {
     const value = event.target.value;
@@ -111,10 +122,15 @@ const Games = () => {
   //------------------------------------------VIEW-----------------------------------------------
   if (error) {
     return (
-      <VStack className={style.errorcontainer}>
+      <VStack>
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px" className={style.button} onClick={handleDeleteFilter}>
+          <Button
+            fontSize="25px"
+            h="60px"
+            w="300px"
+            onClick={handleDeleteFilter}
+          >
             Return to Games
           </Button>
         </div>
@@ -124,13 +140,33 @@ const Games = () => {
 
   return (
     <VStack bgImage={colorMode === "dark" ? bgdark : bglight}>
-      <HStack mt={["350px", "200px", "150px", "70px", "70px"]}>
-        <h2 className={style.title}>GAMES</h2>
+      <HStack
+        mt={["170px", "100px", "40px", "40px", "40px"]}
+        color={colorMode === "dark" ? "yellow" : "black"}
+      >
+        <Text
+          fontSize={["70px", "90px"]}
+          fontFamily="I-pixel-u"
+          mt="20"
+          bg={
+            colorMode === "dark"
+              ? { color: "black", bg: "yellow" }
+              : { bg: "black", color: "yellow" }
+          }
+          letterSpacing="10px"
+        >
+          GAMES
+        </Text>
       </HStack>
-
-      <HStack>
-        <VStack w="200px" alignItems="flex-end">
+      <HStack
+        flexDirection={["column", "column", "column", "row"]}
+        alignItems={["center", "center", "center", "flex-start"]}
+        w="100%"
+        justify="center"
+      >
+        <VStack pt="10px" w={["100%", "100%", "30%"]} justify="center">
           <Select
+            w="200px"
             fontWeight="bold"
             _hover={
               colorMode === "dark"
@@ -149,11 +185,25 @@ const Games = () => {
             <option value="unpopular">Unpopular</option>
           </Select>
         </VStack>
-        <SearchBarGame />
-        <VStack w="200px" alignItems="flex-start">
-          <HStack>
+
+        <HStack pt="10px" w={["100%", "100%", "30%"]} justify="center">
+          <SearchBarGame />
+        </HStack>
+        <HStack pt="10px">
+          <Button onClick={reload}>
+            <RepeatIcon />
+          </Button>
+        </HStack>
+
+        <HStack
+          pt="10px"
+          justify="center"
+          align="flex-start"
+          w={["100%", "100%", "30%"]}
+        >
+          <VStack w="200px" justifyContent="flex-start">
             <Select
-              fontWeight="bold"
+              w="130px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -180,7 +230,6 @@ const Games = () => {
                 <div>
                   <div key={index}>
                     <Button
-                      fontWeight="bold"
                       _hover={
                         colorMode === "dark"
                           ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -193,16 +242,18 @@ const Games = () => {
                       key={topic}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{topic}
+                      <CloseIcon />
+                      --{topic}
                     </Button>
                   </div>
                 </div>
               );
             })}
-          </HStack>
-          <HStack>
+          </VStack>
+
+          <VStack w="200px" justifyContent="flex-start">
             <Select
-              fontWeight="bold"
+              w="145px"
               _hover={
                 colorMode === "dark"
                   ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -229,7 +280,6 @@ const Games = () => {
                 <div>
                   <div key={index}>
                     <Button
-                      fontWeight="bold"
                       _hover={
                         colorMode === "dark"
                           ? { bg: "rgba(255, 255, 0, 0.5)" }
@@ -242,17 +292,17 @@ const Games = () => {
                       key={dificulty}
                       onClick={handleDeleteFilter}
                     >
-                      <CloseIcon/>--{dificulty.toUpperCase()}
+                      <CloseIcon />
+                      --{dificulty.toUpperCase()}
                     </Button>
                   </div>
                 </div>
               );
             })}
-          </HStack>
-        </VStack>
+          </VStack>
+        </HStack>
       </HStack>
       <PaginatedGame />
-      <Footer />
     </VStack>
   );
 };

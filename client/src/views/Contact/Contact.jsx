@@ -1,8 +1,9 @@
 import React from "react";
-import style from "./Contact.module.css";
 import { postMessage } from "../../redux/actions";
 import { useState } from "react";
-import { VStack, useColorMode, Input, Textarea } from "@chakra-ui/react";
+import { VStack, useColorMode, Input, Textarea ,Text,FormControl,FormLabel, Button} from "@chakra-ui/react";
+import foto from "../assets/imagen/contact.jpg";
+
 
 export default function ContactUs() {
   const { colorMode } = useColorMode();
@@ -59,47 +60,53 @@ export default function ContactUs() {
   };
 
   return (
-    <VStack className={style.body}>
-      <VStack
-        mt={["400px", "250px", "200px", "125px", "125px"]}
-        bgColor={colorMode === "dark" ? "gray.200" : "gray.800"}
-        color={colorMode === "dark" ? "gray.800" : "gray.200"}
-        className={style.container}
-      >
-        <div className={style.title}>
-          <h1>Contact Us</h1>
-        </div>
-        <form className={style.form} onSubmit={handleSubmit}>
-          <label>Issue:</label>
+  <VStack>  
+    <VStack  mt={["150px", "50px", "80px", "85px", "85px"]} bgImage={foto} bgSize="cover" bgPosition="center" w="100%" h="880px" >
+    <VStack
+       mt="90px"
+      bgColor={colorMode === "dark" ? "black" : "white"}
+      color={colorMode === "dark" ? "white" : "black"}
+      borderRadius="15px"
+      h="550px"
+      border="2px solid black"
+    >
+         <Text fontSize="20px" p="20px" mt="5px" as="u" >
+          Contact Us
+          </Text>
+        <FormControl letterSpacing={3} p="6" onSubmit={handleSubmit}>
+          <FormLabel mt="-2.5" >Issue:</FormLabel>
           <Input
-            color={colorMode === "dark" ? "gray.200" : "gray.800"}
-            bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+           color={colorMode === "dark" ? "black" : "white"}
+           bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
             autoComplete="off"
             type="text"
             name="message_issue"
             placeholder="Escribe tu nombre"
             required
+            w={["180px","280px","400px","400px","400px"]}
           />
+
           {error.issue ? (
             <div>
               <p>{error.issue}</p>
             </div>
-          ) : (
-            <br></br>
-          )}
-          <br></br>
+              ) : (
+             <br></br>
+              )}
+              <br></br>
 
-          <label>Email:</label>
+          <FormLabel mt="-2.5" >Email:</FormLabel>
           <Input
-            color={colorMode === "dark" ? "gray.200" : "gray.800"}
-            bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+           color={colorMode === "dark" ? "black" : "white"}
+           bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
             autoComplete="off"
             type="text"
             name="message_email"
             placeholder="Escribe tu email"
             required
+            w={["180px","280px","400px","400px","400px"]}
           />
           {error.email ? (
             <div>
@@ -111,23 +118,25 @@ export default function ContactUs() {
           <br></br>
 
           {/* <label>Phone:</label>
-        <input
-        autoComplete="off"
-        type= "tel"
-        name="phone"
-        placeholder="Phone"
-        required
-        /> */}
+           <input
+           autoComplete="off"
+           type= "tel"
+          name="phone"
+          placeholder="Phone"
+             required
+          /> */}
 
-          <label>Message:</label>
+          <FormLabel mt="-2.5">Message:</FormLabel>
           <Textarea
-          color={colorMode === "dark" ? "gray.200" : "gray.800"}
-          bg={colorMode === "dark" ? "gray.800" : "gray.200"}
+         color={colorMode === "dark" ? "black" : "white"}
+         bg={colorMode === "dark" ? "white" : "black"}
             onChange={handlerInputChange}
-            className={style.textarea}
+            w={["180px","280px","400px","400px","400px"]}
+            h="80px"
             id="message"
             name="message_content"
             required=""
+          
           ></Textarea>
           {error.content ? (
             <div>
@@ -137,21 +146,35 @@ export default function ContactUs() {
             <br></br>
           )}
           <br></br>
-          <div>
-            <button
+          <VStack>
+            <Button onClick= {handleSubmit}
               disabled={
                 !Object.keys(error).length && input.message_email !== ""
                   ? false
                   : true
               }
-              className={style.button}
-              type="submit"
+              size="md"
+              height="48px"
+              width="100px"
+              border="2px"
+              borderColor={colorMode === "dark" ? "white" : "black"}
+              _hover={
+                colorMode === "dark"
+                  ? { color: "black", bg: "white" }
+                  : { bg: "black", color: "white" }
+              }
+              bg={colorMode === "dark" ? "black" : "white"}
             >
               SEND
-            </button>
-          </div>
-        </form>
+            </Button>
+          </VStack>
+        </FormControl>
       </VStack>
+      </VStack>
+   
+     
+    
     </VStack>
+
   );
 }

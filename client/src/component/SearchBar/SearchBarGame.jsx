@@ -21,7 +21,7 @@ export default function SearchBarGame() {
   }
   const { colorMode } = useColorMode();
   return (
-    <HStack mb="10px">
+    <HStack  >
       <Input
         fontWeight="bold"
         _hover={
@@ -32,7 +32,7 @@ export default function SearchBarGame() {
         border="1px"
         borderColor={colorMode === "dark" ? "yellow" : "black"}
         type="text"
-        placeholder="Search game..."
+        placeholder="Search Game..."
         onChange={(e) => handlerInputChange(e)}
       ></Input>
       <Button

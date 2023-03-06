@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../../component/Footer/Footer";
+
 import { Link } from "react-router-dom";
 import {
   Button,
@@ -51,14 +51,14 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt="266px"
+                mt={["0px", "0px", "0px", "393px", "393px"]}
               >
                 Games👾
               </Button>
             </Link>
 
             <Container
-              w="80%"
+              w="95%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",
@@ -84,14 +84,14 @@ const Home = () => {
                 color="yellow"
                 fontSize="22px"
                 as="u"
-                mt="260px"
+                mt={["0px", "0px", "0px", "277px", "277px"]}
               >
                 HenryDocs 📑
               </Button>
             </Link>
 
             <Container
-              w="80%"
+              w="95%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",
