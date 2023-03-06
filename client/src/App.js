@@ -20,6 +20,7 @@ import Footer from "./component/Footer/Footer";
 import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
 import Profile from "./views/Profile/Profile";
+import EdiProfile from "./views/EdiProfile/EdiProfile";
 // import style from './App.module.
 
 axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
@@ -75,6 +76,10 @@ function App() {
 
         <Route exact path="/user">
           <Profile/>
+        </Route>
+
+        <Route exact path="/userprofile">
+          <EdiProfile/>
         </Route>
 
         <Route>

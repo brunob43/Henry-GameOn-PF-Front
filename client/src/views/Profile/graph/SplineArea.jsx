@@ -1,4 +1,4 @@
-import { VStack, HStack } from "@chakra-ui/react";
+import { VStack, HStack, Text } from "@chakra-ui/react";
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
@@ -10,11 +10,11 @@ export default class SplineArea extends Component {
     this.state = {
       series: [
         {
-          name: "series1",
+          name: "Games",
           data: [60, 40, 28, 51, 42, 109, 100],
         },
         {
-          name: "series2",
+          name: "Docs",
           data: [11, 32, 45, 32, 34, 52, 41],
         },
       ],
@@ -54,13 +54,14 @@ export default class SplineArea extends Component {
     return (
       <>
       <VStack>
+        <Text>Views Games and Docs</Text>
         <HStack id="chart" mt="120px">
           <Chart
             options={this.state.options}
             series={this.state.series}
             type="area"
-            height={350}
-            width={600}
+            height={300}
+            width={400}
           />
         </HStack>
       </VStack>

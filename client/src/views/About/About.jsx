@@ -13,7 +13,6 @@ import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,
   VStack,
-  Heading,
   Avatar,
   Image,
   Text,
@@ -21,6 +20,7 @@ import {
   Button,
   HStack,
   useColorMode,
+  Divider
 } from "@chakra-ui/react";
 
 const About = () => {
@@ -34,35 +34,53 @@ const About = () => {
         bgAttachment="fixed"
         zIndex="8"
       >
-        <HStack mt={["170px", "100px", "40px", "40px", "40px"]}>
-          <Heading
-          mt="50px"
+        <VStack mt={["170px", "100px", "40px", "40px", "40px"]}>
+         <VStack>
+          <Text
+            mt="50px"
             padding="30px"
             color={colorMode === "dark" ? "while" : "black"}
             textAlign="center"
-            fontSize={["40px","60px"]}
+            fontSize={["32px","52px"]}
+            fontWeight="extrabold"
             w=""
           >
-            ¿QUIENES SOMOS?
-          </Heading>
-        </HStack>
+            HENRY GAME ON
+          </Text>
+        </VStack>
 
-        <HStack>
+        <VStack w="90%" p="25px" align="flex-start">
           <Text
-            fontSize={["18px","18px","22px", "24px"]}
-            padding="5"
+            fontSize={["20px","20px","28px", "30px"]}
+            padding="3px"
             color={colorMode === "dark" ? "white" : "black"}
             justifyContent="flex-start"
-            textAlign="center"
+            fontWeight="bold" as="u"
           >
-            SOMOS UN EQUIPO DE TRABAJO QUE SE FUE FORMANDO A LO LARGO DEL
-            BOOTCAMP DE HENRY. LOGRAMOS COINCIDIR Y COORDINAR NUESTRAS IDEAS Y
-            PLASMARLAS PARA LLEGAR AL OBJETIVO EN COMÚN.<br></br>COMO OBJETIVO
-            SIEMPRE NOS PROPUSIMOS TRABAJAR DE FORMA AMENA, CON RESPETO Y ASI
-            DESARROLLAR UN SITIO NOVEDOSO Y DIVERTIDO APTO PARA CUALQUIER
-            ENTUSIASTA DE LA PROGRAMACION.
+         Porque creamos Henry GameOn
           </Text>
-        </HStack>
+          <Text fontSize="18px">
+              Creemos que las soft kills son parte importante para el camino de
+              los desarrolladores, es por eso que decidimos crear un espacio en
+              el cual el aprendizaje sea una experiencia inolvidable, donde a
+              través del juego y compartiendo información potenciemos dichas
+              habilidades. Nuestro principal objetivo fue trabajar en un
+              ambiente tranquilo, con respeto y disfrutar el proceso del
+              proyecto, para poder así desarrollar un sitio novedoso y divertido
+              para estudiantes de la comunidad de Henry.
+            </Text>
+            <Text fontSize="30px" fontWeight="bold" as="u">
+              Nuestro Equipo
+            </Text>
+            <Text fontSize="18px">
+              Nuestro equipo de trabajo se fue formando a lo largo del bootcamp
+              de Henry. Logramos coincidir, coordinar nuestras ideas y
+              plasmarlas para llegar al objetivo en común.
+            </Text>
+          </VStack>
+        </VStack>
+
+        <Divider p="6" orientation="horizontal" />
 
         <VStack w="85%">
           <HStack
