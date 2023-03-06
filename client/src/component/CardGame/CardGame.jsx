@@ -1,4 +1,4 @@
-import { Button, Stack, useDisclosure, VStack ,Divider} from "@chakra-ui/react";
+import { Button, Stack, useDisclosure, VStack ,Divider, Box, useColorMode} from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./CardGame.module.css";
@@ -14,6 +14,7 @@ import {
 import { useRef } from "react";
 
 const CardGame = ({ name, image, id, topic, difficulty }) => {
+  const { colorMode } = useColorMode();
   const { isAuthenticated, loginWithRedirect } = useAuth0();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = useRef();
@@ -25,20 +26,24 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
   return (
     isAuthenticated ? (
     <VStack>
-      <div className={style.container}>
+      <Box  borderColor={colorMode === "dark" ? "yellow" : "black"} className={style.container}>
         <Link to={`/games/${id}`} className={style.link}>
           <img src={image} alt="imagen card" className={style.image} />
           <div className={style.name}>{name}</div>
           <div className={style.details}>
-            <div className={style.topic}>{topic}</div>
-            <div className={style.dificulty}>{difficulty.toUpperCase()}</div>
+          <Stack direction="row" h="30px" >
+            <div className={style.topic}>Topic: {topic}</div>
+            <Divider orientation="vertical" />
+            <div className={style.dificulty}>Difficulty: {difficulty.toUpperCase()}</div>
+            </Stack>
           </div>
+          
         </Link>
-      </div>
+      </Box>
     </VStack>
   ) : (
     <VStack>
-      <div className={style.container} onClick={onOpen}>
+      <Box borderColor={colorMode === "dark" ? "yellow" : "black"}  className={style.container} onClick={onOpen}>
         <AlertDialog
           isOpen={isOpen}
           leastDestructiveRef={cancelRef}
@@ -76,7 +81,7 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
           </Stack>
         </div>
         </Link>
-      </div> 
+      </Box> 
     </VStack>
     )
   );

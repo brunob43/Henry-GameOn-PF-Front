@@ -1,3 +1,4 @@
+import { VStack, useColorMode, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import style from "./Error.module.css"
@@ -6,13 +7,16 @@ const Error=()=>{
         //window.location.reload()
    // }
     const error=useSelector(state=>state.errorDocs)
+    const { colorMode } = useColorMode();
     return(
+        <VStack >
         <div className={style.errorBackground}>
-        <h1 className={style.titleError}>Oops! sorry, an error occurred</h1>
-        <h4 className={style.error}>{error}</h4>
+        <Text color={colorMode === "dark" ? "while" : "black"} className={style.titleError}>Oops! sorry, an error occurred</Text>
+        <Text color={colorMode === "dark" ? "while" : "black"} className={style.error}>{error}</Text>
         <br />
-        <p className={style.textError}>Go back please</p>
+        <Text color={colorMode === "dark" ? "white" : "black"} className={style.textError}>Go back please</Text>
         </div>
+        </VStack>
 
     )
 }

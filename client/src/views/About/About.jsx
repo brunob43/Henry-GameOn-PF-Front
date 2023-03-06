@@ -1,14 +1,14 @@
 import linkedin from "../assets/imagen/linkedin.png";
 import github from "../assets/imagen/github.png";
 import { NavLink } from "react-router-dom";
-import belen from "../assets/imagen/belen.jpg";
-import bruno from "../assets/imagen/bruno.png";
-import nicole from "../assets/imagen/nicole.png";
-import pablo from "../assets/imagen/pablo.jpg";
-import abel from "../assets/imagen/Abel.png";
-import larry from "../assets/imagen/Larry.png";
-import manu from "../assets/imagen/manu.jpg";
-import franco from "../assets/imagen/franco.jpg";
+import belen from "../assets/imagen/Belen_IA.jpg";
+import bruno from "../assets/imagen/Bruno_IA.jpg";
+import nicole from "../assets/imagen/Nicole_IA.jpg";
+import pablo from "../assets/imagen/Nicole_IA.jpg";
+import abel from "../assets/imagen/Abel_IA.jpg";
+import larry from "../assets/imagen/Larry_IA.png";
+import manu from "../assets/imagen/Abel_IA.jpg";
+import franco from "../assets/imagen/Larry_IA.png";
 import fon from "../assets/imagen/shapesHowApply.png";
 import {
   Box,

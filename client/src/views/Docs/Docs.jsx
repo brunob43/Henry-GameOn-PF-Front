@@ -108,7 +108,17 @@ const Docs = () => {
       <VStack >
         <Error />
         <div>
-          <Button fontSize="25px" h="60px" w="300px"  onClick={handleDeleteFilter}>
+          <Button  size="md"
+            height="50px"
+            width="170px"
+            border="2px"
+            borderColor="yellow"
+            _hover={
+              colorMode === "dark"
+                ? { color: "black", bg: "white" }
+                : { bg: "black", color: "white" }
+            }
+            bg={colorMode === "dark" ? "black" : "white"}  onClick={handleDeleteFilter}>
             Return to Docs
           </Button>
         </div>
@@ -165,7 +175,8 @@ const Docs = () => {
         <SearchBarDoc />
         </VStack>
         <HStack pt="10px">
-        <Button onClick={reload}><RepeatIcon/></Button>
+        <Button border="1px"
+            borderColor={colorMode === "dark" ? "yellow" : "black"}  onClick={reload}><RepeatIcon/></Button>
         </HStack>
       <HStack flexDirection={["column","column","column","row","row"]} pt="10px" w={["100%","100%","100%","30%","30%"]} justify="space-around" align="flex-start">
         {isAuthenticated ? (

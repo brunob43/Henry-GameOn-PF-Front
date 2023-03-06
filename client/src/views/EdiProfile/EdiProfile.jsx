@@ -14,13 +14,15 @@ import {
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { profileCreation } from "../../component/Utils/utils";
 import UploadWidget from "../../component/CloudinaryUpload/cloudinaryWidget";
+import { updateUser } from "../../redux/actions";
 
 const EdiProfile = () => {
   const { colorMode } = useColorMode();
   const profile = useSelector((state) => state.profile);
+  const history = useHistory();
 
   const [edit, setEdit] = useState({
     user_image: "",
@@ -42,13 +44,16 @@ const EdiProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(EdiProfile(user.user_id, edit));
+    dispatch(updateUser(user.user_id, edit));
     alert("El perfil se ha editado con exito");
     setEdit({
       name: "",
       image: "",
       email: "",
     });
+
+    history.push("/user")
+
   };
 
   return (

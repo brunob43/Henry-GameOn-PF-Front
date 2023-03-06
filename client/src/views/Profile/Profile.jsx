@@ -1,18 +1,19 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
-import { VStack, Text, Image, HStack, Divider } from "@chakra-ui/react";
+import { VStack, Text, Image, HStack, Divider, Button } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { profileCreation } from "../../component/Utils/utils";
 import { resetProfile, sendProfile } from "../../redux/actions";
-import Colum from "./graph/Colum";
 import Donut from "./graph/Donut";
 import LineaBsic from "./graph/LineaBasic";
-import SplineArea from "./graph/SplineArea";
+import TableLikeDocs from "./graph/TableLikeDocs"
+import TableLikeGames from "./graph/TableLikeGames";
 import DonutDocs from "./graph/DonutDocs";
 import DonutGames from "./graph/DonutGames";
 import { EmailIcon } from "@chakra-ui/icons";
+import ButtonDelete from "./ButtonDelete";
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -53,20 +54,28 @@ const Profile = () => {
                 <EditIcon />
               </HStack>
             </NavLink>
+            <HStack>
+              <ButtonDelete/>
+            </HStack>
           </VStack>
         </HStack>
 
         <VStack>
           <Divider p="6" orientation="horizontal" />
           <HStack p="45px">
-            <SplineArea />
-            <Colum />
             <LineaBsic />
+            <Donut />
+            
           </HStack>
           <HStack>
             <DonutGames />
-            <Donut />
             <DonutDocs />
+          </HStack>
+
+          <HStack>
+          <TableLikeGames/>
+          <TableLikeDocs/>
+
           </HStack>
         </VStack>
       </VStack>

@@ -126,9 +126,17 @@ const Games = () => {
         <Error />
         <div>
           <Button
-            fontSize="25px"
-            h="60px"
-            w="300px"
+            size="md"
+            height="50px"
+            width="170px"
+            border="2px"
+            borderColor="yellow"
+            _hover={
+              colorMode === "dark"
+                ? { color: "black", bg: "white" }
+                : { bg: "black", color: "white" }
+            }
+            bg={colorMode === "dark" ? "black" : "white"}
             onClick={handleDeleteFilter}
           >
             Return to Games
@@ -190,7 +198,8 @@ const Games = () => {
           <SearchBarGame />
         </HStack>
         <HStack pt="10px">
-          <Button onClick={reload}>
+          <Button  border="1px"
+            borderColor={colorMode === "dark" ? "yellow" : "black"} onClick={reload}>
             <RepeatIcon />
           </Button>
         </HStack>
