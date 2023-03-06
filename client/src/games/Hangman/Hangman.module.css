@@ -1,9 +1,9 @@
 .body{
     margin: 0%;
-    background: url(./Img/fondo.png) no-repeat center;
+    /* background: url(./Img/fondo.png) no-repeat center;
     background-size: cover;
     font-family: 'Carter One', Arial, Helvetica, sans-serif;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
 .header{
@@ -65,4 +65,11 @@
 
 *[disabled="true"]{
     background-color: rgb(202, 203, 203);
+}
+
+.error{
+    background-color: rgba(201, 32, 32, 0.9);
+    display: flex;
+    text-align: center;
+    padding: 1%;
 }

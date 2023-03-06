@@ -82,9 +82,8 @@ const Memory2 = () =>{
       
     cardArray.sort(() => 0.5 - Math.random())
   
-    const grid = document.getElementById('grid')
-    const resultDisplay = document.querySelector('#result')
-    const tryDisplay = document.querySelector('#try')
+    const resultDisplay = ()=>{return (document.querySelector('#result'))}
+    const tryDisplay = ()=>{return (document.querySelector('#try'))}
     let cardsChosen = []
     let cardsChosenId = []
     let cardsWon = []
@@ -172,8 +171,8 @@ const Memory2 = () =>{
       </div>
 
       <div className={style.points}>
-        <h3>Score: <span id="result"></span></h3>
-        <h3>Try: <span id="try"></span></h3>  
+        <h3>Score: <span id="result">0</span></h3>
+        <h3>Try: <span id="try">0</span></h3>  
       </div>
       
       <div id="grid">

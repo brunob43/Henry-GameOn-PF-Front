@@ -22,7 +22,8 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
     loginWithRedirect();
   };
 
-  return isAuthenticated ? (
+  return (
+    isAuthenticated ? (
     <VStack>
       <div className={style.container}>
         <Link to={`/games/${id}`} className={style.link}>
@@ -65,15 +66,16 @@ const CardGame = ({ name, image, id, topic, difficulty }) => {
           </AlertDialogOverlay>
         </AlertDialog>
         <Link className={style.link}>
-          <img src={image} alt="imagen card" className={style.image} />
-          <div className={style.name}>{name}</div>
-          <div className={style.details}>
-            <div className={style.topic}>{topic}</div>
-            <div className={style.dificulty}>{difficulty.toUpperCase()}</div>
-          </div>
+        <img src={image} alt="imagen card" className={style.image} />
+        <div className={style.name}>{name}</div>
+        <div className={style.details}>
+          <div className={style.topic}>{topic}</div>
+          <div className={style.dificulty}>{difficulty.toUpperCase()}</div>
+        </div>
         </Link>
-      </div>
+      </div> 
     </VStack>
+    )
   );
 };
 export default CardGame;

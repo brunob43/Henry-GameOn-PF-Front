@@ -11,7 +11,6 @@ import {
   Register,
   ShareInfo,
   GameDetail,
-  LoginView
 } from "./views";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
