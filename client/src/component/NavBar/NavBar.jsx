@@ -9,38 +9,33 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { profileCreation } from "../Utils/utils";
-import { sendProfile,resetProfile } from "../../redux/actions";
-
+import { sendProfile, resetProfile } from "../../redux/actions";
 
 const NavBar = (props) => {
   const { user, isAuthenticated } = useAuth0();
-  const profile = useSelector((state) => state.profile)
+  const profile = useSelector((state) => state.profile);
   console.log(user, isAuthenticated);
 
-const dispatch = useDispatch();
-useEffect ( () => {
-
-if (user) {
-
-  let prof = profileCreation (user)
-  dispatch (sendProfile(prof))
-
-}else{
-  dispatch(resetProfile())
-};
-
-}, [isAuthenticated] );
-console.log(user)
-console.log(isAuthenticated)
-console.log(profile)
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (user) {
+      let prof = profileCreation(user);
+      dispatch(sendProfile(prof));
+    } else {
+      dispatch(resetProfile());
+    }
+  }, [isAuthenticated]);
+  console.log(user);
+  console.log(isAuthenticated);
+  console.log(profile);
 
   const { colorMode } = useColorMode();
   return (
     <div data-bs-theme="light">
       <HStack
-      zIndex="10"
-      w='100%'
-      position='fixed'
+        zIndex="10"
+        w="100%"
+        position="fixed"
         flexDirection={["column", "column", "row"]}
         justify="space-around"
         p="10px"

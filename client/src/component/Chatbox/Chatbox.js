@@ -10,10 +10,11 @@ import {
   DrawerCloseButton,
   Button,
   Input,
-  Image
+  Image,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import icon from "../../styles/images/iconopenai.png"
+import chat from "../../styles/images/chat.jpg";
 
 export default function ChatBox() {
   const [animalInput, setAnimalInput] = useState("");
@@ -21,6 +22,7 @@ export default function ChatBox() {
   const [engResult, setEngResult] = useState();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const { colorMode } = useColorMode();
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -111,11 +113,19 @@ export default function ChatBox() {
 
   return (
     <div>
-
       <>
-        <Button zIndex="10" position="fixed" right="15px" bottom="15px" ref={btnRef} colorScheme="teal" onClick={onOpen}>
-         <Image mr="3px" w="20px" h="20px" src={icon} ></Image>ChatGPT
+        <Button
+          zIndex="30"
+          position="fixed"
+          right="20px"
+          bottom="20px"
+          ref={btnRef}
+          colorScheme="teal"
+          onClick={onOpen}
+        >
+          <Image mr="3px" w="30px" h="30px" src={chat}></Image>You need help?
         </Button>
+
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -123,30 +133,67 @@ export default function ChatBox() {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent bg="black">
             <DrawerCloseButton />
-            <DrawerHeader>↓↓haz tu pregunta↓↓</DrawerHeader>
+            <DrawerHeader color="yellow">↓↓¿Alguna pregunta?↓↓</DrawerHeader>
 
-            <DrawerBody>
-            <form onSubmit={onSubmit}>
-          <Input
-            type="text"
-            name="animal"
-            placeholder="Enter an question"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <Input padding="5px" bg="#10a37f" mt="25px" type="submit" value="SEND / ENVIAR" />
-        </form>
-        <div className={styles.result}>espere 20 segundos que la respuesta tarda y no me sale poner el boton de loading... gracias</div>
-        <div className={styles.result}><h1>ANSWER IN ENGLISH:</h1>{engResult}</div>
-        
-        <div className={styles.result}><h1>RESPUESTA EN ESPAÑOL:</h1>{result}</div>
-        
+            <DrawerBody >
+              <form onSubmit={onSubmit}>
+                <Input
+                  color="black"
+                  bg="white"
+                  type="text"
+                  name="animal"
+                  placeholder="Enter an question"
+                  value={animalInput}
+                  onChange={(e) => setAnimalInput(e.target.value)}
+                />
+                <Input
+                cursor='pointer'
+                  marginLeft='10'
+                  size="md"
+                  height="48px"
+                  width="200px"
+                  border="2px"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  value="SEND / ENVIAR"
+                />
+              </form>
+
+              <div className={styles.result}>
+                {/* <Spinner
+                  thickness="4px"
+                  speed="0.90s"
+                  emptyColor="black"
+                  color="yellow"
+                  size="xl"
+                /> */}
+              </div>
+
+              <div className={styles.result}>
+                <h1>RESPUESTA EN ESPAÑOL:</h1>
+                {result}
+              </div>
+
+              <div className={styles.result}>
+                <h1>ANSWER IN ENGLISH:</h1>
+                {engResult}
+              </div>
             </DrawerBody>
 
             <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button
+                variant="outline"
+                mr={3}
+                onClick={onClose}
+                bgColor="yellow"
+              >
                 Cancel
               </Button>
             </DrawerFooter>
