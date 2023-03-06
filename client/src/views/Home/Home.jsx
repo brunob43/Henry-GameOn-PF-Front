@@ -8,49 +8,42 @@ import {
   VStack,
   HStack,
   Container,
-  Box
 } from "@chakra-ui/react";
 import foto from "../assets/imagen/MUNDOHENRY-1.jpg";
-
-
-
 
 const Home = () => {
   return (
     <>
-      <VStack bgImage={foto} bgSize="cover" bgPosition="center" 
-      h="1010px"
-      >
-          <VStack>
-          <HStack> 
-          <Box
-            mt={["180px", "130px", "70px", "70px", "70px"]}
+      <VStack bgImage={foto} bgSize="cover" bgPosition="center" h="1000px">
+        <VStack flexDirection={["column", "column", "column", "row", "row"]}>
+          <Heading
+            mt={["450px", "200px", "150px", "70px", "70px"]}
+            h="3px"
             display="flex"
-            pt="50px"
-            bgGradient='linear(to-l, yellow, white)'
-            bgClip='text'
-            fontSize={['4xl','5xl','6xl','6xl','6xl']}
-            fontWeight='extrabold'
-            textAlign="center"
-  
+            flexDirection="row"
+            padding="100px"
+            noOfLines={1}
+            bgGradient="linear(to-l, yellow, white)"
+            bgClip="text"
+            fontSize="6xl"
+            fontWeight="extrabold"
           >
-              HENRY GAME ON
-              
-              </Box>
-              
-              </HStack> 
-          <Text
-            color="white"
-            textAlign="center"
-            fontSize="20"
-          >
+            HENRY GAME ON
+          </Heading>
+
+          <Text color="white" textAlign="center" fontSize="20">
             Un espacio donde podras codear jugando
           </Text>
         </VStack>
 
-
-        <HStack justifyContent="space-evenly" >
-          <VStack w="50%" h="300px" color="white" fontSize="20px">
+        <HStack justifyContent="space-evenly">
+          <VStack
+            h="310px"
+            color="white"
+            justify="flex-start"
+            fontSize="20px"
+            mr="300px"
+          >
             <Link to="/games">
               <Button
                 variant="ghost"
@@ -63,7 +56,7 @@ const Home = () => {
                 Games👾
               </Button>
             </Link>
-           
+
             <Container
               w="95%"
               textAlign="center"
@@ -76,11 +69,14 @@ const Home = () => {
               ,construidos con javascript, para entretenerse y aprender mientras
               tanto.
             </Container>
-            
-          </VStack> 
+          </VStack>
 
-
-           <VStack w="50%" h="300px" color="white" fontSize="20px" >
+          <VStack
+            h="300px"
+            color="white"
+            justifyContent="flex-start"
+            fontSize="20px"
+          >
             <Link to="/docs">
               <Button
                 variant="ghost"
@@ -93,34 +89,25 @@ const Home = () => {
                 HenryDocs 📑
               </Button>
             </Link>
-            
+
             <Container
               w="95%"
               textAlign="center"
               _hover={{
                 bg: "rgba(201, 201, 59, 0.455)",
                 transition: "0.2s ease",
-                
               }}
-             
             >
               HenryDocs es una plataforma social en la que puedes compartir
               documentos, resumenes, informacion util y demas a la comunidad y
               esta a su vez dar feedback con su like👍
             </Container>
-          
           </VStack>
         </HStack>
-        </VStack>
-     
+      </VStack>
+      <Footer />
     </>
   );
 };
 
 export default Home;
-
-//
-//
-//
-//
-//
