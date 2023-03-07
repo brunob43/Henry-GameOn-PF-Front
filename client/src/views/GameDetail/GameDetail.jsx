@@ -19,8 +19,9 @@ const GameDetail = () => {
   const { colorMode } = useColorMode();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const profile = useSelector((state) => state.profile);
-  const likedGames = useSelector((state) => state.gamesProfile);
+  const profile=useSelector((state)=>state.profile)
+  const likedGames = Object.keys(useSelector((state) => state.profile)).length?(useSelector((state)=>state.profile)).Games.map((g)=>g.game_id):[];
+  // const likedGames = useSelector((state) => state.gamesProfile);
   // const gameDetail = useSelector((state) => state.gameDetail);
   useEffect(() => {
     // dispatch(getDetailFromState(id));
