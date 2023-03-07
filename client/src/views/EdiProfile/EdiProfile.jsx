@@ -84,6 +84,7 @@ const EdiProfile = () => {
               autoComplete="off"
               type="url"
               name="user_image"
+              defaultValue={profile.user_image}
               placeholder="Agrega url de imagen"
               value={edit.user_image}
               onChange={changeHandler}
