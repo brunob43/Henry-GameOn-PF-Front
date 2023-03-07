@@ -530,8 +530,8 @@ export async function addLikeGame(id,internal_id) {
   return async function (dispatch) {
        console.log(id,internal_id,"addLikeGame")
        await axios.put(`/game/like/${id}?like_game=true`);
-       await axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`)
-       dispatch({ type: SET_PROFILE, payload: user });
+       const user = (await axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`)).data
+       return dispatch({ type: SET_PROFILE, payload: user });
 }}
 export async function removeLikeGame(id,internal_id,aux) {
   console.log(id,internal_id,"addLikeGame")
