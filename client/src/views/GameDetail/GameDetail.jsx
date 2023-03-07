@@ -30,7 +30,7 @@ const GameDetail = () => {
 
   const likeHandler = () => {
     let user_email= profile.user_email
-    dispatch(addLikeGame(id, profile.internal_id,aux));
+    dispatch(addLikeGame(id, profile.internal_id));
     dispatch(sendProfile({user_email}));
   
   };
