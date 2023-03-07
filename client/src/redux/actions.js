@@ -35,6 +35,7 @@ export const GET_DOCS_AD = "GET_DOCS_AD";
 export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
+export const EDIT_PROFILE = "EDIT_PROFILE";
 
 
 //---------------GAME-------------------------------//
@@ -556,6 +557,12 @@ export function sendProfile(prof) {
 
     return dispatch({ type: SET_PROFILE, payload: profile });
   };
+}
+export function editProfile(internal_id){
+  return async function (dispatch){
+    const response = await axios.get(`/profile?internal_id=${internal_id}`)
+    dispatch({type:EDIT_PROFILE, payload:response.data})
+  }
 }
 export function resetProfile() {
   return async function (dispatch) {

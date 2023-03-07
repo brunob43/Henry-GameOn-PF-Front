@@ -5,6 +5,7 @@ import {
   countViewsGames,
   addLikeGame,
   removeLikeGame,
+  editProfile,
 } from "../../redux/actions";
 import { VStack, Box, HStack, useColorMode, Button } from "@chakra-ui/react";
 import gamesArray from "../../games/gamesIndex";
@@ -29,9 +30,11 @@ const GameDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeGame(id, profile.internal_id));
+    dispatch(editProfile(profile.internal_id))
   };
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
+    dispatch(editProfile(profile.internal_id))
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
