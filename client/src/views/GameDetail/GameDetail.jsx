@@ -29,12 +29,13 @@ const GameDetail = () => {
   }, [dispatch, id]);
 
   const likeHandler = () => {
-    dispatch(addLikeGame(id, profile.internal_id));
-    dispatch(editProfile(profile.internal_id))
+    let aux={user_name:profile.user_name}
+    dispatch(addLikeGame(id, profile.internal_id,aux));
+  
   };
   const dislikeHandler = () => {
-    dispatch(removeLikeGame(id, profile.internal_id));
-    dispatch(editProfile(profile.internal_id))
+    let aux={user_name:profile.user_name}
+    dispatch(removeLikeGame(id, profile.internal_id,aux));
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
