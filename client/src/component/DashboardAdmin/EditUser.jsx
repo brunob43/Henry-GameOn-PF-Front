@@ -51,8 +51,6 @@ export default function EditUser({rowUser,isOpenEditUser}){
        dispatch(updateUser(internal_id, input));
        onClose()
     }
-    console.log(input, "input de edit")
-    console.log(rowUser,isOpenEditUser)
     return(
         <div>
 

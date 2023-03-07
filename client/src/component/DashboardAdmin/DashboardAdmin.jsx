@@ -44,6 +44,7 @@ const DashboardAdmin =()=>{
    const dispatch = useDispatch();
     
    const handleChange =(e)=>{
+    console.log(input)
       setInput({
         ...input,
     [e.target.name]:e.target.value
@@ -52,11 +53,13 @@ const DashboardAdmin =()=>{
 
    const handleUsersSubmit=(e)=>{
         e.preventDefault();
+        console.log("Buscando")
         dispatch(getNameUsers(input.inputUser));
         setInput({
             ...input,
             inputUser:""
         })
+        console.log(e)
    }
    const handleDocsSubmit=(e)=>{
         e.preventDefault(); 
@@ -75,6 +78,7 @@ const DashboardAdmin =()=>{
         })
    }
    const resetUsers=()=>{
+    console.log("Reset")
        dispatch(getUsers())
    }
    const resetGames=()=>{
@@ -362,16 +366,17 @@ const DashboardAdmin =()=>{
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
              <HStack bg="black" alignItems="flex" w="100%">
-             <FormControl alignItems="flex" onSubmit={handleUsersSubmit}>
+             <FormControl alignItems="flex">
                 <HStack bg="black">
                 <Input
                 w ="250px"
                 type="text"
+                color="white"
                 value={input.inputUser}
                 name="inputUser"
                 placeholder="Buscar usuarios"
                 onChange={handleChange}></Input>
-                <Button type="submit">Buscar</Button>
+                <Button onClick={handleUsersSubmit}>Buscar</Button>
                 <Button onClick={resetUsers}>Reset</Button>
                     
                 </HStack>           
@@ -393,15 +398,16 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
             <HStack alignItems="flex-start" w="100%" justify="center">
-             <FormControl onSubmit={handleGameSubmit}>
+             <FormControl>
                 <HStack bg="black">
                 <Input
                 w ="250px"
                 type="text"
+                color="white"
                 value={input.inputGame}
                 name="inputGame"
                 placeholder="Buscar juegos"
-                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                onChange={handleChange}></Input><Button onClick={handleGameSubmit}>Buscar</Button>
                 <Button onClick={resetGames}>Reset</Button>
                 <Button onClick={createGame}>New Game</Button>
                 </HStack>
@@ -422,15 +428,16 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
              <HStack bg="black" alignItems="flex-start" w="100%" justify="center">
-             <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+             <FormControl alignItems="flex-start">
                 <HStack>
                 <Input
                 w ="250px"
                 type="text"
+                color="white"
                 value={input.inputDoc}
                 name="inputDoc"
                 placeholder="Buscar Docs"
-                onChange={handleChange}></Input><Button type="submit">Buscar</Button>
+                onChange={handleChange}></Input><Button onClick={handleDocsSubmit}>Buscar</Button>
                 <Button onClick={resetDocs}>Reset</Button>
                 </HStack>
              </FormControl>
@@ -453,7 +460,7 @@ const DashboardAdmin =()=>{
              <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
                 <HStack bg="black">
                 
-                <Button></Button>
+                <Button bg="black" _hover="none"></Button>
                 </HStack>
              </FormControl>
              <DataTable
