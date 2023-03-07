@@ -86,7 +86,7 @@ const EdiProfile = () => {
               name="user_image"
               defaultValue={profile.user_image}
               placeholder="Agrega url de imagen"
-              value={edit.user_image}
+              // value={edit.user_image}
               onChange={changeHandler}
               border="2px"
               pl="6px"
