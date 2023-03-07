@@ -101,9 +101,11 @@ const ShareInfo = () => {
               onChange={changeHandler}
               w={["180px", "280px", "400px", "400px", "400px"]}
             />
+            <VStack>
             <Button>
               <UploadWidget formWidget={formWidget} />
             </Button>
+            </VStack>
 
             <FormLabel mt="5px">Name:</FormLabel>
             <Input
@@ -147,6 +149,7 @@ const ShareInfo = () => {
           ></Textarea>
            <VStack mt="5px">
             <Button  
+             onClick={submitHandler}
              type="submit"
              marginTop="20px"
              size="md"

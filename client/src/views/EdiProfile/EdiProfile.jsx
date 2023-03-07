@@ -5,23 +5,21 @@ import {
   Image,
   FormControl,
   FormLabel,
-  Editable,
-  EditableInput,
-  EditablePreview,
   useColorMode,
   HStack,
+  Input,
 } from "@chakra-ui/react";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-import { profileCreation } from "../../component/Utils/utils";
 import UploadWidget from "../../component/CloudinaryUpload/cloudinaryWidget";
 import { updateUser } from "../../redux/actions";
 
 const EdiProfile = () => {
   const { colorMode } = useColorMode();
   const profile = useSelector((state) => state.profile);
+  console.log(profile)
   const history = useHistory();
 
   const [edit, setEdit] = useState({
@@ -32,11 +30,12 @@ const EdiProfile = () => {
 
   const dispatch = useDispatch();
   const user = profile;
-  useEffect(() => {
-    if (user) {
-      let prof = profileCreation(user);
-    }
-  }, [user]);
+
+  const changeHandler = (event) => {
+    const property = event.target.name;
+    const value = event.target.value;
+    setEdit({ ...edit, [property]: value });
+  };
 
   const formWidget = (data) => {
     setEdit({ ...edit, user_image: data });
@@ -44,13 +43,13 @@ const EdiProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(updateUser(user.user_id, edit));
+    dispatch(updateUser(user.internal_id, edit));
     alert("El perfil se ha editado con exito");
     setEdit({
       name: "",
       image: "",
-      email: "",
     });
+    
 
     history.push("/user")
 
@@ -68,6 +67,9 @@ const EdiProfile = () => {
         >
 
           <FormControl letterSpacing={3} p="5" align="center" >
+          <Text p="20px" mt="5px">
+              Información personal
+            </Text>
             <Image
               src={profile.user_image}
               alt={profile.user_name}
@@ -75,25 +77,37 @@ const EdiProfile = () => {
               w="200px"
               p="6"
             ></Image>
+            <FormLabel fontSize="13px">
+              {" "}
+              Image:
+            <Input  color={colorMode === "dark" ? "black" : "white"}
+              bg={colorMode === "dark" ? "white" : "black"}
+              autoComplete="off"
+              type="url"
+              name="doc_image"
+              placeholder="Agrega url de imagen"
+              value={edit.user_image}
+              onChange={changeHandler}
+              border="2px"
+              pl="6px"
+              borderRadius="6px"  ></Input>
             <Button colorScheme='black' variant='outline' p="7px">
               <UploadWidget formWidget={formWidget} />
             </Button>
+            </FormLabel>
 
-            <Text p="20px" mt="5px">
-              Información personal
-            </Text>
+           
             <FormLabel fontSize="13px">
               {" "}
               Name:
-              <Editable
+              <Input
+                type="text"
                 defaultValue={profile.user_name}
                 border="2px"
                 pl="6px"
                 borderRadius="6px"
               >
-                <EditablePreview />
-                <EditableInput />
-              </Editable>
+              </Input>
             </FormLabel>
           </FormControl>
 
@@ -101,6 +115,7 @@ const EdiProfile = () => {
             <HStack>
               <Button
                 onClick={handleSubmit}
+                type="submit"
                 size="sm"
                 height="35px"
                 width="80px"
