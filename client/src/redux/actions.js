@@ -437,9 +437,9 @@ export function payment20 (internal_id){
       donation_quantity:20,
       internal_id
     }
-    const newDonation = await axios.post("/donation/create", payload)
-    await console.log(newDonation, "newDonation")
+    const newDonation = (await axios.post("/donation/create", payload)).data
     let aux = {donation_id:newDonation.donation_id}
+    console.log(aux, "donation id action")
     const response = await axios.get("/payment/20", aux);
     const link = response.data.init_point;
     // window.location.href = link;
