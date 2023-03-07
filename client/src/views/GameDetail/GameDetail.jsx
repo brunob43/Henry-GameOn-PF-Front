@@ -19,8 +19,7 @@ const GameDetail = () => {
   const { colorMode } = useColorMode();
   const { id } = useParams();
   const dispatch = useDispatch();
-  const profile=useSelector((state)=>state.profile)
-  const likedGames = Object.keys(useSelector((state) => state.profile)).length?(useSelector((state)=>state.profile)).Games.map((g)=>g.game_id):[];
+  const profile = useSelector((state) => state.profile);
   // const likedGames = useSelector((state) => state.gamesProfile);
   // const gameDetail = useSelector((state) => state.gameDetail);
   useEffect(() => {
@@ -34,12 +33,10 @@ const GameDetail = () => {
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
   };
-  console.log(profile, likedGames, "perfil y gustados");
+  console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
   console.log(game);
   console.log(game[0].id, "gameId");
-  console.log(likedGames, "gameliked");
-  console.log(likedGames.includes(game[0].id));
 
   return (
     isAuthenticated ? (
@@ -55,7 +52,7 @@ const GameDetail = () => {
       </Box>
       {Object.keys(profile).length && (
         <Box>
-          {!likedGames.includes(game[0].id) ? (
+          {!profile.Games.map((g)=>g.game_id).includes(game[0].id) ? (
             <Button onClick={likeHandler}> Like👍🏼</Button>
           ) : (
             <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
