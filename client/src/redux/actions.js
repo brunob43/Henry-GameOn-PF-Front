@@ -441,7 +441,7 @@ export function payment20 (internal_id){
     let donation_id = await newDonation.donation_id
     const response = await axios.get(`/payment/20?donation_id=${donation_id}`);
     const link = response.data.init_point;
-    // window.location.href = link;
+    window.location.href = link;
   } 
 }
 
