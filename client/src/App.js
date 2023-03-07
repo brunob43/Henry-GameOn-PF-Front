@@ -21,12 +21,14 @@ import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
 import Profile from "./views/Profile/Profile";
 import EdiProfile from "./views/EdiProfile/EdiProfile";
+import { useSelector } from "react-redux";
 // import style from './App.module.
 
 axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
 
 function App() {
   // const location = useLocation();
+  const user = useSelector((state) => state.profile)
 
   return (
     <div>
@@ -46,8 +48,9 @@ function App() {
           <GameDetail />
         </Route>
 
-        <Route exact path="/about">
-          <About />
+        <Route exact path="/about" render={() => {
+          user.user_type == "admin" ? <About/> : <PageNotFound/>
+        }}>
         </Route>
 
         <Route exact path="/contact">
