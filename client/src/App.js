@@ -30,6 +30,8 @@ function App() {
   // const location = useLocation();
   const user = useSelector((state) => state.profile)
 
+  console.log(user)
+
   return (
     <div>
       <Route exact path="/dashboardAdmin">
