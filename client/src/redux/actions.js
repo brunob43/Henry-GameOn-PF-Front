@@ -417,6 +417,7 @@ export function postUser(payload) {
 
 };
 export function updateUser(internal_id, payload){
+  console.log(payload)
   return async function (dispatch) {
   await axios.put(`/users/${internal_id}`,payload);
   dispatch(getUsers())
@@ -563,7 +564,7 @@ export function editProfile(internal_id){
     const response = await axios.get(`/profile?internal_id=${internal_id}`)
     dispatch({type:EDIT_PROFILE, payload:response.data})
   }
-}
+} 
 export function resetProfile() {
   return async function (dispatch) {
     dispatch({ type: RESET_PROFILE });
