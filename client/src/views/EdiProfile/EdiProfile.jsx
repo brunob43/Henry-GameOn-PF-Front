@@ -23,9 +23,10 @@ const EdiProfile = () => {
   const history = useHistory();
 
   const [edit, setEdit] = useState({
-    user_image: "",
-    user_name: "",
+    user_image: profile.user_image,
+    user_name: profile.user_name,
   });
+  
 
   const dispatch = useDispatch();
   const user = profile;
@@ -44,12 +45,7 @@ const EdiProfile = () => {
     event.preventDefault();
     dispatch(updateUser(user.internal_id, edit));
     alert("El perfil se ha editado con exito");
-    setEdit({
-      name: "",
-      image: "",
-    });
     
-
     history.push("/user")
 
   };
