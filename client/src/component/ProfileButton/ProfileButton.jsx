@@ -3,10 +3,11 @@ import { Menu, MenuButton, MenuItem, MenuList, Image, Text, HStack, AvatarGroup 
 import LogoutButton from "../../views/Auth/Logout/Logout";
 import { useAuth0 } from "@auth0/auth0-react";
 import {ExternalLinkIcon } from '@chakra-ui/icons'
+import { useSelector } from "react-redux";
 
 const PorfileButton = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
+  const {isAuthenticated, isLoading } = useAuth0();
+  const profile = useSelector((state)=>state.profile)
   if (isLoading) {
     return <div>Loading ...</div>;
   }
@@ -19,13 +20,13 @@ const PorfileButton = () => {
             boxSize="2.8rem"
             borderRadius="full"
             border="2px"
-            src={user.picture}
-            alt={user.name}
+            src={profile.user_image}
+            alt={profile.user_name}
             mr="12px"
           />
         </MenuButton>
         <MenuList>
-            <Text p="8px">Hola, {user.name}!</Text>
+            <Text p="8px">Hola, {profile.user_name}!</Text>
           <MenuItem minH="48px">
           <HStack>
            <AvatarGroup spacing='1rem'>
