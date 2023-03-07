@@ -17,7 +17,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { PageNotFound } from "../../component/PageNotFound/PageNotFound";
 
 const GameDetail = () => {
-  const { user,isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const { colorMode } = useColorMode();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -31,15 +31,9 @@ const GameDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeGame(id, profile.internal_id));
-    let prof = profileCreation(user);
-      dispatch(sendProfile(prof));
-  
   };
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
-    let prof = profileCreation(user);
-    dispatch(sendProfile(prof));
-
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
