@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { profileCreation } from "../../component/Utils/utils";
 import { useParams } from "react-router-dom";
 import {
   countViewsGames,
@@ -16,7 +17,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { PageNotFound } from "../../component/PageNotFound/PageNotFound";
 
 const GameDetail = () => {
-  const { isAuthenticated } = useAuth0();
+  const { user,isAuthenticated } = useAuth0();
   const { colorMode } = useColorMode();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -29,15 +30,16 @@ const GameDetail = () => {
   }, [dispatch, id]);
 
   const likeHandler = () => {
-    let user_email= profile.user_email
     dispatch(addLikeGame(id, profile.internal_id));
-    dispatch(sendProfile({user_email}));
+    let prof = profileCreation(user);
+      dispatch(sendProfile(prof));
   
   };
   const dislikeHandler = () => {
-    let user_email= profile.user_email
     dispatch(removeLikeGame(id, profile.internal_id));
-    dispatch(sendProfile({user_email}));
+    let prof = profileCreation(user);
+    dispatch(sendProfile(prof));
+
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
