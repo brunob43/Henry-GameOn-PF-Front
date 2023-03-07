@@ -296,7 +296,7 @@ const DashboardAdmin =()=>{
         name:'ID',
         selector:'donation_id',
         sortable:true,
-        width: "50px",
+        width: "120px",
     },
     { 
         name:'Name',
@@ -304,16 +304,26 @@ const DashboardAdmin =()=>{
         sortable:true,
         width: "200px"
     },
-    {   name:'Info',
-        selector:'donation_info',
-        sortable:true,
-        width: "250px"
-    },
     {   name:'Quantity',
-        selector:'donation_quantity',
-        sortable:true,
-        width: "250px"
-    }
+    selector:'donation_quantity',
+    sortable:true,
+    width: "250px"
+      },
+      {   name:'Data Id',
+        selector:'donation_data_id',
+       sortable:true,
+       width: "120px"
+    },
+    {   name:'Status',
+    selector:'donation_status',
+    sortable:true,
+    width: "120px"
+    },
+    {   name:'Info',
+    selector:'donation_info',
+    sortable:true,
+    width: "120px"
+},
    ]
    const paginationOptions={
       rowsPerPageText:"Filas por página",
