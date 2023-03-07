@@ -31,9 +31,11 @@ const GameDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeGame(id, profile.internal_id));
+    window.location.reload()
   };
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
+    window.location.reload()
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
