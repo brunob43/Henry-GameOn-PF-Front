@@ -432,20 +432,30 @@ export function deleteUser(internal_id){
 
 export function payment20 (internal_id){
   return async function (dispatch) {
-    const response = await axios.get("/payment/20")
-    const payload= {user_payment_id :response.data.collector_id};
-    await axios.put(`/users/${internal_id}`,payload);
-    const link = response.data.init_point
-    window.location.href=link
+    let payload = {
+      donation_name:"ayudita $20",
+      donation_quantity:20,
+      internal_id
+    }
+    const newDonation = await axios.post("/donation/create", payload)
+    let aux = {donation_id:newDonation.donation_id}
+    const response = await axios.get("/payment/20", aux);
+    const link = response.data.init_point;
+    window.location.href = link;
   } 
 }
 
 
 export function payment50(internal_id) {
   return async function (dispatch) {
-    const response = await axios.get("/payment/50");
-    const payload= {user_payment_id :response.data.collector_id};
-    await axios.put(`/users/${internal_id}`,payload);
+    let payload = {
+      donation_name:"manon $50",
+      donation_quantity:50,
+      internal_id
+    }
+    const newDonation = await axios.post("/donation/create", payload)
+    let aux = {donation_id:newDonation.donation_id}
+    const response = await axios.get("/payment/50", aux);
     const link = response.data.init_point;
     window.location.href = link;
   };
@@ -453,12 +463,17 @@ export function payment50(internal_id) {
 
 export function payment100(internal_id) {
   return async function (dispatch) {
-    const response = await axios.get("/payment/100");
-    const payload= {user_payment_id :response.data.collector_id};
-    await axios.put(`/users/${internal_id}`,payload);
+    let payload = {
+      donation_name:"euforia $100",
+      donation_quantity:100,
+      internal_id
+    }
+    const newDonation = await axios.post("/donation/create", payload)
+    let aux = {donation_id:newDonation.donation_id}
+    const response = await axios.get("/payment/100", aux);
     const link = response.data.init_point;
     window.location.href = link;
-  };
+  }
 }
 
 //-------------------------MESSAGE--------------------//
@@ -511,23 +526,23 @@ export async function countViewsDoc (id){
 //--------------------------LIKES-----------------------//
 export async function addLikeGame(id,internal_id) {
   console.log(id,internal_id,"addLikeGame")
-  //  await axios.put(`/game/like/${id}?like_game=true`);
-  //  await axios.put(`/users/${internal_id}?like_game=true`)
+   await axios.put(`/game/like/${id}?like_game=true`);
+   await axios.put(`/users/${internal_id}?like_game=true`)
 }
 export async function removeLikeGame(id,internal_id) {
   console.log(id,internal_id,"addLikeGame")
-  //  await axios.put(`/game/like/${id}`);
-  //  await axios.put(`/users/${internal_id}`)
+   await axios.put(`/game/like/${id}`);
+   await axios.put(`/users/${internal_id}`)
 }
 export async function addLikeDoc(id,internal_id) {
   console.log(id,internal_id,"addLikeDoc")
-  //  await axios.put(`/doc/like/${id}?like_game=true`);
-  //  await axios.put(`/users/${internal_id}?like_game=true`)
+   await axios.put(`/doc/like/${id}?like_game=true`);
+   await axios.put(`/users/${internal_id}?like_game=true`)
 }
 export async function removeLikeDoc(id,internal_id) {
   console.log(id,internal_id,"addLikeDoc")
-  //  await axios.put(`/doc/like/${id}`);
-  //  await axios.put(`/users/${internal_id}`)
+   await axios.put(`/doc/like/${id}`);
+   await axios.put(`/users/${internal_id}`)
 }
 
 //-------------PROFILE------------------------------------//
