@@ -49,7 +49,6 @@ const DocDetail = () => {
       <Image
         mt={["162px", "55px", "40px", "40px", "40px"]}
         boxSize="525px"
-        objectFit="cover"
         w="100%"
         alt={docDetail.doc_name}
         src={docDetail.doc_image}
