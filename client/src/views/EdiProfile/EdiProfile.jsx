@@ -19,17 +19,14 @@ import { updateUser } from "../../redux/actions";
 const EdiProfile = () => {
   const { colorMode } = useColorMode();
   const profile = useSelector((state) => state.profile);
-  console.log(profile)
   const history = useHistory();
 
   const [edit, setEdit] = useState({
     user_image: "",
     user_name: "",
-    user_email: "",
   });
 
   const dispatch = useDispatch();
-  const user = profile;
 
   const changeHandler = (event) => {
     const property = event.target.name;
@@ -43,11 +40,11 @@ const EdiProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(updateUser(user.internal_id, edit));
+    dispatch(updateUser(profile.internal_id, edit));
     alert("El perfil se ha editado con exito");
     setEdit({
-      name: "",
-      image: "",
+      user_name: "",
+      user_image: "",
     });
     
 
