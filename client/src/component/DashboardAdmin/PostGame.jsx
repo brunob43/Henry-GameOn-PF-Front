@@ -22,7 +22,7 @@ export default function PostGame({isOpenPostGame}){
         game_name:"",
         game_topic:"",
         game_image:"",
-        game_difficulty:"",
+        game_difficulty:"Easy",
     })
     useEffect(()=>{
     
@@ -39,6 +39,12 @@ export default function PostGame({isOpenPostGame}){
     const onSubmit=(e)=>{
        e.preventDefault();
        dispatch(postGame(input));
+       setInput({
+        game_name:"",
+        game_topic:"",
+        game_image:"",
+        game_difficulty:"",
+       })
        onClose()
     }
     return(
