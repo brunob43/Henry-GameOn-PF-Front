@@ -7,13 +7,13 @@ import Hangman5 from "./Img/img5.png"
 import Hangman6 from "./Img/img6.png"
 import Hangman7 from "./Img/img7.png"
 import style from "./Hangman.module.css"
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/alert"
+// import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/alert"
 import { useState } from "react"
 import { Box } from "@chakra-ui/layout"
   
 const Hangman= () =>{
     // const [fallo, setFallo] = useState('false');
-    const [win, setWin] = useState('false');
+    // const [win, setWin] = useState('false');
     // const [word, setWord] = useState('')
 
     function id( str ){
@@ -106,7 +106,7 @@ const Hangman= () =>{
         document.getElementById("fin").innerHTML=``;
         document.getElementById("fin").className="";
         // setFallo('false')
-        setWin('false')
+        // setWin('false')
         const imagen = id('imagen');
         const btn_letras = document.querySelectorAll( "#letra" );
         imagen.src = Hangman0;
