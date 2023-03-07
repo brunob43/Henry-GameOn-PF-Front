@@ -103,6 +103,7 @@ const EdiProfile = () => {
                 type="text"
                 name="user_name"
                 defaultValue={profile.user_name}
+                onChange={changeHandler}
                 border="2px"
                 pl="6px"
                 borderRadius="6px"
