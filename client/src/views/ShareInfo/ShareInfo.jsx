@@ -91,6 +91,12 @@ const ShareInfo = () => {
               w={["180px", "280px", "400px", "400px", "400px"]}
             />
 
+                
+<VStack>
+            <Button>
+              <UploadWidget formWidget={formWidget} />
+            </Button>
+            </VStack>
 
             <FormLabel mt="-2.5">Author:</FormLabel>
             <Input
@@ -103,13 +109,6 @@ const ShareInfo = () => {
               onChange={changeHandler}
               w={["180px", "280px", "400px", "400px", "400px"]}
             />
-
-            
-            <VStack>
-            <Button>
-              <UploadWidget formWidget={formWidget} />
-            </Button>
-            </VStack>
 
             <FormLabel mt="5px">Title:</FormLabel>
             <Input
