@@ -39,7 +39,7 @@ console.log(profile.type)
       <Switch>
       <Route exact path="/dashboardAdmin">
             {Object.keys(profile).length&&<div>
-              {profile.user_type=="admin"?<DashboardAdmin/>:<PageNotFound/>}</div>}
+              {profile.user_type=="admin"?<DashboardAdmin/>:<Home/>}</div>}
         </Route>
         <Route exact path="/" render={() => <Home />} />
 
