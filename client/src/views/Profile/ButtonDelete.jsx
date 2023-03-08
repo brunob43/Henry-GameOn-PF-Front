@@ -4,8 +4,9 @@ AlertDialogFooter, AlertDialogContent } from "@chakra-ui/react";
 import { useRef } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser } from "../../redux/actions";
+import { deleteUser, resetProfile } from "../../redux/actions";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -13,16 +14,18 @@ const ButtonDelete=()=>{
     const dispatch = useDispatch();
     const profile = useSelector((state) => state.profile);
     const history = useHistory();
+    const { logout } = useAuth0();
 
    const deleteHandler = ()=>{
     dispatch(deleteUser(profile.internal_id))
+    dispatch(resetProfile())
+    logout({ logoutParams: { returnTo: window.location.origin } })
     history.push("/")
+  
 }    
 
 const { isOpen, onOpen, onClose } = useDisclosure()
 const cancelRef = useRef()
-
-
 
   return (
     <>
@@ -42,7 +45,7 @@ const cancelRef = useRef()
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Are you sure? You can't undo this action afterwards.
+              ¿Seguro que quieres eliminar tu perfil?
             </AlertDialogBody>
 
             <AlertDialogFooter>
