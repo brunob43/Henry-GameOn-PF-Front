@@ -18,7 +18,7 @@ const TableLikeDocs =() =>{
                 fontSize: '25px',
                 fontFamily: "cursive,Georgia",
                 fontWeight: 'bold',
-                paddingLeft: '0 8px',
+                padding: "10px",
                 textAlign: 'center',
               }
         }
@@ -48,7 +48,7 @@ const TableLikeDocs =() =>{
 return (
 
 <VStack>
-<DataTable
+<DataTable 
 customStyles={customStyle}
 columns={columnsUsers}
 data={array}
