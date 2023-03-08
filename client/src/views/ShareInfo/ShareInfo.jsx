@@ -107,7 +107,7 @@ const ShareInfo = () => {
             </Button>
             </VStack>
 
-            <FormLabel mt="5px">Name:</FormLabel>
+            <FormLabel mt="5px">Title:</FormLabel>
             <Input
               color={colorMode === "dark" ? "black" : "white"}
               bg={colorMode === "dark" ? "white" : "black"}
