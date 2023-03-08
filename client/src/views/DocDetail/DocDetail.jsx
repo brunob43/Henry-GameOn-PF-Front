@@ -25,11 +25,10 @@ const DocDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
-  const likedDocs = useSelector((state) => state.docsProfile);
   const docDetail = useSelector((state) => state.docDetail);
   const { doc_id } = docDetail;
   const embedSpace = new RegExp('/\n/g')
-  console.log(docDetail)
+
   useEffect(() => {
     dispatch(getDocDetailFromState(id));
     countViewsDocs(id);
@@ -37,9 +36,13 @@ const DocDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeDoc(id, profile.internal_id));
+    window.location.reload()
+
   };
   const dislikeHandler = () => {
     dispatch(removeLikeDoc(id, profile.internal_id));
+    window.location.reload()
+
   };
 
   return (
@@ -62,13 +65,13 @@ const DocDetail = () => {
               </Text>
               {Object.keys(profile).length && (
                 <Box>
-                  {!likedDocs.includes(doc_id) ? (
-                    <Button onClick={likeHandler}>Like👍🏼</Button>
-                  ) : (
-                    <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
-                  )}
-                </Box>
-              )}
+                   {!profile.Docs.map((d)=>d.doc_id).includes(doc_id) ? (
+                   <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={likeHandler}> Like👍🏼</Button>
+                   ) : (
+                   <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={dislikeHandler}>Quitar Like👎🏼</Button>
+          )}
+        </Box>
+      )}
             </VStack>
 
             <VStack w="70%" p="20px" align="flex-start">
