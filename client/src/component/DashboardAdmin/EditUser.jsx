@@ -67,12 +67,14 @@ export default function EditUser({rowUser,isOpenEditUser}){
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Detalle de Usuario</DrawerHeader>
+            <DrawerHeader bgColor="yellow">Detalle de Usuario</DrawerHeader>
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
             <label>Nombre:</label>
               <Input
+              bgColor="yellow"
+                  borderColor="black"
                 autoComplete="off"
                 type="text"
                 value={input.user_name}
@@ -82,6 +84,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
               />
              <label>E-mail:</label>
               <Input
+              bgColor="yellow"
+                  borderColor="black"
                 autoComplete="off"
                 type="email"
                 value={input.user_email}
@@ -91,6 +95,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
               />
                <label>Imagen:</label>
               <Input
+              bgColor="yellow"
+                  borderColor="black"
                 autoComplete="off"
                 type="text"
                 value={input.user_image}
@@ -112,7 +118,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
                    <option value="warned">Warned</option>
                    <option value="banned">Banned</option>
                    </Select>
-               <Button type="submit">
+               <Button bgColor="yellow"
+                  borderColor="black" type="submit">
                 Save
               </Button>
         </form>
@@ -121,7 +128,8 @@ export default function EditUser({rowUser,isOpenEditUser}){
             </DrawerBody>
 
             <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button bgColor="yellow"
+                  borderColor="black" variant="outline" mr={3} onClick={onClose}>
                 Cancel
               </Button>
             </DrawerFooter>
