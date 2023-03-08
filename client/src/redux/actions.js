@@ -604,6 +604,12 @@ export function getContacts(){
   }
 }
 
+export function answerMessage(message_id){
+  return async function (dispatch) {
+    await axios.delete(`/message/${message_id}`)
+    dispatch(getContacts())
+  }
+}
 
 
 

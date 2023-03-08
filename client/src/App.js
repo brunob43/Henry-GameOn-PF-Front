@@ -14,9 +14,11 @@ import {
 } from "./views";
 import { useSelector } from "react-redux";
 import NavBar from "./component/NavBar/NavBar";
+import Thanks from "./views/Thanks/Thanks";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import DocDetail from "./views/DocDetail/DocDetail";
+import Banned from "./views/Banned/Banned";
 import Footer from "./component/Footer/Footer";
 import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
@@ -41,50 +43,71 @@ console.log(profile.type)
             {Object.keys(profile).length&&<div>
               {profile.user_type=="admin"?<DashboardAdmin/>:<Home/>}</div>}
         </Route>
-        <Route exact path="/" render={() => <Home />} />
+
+        <Route exact path="/">
+            {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Home/>}</div>}
+        
+        </Route>
 
         <Route exact path="/games">
-          <Games />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Games />}</div>}
         </Route>
 
         <Route exact path="/games/:id">
-          <GameDetail />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <GameDetail/>}</div>}
         </Route>
 
         <Route exact path="/about">
+          
           <About />
         </Route>
 
         <Route exact path="/contact">
+          
           <Contact />
         </Route>
 
         <Route exact path="/docs">
-          <Docs />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Docs />}</div>}
         </Route>
 
         <Route exact path="/doc/:id">
-          <DocDetail />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <DocDetail />}</div>}
         </Route>
 
         <Route exact path="/docs/share">
-          <ShareInfo />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <ShareInfo />}</div>}
         </Route>
 
         <Route exact path="/register">
-          <Register />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Register />}</div>}
         </Route>
 
         <Route exact path="/donation">
-          <Donation />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Donation />}</div>}
         </Route>
 
         <Route exact path="/user">
-          <Profile/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Profile/>}</div>}
         </Route>
 
         <Route exact path="/userprofile">
-          <EdiProfile/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <EdiProfile/>}</div>}
+        </Route>
+
+        <Route exact path="/thanks">
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Thanks/>}</div>}
         </Route>
 
         <Route>
