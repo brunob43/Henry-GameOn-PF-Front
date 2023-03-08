@@ -77,6 +77,27 @@ const ShareInfo = () => {
             Share your info
           </Text>
           <FormControl letterSpacing={3} p="6" onSubmit={submitHandler}>
+
+           <FormLabel mt="5px">Image(Optional):</FormLabel>
+            <Input
+              color={colorMode === "dark" ? "black" : "white"}
+              bg={colorMode === "dark" ? "white" : "black"}
+              autoComplete="off"
+              type="url"
+              name="doc_image"
+              placeholder="Agrega url de imagen"
+              value={form.doc_image}
+              onChange={changeHandler}
+              w={["180px", "280px", "400px", "400px", "400px"]}
+            />
+
+                
+<VStack>
+            <Button>
+              <UploadWidget formWidget={formWidget} />
+            </Button>
+            </VStack>
+
             <FormLabel mt="-2.5">Author:</FormLabel>
             <Input
               color={colorMode === "dark" ? "black" : "white"}
@@ -89,25 +110,7 @@ const ShareInfo = () => {
               w={["180px", "280px", "400px", "400px", "400px"]}
             />
 
-            <FormLabel mt="5px">Image(Optional):</FormLabel>
-            <Input
-              color={colorMode === "dark" ? "black" : "white"}
-              bg={colorMode === "dark" ? "white" : "black"}
-              autoComplete="off"
-              type="url"
-              name="doc_image"
-              placeholder="Agrega url de imagen"
-              value={form.doc_image}
-              onChange={changeHandler}
-              w={["180px", "280px", "400px", "400px", "400px"]}
-            />
-            <VStack>
-            <Button>
-              <UploadWidget formWidget={formWidget} />
-            </Button>
-            </VStack>
-
-            <FormLabel mt="5px">Name:</FormLabel>
+            <FormLabel mt="5px">Title:</FormLabel>
             <Input
               color={colorMode === "dark" ? "black" : "white"}
               bg={colorMode === "dark" ? "white" : "black"}

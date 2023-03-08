@@ -15,6 +15,8 @@ import {
     deleteUser,
     deleteGame,
     deleteDoc, 
+    getContacts,
+    answerMessage,
     //postUser,
     //postDoc,
     //postGame
@@ -26,6 +28,7 @@ import PostGame from "./PostGame";
 
 const DashboardAdmin =()=>{
     const { colorMode } = useColorMode();
+    const contacts = useSelector((state)=>state.allContacts) 
    const users = useSelector((state)=>state.users)
    const games = useSelector((state)=>state.gamesAd)
    const docs = useSelector((state)=>state.docsAd)
@@ -87,6 +90,10 @@ const DashboardAdmin =()=>{
    }
    const resetDocs=()=>{
        dispatch(getDocsAd())
+   }
+
+   const handleContactAnswer=(row) => {
+    dispatch(answerMessage(row.message_id))
    }
    const columnsUsers=[
     {
@@ -362,6 +369,37 @@ const DashboardAdmin =()=>{
     width: "120px"
 },
    ]
+   const columnsContact=[
+    {
+        name:'ID',
+        selector:(row)=>row.message_id,
+        sortable:true,
+        width: "70px"
+    },
+    { 
+        name:'ISSUE',
+        selector:(row)=>row.message_issue,
+        sortable:true,
+        width: "200px"
+    },
+    { 
+        name:'MESSAGE CONTENT',
+        selector:(row)=>row.message_content,
+        sortable:true,
+        width: "800px"
+    },
+    {   name:'MESSAGE EMAIL',
+        selector:(row)=>row.message_email,
+        sortable:true,
+        width: "200px"
+    },
+
+    {   name:'RESPONDIDO',
+        width:"150px",
+        cell:(row)=>(<Button
+        onClick={()=>handleContactAnswer(row)}>{row.message_answered?<Text color="black">Revertir</Text>:<Text color="black">Responder</Text>}</Button>)
+    },]
+
    const paginationOptions={
       rowsPerPageText:"Filas por página",
       rangeSeparatorText: "de",
@@ -376,6 +414,7 @@ const DashboardAdmin =()=>{
     }
    }
    useEffect(()=>{
+      dispatch(getContacts())
       dispatch(getUsers());
       dispatch(getDocsAd());
       dispatch(getGamesAd());
@@ -493,9 +532,8 @@ const DashboardAdmin =()=>{
 		     pointerOnHover
              />
              <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
-             <FormControl alignItems="flex-start" onSubmit={handleDocsSubmit}>
+             <FormControl alignItems="flex-start">
                 <HStack bg="black">
-                
                 <Button bg="black" _hover="none"></Button>
                 </HStack>
              </FormControl>
@@ -513,6 +551,26 @@ const DashboardAdmin =()=>{
              highlightOnHover
 		     pointerOnHover    
                />
+
+            <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
+             <FormControl alignItems="flex-start">
+                <HStack bg="black">
+                <Button bg="black" _hover="none"></Button>
+                </HStack>
+             </FormControl>
+             <DataTable
+             customStyles={customStyle}
+             columns={columnsContact}
+             data={contacts}
+             title="Mensajes"
+             pagination
+             paginationComponentOptions={paginationOptions}
+             fixedHeader
+             fixedHeaderScrollHeight="600px"
+             responsive = {true}   
+             theme="dark"    
+             highlightOnHover    
+            />
           </div>
    )
 }

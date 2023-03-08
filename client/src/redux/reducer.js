@@ -35,6 +35,7 @@ import {
   GET_NAME_DOCS_AD,
   GET_DOC_DETAIL_FROM_STATE_AD,
   EDIT_PROFILE,
+  GET_CONTACT
   
 } from "./actions";
 
@@ -62,7 +63,8 @@ const initialState = {
   donations:[],
   userDetail:{},
   gamesProfile:[],
-  docsProfile:[]
+  docsProfile:[],
+  allContacts:[]
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -487,6 +489,12 @@ const rootReducer = (state = initialState, action) => {
         // gamesProfile:[],
         // docsProfile:[]
               }
+
+              case GET_CONTACT:
+      return{
+        ...state,
+        allContacts:action.payload
+      }
 
     default: return {...state}
 

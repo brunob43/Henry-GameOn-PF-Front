@@ -36,6 +36,7 @@ export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
 export const EDIT_PROFILE = "EDIT_PROFILE";
+export const GET_CONTACT = " GET_CONTACT";
 
 
 //---------------GAME-------------------------------//
@@ -602,5 +603,24 @@ export function getDonations(){
     dispatch({type:GET_DONATIONS, payload: donations})
   }
 }
+
+//---------------------CONTACT------------------//
+
+export function getContacts(){
+  return async function (dispatch){
+    const response = await axios.get("/message")
+    const allContacts = response.data
+    dispatch({type:GET_CONTACT, payload: allContacts})
+  }
+}
+
+export function answerMessage(message_id){
+  return async function (dispatch) {
+    await axios.delete(`/message/${message_id}`)
+    dispatch(getContacts())
+  }
+}
+
+
 
 
