@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import style from "./Crosswords.module.css"
-import {HStack, Text, useColorMode, VStack} from "@chakra-ui/react"
+import {HStack, Text, useColorMode, VStack, Button, Box} from "@chakra-ui/react"
 import Crosswords2 from './Crosswords2';
 
 const Crosswords = () =>{
@@ -82,7 +82,7 @@ const Crosswords = () =>{
       var errorActivo=0;
       function error(){
         document.getElementById("mensaje").innerHTML="Existen palabras incorrectas";
-        document.getElementById("mensaje").className="alert alert-danger";
+        document.getElementById("mensaje").className=style.alert;
         errorActivo=1;
       }
 
@@ -111,7 +111,7 @@ const Crosswords = () =>{
         if(palabra1.toLowerCase()==="css" && palabra2.toLowerCase()==="homework" && palabra3.toLowerCase()==="metodos" && palabra4.toLowerCase()==="slack" && palabra5.toLowerCase()==="bootcamp" && palabra6.toLowerCase()==="sublime text" && palabra7.toLowerCase()==="challenge" && palabra8.toLowerCase()==="node"){
           document.getElementById("mensaje").innerHTML="Ganaste";
           document.getElementById("mensaje").style.fontSize="24px";
-          document.getElementById("mensaje").className="alert alert-success";
+          document.getElementById("mensaje").className=style.alert;
         }else{
           if(palabra1.toLowerCase()!=="css"){
             palabra1_letra1().value="";
@@ -247,8 +247,8 @@ const Crosswords = () =>{
       ?(
         <div className={style.body}>
           <div className={style.col_md_12}>
-            <Text className={style.consigna} color={colorMode==="dark" ? "white" : "black"}>Completa el crucigrama con las palabras relacionadas a estas definiciones</Text><br />
-            <HStack className={style.tableConcepts} alignItems="flex-start">
+            <Text className={style.consigna} bg={colorMode==="dark"?"blackAlpha.800":"whiteAlpha.800"} color={colorMode==="dark" ? "white" : "black"}>Completa el crucigrama con las palabras relacionadas a estas definiciones</Text><br />
+            <HStack className={style.tableConcepts} bg={colorMode==="dark"?"blackAlpha.800":"whiteAlpha.800"} alignItems="flex-start">
             <VStack className={style.definiciones} color={colorMode==="dark" ? "white" : "black"}>
                   <Text>
                     Verticales:
@@ -279,7 +279,7 @@ const Crosswords = () =>{
             </HStack>
   
             <div id="mensaje" ></div>
-  
+  <Box padding="20px" border="2px dashed black" backgroundColor="rgba(255, 255, 0, 0.5)">
             <table className={style.table}>
               <tbody>
                 <td>
@@ -289,7 +289,7 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila1C3" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila1C3" name="word1"/>
                 </td>
                 <td>
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/> 
@@ -333,7 +333,7 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila2C3" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila2C3" name="word4"/>
                 </td>
                 <td>
                   <input className={style.casilla} type="text" maxLength="1" id="fila2C4" />
@@ -430,7 +430,7 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila4C6" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila4C6" name="word5"/>
                 </td>
                 <td>
                   <input className={style.casilla} type="text" maxLength="1" id="fila4C7" />
@@ -503,7 +503,7 @@ const Crosswords = () =>{
               </tbody>
               <tbody>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila6C1" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila6C1" name="word6"/>
                 </td>
                 <td>
                   <input className={style.casilla} type="text" maxLength="1" id="fila6C2" />
@@ -621,7 +621,7 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila8C11" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila8C11" name="word3"/>
                 </td>
                 <td>
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
@@ -650,10 +650,10 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila9C6" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila9C6" name="word7"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila9C7" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila9C7" name="word2"/>
                 </td>
                 <td>
                   <input className={style.casilla} type="text" maxLength="1" id="fila9C8" />
@@ -750,7 +750,7 @@ const Crosswords = () =>{
                   <input className={style.block} type="text" disabled maxLength="1" id="fila1C1"/>
                 </td>
                 <td>
-                  <input className={style.casilla} type="text" maxLength="1" id="fila11C10" />
+                  <input className={style.casilla} type="text" maxLength="1" id="fila11C10" name="word8"/>
                 </td>
                 <td>
                   <input className={style.casilla} type="text" maxLength="1" id="fila11C11" />
@@ -898,14 +898,9 @@ const Crosswords = () =>{
                 </td>
               </tbody>
             </table>
-  
+  </Box>
             <div className={style.botones}>
-              <button onClick={verificar} 
-              style={{
-                margin:"10px",
-                fontSize:"23px",
-                padding:"0 2%"
-              }}>Verificar</button>
+              <Button backgroundColor="yellow" color="black" border="1px solid black" _hover={{backgroundColor:"rgb(220, 220, 0)"}} marginTop="10px" fontSize="23px" padding="0 20px" onClick={verificar}>Verificar</Button>
             </div>
           </div>
         </div>
@@ -914,13 +909,9 @@ const Crosswords = () =>{
         <Crosswords2/>
         </>
       )}
-      <>
-      <button id="1" onClick={handleChange} ref={ButtonChange} name="buttonChange"
-      style={{  
-        fontSize:"20px",
-        padding:"0 2%"        
-      }}>Cambiar Crucigrama</button>
-      </>
+      <div className={style.botones}>
+      <Button marginBottom="10px" backgroundColor="yellow" color="black" border="1px solid black" _hover={{backgroundColor:"rgb(220, 220, 0)"}} fontSize="20px" padding="0 10px" id="1" onClick={handleChange} ref={ButtonChange} name="buttonChange">Cambiar Crucigrama</Button>
+      </div>
     </VStack>
   )
 }

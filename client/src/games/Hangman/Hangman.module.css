@@ -1,43 +1,59 @@
 .body{
-    margin: 0%;
-    /* background: url(./Img/fondo.png) no-repeat center;
-    background-size: cover;
-    font-family: 'Carter One', Arial, Helvetica, sans-serif;
-    min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header{
-    background: black;
-    padding: 80px;
-    text-align: center;
-    margin-bottom: 40px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-bottom: 15px;
 }
 
 .description{
+    background: rgba(0, 0, 0, 0.774);
+    padding: 10px;
+    width: 370px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 15px;
     margin: 0;
-    color: white;
+    color: yellow;
+}
+
+.cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main{
     width: 80%;
-    margin: auto;
     padding: 20px;
-    background: rgba(255,255,255,.7);
+    background: rgba(255, 249, 65, 0.59);
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 20px;
 }
 
 .imagen{
     width: 200px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px dashed black
 }
 
 .palabra_a_adivinar{
-    height: 3em;
+    height: 40px;
 }
 
 .palabra_a_adivinar span{
+    height: 40px;
     vertical-align: bottom;
-    font-size: 2em;
+    font-size: 30px;
     border-bottom: 2px solid black;
     width: 30px;
     text-align: center;
@@ -48,6 +64,7 @@
 .letras{
     margin-top: 30px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 9px;
 }
@@ -60,7 +77,23 @@
 }
 
 .jugar{
+    color: black;
+    font-weight: bold;
     margin-top: 15px;
+    padding: 0px 5px;
+    border-radius: 5px;
+    background-color: yellow;
+    border: 5px  outset rgb(194, 194, 0)
+}
+
+[id="letra"]{
+    border: 1px solid black;
+    color: black;
+}
+
+.jugar:hover {
+    background-color: rgb(220, 220, 0);
+    border-style: inset;
 }
 
 *[disabled="true"]{
@@ -71,9 +104,16 @@
     background-color: rgba(201, 32, 32, 0.9);
     display: flex;
     text-align: center;
+    font-size: 20px;
+    font-weight: bold;
     padding: 1%;
+    width: 100%;
 }
 .win{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
     background-color: rgba(6, 136, 27, 0.9);
     padding: 1%;
 }

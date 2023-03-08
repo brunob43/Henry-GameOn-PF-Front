@@ -7,13 +7,13 @@ import Hangman5 from "./Img/img5.png"
 import Hangman6 from "./Img/img6.png"
 import Hangman7 from "./Img/img7.png"
 import style from "./Hangman.module.css"
-import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/alert"
+// import { Alert, AlertDescription, AlertIcon, AlertTitle } from "@chakra-ui/alert"
 import { useState } from "react"
-import { Box } from "@chakra-ui/layout"
+import { Box, Button } from "@chakra-ui/react"
   
 const Hangman= () =>{
     // const [fallo, setFallo] = useState('false');
-    const [win, setWin] = useState('false');
+    // const [win, setWin] = useState('false');
     // const [word, setWord] = useState('')
 
     function id( str ){
@@ -106,7 +106,7 @@ const Hangman= () =>{
         document.getElementById("fin").innerHTML=``;
         document.getElementById("fin").className="";
         // setFallo('false')
-        setWin('false')
+        // setWin('false')
         const imagen = id('imagen');
         const btn_letras = document.querySelectorAll( "#letra" );
         imagen.src = Hangman0;
@@ -146,10 +146,10 @@ const Hangman= () =>{
 
     function click_letras(event){
         const spans = document.querySelectorAll( '#palabra_a_adivinar span' );
-        const button = event.target; //cuál de todas las letras, llamó a la función.
-        button.disabled = true;
+        const Button = event.target; //cuál de todas las letras, llamó a la función.
+        Button.disabled = true;
 
-        const letra = button.innerHTML;
+        const letra = Button.innerHTML;
         const palabra = palabrita.toLowerCase(); // .toUpperCase( )
         console.log(palabra);
 
@@ -224,41 +224,41 @@ const Hangman= () =>{
     <div className={style.main}>
               
         <img id='imagen' className={style.imagen} src={Hangman0} alt="Ahorcado" />
-        <div>
-            <p id='palabra_a_adivinar' className={style.palabra_a_adivinar}>
-            </p>
+        <div className={style.cont}>
+            <div id='palabra_a_adivinar' className={style.palabra_a_adivinar}>
+            </div>
             <button id='jugar' className={style.jugar} onClick={iniciar}>Obtener palabra</button>
 
             <p id='resultado' className={style.resultado}>{resultado}</p>
 
             <div id='letras' className={style.letras}>
-                <button  id='letra' onClick={click_letras}>a</button>
-                <button  id='letra' onClick={click_letras}>b</button>
-                <button  id='letra' onClick={click_letras}>c</button>
-                <button  id='letra' onClick={click_letras}>d</button>
-                <button  id='letra' onClick={click_letras}>e</button>
-                <button  id='letra' onClick={click_letras}>f</button>
-                <button  id='letra' onClick={click_letras}>g</button>
-                <button  id='letra' onClick={click_letras}>h</button>
-                <button  id='letra' onClick={click_letras}>i</button>
-                <button  id='letra' onClick={click_letras}>j</button>
-                <button  id='letra' onClick={click_letras}>k</button>
-                <button  id='letra' onClick={click_letras}>l</button>
-                <button  id='letra' onClick={click_letras}>m</button>
-                <button  id='letra' onClick={click_letras}>n</button>
-                <button  id='letra' onClick={click_letras}>ñ</button>
-                <button  id='letra' onClick={click_letras}>o</button>
-                <button  id='letra' onClick={click_letras}>p</button>
-                <button  id='letra' onClick={click_letras}>q</button>
-                <button  id='letra' onClick={click_letras}>r</button>
-                <button  id='letra' onClick={click_letras}>s</button>
-                <button  id='letra' onClick={click_letras}>t</button>
-                <button  id='letra' onClick={click_letras}>u</button>
-                <button  id='letra' onClick={click_letras}>v</button>
-                <button  id='letra' onClick={click_letras}>w</button>
-                <button  id='letra' onClick={click_letras}>x</button>
-                <button  id='letra' onClick={click_letras}>y</button>
-                <button  id='letra' onClick={click_letras}>z</button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>a</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>b</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>c</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>d</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>e</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>f</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>g</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>h</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>i</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>j</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>k</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>l</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>m</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>n</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>ñ</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>o</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>p</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>q</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>r</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>s</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>t</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>u</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>v</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>w</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>x</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>y</Button>
+                <Button backgroundColor="yellow" id='letra' onClick={click_letras}>z</Button>
             </div>
         </div>
     </div>

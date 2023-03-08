@@ -1,23 +1,15 @@
 .body {
-  /* background: url("img/fondo.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
-#mensaje {
-  width: 300px;
-}
 .col_md_12 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 85%;
+  width: 100%;
 }
 .consigna {
   text-align: center;
@@ -61,8 +53,8 @@ th {
 }
 
 .tableConcepts {
-  width: 90%;
-  font-size: 20px;
+  width: 80%;
+  font-size: 22px;
 }
 
 .encabezado {
@@ -73,9 +65,14 @@ th {
   padding: 15px;
 }
 
-[id="mensaje"] {
+.alert{
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
   background-color: yellow;
-  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: black;
 }
 
 .botones {
@@ -85,49 +82,50 @@ th {
   align-items: center;
 }
 
-[id="fila1C3"] {
+
+[name="word1"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/1.png);
 }
 
-[id="fila9C7"]{
+[name="word2"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/2.png);
 }
 
-[id="fila8C11"]{
+[name="word3"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/3.png);
 }
 
-[id="fila2C3"]{
+[name="word4"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/4.png);
 }
 
-[id="fila4C6"]{
+[name="word5"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/5.png);
 }
 
-[id="fila6C1"]{
+[name="word6"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/6.png);
 }
 
-[id="fila9C6"]{
+[name="word7"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/7.png);
 }
 
-[id="fila11C10"]{
+[name="word8"]{
   background-repeat: no-repeat;
   background-size: 15px;
   background-image: url(./img/8.png);

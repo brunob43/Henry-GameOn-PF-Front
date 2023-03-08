@@ -7,22 +7,22 @@ const gamesArray = [
     {
         game: <Memory/>,
         name: "Memory Game - Basics",
-        id:1
+        id:11
     },
     {
         game: <Memory2 />,
         name: "Memory Game - Advanced",
-        id:2 
+        id:12 
     },
     {
         game: <Hangman />,
         name: "Hangman",
-        id:3
+        id:13
     },
     {
         game: <Crosswords />,
         name: "Crosswords",
-        id:7
+        id:14
     }
 ]
 

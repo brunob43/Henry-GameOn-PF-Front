@@ -9,6 +9,7 @@ import redux from './images/redux.png'
 import v8 from './images/v8.png'
 import ts from './images/ts.png'
 import style from './Memory2.module.css'
+import { Box, HStack } from '@chakra-ui/react'
 
 const Memory2 = () =>{
   // document.addEventListener('DOMContentLoaded', () => {
@@ -170,13 +171,20 @@ const Memory2 = () =>{
         <button className={style.button} onClick={restart}>restart</button>
       </div>
 
-      <div className={style.points}>
-        <h3>Score: <span id="result">0</span></h3>
-        <h3>Try: <span id="try">0</span></h3>  
-      </div>
+      <Box className={style.points}>
+        <HStack textAlign="center" borderRight="1px solid black" w="85%" justify="space-between">
+          <h3>Score: <span id="result">0</span></h3>
+        </HStack>
+        <HStack w="15%" justify="center" textAlign="center">  
+          <h3>Try: <span id="try">0</span></h3>
+        </HStack>
+      </Box>
       
-      <div id="grid">
-      </div>
+      <Box 
+      id="grid"
+      w={["357px", "527px"]}>
+      
+      </Box>
 
     </div>        
   )

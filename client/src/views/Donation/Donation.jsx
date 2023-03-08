@@ -18,7 +18,7 @@ import bgdark from "../assets/imagen/darkdonation.jpg"
 import bglight from "../assets/imagen/lightdonation.jpg"
 const Donation = () => {
   const profile = useSelector((state)=>state.profile)
-  const {internal_id} = profile
+  const {internal_id,user_name} = profile
   const { colorMode } = useColorMode();
   const {isAuthenticated, loginWithRedirect} = useAuth0();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -31,20 +31,20 @@ const Donation = () => {
 
   const pay20 = (e) => {
     if(Object.keys(profile).length){
-      payment20(internal_id)(internal_id)
+      payment20(internal_id,user_name)(internal_id,user_name)
     }
     ;
   };
 
   const pay50 = (e) => {
     if(Object.keys(profile).length){
-    payment50(internal_id)(internal_id);
+    payment50(internal_id,user_name)(internal_id,user_name);
   }
   };
 
   const pay100 = (e) => {
     if(Object.keys(profile).length){
-    payment100(internal_id)(internal_id);
+    payment100(internal_id,user_name)(internal_id,user_name);
   }
   };
 

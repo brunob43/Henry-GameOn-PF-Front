@@ -49,8 +49,11 @@ const GameDetail = () => {
       className={style.main}
     >
       <Box
+        textAlign="center"
+        bgColor={colorMode === "dark" ? "blackAlpha.800" : "whiteAlpha.800"}
+        color={colorMode === "dark" ? "yellow" : "black"}
         className={style.title}
-        mt={["400px", "250px", "200px", "120px", "120px"]}
+        mt={["200px", "80px", "120px", "120px", "120px"]}
       >
         {game[0].name}
       </Box>
