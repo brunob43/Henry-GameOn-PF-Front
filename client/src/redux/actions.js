@@ -431,11 +431,10 @@ export function deleteUser(internal_id){
 }
 
 //----------------------PAYMENT-------------------//
-
-export function payment20 (internal_id){
+export function payment20 (internal_id,user_name){
   return async function (dispatch) {
     let payload = {
-      donation_name:"ayudita $20",
+      donation_name:user_name,
       donation_quantity:20,
       internal_id
     }
@@ -448,31 +447,31 @@ export function payment20 (internal_id){
 }
 
 
-export function payment50(internal_id) {
+export function payment50(internal_id,user_name){
   return async function (dispatch) {
     let payload = {
-      donation_name:"manon $50",
+      donation_name:user_name,
       donation_quantity:50,
       internal_id
     }
     const newDonation = (await axios.post("/donation/create", payload)).data
-    let aux = {donation_id:newDonation.donation_id}
-    const response = await axios.get("/payment/50", aux);
+    let donation_id = await newDonation.donation_id
+    const response = await axios.get(`/payment/50?donation_id=${donation_id}`);
     const link = response.data.init_point;
     window.location.href = link;
   };
 }
 
-export function payment100(internal_id) {
+export function payment100(internal_id,user_name) {
   return async function (dispatch) {
     let payload = {
-      donation_name:"euforia $100",
+      donation_name:user_name,
       donation_quantity:100,
       internal_id
     }
     const newDonation = (await axios.post("/donation/create", payload)).data
-    let aux = {donation_id:newDonation.donation_id}
-    const response = await axios.get("/payment/100", aux);
+    let donation_id = await newDonation.donation_id
+    const response = await axios.get(`/payment/100?donation_id=${donation_id}`);
     const link = response.data.init_point;
     window.location.href = link;
   }
