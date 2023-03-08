@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./Crosswords2.module.css"
-import {HStack, Text, useColorMode, VStack} from "@chakra-ui/react"
+import {Box, Button, HStack, Text, useColorMode, VStack} from "@chakra-ui/react"
 
 const Crosswords2 = () =>{
     const { colorMode } = useColorMode();
@@ -68,7 +68,7 @@ const Crosswords2 = () =>{
       var errorActivo=0;
       function error(){
         document.getElementById("mensaje").innerHTML="Existen palabras incorrectas";
-        document.getElementById("mensaje").className="alert alert-danger";
+        document.getElementById("mensaje").className=style.alert;
         errorActivo=1;
       }
 
@@ -99,7 +99,7 @@ const Crosswords2 = () =>{
         if(palabra1.toLowerCase()==="callback" && palabra2.toLowerCase()==="algoritmos" && palabra3.toLowerCase()==="henry" && palabra4.toLowerCase()==="html" && palabra5.toLowerCase()==="github" && palabra6.toLowerCase()==="javascript" && palabra7.toLowerCase()==="fullstack" && palabra8.toLowerCase()==="visual"){
           document.getElementById("mensaje").innerHTML="Ganaste";
           document.getElementById("mensaje").style.fontSize="24px";
-          document.getElementById("mensaje").className="alert alert-success";
+          document.getElementById("mensaje").className=style.alert;
         }else{
           if(palabra1.toLowerCase()!=="callback"){
             palabra1_letra1().value="";
@@ -236,11 +236,10 @@ const Crosswords2 = () =>{
 
     return(
         <div className={style.body}>
-            {/* <button onClick={handleClick}>Start New Game</button> */}
         <div className={style.col_md_12}>
     
-          <Text className={style.consigna} color={colorMode==="dark" ? "white" : "black"}>Completa el crucigrama con las palabras relacionadas a estas definiciones</Text><br />
-          <HStack className={style.tableConcepts} alignItems="flex-start">
+          <Text className={style.consigna} bg={colorMode==="dark"?"blackAlpha.800":"whiteAlpha.800"} color={colorMode==="dark" ? "white" : "black"}>Completa el crucigrama con las palabras relacionadas a estas definiciones</Text><br />
+          <HStack className={style.tableConcepts} bg={colorMode==="dark"?"blackAlpha.800":"whiteAlpha.800"} alignItems="flex-start">
                 <VStack className={style.definiciones} color={colorMode==="dark" ? "white" : "black"}>
                   <Text>
                     Verticales:
@@ -271,7 +270,7 @@ const Crosswords2 = () =>{
           </HStack>
 
           <div id="mensaje" ></div>
-
+          <Box padding="20px" border="2px dashed black" backgroundColor="rgba(255, 255, 0, 0.5)">
           <table className={style.table}>
             <tbody>
               <td>
@@ -492,7 +491,7 @@ const Crosswords2 = () =>{
                 <input className={style.block} type="text" disabled maxlength="1" id="fila1C1"/>
               </td>
               <td>
-                <input className={style.casilla} type="text" maxlength="1" id="fila6C5" />
+                <input className={style.casilla} type="text" maxlength="1" id="fila6C5" name="word01"/>
               </td>
               <td>
                 <input className={style.block} type="text" disabled maxlength="1" id="fila1C1"/>
@@ -807,14 +806,10 @@ const Crosswords2 = () =>{
               </td>
             </tbody>
           </table>
+          </Box>
 
           <div className={style.botones}>
-            <button onClick={verificar} 
-            style={{
-              margin:"10px",
-              fontSize:"23px",
-              padding:"0 2%"
-            }}>Verificar</button>
+          <Button backgroundColor="yellow" color="black" border="1px solid black" _hover={{backgroundColor:"rgb(220, 220, 0)"}} marginTop="10px" fontSize="23px" padding="0 20px" onClick={verificar}>Verificar</Button>
           </div>
           
         </div>
