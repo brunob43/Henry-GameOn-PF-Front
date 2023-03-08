@@ -36,6 +36,7 @@ export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
 export const EDIT_PROFILE = "EDIT_PROFILE";
+export const GET_CONTACT = " GET_CONTACT";
 
 
 //---------------GAME-------------------------------//
@@ -542,10 +543,12 @@ export async function removeLikeGame(id,internal_id) {
 }
 export async function addLikeDoc(id,internal_id) {
   return async function (dispatch) {
-  console.log(id,internal_id,"addLikeDoc")
+  console.log(id,internal_id,"addLikeDoc action 1")
+
    await axios.put(`/doc/like/${id}?like_doc=true`);
    await axios.put(`/users/${internal_id}?like_doc=true&doc_id=${id}`)
    dispatch(getUsers());
+   console.log("addlikedoc action 2")
    }
 }
 export async function removeLikeDoc(id,internal_id) {
@@ -590,5 +593,18 @@ export function getDonations(){
     dispatch({type:GET_DONATIONS, payload: donations})
   }
 }
+
+//---------------------CONTACT------------------//
+
+export function getContacts(){
+  return async function (dispatch){
+    const response = await axios.get("/message")
+    const allContacts = response.data
+    dispatch({type:GET_CONTACT, payload: allContacts})
+  }
+}
+
+
+
 
 

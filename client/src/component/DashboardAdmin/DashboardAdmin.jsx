@@ -15,6 +15,7 @@ import {
     deleteUser,
     deleteGame,
     deleteDoc, 
+    getContacts,
     //postUser,
     //postDoc,
     //postGame
@@ -26,6 +27,7 @@ import PostGame from "./PostGame";
 
 const DashboardAdmin =()=>{
     const { colorMode } = useColorMode();
+    const allContacts = useSelector((state)=>state.allContacts) 
    const users = useSelector((state)=>state.users)
    const games = useSelector((state)=>state.gamesAd)
    const docs = useSelector((state)=>state.docsAd)
@@ -362,6 +364,53 @@ const DashboardAdmin =()=>{
     width: "120px"
 },
    ]
+   const columnsContact=[
+    {
+        name:'MESSAGE ID',
+        selector:(row)=>row.user_id,
+        sortable:true,
+        width: "70px"
+    },
+    { 
+        name:'ISSUE',
+        selector:(row)=>row.user_name,
+        sortable:true,
+        width: "200px"
+    },
+    { 
+        name:'MESSAGE CONTENT',
+        selector:(row)=>row.user_name,
+        sortable:true,
+        width: "200px"
+    },
+    {   name:'MESSAGE EMAIL',
+        selector:(row)=>row.user_email,
+        sortable:true,
+        width: "200px"
+    },
+    {   name:'ANSWARED',
+        selector:(row)=>row.user_type,
+        sortable:true,
+        width: "100px"
+    },
+
+    {   name:'EDITAR',
+        
+        cell:(row)=>(<Button margin="40px"
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        borderColor={colorMode === "dark" ? "yellow" : "black"}
+        _hover={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        bg={colorMode === "dark" ? "black" : "yellow"}
+        onClick={()=>handleUserEdit(row)}>Detalle/Editar</Button>)
+    }]
+
    const paginationOptions={
       rowsPerPageText:"Filas por página",
       rangeSeparatorText: "de",
