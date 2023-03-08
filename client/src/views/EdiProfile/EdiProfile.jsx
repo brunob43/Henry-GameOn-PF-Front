@@ -23,10 +23,10 @@ const EdiProfile = () => {
   const history = useHistory();
 
   const [edit, setEdit] = useState({
-    user_image: "",
-    user_name: "",
-    user_email: "",
+    user_image: profile.user_image,
+    user_name: profile.user_name,
   });
+  
 
   const dispatch = useDispatch();
   const user = profile;
@@ -45,12 +45,7 @@ const EdiProfile = () => {
     event.preventDefault();
     dispatch(updateUser(user.internal_id, edit));
     alert("El perfil se ha editado con exito");
-    setEdit({
-      name: "",
-      image: "",
-    });
     
-
     history.push("/user")
 
   };
@@ -84,9 +79,10 @@ const EdiProfile = () => {
               bg={colorMode === "dark" ? "white" : "black"}
               autoComplete="off"
               type="url"
-              name="doc_image"
+              name="user_image"
+              defaultValue={profile.user_image}
               placeholder="Agrega url de imagen"
-              value={edit.user_image}
+              // value={edit.user_image}
               onChange={changeHandler}
               border="2px"
               pl="6px"
@@ -102,7 +98,9 @@ const EdiProfile = () => {
               Name:
               <Input
                 type="text"
+                name="user_name"
                 defaultValue={profile.user_name}
+                onChange={changeHandler}
                 border="2px"
                 pl="6px"
                 borderRadius="6px"

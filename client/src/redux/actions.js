@@ -35,6 +35,7 @@ export const GET_DOCS_AD = "GET_DOCS_AD";
 export const FILTER_BY_VIEWS_DOCS_AD="FILTER_BY_VIEWS_DOCS_AD";
 export const GET_NAME_DOCS_AD = "GET_NAME_DOCS_AD";
 export const GET_DOC_DETAIL_FROM_STATE_AD = "GET_DOC_DETAIL_FROM_STATE_AD";
+export const EDIT_PROFILE = "EDIT_PROFILE";
 
 
 //---------------GAME-------------------------------//
@@ -416,6 +417,7 @@ export function postUser(payload) {
 
 };
 export function updateUser(internal_id, payload){
+  console.log(payload)
   return async function (dispatch) {
   await axios.put(`/users/${internal_id}`,payload);
   dispatch(getUsers())
@@ -525,14 +527,14 @@ export async function countViewsDoc (id){
 }
 //--------------------------LIKES-----------------------//
 export async function addLikeGame(id,internal_id) {
-  console.log(id,internal_id,"addLikeGame")
-   await axios.put(`/game/like/${id}?like_game=true`);
-   await axios.put(`/users/${internal_id}?like_game=true`)
+       console.log(id,internal_id,"addLikeGame")
+       await axios.put(`/game/like/${id}?like_game=true`);
+       await axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`)
 }
-export async function removeLikeGame(id,internal_id) {
+export async function removeLikeGame(id,internal_id,aux) {
   console.log(id,internal_id,"addLikeGame")
    await axios.put(`/game/like/${id}`);
-   await axios.put(`/users/${internal_id}`)
+   await axios.put(`/users/${internal_id}?game_id=${id}`,aux)
 }
 export async function addLikeDoc(id,internal_id) {
   console.log(id,internal_id,"addLikeDoc")
@@ -557,6 +559,12 @@ export function sendProfile(prof) {
     return dispatch({ type: SET_PROFILE, payload: profile });
   };
 }
+export function editProfile(internal_id){
+  return async function (dispatch){
+    const response = await axios.get(`/profile?internal_id=${internal_id}`)
+    dispatch({type:EDIT_PROFILE, payload:response.data})
+  }
+} 
 export function resetProfile() {
   return async function (dispatch) {
     dispatch({ type: RESET_PROFILE });

@@ -51,11 +51,14 @@
 .topic{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(255, 255, 255);
-    padding: 4px;
 }
 
 .author{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(255, 255, 255);
-    padding: 4px;
 } 
+
+.name{
+    font-size: 17.5px;
+}
+

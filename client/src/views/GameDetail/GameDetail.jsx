@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { profileCreation } from "../../component/Utils/utils";
 import { useParams } from "react-router-dom";
 import {
   countViewsGames,
   addLikeGame,
   removeLikeGame,
+  sendProfile,
 } from "../../redux/actions";
 import { VStack, Box, HStack, useColorMode, Button } from "@chakra-ui/react";
 import gamesArray from "../../games/gamesIndex";
@@ -29,9 +31,11 @@ const GameDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeGame(id, profile.internal_id));
+    window.location.reload()
   };
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
+    window.location.reload()
   };
   console.log(profile, "perfil");
   const game = gamesArray.filter((game) => game.id.toString() === id);
@@ -70,5 +74,6 @@ const GameDetail = () => {
   // )
   );
 };
+
 
 export default GameDetail;

@@ -12,6 +12,7 @@ import {
   ShareInfo,
   GameDetail,
 } from "./views";
+import { useSelector } from "react-redux";
 import NavBar from "./component/NavBar/NavBar";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
@@ -27,15 +28,19 @@ axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
 
 function App() {
   // const location = useLocation();
+const profile= useSelector((state)=>state.profile)
+console.log(profile)
+console.log(profile.type)
 
   return (
     <div>
-      <Route exact path="/dashboardAdmin">
-            <DashboardAdmin/>
-        </Route>
       <NavBar />
       <ChatBox/>
       <Switch>
+      <Route exact path="/dashboardAdmin">
+            {Object.keys(profile).length&&<div>
+              {profile.user_type=="admin"?<DashboardAdmin/>:<PageNotFound/>}</div>}
+        </Route>
         <Route exact path="/" render={() => <Home />} />
 
         <Route exact path="/games">

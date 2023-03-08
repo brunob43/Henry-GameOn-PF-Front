@@ -22,7 +22,7 @@ export default function PostGame({isOpenPostGame}){
         game_name:"",
         game_topic:"",
         game_image:"",
-        game_difficulty:"",
+        game_difficulty:"Easy",
     })
     useEffect(()=>{
     
@@ -39,6 +39,12 @@ export default function PostGame({isOpenPostGame}){
     const onSubmit=(e)=>{
        e.preventDefault();
        dispatch(postGame(input));
+       setInput({
+        game_name:"",
+        game_topic:"",
+        game_image:"",
+        game_difficulty:"",
+       })
        onClose()
     }
     return(
@@ -89,7 +95,7 @@ export default function PostGame({isOpenPostGame}){
                 onChange={(e) => handleChange(e)}
               />
                 <label>Dificultad:</label>
-                <Select name="game_difficulty" onChange={handleChange}>
+                <Select defaultValue="Easy" name="game_difficulty" onChange={handleChange}>
                    <option value="Easy">Easy</option>
                    <option value="Medium">Medium</option>
                    <option value="Hard">Hard</option>

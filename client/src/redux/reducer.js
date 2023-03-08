@@ -33,7 +33,8 @@ import {
   GET_DOCS_AD,
   FILTER_BY_VIEWS_DOCS_AD,
   GET_NAME_DOCS_AD,
-  GET_DOC_DETAIL_FROM_STATE_AD
+  GET_DOC_DETAIL_FROM_STATE_AD,
+  EDIT_PROFILE
   
 } from "./actions";
 
@@ -483,6 +484,11 @@ const rootReducer = (state = initialState, action) => {
           // gamesProfile:Object.keys(action.payload).length&&action.payload.Games.map((g)=>g.game_id),
           // docsProfile:Object.keys(action.payload).length&&action.payload.Docs.map((d)=>d.doc_id)
         }
+        case EDIT_PROFILE:
+          return{
+            ...state,
+            profile:action.payload
+          }
     case RESET_PROFILE:
         return{
           ...state,
