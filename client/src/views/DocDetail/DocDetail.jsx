@@ -35,7 +35,9 @@ const DocDetail = () => {
   }, [dispatch, id]);
 
   const likeHandler = () => {
+    console.log("1 like handler doc" )
     dispatch(addLikeDoc(id, profile.internal_id));
+    console.log("4 fin like handler doc")
   };
   const dislikeHandler = () => {
     dispatch(removeLikeDoc(id, profile.internal_id));
