@@ -1,6 +1,6 @@
 // import './App.css';
 
-import { Route, Switch } from "react-router-dom";
+import { Route,Routes } from "react-router-dom";
 import {
   Home,
   About,
@@ -27,67 +27,46 @@ axios.defaults.baseURL = "https://back-henrygame.up.railway.app";
 
 function App() {
   // const location = useLocation();
+const profile=useSelector((state)=>state.profile)
 
   return (
-    <div>
-      <Route exact path="/dashboardAdmin">
-            <DashboardAdmin/>
-        </Route>
-      <NavBar />
-      <ChatBox/>
-      <Switch>
-        <Route exact path="/" render={() => <Home />} />
+<>
+  <NavBar />
+  <ChatBox/>
+  <Routes>
+      
+      <Route path="/" element={ <Home />} />
 
-        <Route exact path="/games">
-          <Games />
-        </Route>
+      <Route path="/games" element ={<Games/>}/>
 
-        <Route exact path="/games/:id">
-          <GameDetail />
-        </Route>
+      <Route path="/games/:id" element={<GameDetail />}/>
 
-        <Route exact path="/about">
-          <About />
-        </Route>
+      <Route path="/about" element={<About />}/>
 
-        <Route exact path="/contact">
-          <Contact />
-        </Route>
+      <Route path="/contact" element={<Contact/> }/>
 
-        <Route exact path="/docs">
-          <Docs />
-        </Route>
+      <Route path="/docs" element={<Docs />}/>
 
-        <Route exact path="/doc/:id">
-          <DocDetail />
-        </Route>
+      <Route path="/doc/:id" element={<DocDetail />}/>
+          
+      <Route path="/docs/share" element={<ShareInfo />}/>
 
-        <Route exact path="/docs/share">
-          <ShareInfo />
-        </Route>
+      <Route path="/register" element={<Register />}/>
+          
+      <Route path="/donation" element={<Donation />}/>
+          
+      <Route path="/user" element={<Profile/>}/>
+          
+      <Route path="userprofile" element={<EdiProfile/>}/>
+      
+      <Route path="/:any" element={<PageNotFound/>}/>
 
-        <Route exact path="/register">
-          <Register />
-        </Route>
-
-        <Route exact path="/donation">
-          <Donation />
-        </Route>
-
-        <Route exact path="/user">
-          <Profile/>
-        </Route>
-
-        <Route exact path="/userprofile">
-          <EdiProfile/>
-        </Route>
-
-        <Route>
-          <PageNotFound />
-        </Route>
-      </Switch>
-      <Footer/>
-    </div>
+      <Route path="/dashboardAdmin" element={Object.keys(profile).length&&<>{profile.type=="admin"&&<DashboardAdmin/>}</>}
+      />
+          
+  </Routes>
+  <Footer/>
+</>
   );
 }
 
