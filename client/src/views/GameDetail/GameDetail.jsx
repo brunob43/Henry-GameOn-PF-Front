@@ -43,7 +43,7 @@ const GameDetail = () => {
   console.log(game[0].id, "gameId");
 
   return (
-    // isAuthenticated ? (
+    isAuthenticated ? (
     <VStack
       bgImage={colorMode === "dark" ? bgdark : bglight}
       className={style.main}
@@ -69,9 +69,9 @@ const GameDetail = () => {
 
       <HStack>{game.length === 1 ? game[0].game : console.log(id)}</HStack>
     </VStack>
-  // ) : (
-  //   <PageNotFound />
-  // )
+  ) : (
+    <PageNotFound />
+  )
   );
 };
 
