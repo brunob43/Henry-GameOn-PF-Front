@@ -526,16 +526,18 @@ export async function countViewsDoc (id){
 }
 //--------------------------LIKES-----------------------//
 export async function addLikeGame(id,internal_id) {
+  return async function (dispatch) {
        await axios.put(`/game/like/${id}?like_game=true`);
        await axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`);
        dispatch(getUsers());
+  }
 }
 export async function removeLikeGame(id,internal_id,aux) {
-  console.log(id,internal_id,"addLikeGame")
+  return async function (dispatch) {
    await axios.put(`/game/like/${id}`);
    await axios.put(`/users/${internal_id}?game_id=${id}`)
    dispatch(getUsers());
-   
+  }
 }
 export async function addLikeDoc(id,internal_id) {
   console.log(id,internal_id,"addLikeDoc")
