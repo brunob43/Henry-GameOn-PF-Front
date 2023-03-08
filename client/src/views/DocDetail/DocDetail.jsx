@@ -28,6 +28,8 @@ const DocDetail = () => {
   const likedDocs = useSelector((state) => state.docsProfile);
   const docDetail = useSelector((state) => state.docDetail);
   const { doc_id } = docDetail;
+  const embedSpace = new RegExp('/\n/g')
+  console.log(docDetail)
   useEffect(() => {
     dispatch(getDocDetailFromState(id));
     countViewsDocs(id);
@@ -39,9 +41,6 @@ const DocDetail = () => {
   const dislikeHandler = () => {
     dispatch(removeLikeDoc(id, profile.internal_id));
   };
-
-  console.log(id, "idParams");
-  console.log(doc_id, "doc_id");
 
   return (
     isAuthenticated ? (
@@ -77,9 +76,9 @@ const DocDetail = () => {
                 {docDetail.doc_topic}
               </Text>
               <Text fontSize="22px">Author: {docDetail.doc_author}</Text>
-              <Text fontSize="18px">{docDetail.doc_content}</Text>
+              <Text fontSize="18px">{docDetail.doc_content.split('\n').map(str => <div>{str} </div>)}</Text>
             </VStack>
-          </VStack>
+          </VStack> 
         ) : (
           <VStack>
             <Heading>Loading...</Heading>
