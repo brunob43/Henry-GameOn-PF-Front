@@ -36,12 +36,9 @@ const DocDetail = () => {
 
   const likeHandler = () => {
     dispatch(addLikeDoc(id, profile.internal_id));
-    window.location.reload()
-
   };
   const dislikeHandler = () => {
     dispatch(removeLikeDoc(id, profile.internal_id));
-    window.location.reload()
 
   };
 
