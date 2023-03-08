@@ -13,8 +13,9 @@ import ButtonDelete from "./ButtonDelete";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const { user, } = useAuth0();
+  const { user } = useAuth0();
   const profile = useSelector((state) => state.profile);
+  
 
   useEffect(() => {
     if (user) {
@@ -59,8 +60,8 @@ const Profile = () => {
         <VStack>
       
           <HStack>
-          <TableLikeGames/>
-          <TableLikeDocs/>
+          <TableLikeGames games={profile.Games} />
+          <TableLikeDocs docs={profile.Docs}/>
 
           </HStack>
         </VStack>
