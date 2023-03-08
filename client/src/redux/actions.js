@@ -382,6 +382,13 @@ export function getUsers() {
   };
 }
 
+export function getUserDetail(internal_id){
+  return async function (dispatch) {
+    const user = (await axios.get(`/users/search/${internal_id}`)).data
+    return dispatch({type:GET_USER_DETAIL, payload : user})
+  }
+}
+
 export function getNameUsers(user_name) {
   return async function (dispatch) {
     try {
@@ -527,27 +534,30 @@ export async function countViewsDoc (id){
 //--------------------------LIKES-----------------------//
 export  function addLikeGame(id,internal_id) {
   return  function (dispatch) {
+    console.log(id,internal_id,"addLikeGame action 1")
       axios.put(`/game/like/${id}?like_game=true`)
        .then(axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`))
-       .then(dispatch(getUsers()))
+       .then(dispatch(getUserDetail(internal_id)))
        
   }
 }
-export async function removeLikeGame(id,internal_id) {
-  return async function (dispatch) {
-   await axios.put(`/game/like/${id}`);
-   await axios.put(`/users/${internal_id}?game_id=${id}`)
-   dispatch(getUsers());
+export function removeLikeGame(id,internal_id) {
+  return function (dispatch) {
+    console.log(id,internal_id,"quitarLikeGame action 1")
+   axios.put(`/game/like/${id}`)
+   .then(axios.put(`/users/${internal_id}?game_id=${id}`)) 
+   .then(dispatch(getUserDetail(internal_id)))
+   .then(console.log("quitarlikegame action 2"))
   }
 }
-export async function addLikeDoc(id,internal_id) {
-  return async function (dispatch) {
+export function addLikeDoc(id,internal_id) {
+  return function (dispatch) {
   console.log(id,internal_id,"addLikeDoc action 1")
 
-   await axios.put(`/doc/like/${id}?like_doc=true`);
-   await axios.put(`/users/${internal_id}?like_doc=true&doc_id=${id}`)
-   dispatch(getUsers());
-   console.log("addlikedoc action 2")
+    axios.put(`/doc/like/${id}?like_doc=true`)
+    .then(axios.put(`/users/${internal_id}?like_doc=true&doc_id=${id}`))
+   .then(dispatch(getUsers()))
+   .then(console.log("addlikedoc action 2"))
    }
 }
 export async function removeLikeDoc(id,internal_id) {

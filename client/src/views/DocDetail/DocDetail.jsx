@@ -40,8 +40,9 @@ const DocDetail = () => {
     console.log("4 fin like handler doc")
   };
   const dislikeHandler = () => {
+    console.log("1 quitarlike handler doc" )
     dispatch(removeLikeDoc(id, profile.internal_id));
-
+    console.log("4 fin quitarlike handler doc")
   };
 
   return (

@@ -7,6 +7,7 @@ import {
   addLikeGame,
   removeLikeGame,
   sendProfile,
+  getUserDetail
 } from "../../redux/actions";
 import { VStack, Box, HStack, useColorMode, Button } from "@chakra-ui/react";
 import gamesArray from "../../games/gamesIndex";
@@ -22,14 +23,18 @@ const GameDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
+  const user = useSelector((state)=>state.userDetail)
   
   useEffect(() => {
     // dispatch(getDetailFromState(id));
+    getUserDetail(profile.internal_id)
     countViewsGames(id);
   }, [dispatch, id]);
 
   const likeHandler = () => {
+    console.log("1 like handler doc" )
     dispatch(addLikeGame(id, profile.internal_id));
+    console.log("2 like handler doc" )
    
   };
   const dislikeHandler = () => {
@@ -54,9 +59,9 @@ const GameDetail = () => {
       >
         {game[0].name}
       </Box>
-      {Object.keys(profile).length && (
+      {Object.keys(user).length && (
         <Box>
-          {!profile.Games.map((g)=>g.game_id).includes(game[0].id) ? (
+          {!user.Games.map((g)=>g.game_id).includes(game[0].id) ? (
             <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={likeHandler}> Like👍🏼</Button>
           ) : (
             <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={dislikeHandler}>Quitar Like👎🏼</Button>
