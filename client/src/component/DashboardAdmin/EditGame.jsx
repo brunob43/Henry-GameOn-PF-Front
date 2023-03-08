@@ -65,12 +65,14 @@ export default function EditGame({rowGame,isOpenEditGame}){
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Detalle de Juego</DrawerHeader>
+            <DrawerHeader bgColor="yellow">Detalle de Juego</DrawerHeader>
 
             <DrawerBody>
             <form onSubmit={onSubmit}>
             <label>Nombre:</label>
               <Input
+               bgColor="yellow"
+               borderColor="black"
                 autoComplete="off"
                 type="text"
                 value={input.game_name}
@@ -80,6 +82,8 @@ export default function EditGame({rowGame,isOpenEditGame}){
               />
              <label>Tema:</label>
               <Input
+               bgColor="yellow"
+               borderColor="black"
                 autoComplete="off"
                 type="text"
                 value={input.game_topic}
@@ -89,6 +93,8 @@ export default function EditGame({rowGame,isOpenEditGame}){
               />
                <label>Imagen:</label>
               <Input
+               bgColor="yellow"
+               borderColor="black"
                 autoComplete="off"
                 type="text"
                 value={input.game_image}
@@ -103,7 +109,8 @@ export default function EditGame({rowGame,isOpenEditGame}){
                    <option value="Medium">Medium</option>
                    <option value="Hard">Hard</option>
                    </Select>
-               <Button type="submit">
+               <Button  bgColor="yellow"
+                  borderColor="black" type="submit">
                 Save
               </Button>
         </form>
@@ -112,7 +119,8 @@ export default function EditGame({rowGame,isOpenEditGame}){
             </DrawerBody>
 
             <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button  bgColor="yellow"
+                  borderColor="black" variant="outline" mr={3} onClick={onClose}>
                 Cancel
               </Button>
             </DrawerFooter>

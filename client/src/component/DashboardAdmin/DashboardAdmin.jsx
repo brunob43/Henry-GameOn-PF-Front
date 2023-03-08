@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
-import {Input, Button,HStack,VStack,FormControl,Text}from "@chakra-ui/react";
+import {Input, Button,HStack,VStack,FormControl,Text,useColorMode}from "@chakra-ui/react";
 import {
     getUsers,
     getNameUsers,
@@ -25,6 +25,7 @@ import EditDoc from "./EditDoc";
 import PostGame from "./PostGame";
 
 const DashboardAdmin =()=>{
+    const { colorMode } = useColorMode();
    const users = useSelector((state)=>state.users)
    const games = useSelector((state)=>state.gamesAd)
    const docs = useSelector((state)=>state.docsAd)
@@ -42,7 +43,7 @@ const DashboardAdmin =()=>{
     inputDoc:""
    })
    const dispatch = useDispatch();
-    
+  
    const handleChange =(e)=>{
     console.log(input)
       setInput({
@@ -132,12 +133,23 @@ const DashboardAdmin =()=>{
     },
     {   name:'ELIMINAR',
         width:"150px",
-        cell:(row)=>(<Button
-        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
+        cell:(row)=>(<Button 
+        onClick={()=>handleUserEliminate(row)}>{row.user_deleted?<Text color="black">Agregar</Text>:<Text color="black">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
-        width:"150px",
-        cell:(row)=>(<Button
+        
+        cell:(row)=>(<Button margin="40px"
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        borderColor={colorMode === "dark" ? "yellow" : "black"}
+        _hover={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        bg={colorMode === "dark" ? "black" : "yellow"}
         onClick={()=>handleUserEdit(row)}>Detalle/Editar</Button>)
     }
 ]
@@ -199,12 +211,22 @@ const DashboardAdmin =()=>{
     // } ,
     {   name:'ELIMINAR',
         width:"150px",
-        cell:(row)=>(<Button
-        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
+        cell:(row)=>(<Button 
+        onClick={()=>handleGameEliminate(row)}>{row.game_deleted?<Text color="black">Agregar</Text>:<Text color="black">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
-        width:"150px",
-        cell:(row)=>(<Button
+        cell:(row)=>(<Button margin="40px"
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        borderColor={colorMode === "dark" ? "yellow" : "black"}
+        _hover={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        bg={colorMode === "dark" ? "black" : "yellow"}
         onClick={()=>handleGameEdit(row)}>Detalle/Editar</Button>)
     }
    ]
@@ -270,11 +292,22 @@ const DashboardAdmin =()=>{
     {   name:'ELIMINAR',
         width:"150px",
         cell:(row)=>(<Button
-        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="rgb(61, 201, 149)">Agregar</Text>:<Text color="rgb(255, 51, 127)">Eliminar</Text>}</Button>)
+        onClick={()=>handleDocEliminate(row)}>{row.doc_deleted?<Text color="black">Agregar</Text>:<Text color="black">Eliminar</Text>}</Button>)
     },
     {   name:'EDITAR',
-        width:"150px",
-        cell:(row)=>(<Button
+        
+        cell:(row)=>(<Button margin="40px"
+        size="md"
+        height="48px"
+        width="200px"
+        border="2px"
+        borderColor={colorMode === "dark" ? "yellow" : "black"}
+        _hover={
+          colorMode === "dark"
+            ? { color: "black", bg: "yellow" }
+            : { bg: "black", color: "yellow" }
+        }
+        bg={colorMode === "dark" ? "black" : "yellow"}
         onClick={()=>handleDocEdit(row)}>Detalle/Editar</Button>)
     }
    ];
@@ -365,19 +398,20 @@ const DashboardAdmin =()=>{
              <EditGame rowGame={rowGame} isOpenEditGame={isOpenEditGame}/>
              <EditDoc rowDoc={rowDoc} isOpenEditDoc={isOpenEditDoc}/>
              <PostGame isOpenPostGame={isOpenPostGame}/>
-             <HStack bg="black" alignItems="flex" w="100%">
-             <FormControl alignItems="flex">
-                <HStack bg="black">
+             <HStack bg="black" alignItems="flex" w="100%" >
+             <FormControl alignItems="flex" marginTop='5'>
+                <HStack marginTop='20' bg="black">
                 <Input
                 w ="250px"
                 type="text"
-                color="white"
+                color="yellow"
+                borderColor='yellow'
                 value={input.inputUser}
                 name="inputUser"
                 placeholder="Buscar usuarios"
                 onChange={handleChange}></Input>
-                <Button onClick={handleUsersSubmit}>Buscar</Button>
-                <Button onClick={resetUsers}>Reset</Button>
+                <Button bgColor='yellow' variant='ghost' onClick={handleUsersSubmit}>Buscar</Button>
+                <Button bgColor='yellow' variant='ghost'  onClick={resetUsers}>Reset</Button>
                     
                 </HStack>           
              </FormControl>
@@ -403,13 +437,14 @@ const DashboardAdmin =()=>{
                 <Input
                 w ="250px"
                 type="text"
-                color="white"
+                color="yellow"
+                borderColor='yellow'
                 value={input.inputGame}
                 name="inputGame"
                 placeholder="Buscar juegos"
-                onChange={handleChange}></Input><Button onClick={handleGameSubmit}>Buscar</Button>
-                <Button onClick={resetGames}>Reset</Button>
-                <Button onClick={createGame}>New Game</Button>
+                onChange={handleChange}></Input><Button bgColor='yellow' variant='ghost' onClick={handleGameSubmit}>Buscar</Button>
+                <Button bgColor='yellow' variant='ghost' onClick={resetGames}>Reset</Button>
+                <Button bgColor='yellow' variant='ghost' onClick={createGame}>New Game</Button>
                 </HStack>
              </FormControl>
             </HStack>
@@ -433,12 +468,13 @@ const DashboardAdmin =()=>{
                 <Input
                 w ="250px"
                 type="text"
-                color="white"
+                color="yellow"
+                borderColor='yellow'
                 value={input.inputDoc}
                 name="inputDoc"
                 placeholder="Buscar Docs"
-                onChange={handleChange}></Input><Button onClick={handleDocsSubmit}>Buscar</Button>
-                <Button onClick={resetDocs}>Reset</Button>
+                onChange={handleChange}></Input><Button bgColor='yellow' variant='ghost' onClick={handleDocsSubmit}>Buscar</Button>
+                <Button bgColor='yellow' variant='ghost' onClick={resetDocs}>Reset</Button>
                 </HStack>
              </FormControl>
              </HStack>
