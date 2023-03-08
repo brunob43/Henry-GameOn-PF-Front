@@ -1,7 +1,8 @@
 import Hangman from "./Hangman/Hangman";
 import Memory from "./Memory/Memory";
 import Memory2 from "./Memory2/Memory2";
-import Crosswords from "./Crosswords/Crosswords"
+import Crosswords from "./Crosswords/Crosswords";
+import CodeEditor from "./CodeEditor/CodeEditor";
 
 const gamesArray = [
     {
@@ -23,6 +24,11 @@ const gamesArray = [
         game: <Crosswords />,
         name: "Crosswords",
         id:14
+    },
+    {
+        game: <CodeEditor />,
+        name: "Code Editor",
+        id:15
     }
 ]
 

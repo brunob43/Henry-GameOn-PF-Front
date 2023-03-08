@@ -100,10 +100,10 @@ const Memory2 = () =>{
         card.addEventListener('click', flipCard)
         document.querySelector('#grid').appendChild(card)
       }
-      // const cards = document.querySelectorAll('#cards')
-      // if( cards.length !== 16){
-      // window.location.reload();
-      // }
+      const cards = document.querySelectorAll('#cards')
+      if( cards.length !== 16){
+      window.location.reload();
+      }
     }
 
 
@@ -139,8 +139,8 @@ const Memory2 = () =>{
       }
       cardsChosen = []
       cardsChosenId = []
-      resultDisplay.textContent = cardsWon.length
-      tryDisplay.textContent = tryArray.length
+      resultDisplay().textContent = cardsWon.length
+      tryDisplay().textContent = tryArray.length
       if  (cardsWon.length === cardArray.length/2) {
         resultDisplay.textContent = 'Congratulations! You found them all!'
       }

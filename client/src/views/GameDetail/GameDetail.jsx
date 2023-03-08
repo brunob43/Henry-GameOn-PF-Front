@@ -60,9 +60,9 @@ const GameDetail = () => {
       {Object.keys(profile).length && (
         <Box>
           {!profile.Games.map((g)=>g.game_id).includes(game[0].id) ? (
-            <Button onClick={likeHandler}> Like👍🏼</Button>
+            <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={likeHandler}> Like👍🏼</Button>
           ) : (
-            <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
+            <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={dislikeHandler}>Quitar Like👎🏼</Button>
           )}
         </Box>
       )}
