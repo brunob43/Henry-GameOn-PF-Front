@@ -27,7 +27,7 @@ const TableLikeGames =({games}) =>{
         {   name:'NAME',
             selector:'game_name',
             sortable:true,
-            width: "130px"
+            width: "250px"
         },
         {   name:'         ',
             width:"150px",

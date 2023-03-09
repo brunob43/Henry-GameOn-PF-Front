@@ -28,7 +28,7 @@ const TableLikeDocs =({docs}) =>{
         {   name:'NAME',
             selector:'doc_name',
             sortable:true,
-            width: "130px"
+            width: "250px"
         },
         {   name:'         ',
             width:"150px",
