@@ -88,8 +88,7 @@ console.log(profile.type)
         </Route>
 
         <Route exact path="/donation">
-        {Object.keys(profile).length&&<div>
-              {profile.user_state == "banned" ? <Banned/> : <Donation />}</div>}
+       <Donation />
         </Route>
 
         <Route exact path="/user">
