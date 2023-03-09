@@ -45,8 +45,7 @@ console.log(profile.type)
         </Route>
 
         <Route exact path="/">
-            {Object.keys(profile).length&&<div>
-              {profile.user_state == "banned" ? <Banned/> : <Home/>}</div>}
+             <Home/>
         
         </Route>
 
