@@ -16,6 +16,7 @@ import {
 import { useRef } from "react";
 import bgdark from "../assets/imagen/darkdonation.jpg"
 import bglight from "../assets/imagen/lightdonation.jpg"
+
 const Donation = () => {
   const profile = useSelector((state)=>state.profile)
   const {internal_id,user_name} = profile
@@ -49,7 +50,9 @@ const Donation = () => {
   };
 
   return (
-    <VStack>
+
+    <VStack >
+      
       <VStack  bgImage={colorMode === "dark" ? bgdark : bglight} bgSize="contain" bgPosition="center" w="100%">
       <VStack
         mt={["280px", "200px", "140px", "130px", "110px"]}
