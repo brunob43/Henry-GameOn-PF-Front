@@ -23,7 +23,7 @@ return (
             textAlign="center"
   
           >
-            💥 Estas Baneado Pibe 💥
+            💥 Estas Baneado 💥
               
               </Box>
              
