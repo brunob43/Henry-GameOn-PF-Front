@@ -24,6 +24,7 @@ import { CloseIcon } from "@chakra-ui/icons";
 import bglight from "../../styles/images/fondoblanco.jpg";
 import bgdark from "../../styles/images/fondonegro.jpg";
 import { RepeatIcon } from "@chakra-ui/icons";
+import Banned from "../Banned/Banned";
 // import fontGame from "../../styles/fonts/I-pixel-u.ttf"
 
 const Games = () => {
