@@ -1,6 +1,7 @@
 import { VStack,Link } from "@chakra-ui/react";
 import React from "react";
 import DataTable from "react-data-table-component";
+import { NavLink } from "react-router-dom"; 
 
 
 const TableLikeDocs =({docs}) =>{
@@ -29,11 +30,12 @@ const TableLikeDocs =({docs}) =>{
             sortable:true,
             width: "130px"
         },
-        {   name:'      ',
-            width:"50px",
-            cell:(row)=>(<Link to={`/games/${row.doc_id}`}>Ir al Doc</Link>)
+        {   name:'         ',
+            width:"70px",
+            cell:(row)=>(<NavLink to={`/games/${row.doc_id}`}>Ir al Doc</NavLink>)
     }
        ]
+       
        const paginationOptions={
         rowsPerPageText:"Filas por página",
         rangeSeparatorText: "de",
