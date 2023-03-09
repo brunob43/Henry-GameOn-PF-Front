@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { VStack,Link } from "@chakra-ui/react";
 import React from "react";
 import DataTable from "react-data-table-component";
 
@@ -31,7 +31,7 @@ const TableLikeDocs =({docs}) =>{
         },
         {   name:'      ',
             width:"50px",
-            cell:(row)=>(<link to={`/games/${row.doc_id}`}><button>Ir al Doc</button></link>)
+            cell:(row)=>(<Link to={`/games/${row.doc_id}`}>Ir al Doc</Link>)
     }
        ]
        const paginationOptions={
@@ -57,7 +57,7 @@ fixedHeaderScrollHeight="600px"
 theme="dark"
 responsive={true}
 highlightOnHover
-
+pointerOnHover
 />
 </VStack>
 
