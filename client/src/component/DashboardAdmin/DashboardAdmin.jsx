@@ -238,6 +238,12 @@ const DashboardAdmin = () => {
             width: "120px"
         },
         {
+            name: 'LIKES',
+            selector: 'game_likes',
+            sortable: true,
+            width: "85px"
+        },
+        {
             name: 'IMAGE',
             selector: 'game_image',
             cell: row => <img height="84px" width="80px" src={row.game_image} />,
@@ -347,7 +353,13 @@ const DashboardAdmin = () => {
             name: 'VIEWS',
             selector: 'doc_views',
             sortable: true,
-            width: "100px"
+            width: "90px"
+        },
+        {
+            name: 'LIKES',
+            selector: 'doc_likes',
+            sortable: true,
+            width: "85px"
         },
         // {   name:'Deleted',
         //     selector:'game_deleted',
@@ -732,7 +744,7 @@ const DashboardAdmin = () => {
                 theme="dark"
                 highlightOnHover
             />
-            <VStack alignItems="center" w="100%" justify="center" bg="yellow">
+            <VStack alignItems="center" w="100%" justify="center" bg={colorMode === "dark" ? "black" : "yellow"}>
 
             <GraficoBarras  games={games}/>
             <GraficoBarrasDocs  docs={docs}/>
