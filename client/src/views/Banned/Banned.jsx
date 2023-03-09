@@ -10,9 +10,6 @@ import foto from "../assets/imagen/banned.avif"
 const Banned
  = () => {
 return (
-<Link to="/games">
-<Link to="/docs">
-<Link to="/donation">
     <VStack bgImage={foto} bgSize="cover" bgPosition="center" 
       h="1000px">
       <Box
@@ -33,9 +30,7 @@ return (
               
            
         </VStack>
-        </Link>
-        </Link>
-        </Link>
+       
 
 )
 }
