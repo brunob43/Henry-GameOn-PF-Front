@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
-import { VStack, Text, Image, HStack } from "@chakra-ui/react";
+import { VStack, Text, Image, HStack, useColorMode } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +12,7 @@ import { EmailIcon } from "@chakra-ui/icons";
 import ButtonDelete from "./ButtonDelete";
 
 const Profile = () => {
+  const { colorMode } = useColorMode();
   const dispatch = useDispatch();
   const { user } = useAuth0();
   const profile = useSelector((state) => state.profile);
@@ -47,7 +48,14 @@ const Profile = () => {
 
             <NavLink to="/userprofile">
               <HStack border="1px" p="2">
-                <Text>Edit Profile</Text>
+                <Text borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}>Edit Profile</Text>
                 <EditIcon />
               </HStack>
             </NavLink>
