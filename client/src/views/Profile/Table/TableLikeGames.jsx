@@ -1,6 +1,7 @@
 import { VStack } from "@chakra-ui/react";
 import React from "react";
 import DataTable from "react-data-table-component";
+import { NavLink } from "react-router-dom"; 
 
 
 const TableLikeGames =({games}) =>{
