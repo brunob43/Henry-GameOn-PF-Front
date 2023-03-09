@@ -31,7 +31,7 @@ const TableLikeDocs =({docs}) =>{
         },
         {   name:'',
             width:"50px",
-            cell:(row)=>(<Link to={`/game/${row.doc_id}`}><button>Ir al Doc</button></Link>)
+            cell:(row)=>(<Link to={`/games/${row.doc_id}`}><button>Ir al Doc</button></Link>)
     }
        ]
        const paginationOptions={
