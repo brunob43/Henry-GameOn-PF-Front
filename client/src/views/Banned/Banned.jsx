@@ -26,6 +26,9 @@ return (
             💥 Estas Baneado Pibe 💥
               
               </Box>
+              <Link to="/games"></Link>
+              <Link to="/docs"></Link>
+              <Link to="/donation"></Link>
         </VStack>
 
 )
