@@ -3,32 +3,38 @@ import Memory from "./Memory/Memory";
 import Memory2 from "./Memory2/Memory2";
 import Crosswords from "./Crosswords/Crosswords";
 import CodeEditor from "./CodeEditor/CodeEditor";
+import Quiz from "./Quiz/Quiz";
 
 const gamesArray = [
     {
         game: <Memory/>,
         name: "Memory Game - Basics",
-        id:11
+        id:1
     },
     {
         game: <Memory2 />,
         name: "Memory Game - Advanced",
-        id:12 
+        id:2 
     },
     {
         game: <Hangman />,
         name: "Hangman",
-        id:13
+        id:3
     },
     {
         game: <Crosswords />,
         name: "Crosswords",
-        id:14
+        id:4
     },
     {
         game: <CodeEditor />,
         name: "Code Editor",
-        id:15
+        id:5
+    },
+    {
+        game: <Quiz />,
+        name: "Quiz",
+        id:6
     }
 ]
 

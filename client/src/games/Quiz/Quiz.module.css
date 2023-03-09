@@ -1,0 +1,28 @@
+/* GRAL */
+
+.tiempo_restante {
+  font-size: 21px;
+  color: black;
+  margin-top: 30px;
+}
+
+.correct,
+.correct:hover {
+    font-size: 22px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+  background-color: #2f922f;
+}
+
+.incorrect,
+.incorrect:hover {
+    font-size: 22px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+  background-color: #ff3333;
+}
+

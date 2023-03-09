@@ -1,6 +1,6 @@
 .main{
     border:1px solid black;
-    margin: 20px;
+    margin: 10px;
     width: 100%;
     padding: 20px;
     background-color: rgba(229, 221, 0, 0.7);
@@ -18,16 +18,21 @@
 
 .head{
     text-align: center;
-    font-size: 26px;
+    font-size: 24px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
+.head2{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
 .cont{
     border:1px solid black;
-    padding: 20px;
+    padding: 10px;
     display: flex;
-    flex-direction: row;
     align-items: flex-start;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.692);
@@ -36,20 +41,19 @@
 
 .html{
     border:1px solid black;
-    margin: 10px;
     background: url(./img/html.png) rgba(255, 197, 89, 0.8);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     color: black;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px ;
+    width: 100%;
 
 }
 
 .css{
     border:1px solid black;
-    margin: 10px;
     background: url(./img/css.png) rgba(136, 227, 255, 0.837);
     background-size: contain;
     background-position: center;
@@ -57,12 +61,12 @@
     color: black;
     border-radius: 10px;
     padding: 10px;
+    width: 100%;
 
 }
 
 .js{
     border:1px solid black;
-    margin: 10px;
     background: url(./img/js.png) rgba(255, 255, 95, 0.8);
     background-size: contain;
     background-position: center;
@@ -70,6 +74,7 @@
     color: black;
     border-radius: 10px;
     padding: 10px;
+    width: 100%;
 
 }
 

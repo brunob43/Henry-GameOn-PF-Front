@@ -1,5 +1,6 @@
 import style from './CodeEditor.module.css';
 import React, { useState } from "react"
+import { Box, VStack } from '@chakra-ui/react';
 
 
 
@@ -28,16 +29,26 @@ const IFRAMECODE = `
   return (
     <div className={style.main}>
       <h3 className={style.head}> Escribe tu código debajo</h3>
-      <div className={style.title}> <p>↓↓HTML↓↓</p> <p>↓↓CSS↓↓</p> <p>↓↓JS↓↓</p> </div>
-      <div className={style.cont}>
+      <Box w={["300px","420px","100%"]} flexDirection={["column","column","row"]} className={style.cont}>
+        <VStack margin="0px 5px" w={["100%","100%","33%"]}>
+        <h3 className={style.head2}>HTML</h3>
         <textarea className={style.html} onChange={event=>setHTML(event.currentTarget.value)}></textarea>
+        </VStack>
+        <VStack margin="0px 5px" w={["100%","100%","33%"]}>
+        <h3 className={style.head2}>CSS</h3>
         <textarea className={style.css} onChange={event=>setCSS(event.currentTarget.value)}></textarea>
+        </VStack>
+        <VStack margin="0px 5px" w={["100%","100%","33%"]}>
+        <h3 className={style.head2}>JavaScript</h3>
         <textarea className={style.js} onChange={event=>setJS(event.currentTarget.value)}></textarea>
-      </div>
+        </VStack>
+      </Box>
 
       {/* result */}
+      <VStack w={["300px","420px","100%"]} >
       <h3 className={style.head}>↓↓Aquí aparecerá lo que hace tu código↓↓</h3>
       <iframe className={style.iframe} srcDoc={IFRAMECODE} title="hola"></iframe>
+      </VStack>
     </div>
   );
 }
