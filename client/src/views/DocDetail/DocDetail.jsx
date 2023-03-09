@@ -16,6 +16,7 @@ import {
   countViewsDocs,
   addLikeDoc,
   removeLikeDoc,
+  getUserDetail
 } from "../../redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import { PageNotFound } from "../../component/PageNotFound/PageNotFound";
@@ -25,23 +26,26 @@ const DocDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.profile);
-  const likedDocs = useSelector((state) => state.docsProfile);
   const docDetail = useSelector((state) => state.docDetail);
   const { doc_id } = docDetail;
+  const user = useSelector((state)=>state.userDetail)
+  const embedSpace = new RegExp('/\n/g')
+
   useEffect(() => {
+    dispatch(getUserDetail(profile.internal_id))
     dispatch(getDocDetailFromState(id));
     countViewsDocs(id);
   }, [dispatch, id]);
 
   const likeHandler = () => {
     dispatch(addLikeDoc(id, profile.internal_id));
+    dispatch(getUserDetail(profile.internal_id))
   };
   const dislikeHandler = () => {
     dispatch(removeLikeDoc(id, profile.internal_id));
+    dispatch(getUserDetail(profile.internal_id))
+   
   };
-
-  console.log(id, "idParams");
-  console.log(doc_id, "doc_id");
 
   return (
     isAuthenticated ? (
@@ -63,13 +67,13 @@ const DocDetail = () => {
               </Text>
               {Object.keys(profile).length && (
                 <Box>
-                  {!likedDocs.includes(doc_id) ? (
-                    <Button onClick={likeHandler}>Like👍🏼</Button>
-                  ) : (
-                    <Button onClick={dislikeHandler}>Quitar Like👎🏼</Button>
-                  )}
-                </Box>
-              )}
+                   {!user.Docs.map((d)=>d.doc_id).includes(doc_id) ? (
+                   <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={likeHandler}> Like👍🏼</Button>
+                   ) : (
+                   <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={dislikeHandler}>Quitar Like👎🏼</Button>
+          )}
+        </Box>
+      )}
             </VStack>
 
             <VStack w="70%" p="20px" align="flex-start">
@@ -77,9 +81,9 @@ const DocDetail = () => {
                 {docDetail.doc_topic}
               </Text>
               <Text fontSize="22px">Author: {docDetail.doc_author}</Text>
-              <Text fontSize="18px">{docDetail.doc_content}</Text>
+              <Text fontSize="18px">{docDetail.doc_content.split('\n').map(str => <div>{str} </div>)}</Text>
             </VStack>
-          </VStack>
+          </VStack> 
         ) : (
           <VStack>
             <Heading>Loading...</Heading>

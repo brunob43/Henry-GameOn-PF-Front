@@ -14,9 +14,11 @@ import {
 } from "./views";
 import { useSelector } from "react-redux";
 import NavBar from "./component/NavBar/NavBar";
+import Thanks from "./views/Thanks/Thanks";
 import axios from "axios";
 import { PageNotFound } from "./component/PageNotFound/PageNotFound";
 import DocDetail from "./views/DocDetail/DocDetail";
+import Banned from "./views/Banned/Banned";
 import Footer from "./component/Footer/Footer";
 import ChatBox from "./component/Chatbox/Chatbox"
 import DashboardAdmin from "./component/DashboardAdmin/DashboardAdmin";
@@ -39,52 +41,64 @@ console.log(profile.type)
       <Switch>
       <Route exact path="/dashboardAdmin">
             {Object.keys(profile).length&&<div>
-              {profile.user_type=="admin"?<DashboardAdmin/>:<PageNotFound/>}</div>}
+              {profile.user_type=="admin"?<DashboardAdmin/>:<Home/>}</div>}
         </Route>
-        <Route exact path="/" render={() => <Home />} />
+
+        <Route exact path="/">
+            <Home/>
+        
+        </Route>
 
         <Route exact path="/games">
-          <Games />
+        <Games />
         </Route>
 
         <Route exact path="/games/:id">
-          <GameDetail />
+         <GameDetail/>
         </Route>
 
         <Route exact path="/about">
+          
           <About />
         </Route>
 
         <Route exact path="/contact">
+          
           <Contact />
         </Route>
 
         <Route exact path="/docs">
-          <Docs />
+         <Docs />
         </Route>
 
         <Route exact path="/doc/:id">
-          <DocDetail />
+        <DocDetail />
         </Route>
 
         <Route exact path="/docs/share">
-          <ShareInfo />
+         <ShareInfo />
         </Route>
 
         <Route exact path="/register">
-          <Register />
+         <Register />
         </Route>
 
         <Route exact path="/donation">
-          <Donation />
+       <Donation />
         </Route>
 
         <Route exact path="/user">
-          <Profile/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Profile/>}</div>}
         </Route>
 
         <Route exact path="/userprofile">
-          <EdiProfile/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <EdiProfile/>}</div>}
+        </Route>
+
+        <Route exact path="/thanks">
+        <Thanks/>
         </Route>
 
         <Route>
