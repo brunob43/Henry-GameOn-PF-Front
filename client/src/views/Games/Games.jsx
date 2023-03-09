@@ -313,7 +313,6 @@ const Games = () => {
         </HStack>
       </HStack>
       <PaginatedGame />
-      <Banned/>
     </VStack>
   );
 };
