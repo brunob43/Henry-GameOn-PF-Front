@@ -71,7 +71,7 @@ const Home = () => {
                 transition: "0.2s ease",
               }}
             >
-              HenryGames es una plataforma de juegos tematicos de programacion
+              HenryGames es una plataforma de juegos temáticos de programacián
               ,construidos con javascript, para entretenerse y aprender mientras
               tanto.
             </Container>
@@ -104,7 +104,7 @@ const Home = () => {
              
             >
               HenryDocs es una plataforma social en la que puedes compartir
-              documentos, resumenes, informacion util y demas a la comunidad y
+              documentos, resumenes, información útil y demás a la comunidad y
               esta a su vez dar feedback con su like👍
             </Container>
           
