@@ -10,12 +10,14 @@ import {
   Button,
   Input,
   Select,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { updateDoc } from "../../redux/actions";
+import { updateDoc } from "../../../src/redux/actions";
 import { useDispatch } from "react-redux";
 
 export default function EditDoc({ rowDoc, isOpenEditDoc }) {
+  const { colorMode } = useColorMode();
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [input, setInput] = useState({
@@ -64,14 +66,21 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader bgColor="yellow">Detalle de Documento</DrawerHeader>
+            <DrawerHeader>Detalle de Documento</DrawerHeader>
 
             <DrawerBody>
               <form onSubmit={onSubmit}>
                 <label>Nombre:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  border="2px"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  color={colorMode === "dark" ? "white" : "black"}
+                  bg={colorMode === "dark" ? "black" : "yellow"}
                   autoComplete="off"
                   type="text"
                   value={input.doc_name}
@@ -81,8 +90,14 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
                 />
                 <label>Tema:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.doc_topic}
@@ -92,8 +107,14 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
                 />
                 <label>Imagen:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.doc_image}
@@ -103,8 +124,14 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
                 />
                 <label>Contenidos:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.doc_content}
@@ -112,7 +139,17 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
                   required
                   onChange={(e) => handleChange(e)}
                 />
-                <Button bgColor="yellow" borderColor="black" type="submit">
+                <Button
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
+                  type="submit"
+                >
                   Save
                 </Button>
               </form>
@@ -120,9 +157,14 @@ export default function EditDoc({ rowDoc, isOpenEditDoc }) {
 
             <DrawerFooter>
               <Button
-                bgColor="yellow"
-                borderColor="black"
-                variant="outline"
+                borderColor={colorMode === "dark" ? "yellow" : "black"}
+                _hover={
+                  colorMode === "dark"
+                    ? { color: "black", bg: "yellow" }
+                    : { bg: "black", color: "yellow" }
+                }
+                bg={colorMode === "dark" ? "black" : "yellow"}
+                color={colorMode === "dark" ? "white" : "black"}
                 mr={3}
                 onClick={onClose}
               >

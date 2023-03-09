@@ -10,12 +10,14 @@ import {
   Button,
   Input,
   Select,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { postGame } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 
 export default function PostGame({ isOpenPostGame }) {
+  const { colorMode } = useColorMode();
   const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [input, setInput] = useState({
@@ -61,14 +63,31 @@ export default function PostGame({ isOpenPostGame }) {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader bgColor="yellow">Nuevo juego</DrawerHeader>
+            <DrawerHeader
+              borderColor={colorMode === "dark" ? "yellow" : "black"}
+              _hover={
+                colorMode === "dark"
+                  ? { color: "black", bg: "yellow" }
+                  : { bg: "black", color: "yellow" }
+              }
+              bg={colorMode === "dark" ? "black" : "yellow"}
+              color={colorMode === "dark" ? "white" : "black"}
+            >
+              Nuevo juego
+            </DrawerHeader>
 
             <DrawerBody>
               <form onSubmit={onSubmit}>
                 <label>Nombre:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.game_name}
@@ -78,8 +97,14 @@ export default function PostGame({ isOpenPostGame }) {
                 />
                 <label>Tema:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.game_topic}
@@ -89,8 +114,14 @@ export default function PostGame({ isOpenPostGame }) {
                 />
                 <label>Imagen:</label>
                 <Input
-                  bgColor="yellow"
-                  borderColor="black"
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   autoComplete="off"
                   type="text"
                   value={input.game_image}
@@ -100,6 +131,14 @@ export default function PostGame({ isOpenPostGame }) {
                 />
                 <label>Dificultad:</label>
                 <Select
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
                   defaultValue="Easy"
                   name="game_difficulty"
                   onChange={handleChange}
@@ -108,7 +147,17 @@ export default function PostGame({ isOpenPostGame }) {
                   <option value="Medium">Medium</option>
                   <option value="Hard">Hard</option>
                 </Select>
-                <Button bgColor="yellow" color="black" type="submit">
+                <Button
+                  borderColor={colorMode === "dark" ? "yellow" : "black"}
+                  _hover={
+                    colorMode === "dark"
+                      ? { color: "black", bg: "yellow" }
+                      : { bg: "black", color: "yellow" }
+                  }
+                  bg={colorMode === "dark" ? "black" : "yellow"}
+                  color={colorMode === "dark" ? "white" : "black"}
+                  type="submit"
+                >
                   Create
                 </Button>
               </form>
@@ -116,8 +165,14 @@ export default function PostGame({ isOpenPostGame }) {
 
             <DrawerFooter>
               <Button
-                bgColor="yellow"
-                color="black"
+                borderColor={colorMode === "dark" ? "yellow" : "black"}
+                _hover={
+                  colorMode === "dark"
+                    ? { color: "black", bg: "yellow" }
+                    : { bg: "black", color: "yellow" }
+                }
+                bg={colorMode === "dark" ? "black" : "yellow"}
+                color={colorMode === "dark" ? "white" : "black"}
                 variant="outline"
                 mr={3}
                 onClick={onClose}
