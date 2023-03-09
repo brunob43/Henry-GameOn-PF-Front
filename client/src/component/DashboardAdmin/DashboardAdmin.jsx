@@ -145,12 +145,12 @@ const DashboardAdmin = () => {
         },
         {
             name: 'ELIMINAR',
-            width: "150px",
+            width: "200px",
             cell: (row) => (<Button
                 margin="30px"
                 size="md"
                 height="48px"
-                width="200px"
+                width="250px"
                 border="2px"
                 borderColor={colorMode === "dark" ? "yellow" : "black"}
                 _hover={
@@ -169,7 +169,7 @@ const DashboardAdmin = () => {
             name: 'EDITAR',
 
             cell: (row) => (<Button
-                size="md"
+                margin="20px"
                 height="48px"
                 width="200px"
                 border="2px"
