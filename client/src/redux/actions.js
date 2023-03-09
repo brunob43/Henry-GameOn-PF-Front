@@ -535,38 +535,39 @@ export async function countViewsDoc (id){
 //--------------------------LIKES-----------------------//
 export  function addLikeGame(id,internal_id) {
   return  function (dispatch) {
-    console.log(id,internal_id,"addLikeGame action 1")
       axios.put(`/game/like/${id}?like_game=true`)
        .then(axios.put(`/users/${internal_id}?like_game=true&game_id=${id}`))
        .then(dispatch(getUserDetail(internal_id)))
+       .then(dispatch(getUserDetail(internal_id)))
+       
        
   }
 }
 export function removeLikeGame(id,internal_id) {
   return function (dispatch) {
-    console.log(id,internal_id,"quitarLikeGame action 1")
    axios.put(`/game/like/${id}`)
    .then(axios.put(`/users/${internal_id}?game_id=${id}`)) 
    .then(dispatch(getUserDetail(internal_id)))
-   .then(console.log("quitarlikegame action 2"))
+   .then(dispatch(getUserDetail(internal_id)))
+   
   }
 }
 export function addLikeDoc(id,internal_id) {
   return function (dispatch) {
-  console.log(id,internal_id,"addLikeDoc action 1")
-
     axios.put(`/doc/like/${id}?like_doc=true`)
     .then(axios.put(`/users/${internal_id}?like_doc=true&doc_id=${id}`))
-   .then(dispatch(getUsers()))
-   .then(console.log("addlikedoc action 2"))
+    .then(dispatch(getUserDetail(internal_id)))
+    .then(dispatch(getUserDetail(internal_id)))
+
    }
 }
-export async function removeLikeDoc(id,internal_id) {
-  return async function (dispatch) {
-  console.log(id,internal_id,"addLikeDoc")
-   await axios.put(`/doc/like/${id}`);
-   await axios.put(`/users/${internal_id}?doc_id=${id}`)
-   dispatch(getUsers());
+export  function removeLikeDoc(id,internal_id) {
+  return  function (dispatch) {
+    axios.put(`/doc/like/${id}`)
+   .then(axios.put(`/users/${internal_id}?doc_id=${id}`))
+   .then(dispatch(getUserDetail(internal_id)))
+   .then(dispatch(getUserDetail(internal_id)))
+   
 }
 }
 

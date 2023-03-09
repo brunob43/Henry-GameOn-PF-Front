@@ -27,18 +27,20 @@ const GameDetail = () => {
   
   useEffect(() => {
     // dispatch(getDetailFromState(id));
-    getUserDetail(profile.internal_id)
+    dispatch(getUserDetail(profile.internal_id))
     countViewsGames(id);
   }, [dispatch, id]);
 
   const likeHandler = () => {
     console.log("1 like handler doc" )
     dispatch(addLikeGame(id, profile.internal_id));
+    dispatch(getUserDetail(profile.internal_id))
     console.log("2 like handler doc" )
    
   };
   const dislikeHandler = () => {
     dispatch(removeLikeGame(id, profile.internal_id));
+    dispatch(getUserDetail(profile.internal_id))
   
   };
   const game = gamesArray.filter((game) => game.id.toString() === id);

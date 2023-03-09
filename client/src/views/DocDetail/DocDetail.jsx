@@ -16,6 +16,7 @@ import {
   countViewsDocs,
   addLikeDoc,
   removeLikeDoc,
+  getUserDetail
 } from "../../redux/actions";
 import { useAuth0 } from "@auth0/auth0-react";
 import { PageNotFound } from "../../component/PageNotFound/PageNotFound";
@@ -27,22 +28,23 @@ const DocDetail = () => {
   const profile = useSelector((state) => state.profile);
   const docDetail = useSelector((state) => state.docDetail);
   const { doc_id } = docDetail;
+  const user = useSelector((state)=>state.userDetail)
   const embedSpace = new RegExp('/\n/g')
 
   useEffect(() => {
+    dispatch(getUserDetail(profile.internal_id))
     dispatch(getDocDetailFromState(id));
     countViewsDocs(id);
   }, [dispatch, id]);
 
   const likeHandler = () => {
-    console.log("1 like handler doc" )
     dispatch(addLikeDoc(id, profile.internal_id));
-    console.log("4 fin like handler doc")
+    dispatch(getUserDetail(profile.internal_id))
   };
   const dislikeHandler = () => {
-    console.log("1 quitarlike handler doc" )
     dispatch(removeLikeDoc(id, profile.internal_id));
-    console.log("4 fin quitarlike handler doc")
+    dispatch(getUserDetail(profile.internal_id))
+   
   };
 
   return (
@@ -65,7 +67,7 @@ const DocDetail = () => {
               </Text>
               {Object.keys(profile).length && (
                 <Box>
-                   {!profile.Docs.map((d)=>d.doc_id).includes(doc_id) ? (
+                   {!user.Docs.map((d)=>d.doc_id).includes(doc_id) ? (
                    <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={likeHandler}> Like👍🏼</Button>
                    ) : (
                    <Button bg="yellow" border="1px solid black" color="black" _hover={{bg:"#c4be00"}} onClick={dislikeHandler}>Quitar Like👎🏼</Button>
