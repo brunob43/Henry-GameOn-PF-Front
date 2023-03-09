@@ -25,6 +25,8 @@ import EditUser from "./EditUser";
 import EditGame from "./EditGame";
 import EditDoc from "./EditDoc";
 import PostGame from "./PostGame";
+import GraficoBarras from "./GraficoBarras";
+import GraficoBarrasDocs from "./GraficoBarrasDocs";
 
 const DashboardAdmin = () => {
     const { colorMode } = useColorMode();
@@ -215,31 +217,31 @@ const DashboardAdmin = () => {
             name: 'NAME',
             selector: 'game_name',
             sortable: true,
-            width: "200px"
+            width: "250px"
         },
         {
             name: 'TOPIC',
             selector: 'game_topic',
             sortable: true,
-            width: "100px"
+            width: "170px"
         },
         {
             name: 'DIFFICULTY',
             selector: 'game_difficulty',
             sortable: true,
-            width: "120px"
+            width: "170px"
         },
         {
             name: 'VIEWS',
             selector: 'game_views',
             sortable: true,
-            width: "100px"
+            width: "120px"
         },
         {
             name: 'IMAGE',
             selector: 'game_image',
             cell: row => <img height="84px" width="80px" src={row.game_image} />,
-            width: "110px"
+            width: "150px"
         },
         // {   name:'Deleted',
         //     selector:'game_deleted',
@@ -248,7 +250,7 @@ const DashboardAdmin = () => {
         // } ,
         {
             name: 'ELIMINAR',
-            width: "150px",
+            width: "170px",
             cell: (row) => (<Button
                 margin="20px"
                 height="48px"
@@ -418,37 +420,37 @@ const DashboardAdmin = () => {
             name: 'ID',
             selector: 'donation_id',
             sortable: true,
-            width: "120px",
+            width: "270px",
         },
         {
             name: 'Name',
             selector: 'donation_name',
             sortable: true,
-            width: "200px"
+            width: "270px"
         },
         {
             name: 'Quantity',
             selector: 'donation_quantity',
             sortable: true,
-            width: "250px"
+            width: "150px"
         },
         {
             name: 'Data Id',
             selector: 'donation_data_id',
             sortable: true,
-            width: "120px"
+            width: "170px"
         },
         {
             name: 'Status',
             selector: 'donation_status',
             sortable: true,
-            width: "120px"
+            width: "170px"
         },
         {
             name: 'Info',
             selector: 'donation_info',
             sortable: true,
-            width: "120px"
+            width: "170px"
         },
     ]
     const columnsContact = [
@@ -574,7 +576,7 @@ const DashboardAdmin = () => {
                 theme="dark"
                 responsive={true}
                 highlightOnHover
-                pointerOnHover
+                
             />
             <HStack alignItems="flex-start" w="100%" justify="center">
                 <FormControl>
@@ -639,7 +641,6 @@ const DashboardAdmin = () => {
                 responsive={true}
                 theme="dark"
                 highlightOnHover
-                pointerOnHover
             />
             <HStack bg="black" alignItems="flex-start" w="100%" justify="center">
                 <FormControl alignItems="flex-start">
@@ -691,7 +692,6 @@ const DashboardAdmin = () => {
                 responsive={true}
                 theme="dark"
                 highlightOnHover
-                pointerOnHover
             />
             <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
             <FormControl alignItems="flex-start">
@@ -711,7 +711,6 @@ const DashboardAdmin = () => {
                 responsive={true}
                 theme="dark"
                 highlightOnHover
-                pointerOnHover
             />
 
             <HStack bg="black" alignItems="flex-start" w="100%" justify="center"></HStack>
@@ -733,6 +732,12 @@ const DashboardAdmin = () => {
                 theme="dark"
                 highlightOnHover
             />
+            <VStack alignItems="center" w="100%" justify="center" bg="yellow">
+
+            <GraficoBarras  games={games}/>
+            <GraficoBarrasDocs  docs={docs}/>
+
+            </VStack>
         </div>
     )
 }
