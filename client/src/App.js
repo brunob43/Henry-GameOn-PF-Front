@@ -50,11 +50,12 @@ console.log(profile.type)
         </Route>
 
         <Route exact path="/games">
-        <Games />
+         <Games />
         </Route>
 
         <Route exact path="/games/:id">
-         <GameDetail/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <GameDetail/>}</div>}
         </Route>
 
         <Route exact path="/about">
@@ -68,23 +69,27 @@ console.log(profile.type)
         </Route>
 
         <Route exact path="/docs">
-         <Docs />
+      <Docs />
         </Route>
 
         <Route exact path="/doc/:id">
-        <DocDetail />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <DocDetail />}</div>}
         </Route>
 
         <Route exact path="/docs/share">
-         <ShareInfo />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <ShareInfo />}</div>}
         </Route>
 
         <Route exact path="/register">
-         <Register />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Register />}</div>}
         </Route>
 
         <Route exact path="/donation">
-       <Donation />
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Donation />}</div>}
         </Route>
 
         <Route exact path="/user">
@@ -98,7 +103,8 @@ console.log(profile.type)
         </Route>
 
         <Route exact path="/thanks">
-        <Thanks/>
+        {Object.keys(profile).length&&<div>
+              {profile.user_state == "banned" ? <Banned/> : <Thanks/>}</div>}
         </Route>
 
         <Route>
