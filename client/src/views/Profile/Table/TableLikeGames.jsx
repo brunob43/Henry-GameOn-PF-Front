@@ -28,7 +28,11 @@ const TableLikeGames =({games}) =>{
             selector:'game_name',
             sortable:true,
             width: "130px"
-        }
+        },
+        {   name:'         ',
+            width:"150px",
+            cell:(row)=>(<NavLink to={`/games/${row.game_id}`}>Ir al Juego</NavLink>)
+    }
         
        ]
        const paginationOptions={

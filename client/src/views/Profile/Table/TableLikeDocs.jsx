@@ -31,8 +31,8 @@ const TableLikeDocs =({docs}) =>{
             width: "130px"
         },
         {   name:'         ',
-            width:"70px",
-            cell:(row)=>(<NavLink to={`/games/${row.doc_id}`}>Ir al Doc</NavLink>)
+            width:"150px",
+            cell:(row)=>(<NavLink to={`/docs/${row.doc_id}`}>Ir al Doc</NavLink>)
     }
        ]
        
