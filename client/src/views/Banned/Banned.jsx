@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   VStack,
   Box
@@ -26,6 +27,9 @@ return (
             💥 Estas Baneado Pibe 💥
               
               </Box>
+              <Link to="/games"></Link>
+              <Link to="/docs"></Link>
+              <Link to="/donation"></Link>
         </VStack>
 
 )
