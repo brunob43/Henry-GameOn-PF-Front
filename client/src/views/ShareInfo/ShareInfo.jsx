@@ -35,9 +35,13 @@ const ShareInfo = () => {
     const value = event.target.value;
     setForm({ ...form, [property]: value });
   };
+  
+  const aux =(resultData)=>{
+    setForm({ ...form, doc_image: resultData });
 
-  const formWidget = (data) => {
-    setForm({ ...form, doc_image: data });
+  }
+  const formWidget = (resultData) => {
+    aux(resultData)
   };
 
   const submitHandler = async (event) => {

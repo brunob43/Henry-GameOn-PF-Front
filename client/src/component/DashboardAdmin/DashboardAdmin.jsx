@@ -270,7 +270,7 @@ const DashboardAdmin = () => {
                 }
                 bg={colorMode === "dark" ? "black" : "yellow"}
                 color={colorMode === "dark" ? "white" : "black"}
-                onOpen={() => handleGameEliminate(row)}
+                onClick={() => handleGameEliminate(row)}
             >
                 {row.game_deleted ? <Text>Agregar</Text> : <Text>Eliminar</Text>}
             </Button>)
@@ -382,7 +382,7 @@ const DashboardAdmin = () => {
                 }
                 bg={colorMode === "dark" ? "black" : "yellow"}
                 color={colorMode === "dark" ? "white" : "black"}
-                onOpen={() => handleDocEliminate(row)}
+                onClick={() => handleDocEliminate(row)}
             >
                 {row.doc_deleted ? <Text>Agregar</Text> : <Text>Eliminar</Text>}
             </Button>)
@@ -412,6 +412,7 @@ const DashboardAdmin = () => {
     ];
 
     const handleDocEliminate = (row) => {
+        console.log(row)
         dispatch(deleteDoc(row.doc_id))
     }
     const handleDocEdit = (row) => {

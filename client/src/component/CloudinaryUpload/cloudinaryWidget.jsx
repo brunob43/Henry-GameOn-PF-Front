@@ -13,14 +13,16 @@ const UploadWidget = ({ formWidget }) => {
         cloudName: "dllngwtvs",
         uploadPreset: "t3o5rnx1"
     }, function(error, result) {
+      if(result.data.info.files){      
         resultData = result.data.info.files[0].uploadInfo.url
-        console.log(resultData)
+        
         formWidget(resultData)
-    })
+    }})
    }, [])
    return (
     <div>
-    <button onClick={() => {WidgetRef.current.open()}}> Upload </button>
+    <button type="button" onClick={() => {WidgetRef.current.open()}}>Upload Photo</button>
+    {/* <button onClick={() => {WidgetRef.current.open()}}> Upload </button> */}
     </div>
    )
 }
