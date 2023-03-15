@@ -52,13 +52,14 @@ const EdiProfile = () => {
 
   return (
     <VStack>
-      <VStack mt={["195px", "125px", "45px", "50px", "50px"]} >
+      <VStack mt={["195px", "125px", "45px", "50px", "50px"]} h="650px">
         <VStack
-          mt="50px"
+          mt="70px"
           bgColor={colorMode === "dark" ? "white" : "black"}
           color={colorMode === "dark" ? "black" : "white"}
           borderRadius="15px"
-          h="510px"
+          h="560px"
+          
         >
 
           <FormControl letterSpacing={3} p="5" align="center" >
@@ -87,9 +88,11 @@ const EdiProfile = () => {
               border="2px"
               pl="6px"
               borderRadius="6px"  ></Input>
+              <VStack>
             <Button colorScheme='black' variant='outline' p="7px">
               <UploadWidget formWidget={formWidget} />
             </Button>
+            </VStack>
             </FormLabel>
 
            
