@@ -30,9 +30,9 @@ const Profile = () => {
   return (
     <>
       <VStack>
-        <HStack mt="150px">
+        <HStack >
           <VStack>
-            <VStack p="6">
+            <VStack p="6" mt={["162px", "55px", "90px", "90px", "90px"]}>
               <Image
                 src={profile.user_image}
                 alt={profile.user_name}
@@ -67,7 +67,7 @@ const Profile = () => {
 
         <VStack>
       
-          <HStack>
+          <HStack >
           <TableLikeGames games={profile.Games} />
           <TableLikeDocs docs={profile.Docs}/>
 

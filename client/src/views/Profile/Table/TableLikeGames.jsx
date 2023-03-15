@@ -61,7 +61,7 @@ const TableLikeGames = ({ games }) => {
   };
 
   return (
-    <VStack bgColor="black">
+    <VStack bgColor="black" w={["160px","230px", "350px", "450px", "450px"]}>
       <DataTable
         customStyles={customStyle}
         columns={columnsGames}
